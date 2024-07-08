@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700&display=swap');
+
+*,
+*:after,
+*before {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    background: -moz-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(4, 12, 20, 1)), color-stop(100%, rgba(17, 44, 70, 1)));
+    background: -webkit-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -o-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: linear-gradient(to right, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    -webkit-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#040c14', endColorstr='#112c46', GradientType=1);
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: #f85857;
+}
+
+a:hover {
+    color: #ffff;
+}
+
+p {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    line-height: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 600;
+    color: inherit;
+    margin-bottom: .5rem;
+}
+
+a,
+button,
+input {
+    transition: all .25s ease-in;
+    -webkit-transition: all .25s ease-in;
+    -moz-transition: all .25s ease-in;
+    -ms-transition: all .25s ease-in;
+    -o-transition: all .25s ease-in;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.data_description {
+    left: -100%;
+    max-height: 50vh;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 3rem 2.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.data_shape {
+    right: -100%;
+    width: 250px;
+}
+
+.data_shape:after {
+    content: "";
+    height: 120%;
+    width: 120%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.data_shape canvas {
+    margin-left: -10px;
+    margin-top: -10px;
+    pointer-events: all !important;
+}
+
+.graph>div {
+    z-index: 9;
+}
+
+.box h2 {
+    color: #f85857;
+    font-size: 2.25rem;
+}
+
+.box p {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.box div {
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.wrapper {
+    perspective: 40px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

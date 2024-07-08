@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+body {
+  background: #000;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  cursor: move;
+}
+.dg.ac {
+  z-index: 99999 !important;
+}

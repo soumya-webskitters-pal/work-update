@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
+    <!--fav icon-->
+    <link rel="shortcut icon" href="images/fabicon.ico" />
+    <link rel="icon" type="image/png" href="images/fabicon.png" />
+    <!-- text icons -->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        crossorigin="anonymous" />
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css?ver=1" />
+
+    <title>Viral snare</title>
+</head>
+
+<body>
+    <div class="dashboard_header">
+        <div class="fluid_container">
+            <div class="header_row">
+                <a href="#" class="logo" style="opacity:0;pointer-events: none;">
+                    <img src="images/logo.png" alt="" />
+                </a>
+
+                <div class="top_button">
+                    <a href="messages.html" class="back_btn btn-outline btn-outline-red">
+                        <svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 1L1 6.5L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Back
+                    </a>
+                </div>
+
+                <div class="search_panel">
+                    <span class="search_btn m_srch_trigger_btn" id="m_srch_trigger"><img src="images/search.svg"
+                            alt="" /></span>
+                    <div class="search_box_inner earch_box_desktop">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+                <div class="search_box_mobile" id="m_srch_trigger_box">
+                    <div class="search_box_inner">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+
+                <div class="float_header_right">
+                    <div class="message_panel panel_inline">
+                        <a href="#" class="nof_btn">
+                            <img src="images/msg.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                    </div>
+
+                    <div class="notification_panel panel_inline">
+                        <a href="#" class="nof_btn" id="nof_btn">
+                            <img src="images/notification.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                        <div class="notification_box">
+                            <div class="notification_box_inner">
+                                <ul class="notify_list">
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 1523) has been approved.....</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/work.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 356) has been rejected...</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>A bonus of $35 has been applied to your account......</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 750) for your
+                                            video.....
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 3241) for your
+                                            ........
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="nof_all">See All Notification</a>
+                        </div>
+                    </div>
+
+                    <div class="admin_panel panel_inline">
+                        <span>jhon morrison</span>
+                        <span class="nav_avatar">
+                            <a href="#">
+                                <img src="images/avatar.png" alt="">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard_body dashboard_body_chat_detail">
+        <div class="fluid_container">
+            <div class="dashboard_body_inner">
+                <div class="body_scroller">
+                    <div class="panel_flex">
+                        <div class="left-panel">
+                            <!-- <div class="panel-box">
+                                <div class="single-video-box mb-0">
+                                    <video class="video" loop="1" preload="auto" controls=""
+                                        poster="images/video-poster.jpg">
+                                        <source src="images/video.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div> -->
+                            <!-- <div class="panel-box-info mt-0">
+                                <ul class="nav_list_tab" data-tab-target="tabgroup3">
+                                    <li><a href="#" class="active">About Video</a></li>
+                                    <li><a href="#">About User</a></li>
+                                    <li><a href="#">Copyrights Ownership</a></li>
+                                    <li><a href="#">Submission Information</a></li>
+                                    <li><a href="#">Submission Status</a></li>
+                                </ul>
+                                <div data-tab-parent="tabgroup3">
+                                    <div class="tab_panel active">
+                                        <div class="panel-box-info-wrap column-3">
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Title Of The Video : </span> Rabbit on Fence</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Filming Date :  </span> 23/05/2021</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Filming Location : </span> Los Cairo, Cairo, Egypt</p>
+                                            </div>
+                                        </div>
+                                        <div class="story-description mb-0 border-b-0 pb-0">
+                                            <div class="story-description-scroll">
+                                                <div class="story-description-info">
+                                                    <label>Story/Description:</label>
+                                                    <div class="story-description-info-content scroller">
+                                                        <p>Lorem ipsum dolor sit amet,
+                                                            consectetur adipiscing
+                                                            elit. In et pretium, eros ipsum diam. Et eleifend ipsum
+                                                            cursus et
+                                                            pharetra gravida vel nullam. Vitae arcu viverra sed
+                                                            congue sagittis
+                                                            purus. Egestas ut tempus convallis nunc nunc, fringilla
+                                                            magnis odio.
+                                                            Aliquet. Consectetur adipiscing elit. In et pretium,
+                                                            eros ipsum
+                                                            diam. Et eleifend ipsum cursus et pharetra gravida vel
+                                                            nullam. Vitae
+                                                            arcu viverra sed congue sagittis purus. Egestas ut
+                                                            tempus convallis
+                                                            nunc nunc, fringilla magnis odio. Aliquet.Lorem ipsum dolor
+                                                            sit
+                                                            amet,
+                                                            consectetur adipiscing
+                                                            elit. In et pretium, eros ipsum diam. Et eleifend ipsum
+                                                            cursus et
+                                                            pharetra gravida vel nullam. Vitae arcu viverra sed
+                                                            congue sagittis
+                                                            purus. Egestas ut tempus convallis nunc nunc, fringilla
+                                                            magnis odio.
+                                                            Aliquet. Consectetur adipiscing elit. In et pretium,
+                                                            eros ipsum
+                                                            diam. Et eleifend ipsum cursus et pharetra gravida vel
+                                                            nullam. Vitae
+                                                            arcu viverra sed congue sagittis purus. Egestas ut
+                                                            tempus convallis
+                                                            nunc nunc, fringilla magnis odio. Aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et pretium, eros ipsum diam. Et eleifend ipsum cursus et pharetra gravida vel nullam. Vitae arcu viverra sed congue sagittis purus. Egestas ut tempus convallis nunc nunc, fringilla magnis odio. Aliquet. Consectetur adipiscing elit. In et pretium, eros ipsum diam. Et eleifend ipsum cursus et pharetra gravida vel nullam. Vitae arcu viverra sed congue sagittis purus. Egestas ut tempus convallis nunc nunc, fringilla magnis odio. Aliquet.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et pretium, eros ipsum diam. Et eleifend ipsum cursus et pharetra gravida vel nullam. Vitae arcu viverra sed congue sagittis purus. Egestas ut tempus convallis nunc nunc, fringilla magnis odio. Aliquet. Consectetur adipiscing elit. In et pretium, eros ipsum diam. Et eleifend ipsum cursus et pharetra gravida vel nullam. Vitae arcu viverra sed congue sagittis purus. Egestas ut tempus convallis nunc nunc, fringilla magnis odio. Aliquet.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab_panel">
+                                        <div class="panel-box-info-wrap column-3 border-b-0 pb-0">
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Client Name </span> Saimon Jhonson</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Phone Number </span> +00 1234567890</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Date Of Birth </span> 06/07/1996</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Client Email Address </span> Jognsmith@Gmail.Com</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Payment Method  </span> <img src="images/paypal.png" alt=""></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Paypal Email Address </span> jognsmith@gmail.com</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Signature </span> <img src="images/signature.png" alt=""></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Video Credit </span> Saimon Jhonson</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab_panel"> 
+                                        <div class="panel-box-info-wrap tab-inner-scroll column-2_2 border-b-0 pb-0">
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Are There People Appearing In The Video?</span> <mark class="stripe-btn-danger">Yes</mark></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Who Are They? </span> Person Name</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>The Person Who Filmed This Video Is</span> A Security Camera</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col"></div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Did Anyone Reach You About Using This Video?</span> <mark class="stripe-btn-danger">Yes</mark></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Please Share With Us The Name Of The Company/Page </span> Company Name/Page</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Did You Send/Submit/Upload This Video To A Website And/Or Social Media Account </span> <span class="tg grn"><mark class="stripe-btn-danger">Yes A Youtube Account</mark></span></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Where Did You Submit It?</span> Our Instagram, Facebook And YouTube</p>
+                                            </div>
+
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Did You Sign A Licensing Agreement For This Video With Another Company/Page</span> <span class="tg grn"><mark class="stripe-btn-danger">Yes, I Have Signed An Exclusive Agreement</mark></span></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Name Of The Company?</span> Company Name</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab_panel">
+                                        <div class="panel-box-info-wrap column-3 border-b-0 pb-0">
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>User IP Address </span> 12356asdsd</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Country </span> United States</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Submission Date  </span> August 23rd, 2021 At 11:15:34 PM UTC</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Terms Of Submission </span> Agreed | Exclusive License</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Terms Of Service </span> Agreed</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Revenue Share </span> 50% Or 60%</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>VSID </span> 17171</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab_panel">
+                                        <div class="panel-box-info-wrap column-2_2 border-b-0 pb-0">
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Video Status </span> <mark class="stripe-btn-danger">Rejected</mark></p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Acquired By </span> Name Of Partner/Member</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Approved Or Rejected By </span> Manager Name 22.03.2021 @10:55AM</p>
+                                            </div>
+                                            <div class="panel-box-info-wrap-col">
+                                                <p><span>Confirmed Or Declined By  </span> Name Of The Quality Team Agent 22.03.2021 @10:55AM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="right-panel">
+                            <!-- <div class="panel-box-info panel-box-info-xxs-spacing theaming-green mt-0">
+                                <div class="line-header">
+                                    <h5><span>Notes</span></h5>
+                                </div>
+                                <div class="form-info">
+                                    <ul class="line_list">
+                                        <li><label>Quality Agent :</label>
+                                            <span>John Morrison</span>
+                                        </li>
+                                        <li><label>VSID :</label>
+                                            <span>17171</span>
+                                        </li>
+                                    </ul>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard
+                                        dummy text ever since the 1500s, when an unknown printer took a galley of
+                                        type and scrambled it to make a type specimen
+                                        book. It has survived not only five centuries, Lorem Ipsum is.</p>
+                                </div>
+                            </div> -->
+
+                            
+                        </div>
+                        <div class="msg_list_sec panel-box-info wf-chat w-100">
+                            <h4>Subject: Regarding our order...</h4>
+                            <div class="chat-timeline">
+                                <span class="chat-timeline-date">Tuesday, march 1</span>
+                            </div>
+                            <div class="modal-body-message-lists-wrap">
+                                <div class="message-body receiver">
+                                    <div class="message-body-row">
+                                        <div class="chat-avatar">
+                                            <img src="images/receiver.png" alt="">
+                                        </div>
+                                        <div class="chat-content">
+                                            <div class="chat-content-info">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard
+                                                    dummy text ever since the 1500s, when an unknown printer took a
+                                                    galley of type and scrambled</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-deliver-time">
+                                        <p>12.07.2021<span>@12.55am</span></p>
+                                    </div>
+                                </div>
+                                <div class="message-body sender">
+                                    <div class="message-body-row">
+                                        <div class="chat-content">
+                                            <div class="chat-content-info">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard
+                                                    dummy text ever since the 1500s, when an unknown printer took a
+                                                    galley.</p>
+                                            </div>
+                                        </div>
+                                        <div class="chat-avatar">
+                                            <img src="images/sender.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="chat-deliver-time">
+                                        <p>12.07.2021<span>@12.55am</span></p>
+                                    </div>
+                                </div>
+                                <div class="message-body receiver">
+                                    <div class="message-body-row">
+                                        <div class="chat-avatar">
+                                            <img src="images/receiver.png" alt="">
+                                        </div>
+                                        <div class="chat-content">
+                                            <div class="chat-content-info">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard
+                                                    dummy text ever since the 1500s, when an unknown printer took a
+                                                    galley of type and scrambled</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-deliver-time">
+                                        <p>12.07.2021<span>@12.55am</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-footer_inner">
+                                <div class="chat-footer-left">
+                                    <textarea placeholder="Type your message here..."></textarea>
+                                </div>
+                                <div class="chat-footer-right">
+                                    <label for="file" class="file-upload">
+                                        <input type="file" id="file">
+                                        <img src="images/file-upload.svg" alt="">
+                                    </label>
+                                    <button type="button" class="btn-outline btn-outline-black">Done</button>
+                                    <button type="button" class="btn-outline btn-outline-red">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--web fonts-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" defer crossorigin="anonymous"></script>
+    <!--framework-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!--plugins-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!--custom script-->
+    <script src="js/custom.js?ver=1"></script>
+</body>
+
+</html>

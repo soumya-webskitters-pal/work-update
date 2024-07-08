@@ -1,0 +1,134 @@
+/* Most of these styles could be removed but are for the demo to look better */
+
+html,
+body {
+  margin: 0;
+
+}
+
+
+*{
+  box-sizing: content-box;
+}
+
+
+
+
+
+
+.anchor-nav.active{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+.anchor-nav li a {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 8px 0;
+  color: #31CC89;
+}
+
+.anchor-nav li.current a{
+  color: red;
+}
+
+.banner{
+  display: flex;
+  overflow: hidden;
+}
+
+
+.topnav{
+  width: 25%;
+  background-color: #fff;
+  z-index: 99;
+
+}
+
+.panels{
+  width: 75%;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.panels-inner{
+  /* background-color: #000; */
+  height: 100vh;
+  display: flex;
+}
+
+.box{
+  width: 700px;
+  height: 100vh;
+  min-width: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.anchor-nav.active{
+  position: fixed;
+  top: 0;
+}
+
+.path{
+  width: 100%;
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+ 
+}
+
+
+.proc-box{
+  display: flex;
+  position: relative;
+  margin-top: 50px;
+  width: 100%;
+  margin-top: -300px;
+}
+
+.proc-box-con{
+width: 572px;
+padding: 4px 20px;
+border-radius: 0px 114px 114px 0px;
+background: #FBFBFB;
+height: 228px;
+position: relative;
+z-index: 9;
+
+}
+
+
+.panels-inner .box:nth-child(odd) .proc-box{
+  margin-top: 300px;
+
+}
+
+
+.c-dashed-line__path {
+  fill: none;
+  stroke: #31CC89;
+  stroke-dasharray: 5255;
+  /* this is the entire length of the line */
+   stroke-dashoffset: 0;
+  /* this is the entire length of the line */
+  stroke-width: 5;
+}
+
+.c-dashed-line__dash {
+  fill: none;
+  stroke: #FFFFFF;
+  /* this must match the background color */
+  stroke-dasharray: 10 16;
+  /* draws a 10px dash line with a 16px gap between */
+  stroke-width: 5;
+  /* make the dashed line slightly bigger than the one it's covering */
+}

@@ -1,0 +1,113 @@
+/*--https://github.com/ertaserdi/jQuery-PageLoading--*/
+.pageLoadingid14 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(245, 245, 245, 0.90);
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    z-index: 99999997;
+}
+
+
+.pageLoadingid11 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #dfe8ea;
+    height: 5px;
+    width: 100%;
+    visibility: visible;
+    z-index: 99999998;
+}
+
+.pageLoadingid13 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #79c4df;
+    height: 5px;
+    width: 10%;
+    visibility: visible;
+    box-shadow: 0 0 10px #75b5df;
+    z-index: 99999999;
+}
+
+.pageLoadingid12 {
+    position: fixed;
+    top: 50px;
+    right: 2%;
+    text-shadow: 0 0 20px #fff;
+    color: #333;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 5px;
+    background-color: #FFFFFF;
+    visibility: visible;
+    z-index: 99999999;
+}
+
+
+
+.preloader {
+    overflow: hidden;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: -moz-linear-gradient(left, rgb(4, 12, 20) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(4, 12, 20, 1)), color-stop(100%, rgba(17, 44, 70, 1)));
+    background: -webkit-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -o-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: linear-gradient(to right, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+}
+
+.loaderTextBox {
+    color: #fff;
+    /*rgb(240,87,87):;
+    */
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-top: -50px;
+    padding: 0px;
+    background-color: transparent !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+}
+
+.loaderTotalBar,
+.loaderBar {
+    top: 50% !important;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.preloader,
+div[class^="pageLoading"] {
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.loaderTotalBar {
+    background: rgba(240, 87, 87, 0.5);
+}
+
+.loaderBar {
+    background: rgb(240, 87, 87);
+}

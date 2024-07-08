@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <canvas id="c"></canvas>
+    <button id="next">NEXT</button>
+    <button id="prev">PREV</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        function splashAnim(colorIndex) {
+            var c = document.getElementById("c");
+            var ctx = c.getContext("2d");
+            var colors = ["white", "red", "green", "blue", "yellow"];
+            var cH, cW, bgColor = colors[0], animations = [], circles = [];
+            var colorPicker = (function () {
+                
+                var index = colorIndex === undefined ? 0 : colorIndex;
+                console.log("colorIndex:", colorIndex,index);
+                function next() {
+                    index = index++ < colors.length - 1 ? index : 0;
+                    return colors[index];
+                }
+                function current() {
+                    return colors[index]
+                }
+                return {
+                    next: next,
+                    current: current
+                }
+            })();
+            function removeAnimation(animation) {
+                var index = animations.indexOf(animation);
+                if (index > -1) animations.splice(index, 1);
+            }
+            function calcPageFillRadius() {
+                var l = Math.max(0, cW);
+                var h = Math.max(0, cH);
+                return Math.sqrt(Math.pow(l, 2) + Math.pow(h, 2));
+            }
+            function handleEvent() {
+                var currentColor = colorPicker.current(), nextColor = colorPicker.next();
+                var targetR = calcPageFillRadius(cW / 2, cH / 2);
+                var particleSize = Math.min(300, (cW * .4));
+
+                var pageFill = new Circle({
+                    x: cW / 2,
+                    y: cH / 2,
+                    r: 0,
+                    fill: nextColor
+                });
+                var fillAnimation = anime({
+                    targets: pageFill,
+                    r: targetR,
+                    duration: 2000,
+                    easing: "easeOutQuart",
+                    complete: function () {
+                        bgColor = pageFill.fill;
+                        removeAnimation(fillAnimation);
+                    }
+                });
+                var ripple = new Circle({
+                    x: cW / 2,
+                    y: cH / 2,
+                    r: 0,
+                    fill: currentColor,
+                    stroke: {
+                        width: 3,
+                        color: currentColor
+                    },
+                    opacity: 1
+                });
+                var rippleAnimation = anime({
+                    targets: ripple,
+                    r: targetR / 2,
+                    opacity: 0,
+                    easing: "easeOutExpo",
+                    delay: 50,
+                    duration: 1500,
+                    complete: removeAnimation
+                });
+                var particles = [];
+                for (var i = 0; i < 50; i++) {
+                    var particle = new Circle({
+                        x: cW / 2,
+                        y: cH / 2,
+                        fill: currentColor,
+                        r: anime.random(5, 50)
+                    })
+                    particles.push(particle);
+                }
+                var particlesAnimation = anime({
+                    targets: particles,
+                    x: function (particle) {
+                        return particle.x + anime.random(particleSize, -particleSize);
+                    },
+                    y: function (particle) {
+                        return particle.y + anime.random(particleSize * 1.15, -particleSize * 1.15);
+                    },
+                    r: 0,
+                    easing: "easeOutExpo",
+                    delay: 200,
+                    duration: 1500,
+                    complete: removeAnimation
+                });
+                animations.push(fillAnimation, rippleAnimation, particlesAnimation);
+            }
+            function extend(a, b) {
+                for (var key in b) {
+                    if (b.hasOwnProperty(key)) {
+                        a[key] = b[key];
+                    }
+                }
+                return a;
+            }
+            var Circle = function (opts) {
+                extend(this, opts);
+            }
+            Circle.prototype.draw = function () {
+                ctx.globalAlpha = this.opacity || 1;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+                if (this.stroke) {
+                    ctx.strokeStyle = this.stroke.color;
+                    ctx.lineWidth = this.stroke.width;
+                    ctx.stroke();
+                }
+                if (this.fill) {
+                    ctx.fillStyle = this.fill;
+                    ctx.fill();
+                }
+                ctx.closePath();
+                ctx.globalAlpha = 1;
+            }
+            var animate = anime({
+                duration: Infinity,
+                update: function () {
+                    ctx.fillStyle = bgColor;
+                    ctx.fillRect(0, 0, cW, cH);
+                    animations.forEach(function (anim) {
+                        anim.animatables.forEach(function (animatable) {
+                            animatable.target.draw();
+                        });
+                    });
+                }
+            });
+            function resizeCanvas() {
+                cW = window.innerWidth;
+                cH = window.innerHeight;
+                c.width = cW * devicePixelRatio;
+                c.height = cH * devicePixelRatio;
+                ctx.scale(devicePixelRatio, devicePixelRatio);
+            };
+            (function init() {
+                resizeCanvas();
+                window.addEventListener("resize", resizeCanvas);
+                handleEvent();
+            })();
+        }
+
+        splashAnim();
+        document.getElementById("next").addEventListener("mousedown", () => { splashAnim(2) });
+        document.getElementById("prev").addEventListener("mousedown", () => { splashAnim(true) });
+    </script>
+</body>
+
+</html>

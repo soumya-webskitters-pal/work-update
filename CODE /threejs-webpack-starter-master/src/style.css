@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+}
+
+.slider_3d {
+  width: 100%;
+  height: 100vh;
+}
+.slider_3d .slide_3d_item {
+  display: none;
+}
+.slider_3d.hover {
+  cursor: pointer;
+}

@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>BlueFlame AI - Applied AI for Alternatives Investment Managers</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--plugins-->
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/slick-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--style-->
+    <link rel="stylesheet" href="style.css?ver=11">
+</head>
+
+<body>
+    <div id="pageLoader" class="pageLoader show-loader">
+        <div class="loader-container">
+            <span class="logo logo-img">
+                <svg class="lfill" width="100" height="100" viewBox="0 0 1547 2851" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1419.14 0.53772C1423.36 5.28631 1426.85 11.5163 1429.32 19.3061C1634.27 406.283 1509.02 751.475 1419.14 877.306C1157.32 1224.36 582.555 1980.57 377.976 2228.99C173.397 2477.41 183.137 2624.75 213.58 2667.37C-261.336 2119.39 103.984 1589.68 834.624 877.306C1368.48 356.792 1455.38 101.409 1429.32 19.3061C1426.01 13.0606 1422.62 6.80423 1419.14 0.53772Z"
+                        fill="url(#paint0_linear_89_2777)" />
+                    <path
+                        d="M1035.55 1936.73C1017.29 2174.19 841.932 2663.72 286.646 2722.17C639.789 2813.5 1283.97 2784.28 1035.55 1936.73Z"
+                        fill="url(#paint1_linear_89_2777)" />
+                    <path
+                        d="M1236.48 2850.03L1218.21 1315.69H1400.87C1517.77 1315.69 1547 1425.29 1547 1480.08V2320.32C1547 2583.35 1339.99 2783.06 1236.48 2850.03Z"
+                        fill="url(#paint2_linear_89_2777)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_89_2777" x1="773.5" y1="0.53772" x2="773.5" y2="2850.03"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#379FFF" />
+                            <stop offset="1" stop-color="#004BFF" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_89_2777" x1="773.5" y1="0.53772" x2="773.5" y2="2850.03"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#379FFF" />
+                            <stop offset="1" stop-color="#004BFF" />
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_89_2777" x1="773.5" y1="0.53772" x2="773.5" y2="2850.03"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#379FFF" />
+                            <stop offset="1" stop-color="#004BFF" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <svg class="lline" width="100" height="100" viewBox="0 0 1547 2851" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1419.14 0.53772C1423.36 5.28631 1426.85 11.5163 1429.32 19.3061C1634.27 406.283 1509.02 751.475 1419.14 877.306C1157.32 1224.36 582.555 1980.57 377.976 2228.99C173.397 2477.41 183.137 2624.75 213.58 2667.37C-261.336 2119.39 103.984 1589.68 834.624 877.306C1368.48 356.792 1455.38 101.409 1429.32 19.3061C1426.01 13.0606 1422.62 6.80423 1419.14 0.53772Z"
+                        class="lcls" />
+                    <path
+                        d="M1035.55 1936.73C1017.29 2174.19 841.932 2663.72 286.646 2722.17C639.789 2813.5 1283.97 2784.28 1035.55 1936.73Z"
+                        class="lcls" />
+                    <path
+                        d="M1236.48 2850.03L1218.21 1315.69H1400.87C1517.77 1315.69 1547 1425.29 1547 1480.08V2320.32C1547 2583.35 1339.99 2783.06 1236.48 2850.03Z"
+                        class="lcls" />
+                    <defs>
+                        <style>
+                            .lcls {
+                                stroke: #379FFF;
+                                stroke-width: 15px;
+                            }
+                        </style>
+                    </defs>
+                </svg>
+                <span class="bg_remover"></span>
+            </span>
+            <img src="images/t_logo.png" loading="lazy" alt="" class="logo logo-text">
+            <div class="number-container">
+                <p class="loader_number">0</p>
+                <div class="percentage">%</div>
+            </div>
+            <div class="loading-text">Loading ...</div>
+        </div>
+    </div>
+
+    <header class="main-head navcolor">
+        <div class="container large">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+                <button class="navbar-toggler navbar-toggler-main collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+                    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                        <path class="line line1" d="M 30,65 H 70" />
+                        <path class="line line2"
+                            d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695" />
+                        <path class="line line3"
+                            d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695" />
+                    </svg>
+                    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                        <path class="line" d="M 34,32 L 66,68" />
+                        <path class="line" d="M 66,32 L 34,68" />
+                    </svg>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="https://insights.blueflame.ai/blogs">Insights</a></li>
+                        <li class="menu-item-has-children ">
+                            <a href="#url">Solutions</a>
+                            <ul class="sub-menu">
+                                <li><a href="hedge-funds.html">For Hedge Funds</a></li>
+                                <li><a href="private-equity-private-credit.html">For Private Equity & Private Credit</a></li>
+                                <li><a href="venture-capital.html">For Venture Capital</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="d-lg-none btn_grp">
+                        <a href="https://land.blueflame.ai/request-a-demo" class="cmn_btn">Request a Demo</a>
+                    </div>
+                </div>
+                <div class="manubtn_wrap">
+                    <ul>
+                        <li>
+                            <a href="https://land.blueflame.ai/request-a-demo" class="cmn_btn">Request a Demo</a>
+                        </li>
+                        <li>
+                            <a href="https://app.blueflame.ai" class="login_btn">
+                                <span><img src="images/user-icon.svg" alt=""></span>
+                                Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <ul class="onepage-pagination">
+        <li><a data-index="1" href="#1" class=""></a></li>
+        <li><a data-index="2" href="#2" class=""></a></li>
+        <li><a data-index="3" href="#3" class=""></a></li>
+        <li><a data-index="4" href="#4" class=""></a></li>
+        <li><a data-index="5" href="#5"></a></li>
+        <li><a data-index="6" href="#6"></a></li>
+        <li><a data-index="7" href="#7"></a></li>
+    </ul>
+
+    <div id="pg_bg" class="background-video">
+        <video id="video-hero" style="width: 100%; height: 100%; object-fit: cover" fps="30" webkit-playsinline="true"
+            x5-playsinline="true" preload="auto" playsinline muted loop autoplay src=""></video>
+    </div>
+
+    <div class="main-wrapper">
+        <div id="main" class="main">
+            <section class="section banner-section" id="section-1" transitionstart="00:00:00" transitionend="00:02:10"
+                loopstart="00:02:11" loopend="00:03:15">
+                <div class="container">
+                    <div class="row bnnr_rw align_center">
+                        <div class="col-lg-6 bnnr_txt_col ms-auto">
+                            <div class="bnnr_content">
+                                <h1 class="anim_1">
+                                    Artificial Intelligence
+                                    <span class="hThree">For Alternative Investment Managers</span>
+                                </h1>
+                                <p class="anim_2">BlueFlame AI brings financial services focused AI
+                                    functionality to the alternatives space, bridging
+                                    knowledge management with automation</p>
+                                <div class="bnnrBtn_wrap anim_3">
+                                    <span class="cmn_btn nothover">LLM Powered Search</span>
+                                    <span class="cmn_btn nothover">Natural Language Action</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="scroll_btn">Scroll Down <span><img src="images/dwn-arrw.svg" alt=""></span></a>
+                <a href="Javascript:void(0);" class="cntct_btn" data-bs-toggle="modal"
+                    data-bs-target="#contactModal">Learn More</a>
+            </section>
+
+            <!--linked="1"-->
+            <section class="section pair-search-section" id="section-2" transitionstart="00:03:16"
+                transitionend="00:04:19" loopstart="00:04:20" loopend="00:05:28" transitionstartbackward="00:05:29"
+                transitionendbackward="00:07:07">
+                <div class="container">
+                    <div class="sec-hdng">
+                        <h2 class="brdr_bttm center anim_1">Find a Needle In a Haystack</span></h2>
+                    </div>
+                    <div class="searchField_wrap anim_2">
+                        <figure>
+                            <lottie-player id="lottiePlayer11" class="search-lottie" mode="normal"
+                                actions='[{"state":"autoplay","forceFlag":true,"transition":"onComplete","frames":[0,300],"visibility":[0,1]},{"state":"loop","transition":"loop","frames":[191,300]}]'></lottie-player>
+                        </figure>
+                        <a href="#" class="section-4-arrow"><img src="images/dwnn.svg" alt=""></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section enterprise-section" id="section-3" transitionstart="00:07:08"
+                transitionend="00:08:02" loopstart="00:08:03" loopend="00:09:11" transitionstartbackward="00:09:12"
+                transitionendbackward="00:10:05">
+                <div class="container">
+                    <div class="row align_center">
+                        <div class="col-lg-6 entrprs_txt_col">
+                            <div class="sec-hdng">
+                                <h2 class="anim_1">Indexed Enterprise Knowledge</h2>
+                                <div class="text-container">
+                                    <p class="anim_2">BlueFlame can index entire research folders, data rooms,
+                                        inboxes, and shared drives</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 entrprs_img_col">
+                            <figure>
+                                <lottie-player id="lottiePlayer12" class="entrprs-lottie" mode="normal"
+                                    actions='[{"state":"autoplay","forceFlag":true,"transition":"onComplete","frames":[0,295],"visibility":[0,1]},{"state":"loop","transition":"loop","frames":[60,295]}]'></lottie-player>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section automation-section" id="section-4" transitionstart="00:08:03"
+                transitionend="00:09:11" loopstart="00:08:03" loopend="00:09:11" transitionstartbackward="00:08:03"
+                transitionendbackward="00:09:11">
+                <div class="container">
+                    <div class="row align_center">
+                        <div class="col-lg-6 entrprs_txt_col">
+                            <div class="sec-hdng">
+                                <h2 class="anim_1 brdr_bttm">Pairing Search With Action</h2>
+                                <div class="text-container">
+                                    <p class="anim_2">BlueFlame can automate across SaaS solutions,
+                                        proprietary systems, and niche, alternatives <br>
+                                        -focused software</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 entrprs_img_col">
+                            <div class="automation_img_wrap">
+                                <figure>
+                                    <lottie-player id="lottiePlayer13" class="entrprs-lottie" mode="normal"
+                                        actions='[{"state":"autoplay","forceFlag":true,"transition":"onComplete","frames":[0,500],"visibility":[0,1]},{"state":"loop","transition":"loop","frames":[400,500]}]'></lottie-player>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section work-today-sec" id="section-5" transitionstart="00:10:06" transitionend="00:11:12"
+                loopstart="00:11:13" loopend="00:13:07" transitionstartbackward="00:13:08"
+                transitionendbackward="00:14:14">
+                <div class="container h-100">
+                    <div class="dflex">
+                        <div class="sec-hdng text-center">
+                            <h2 class="brdr_bttm center anim_1">BlueFlame Meets You Where You Work Today</h2>
+                        </div>
+                        <div class="img-label setbTM">
+                            <p>
+                                BlueFlame works in 1:1 chats, group chats, and channels.<br>Built on top of and integrates with your favorite Copilot solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section investment-sec" id="section-6" transitionstart="00:14:15" transitionend="00:16:04"
+                loopstart="00:16:05" loopend="00:17:10" transitionstartbackward="00:17:11"
+                transitionendbackward="00:18:29">
+                <div class="container">
+                    <div class="sec-hdng text-center">
+                        <h2 class="brdr_bttm center anim_1">Made for Alternative Investment Managers</h2>
+                        <div class="text-container">
+                            <p class="anim_2">
+                                BlueFlame is customizable to a variety of use cases with Recipe design. Pre-built
+                                Recipes are available for common uses:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="investment-point-row row">
+                        <div class="investment-point-col col-md-6 col-lg-3">
+                            <div class="investment-point-card">
+                                <div class="investment-point-card_inner">
+                                    <div class="investment-icon-wpr">
+                                        <img src="images/investment-icon1.png" alt="">
+                                    </div>
+                                    <h3 class="hFive anim_1">
+                                        Investor Relations & Marketing
+                                    </h3>
+                                    <div class="investment-card-txt">
+                                        <div class="text-container">
+                                            <p class="anim_2">
+                                                Automate drafts of context-driven,
+                                                replies to investor requests, as well
+                                                as automated periodic outreach
+                                                that generates content based on
+                                                the prior conversation thread.
+                                            </p>
+                                            <p>
+                                                Natural language interface with
+                                                your CRM.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="investment-point-col col-md-6 col-lg-3">
+                            <div class="investment-point-card">
+                                <div class="investment-point-card_inner">
+                                    <div class="investment-icon-wpr">
+                                        <img src="images/investment-icon2.png" alt="">
+                                    </div>
+                                    <h3 class="hFive anim_1">
+                                        Investment Research
+                                    </h3>
+                                    <div class="investment-card-txt">
+                                        <div class="text-container">
+                                            <p class="anim_2">
+                                                Generate market studies and
+                                                analyses that include growth
+                                                rates, TAMs, solutions providers,
+                                                and market intel for an initial read
+                                                into a new space.
+                                            </p>
+                                            <p>
+                                                Natural language queries of
+                                                market data, earnings transcripts,
+                                                expert network calls, market data,
+                                                and SEC filings.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="investment-point-col col-md-6 col-lg-3">
+                            <div class="investment-point-card">
+                                <div class="investment-point-card_inner">
+                                    <div class="investment-icon-wpr">
+                                        <img src="images/investment-icon3.png" alt="">
+                                    </div>
+                                    <h3 class="hFive anim_1">
+                                        Deal Diligence
+                                    </h3>
+                                    <div class="investment-card-txt">
+                                        <div class="text-container">
+                                            <p class="anim_2">
+                                                Find past deals in a given space
+                                                with ease. Load in a deal data
+                                                room to allow for dynamic Q&A,
+                                                to auto-generate draft investment
+                                                memos or decks, or to help with
+                                                deal analysis.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="investment-point-col col-md-6 col-lg-3">
+                            <div class="investment-point-card">
+                                <div class="investment-point-card_inner">
+                                    <div class="investment-icon-wpr">
+                                        <img src="images/investment-icon4.png" alt="">
+                                    </div>
+                                    <h3 class="hFive anim_1">
+                                        Compliance & Security
+                                    </h3>
+                                    <div class="investment-card-txt">
+                                        <div class="text-container">
+                                            <p class="anim_2">
+                                                SOC2 certified at launch and
+                                                built by security and compliance
+                                                professionals, with a full
+                                                SEC 17(a)-4 archive
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section page-btm-sec" id="section-7" transitionstart="00:19:00" transitionend="00:21:13"
+                loopstart="00:21:14" loopend="00:24:24" transitionstartbackward="00:24:25"
+                transitionendbackward="00:27:09">
+                <div class="container">
+                    <div class="row btm-sec-row">
+                        <div class="col-md-8 col-lg-7 ms-auto">
+                            <div class="quote_box">
+                                <p>BlueFlame AI has saved my team time and improved our decision-making process.
+                                    They knew my business and tailored the process to a number of my senior team
+                                    members, providing a white glove approach.
+                                </p>
+                                <p><strong>- Partner, $15B+ AUM PE Firm in NYC.</strong></p>
+                            </div>
+
+                            <a class="req_demo" href="Javascript:void(0);" data-bs-toggle="modal"
+                                data-bs-target="#contactModal">
+                                <lottie-player id="lottiePlayer14" class="entrprs-lottie" mode="normal"
+                                    actions='[{"state":"autoplay","forceFlag":true,"transition":"onComplete","frames":[0,200],"visibility":[0,1]},{"state":"loop","transition":"loop","frames":[220,250]}]'></lottie-player>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-footer">
+                    <div class="container">
+                        <div class="footer-cntnt">
+                            <div class="footer-links">
+                                <ul>
+                                    <li><a href="term.html">Terms Of Use</a></li>
+                                    <li><a href="privacy.html">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-social-media">
+                                <ul>
+                                    <li><a href="https://twitter.com/BlueFlameAI" target="_blank">
+                                        <img src="images/twitter.svg" alt="">
+                                    </a></li>
+                                    <li><a href="https://www.linkedin.com/company/blueflameai/" target="_blank">
+                                        <img src="images/linkdin.svg" alt="">
+                                    </a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-copy-rights">
+                                <p>
+                                    Copyright 2023 <a href="index.html">BlueFlame AI</a> | All Rights Reserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- contact form modal -->
+    <div class="contact-modal modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M13.7348 1.54544C13.8189 1.46147 13.8856 1.36178 13.9311 1.25204C13.9767 1.1423 14.0002 1.02466 14.0002 0.905851C14.0003 0.787039 13.977 0.669376 13.9316 0.559581C13.8862 0.449785 13.8196 0.350006 13.7356 0.265941C13.6517 0.181877 13.552 0.115173 13.4422 0.0696381C13.3325 0.0241032 13.2149 0.000629137 13.096 0.000556112C12.9772 0.000483087 12.8596 0.0238125 12.7498 0.0692125C12.64 0.114612 12.5402 0.181194 12.4561 0.265155L7 5.72129L1.54544 0.265155C1.37566 0.0953789 1.14539 -1.78888e-09 0.905295 0C0.665196 1.78888e-09 0.434931 0.0953789 0.265155 0.265155C0.0953789 0.434931 1.78888e-09 0.665196 0 0.905295C-1.78888e-09 1.14539 0.0953789 1.37566 0.265155 1.54544L5.72129 7L0.265155 12.4546C0.18109 12.5386 0.114407 12.6384 0.0689114 12.7483C0.023416 12.8581 0 12.9758 0 13.0947C0 13.2136 0.023416 13.3313 0.0689114 13.4411C0.114407 13.551 0.18109 13.6508 0.265155 13.7348C0.434931 13.9046 0.665196 14 0.905295 14C1.02418 14 1.1419 13.9766 1.25174 13.9311C1.36157 13.8856 1.46137 13.8189 1.54544 13.7348L7 8.27871L12.4561 13.7348C12.6259 13.9044 12.8561 13.9996 13.096 13.9994C13.336 13.9993 13.5661 13.9038 13.7356 13.7341C13.9052 13.5643 14.0004 13.3341 14.0002 13.0941C14.0001 12.8542 13.9046 12.6241 13.7348 12.4546L8.27871 7L13.7348 1.54544Z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+                <div class="modal-body">
+                    <div class="contact-modal-body">
+                        <h2>Learn <span> More</span></h2>
+                        <p>We would love to tell you more about the AI landscape for alternatives managers, and where we fit in:</p>
+                        <div class="contact-modal-form">
+                            <script charset="utf-8" type="text/javascript"
+                                src="//js.hsforms.net/forms/embed/v2.js"></script>
+                            <script>
+                                hbspt.forms.create({
+                                    region: "na1",
+                                    portalId: "43835603",
+                                    formId: "6e38b03a-63a2-49c1-b023-62fa9910d161"
+                                });
+                            </script>
+                            <!-- <form>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <input type="text" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <input type="text" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <select>
+                                                <option>Country</option>
+                                                <option>United States</option>
+                                                <option>India</option>
+                                                <option>United Kingdom</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <input type="email" placeholder="Email Address">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <input type="text" placeholder="Company">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-field">
+                                            <input type="text" placeholder="Title">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-field-check">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Join mailing list</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form_field_btn">
+                                            <input type="submit" value="Submit Interest">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact form modal -->
+
+
+    <!-- script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/CSSRulePlugin.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/lottie.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script src="js/common.js?ver=1"></script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43835603.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700&display=swap');
+
+*,
+*:after,
+*before {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    background: -moz-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(4, 12, 20, 1)), color-stop(100%, rgba(17, 44, 70, 1)));
+    background: -webkit-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -o-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    background: linear-gradient(to right, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: #f85857;
+}
+
+a:hover {
+    color: #ffff;
+}
+
+p {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    line-height: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 600;
+    color: inherit;
+    margin-bottom: .5rem;
+}
+
+a,
+button,
+input {
+    transition: all .25s ease-in;
+    -webkit-transition: all .25s ease-in;
+    -moz-transition: all .25s ease-in;
+    -ms-transition: all .25s ease-in;
+    -o-transition: all .25s ease-in;
+}
+
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.box {
+    position: absolute;
+    margin: 1.5rem;
+    z-index: 99;
+    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    pointer-events: none;
+    /*
+    padding: 3rem 2.5rem;
+    background-color: rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 50vh; */
+}
+
+.data_shape canvas {
+    pointer-events: all !important;
+    opacity: 0.7;
+}
+
+
+#graph>div {
+    z-index: 9;
+}
+
+.box h2 {
+    color: #f85857;
+    font-size: 2.25rem;
+}
+
+.box h1 {
+    font-size: 75px;
+}
+
+.box p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+#node_shape {
+    width: 380px;
+    height: 380px;
+}
+
+.wrapper {
+    perspective: 500;
+}
+
+#node_shape canvas {
+    pointer-events: all;
+}
+
+/*--loader--*/
+.preloader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    font-size: 30px;
+    text-transform: uppercase;
+    /* pointer-events: none; */
+    overflow: hidden;
+    -webkit-perspective: 4000px;
+    perspective: 4000px;
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+/* 
+.preloader_floating_background {
+    position: relative;
+    top: 0;
+    left: 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.preloader_floating_background.is-absolute {
+    position: absolute;
+}
+
+.preloader_floating_background img {
+    display: block;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.preloader_floating_background img:not(:first-child) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.preloader_floating_background img:first-child {
+    -webkit-transform: translateZ(50px);
+    -ms-transform: translateZ(50px);
+    transform: translateZ(50px);
+}
+
+.preloader_floating_background img:nth-child(2) {
+    -webkit-transform: translateZ(290px);
+    -ms-transform: translateZ(290px);
+    transform: translateZ(290px);
+}
+
+.preloader_floating_background img:nth-child(3) {
+    -webkit-transform: translateZ(400px);
+    -ms-transform: translateZ(400px);
+    transform: translateZ(400px);
+}
+
+.no-preserve-3d .preloader_floating_background {
+    position: relative;
+} */
+
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+
+/*--dotted progress--*/
+.loader {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    margin-top: 20px;
+}
+
+.loader>span {
+    display: inline-block;
+    background: #dbdbdb;
+    width: 4px;
+    height: 4px;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 0px;
+    position: fixed;
+    top: 12px;
+    left: -5%;
+    transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+    -o-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+    -ms-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+    -moz-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+    -webkit-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+    z-index: 101;
+}
+
+.loader>span.jmp {
+    transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+}
+
+.loader span.l-1 {
+    background: #f85857;
+    box-shadow: 0 0 10px 2px #f85857
+}
+
+.loader span.l-2 {
+    background: #ffffff;
+    box-shadow: 0 0 10px 2px #ffffff
+}
+
+.loader span.l-3 {
+    background: #35b2ec;
+    box-shadow: 0 0 10px 2px #35b2ec
+}
+
+.loader span.l-4 {
+    background: #f85857;
+    box-shadow: 0 0 10px 2px #f85857
+}
+
+.loader span.l-5 {
+    background: #fff;
+    box-shadow: 0 0 10px 2px #ffffff
+}
+
+.loader span.l-6 {
+    background: #35b2ec;
+    box-shadow: 0 0 10px 2px #35b2ec
+}
+
+/*--end loader--*/

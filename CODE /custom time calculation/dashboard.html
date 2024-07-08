@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
+    <!--fav icon-->
+    <link rel="shortcut icon" href="images/fabicon.ico" />
+    <link rel="icon" type="image/png" href="images/fabicon.png" />
+    <!-- text icons -->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        crossorigin="anonymous" />
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css'>
+    <link rel='stylesheet' href='css/nice-select2.css'>
+    <link rel='stylesheet' href='css/lightpick.css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css?ver=1" />
+
+    <title>Viral snare</title>
+</head>
+
+<body>
+    <div class="dashboard_header">
+        <div class="fluid_container">
+            <div class="header_row">
+                <div class="hamburger_menu" id="hamburger_menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 20 20"
+                        style="enable-background:new 0 0 512 512" xml:space="preserve" class="hamburger_menu_open">
+                        <g>
+                            <path clip-rule="evenodd"
+                                d="m3 5c0-.26522.10536-.51957.29289-.70711.18754-.18753.44189-.29289.70711-.29289h12c.2652 0 .5196.10536.7071.29289.1875.18754.2929.44189.2929.70711s-.1054.51957-.2929.70711c-.1875.18753-.4419.29289-.7071.29289h-12c-.26522 0-.51957-.10536-.70711-.29289-.18753-.18754-.29289-.44189-.29289-.70711zm0 5c0-.26522.10536-.51957.29289-.70711.18754-.18753.44189-.29289.70711-.29289h6c.2652 0 .5196.10536.7071.29289.1875.18754.2929.44189.2929.70711 0 .2652-.1054.5196-.2929.7071s-.4419.2929-.7071.2929h-6c-.26522 0-.51957-.1054-.70711-.2929-.18753-.1875-.29289-.4419-.29289-.7071zm0 5c0-.2652.10536-.5196.29289-.7071.18754-.1875.44189-.2929.70711-.2929h12c.2652 0 .5196.1054.7071.2929s.2929.4419.2929.7071-.1054.5196-.2929.7071-.4419.2929-.7071.2929h-12c-.26522 0-.51957-.1054-.70711-.2929-.18753-.1875-.29289-.4419-.29289-.7071z"
+                                fill="#000000" fill-rule="evenodd" data-original="#000000" class=""></path>
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0"
+                        viewBox="0 0 329.26933 329" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                        class="hamburger_menu_close">
+                        <g>
+                            <path
+                                d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+                                fill="#000000" data-original="#000000" class=""></path>
+                        </g>
+                    </svg>
+                </div>
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="" />
+                </a>
+
+                <div class="search_panel">
+                    <span class="search_btn m_srch_trigger_btn" id="m_srch_trigger"><img src="images/search.svg"
+                            alt="" /></span>
+                    <div class="search_box_inner earch_box_desktop">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+                <div class="search_box_mobile" id="m_srch_trigger_box">
+                    <div class="search_box_inner">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+
+                <div class="float_header_right">
+                    <div class="message_panel panel_inline">
+                        <a href="#" class="nof_btn">
+                            <img src="images/msg.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                    </div>
+
+                    <div class="notification_panel panel_inline">
+                        <a href="#" class="nof_btn" id="nof_btn">
+                            <img src="images/notification.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                        <div class="notification_box">
+                            <div class="notification_box_inner">
+                                <ul class="notify_list">
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 1523) has been approved.....</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/work.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 356) has been rejected...</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>A bonus of $35 has been applied to your account......</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 750) for your
+                                            video.....
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 3241) for your
+                                            ........
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="nof_all">See All Notification</a>
+                        </div>
+                    </div>
+
+                    <div class="admin_panel panel_inline">
+                        <span>jhon morrison</span>
+                        <span class="nav_avatar">
+                            <a href="#">
+                                <img src="images/avatar.png" alt="">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard_body">
+        <div class="fluid_container">
+            <div class="dashboard_body_inner">
+                <div class="navigation" id="navigation">
+                    <div class="nav_inner">
+                        <ul class="nav_list">
+                            <li class="current-menu-item">
+                                <a href="dashboard.html">
+                                    <i>
+                                        <img src="images/nav1.png" alt="" />
+                                        <img src="images/nav1_hov.png" alt="" />
+                                    </i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my_video.html">
+                                    <i>
+                                        <img src="images/nav2.png" alt="" />
+                                        <img src="images/nav2_hov.png" alt="" />
+                                    </i>
+                                    <span>My Videos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="earnings.html">
+                                    <i>
+                                        <img src="images/nav3.png" alt="" />
+                                        <img src="images/nav3_hov.png" alt="" />
+                                    </i>
+                                    <span>My Earnings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="messages.html">
+                                    <i>
+                                        <img src="images/nav4.png" alt="" />
+                                        <img src="images/nav4_hov.png" alt="" />
+                                    </i>
+                                    <span>My Messages</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notification.html">
+                                    <i>
+                                        <img src="images/nav5.png" alt="" />
+                                        <img src="images/nav5_hov.png" alt="" />
+                                    </i>
+                                    <span>Notifications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="setting.html">
+                                    <i>
+                                        <img src="images/nav6.png" alt="" />
+                                        <img src="images/nav6_hov.png" alt="" />
+                                    </i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i>
+                                        <img src="images/nav7.png" alt="" />
+                                        <img src="images/nav7_hov.png" alt="" />
+                                    </i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard_content">
+                    <div class="dashboard_content_inner">
+                        <div class="box_model">
+                            <div class="dash_box" id="unique_date_sec">
+                                <div class="data-inline">
+                                    Showing Data for
+                                    <div class="quick_select" id="quick_pik">
+                                        <select class="selectize_quick">
+                                            <option value="0" selected>Today</option>
+                                            <option value="1">Yesterday</option>
+                                            <option value="2">Last 7 days</option>
+                                            <option value="3">Last 30 days</option>
+                                            <option value="4">This week</option>
+                                            <option value="5">Last week</option>
+                                            <option value="6">This month</option>
+                                            <option value="7">Last month</option>
+                                            <option value="8">Year-to-date</option>
+                                            <option value="9">Last year</option>
+                                            <option value="10">All time</option>
+                                        </select>
+                                        <span class="date_range_p">(April 23, 2023)</span>
+                                    </div>
+                                    <span class="picker_date_to_date" id="picker_dtd" style="display:none">
+                                        the period from
+                                        <span class="dt_date"></span>
+                                        <span class="reset_picker">
+                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M5.5 10C7.975 10 10 7.975 10 5.5C10 3.025 7.975 1 5.5 1C3.025 1 1 3.025 1 5.5C1 7.975 3.025 10 5.5 10Z"
+                                                    stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M4.22705 6.7832L6.77263 4.23762" stroke="currentColor"
+                                                    stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M6.77263 6.76238L4.22705 4.2168" stroke="currentColor"
+                                                    stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            reset</span>
+                                    </span>
+
+                                    <div class="float_datePick">
+                                        <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.9469 2.14248e-06C12.3479 -0.00094523 12.6649 0.312398 12.6658 0.730189L12.6668 1.44233C15.2684 1.64743 16.9869 3.43064 16.9897 6.16527L17 14.1698C17.0037 17.1513 15.1416 18.9857 12.1567 18.9905L4.86567 19C1.89947 19.0038 0.0139997 17.1256 0.0102698 14.1356L6.25921e-06 6.22509C-0.00371737 3.47241 1.65423 1.69396 4.25583 1.45373L4.2549 0.741583C4.25397 0.323792 4.56169 0.00949954 4.97198 0.00949954C5.38227 0.00855001 5.68998 0.321893 5.69092 0.739684L5.69185 1.40435L11.2308 1.39675L11.2298 0.732088C11.2289 0.314297 11.5366 0.000953819 11.9469 2.14248e-06ZM12.3273 13.4823H12.318C11.8891 13.4927 11.545 13.8545 11.5543 14.2913C11.5553 14.7281 11.9012 15.0879 12.3301 15.0974C12.7675 15.0965 13.1218 14.7347 13.1209 14.2884C13.1209 13.8422 12.7656 13.4823 12.3273 13.4823ZM4.64374 13.4832C4.21481 13.5022 3.87911 13.864 3.88004 14.3008C3.89963 14.7376 4.25397 15.0794 4.68291 15.0595C5.10346 15.0405 5.43821 14.6787 5.41863 14.2419C5.40931 13.8146 5.06336 13.4823 4.64374 13.4832ZM8.48555 13.4785C8.05661 13.4984 7.72185 13.8593 7.72185 14.296C7.74143 14.7328 8.09577 15.0737 8.52471 15.0547C8.94433 15.0348 9.28002 14.674 9.26043 14.2362C9.25111 13.8099 8.90516 13.4776 8.48555 13.4785ZM4.63908 10.065C4.21014 10.084 3.87538 10.4457 3.87631 10.8825C3.89497 11.3193 4.25024 11.6611 4.67918 11.6412C5.09879 11.6222 5.43355 11.2604 5.41397 10.8236C5.40465 10.3963 5.05963 10.064 4.63908 10.065ZM8.48182 10.0317C8.05288 10.0507 7.71719 10.4125 7.71812 10.8493C7.73677 11.2861 8.09204 11.6269 8.52098 11.6079C8.9406 11.588 9.27535 11.2272 9.2567 10.7904C9.24645 10.3631 8.90143 10.0308 8.48182 10.0317ZM12.3236 10.0365C11.8947 10.046 11.559 10.3973 11.5599 10.8341V10.8445C11.5692 11.2813 11.9236 11.6127 12.3535 11.6032C12.7731 11.5927 13.1078 11.231 13.0985 10.7942C13.0789 10.3764 12.7423 10.0355 12.3236 10.0365ZM11.2326 2.85902L5.69371 2.86662L5.69465 3.63478C5.69465 4.04403 5.38786 4.36687 4.97757 4.36687C4.56728 4.36782 4.25863 4.04593 4.25863 3.63668L4.2577 2.90555C2.43937 3.08881 1.43323 4.16367 1.43602 6.22319L1.43696 6.51849L15.5546 6.4995V6.16716C15.5146 4.12569 14.4963 3.05462 12.6686 2.8951L12.6696 3.62624C12.6696 4.03453 12.3535 4.35832 11.9525 4.35832C11.5422 4.35927 11.2336 4.03643 11.2336 3.62814L11.2326 2.85902Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                        <input type="text" class="dateSelectorRangeInline" id="dateSelectorRangeInline">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu_overlay" id="menu_overlay"></div>
+    <!--web fonts-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" defer crossorigin="anonymous"></script>
+    <!--framework-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!--plugins-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!--DOC of selectpicker: https://bluzky.github.io/nice-select2/-->
+    <script src="js/nice-select2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="js/lightpick.js"></script>
+    <!--custom script-->
+    <script src="js/custom.js?ver=1"></script>
+</body>
+
+</html>

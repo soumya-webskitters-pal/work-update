@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,700;0,800;1,300;1,400&display=swap");
+
+/* font-family: 'Nunito', sans-serif; */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.3;
+  background-color: #fff;
+}
+.section {
+  padding: 40px 0;
+}
+.form_line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-right: 100px;
+  position: relative;
+  height: 30px;
+}
+.form_line input[type="text"] {
+  width: 85px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  color: #a1a9ba;
+}
+.chart_inner {
+  position: relative;
+  width: 70%;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.float_text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: capitalize;
+  color: #bcb8b8;
+  pointer-events: none;
+}
+.float_text:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(95, 193, 249, 0.1);
+  pointer-events: none;
+}
+.invest_chart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+.chart_inner:after {
+  content: "";
+  background-color: rgba(240, 87, 66, 0.08);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0.8);
+  z-index: -1;
+  pointer-events: none;
+}
+.invest_chart .highcharts-background {
+  fill: transparent !important;
+}
+
+.float_text h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000000;
+  margin-bottom: 3px;
+}
+
+.float_text p {
+  margin-bottom: 0;
+}
+.chart_legend {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.chart_legend li {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 15px;
+  position: relative;
+  cursor: pointer;
+}
+.chart_legend li + li {
+  margin-left: 25px;
+}
+.chart_legend li i {
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.chart_legend li:first-child i {
+  background: #6dc05f;
+}
+.chart_legend li:last-child i {
+  background: #22224c;
+}
+
+.range_slider .noUi-connects {
+  border-radius: 15px;
+}
+.range_slider.noUi-target {
+  background: #f1f1f1;
+  border-radius: 50px;
+  border: 1px solid #f1f1f1;
+  box-shadow: none;
+}
+.range_slider.noUi-horizontal {
+  height: 4px;
+}
+.range_slider .noUi-connect {
+  background: #6dc05f;
+}
+.range_slider .noUi-handle {
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  top: -10px;
+  border-radius: 50%;
+  border: 6px solid #6dc05f;
+}
+.range_slider .noUi-handle:after,
+.range_slider .noUi-handle:before {
+  content: none;
+}
+.details_chart {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  text-align: left;
+}
+.each_cht {
+  width: 100%;
+  max-width: 33.33%;
+  padding: 0 15px;
+}
+.details_chart h5 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.3;
+  text-transform: capitalize;
+  color: #211f1f;
+  margin: 0 0 5px;
+  position: relative;
+  padding-bottom: 6px;
+}
+.details_chart h5 span {
+  display: block;
+  font-size: 80%;
+}
+.details_chart h5:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #a1a9ba;
+  border-radius: 5px;
+}
+.details_chart p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: capitalize;
+  color: #bcb8b8;
+}
+#principal_txt h5 {
+  color: #22224c;
+}
+#interest_txt h5 {
+  color: #f05742;
+}
+#total_txt h5 {
+  color: #6dc05f;
+}

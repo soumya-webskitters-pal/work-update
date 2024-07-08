@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D model</title>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+      }
+      #action {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 50px;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        z-index: 3;
+      }
+    </style>
+
+    <ul id="action">
+      <li><button data-value="0">skin 1</button></li>
+      <li><button data-value="1">skin 2</button></li>
+      <li><button data-value="2">skin 3</button></li>
+    </ul>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialiase: true,
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const scene = new THREE.Scene();
+
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      camera.position.z = 5;
+      camera.position.y = 1.5;
+
+      const ambLight = new THREE.AmbientLight(0x404040, 50);
+      const light1 = new THREE.DirectionalLight(0xefefff, 2.5);
+      light1.position.set(1, 1, 1).normalize();
+      light1.castShadow = true;
+      scene.add(light1);
+
+      window.addEventListener("resize", function () {
+        let width = window.innerWidth,
+          height = window.innerHeight;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      });
+
+      const mouse = new THREE.Vector2();
+      const target = new THREE.Vector2();
+      const windowHalf = new THREE.Vector2(
+        window.innerWidth / 2,
+        window.innerHeight / 2
+      );
+      document.addEventListener("mousemove", onMouseMove, false);
+      function onMouseMove(event) {
+        mouse.x = event.clientX - windowHalf.x;
+        mouse.y = event.clientY - windowHalf.x;
+
+        console.log("asf");
+        gsap.to(camera.rotation, {
+          duration: 0.3,
+          //   ease: "none",
+          x: target.y - camera.rotation.x,
+          y: target.x - camera.rotation.y,
+        });
+      }
+
+      const loader = new THREE.GLTFLoader();
+      let mixer, model;
+
+      loader.load("Alien-Animal_Baked.gltf", function (gltf) {
+        let textures = [];
+        for (let i = 0; i < 3; i++) {
+          textures.push(
+            new THREE.TextureLoader().load("skin" + (i + 1) + ".jpg")
+          );
+        }
+
+        gltf.scene.traverse(function (node) {
+          if (node instanceof THREE.Mesh) {
+            node.castShadow = true;
+            node.material.side = THREE.DoubleSide;
+            node.material.map = textures[0];
+          }
+        });
+
+        model = gltf.scene;
+        //   model.scale.set(0.35, 0.35, 0.35);
+        model.scale.set(0.1, 0.1, 0.1);
+        scene.add(model);
+
+        $("button").on("click", function () {
+          let vl = $(this).attr("data-value");
+          gltf.scene.traverse(function (node) {
+            if (node instanceof THREE.Mesh) {
+              node.material.map = textures[vl];
+            }
+          });
+          scene.add(model);
+          console.log(model);
+
+          gsap.to(model.rotation, {
+            duration: 0.5,
+            y: model.rotation.y + Math.PI * 2,
+            overwrite: true,
+          });
+        });
+
+        console.log(gltf.animations);
+
+        if (gltf.animations.length > 0) {
+          mixer = new THREE.AnimationMixer(model);
+          // let tt = 0;
+          // mixer.clipAction(gltf.animations[tt]).play();
+          // document.body.addEventListener("click", playAnim);
+          // function playAnim() {
+          //   mixer.clipAction(gltf.animations[tt]).stop();
+          //   tt++;
+          //   if (tt > gltf.animations.length - 1) {
+          //     tt = 0;
+          //   }
+          //   mixer.clipAction(gltf.animations[tt]).play();
+          //   //   setTimeout(function () {
+          //   //     mixer.clipAction(gltf.animations[tt]).stop();
+          //   //   }, 1500);
+          // }
+        }
+
+        console.log(model);
+
+        let anim_height = 500,
+          scrollSmooth = 1.1,
+          triggerEl = $("canvas");
+        gsap.to(model.position, {
+          y: -(window.innerHeight / 2) * 0.01,
+          ease: "none",
+          scrollTrigger: {
+            trigger: triggerEl,
+            start: "top top",
+            end: "+=" + anim_height + "% center",
+            // pin: true,
+            scrub: scrollSmooth,
+            // markers: true,
+          },
+        });
+
+        gsap.to(model.rotation, {
+          x: Math.PI * 2,
+          // z: -Math.PI,
+          ease: "none",
+          scrollTrigger: {
+            trigger: triggerEl,
+            start: "top top",
+            end: "+=" + anim_height + "% center",
+            scrub: scrollSmooth,
+            pin: true,
+            markers: true,
+          },
+          onComplete: () => {
+            // console.log("complete");
+            if (model) {
+              mixer.clipAction(gltf.animations[0]).play();
+              setTimeout(function () {
+                mixer.clipAction(gltf.animations[0]).stop();
+              }, 1500);
+            }
+          },
+        });
+
+        // const o = { a: 0 };
+        // gsap.to(o, {
+        //   a: 1,
+        //   scrollTrigger: {
+        //     trigger: "canvas",
+        //     start: "top top",
+        //     end: "+=500% center",
+        //     pin: true,
+        //     scrub: 1.1,
+        //     markers: true,
+        //     onUpdate: (self) => {
+        //       if (model) {
+        //         // model.rotation.y = self.progress * Math.PI * 2;
+        //         model.rotation.x = self.progress * Math.PI * 2; //(self.progress * 360) / (Math.PI * 2);
+        //         model.rotation.z = -self.progress * Math.PI;
+        //         model.position.y = -self.progress / 0.5;
+
+        //         // if (self.progress >= 1) {
+        //         //   mixer.clipAction(gltf.animations[0]).stop();
+        //         //   mixer.clipAction(gltf.animations[5]).play();
+        //         // } else {
+        //         //   mixer.clipAction(gltf.animations[5]).stop();
+        //         //   mixer.clipAction(gltf.animations[0]).play();
+        //         // }
+        //       }
+        //     },
+        //   },
+        // });
+      });
+
+      const clock = new THREE.Clock();
+      function render() {
+        requestAnimationFrame(render);
+        let delta = clock.getDelta();
+        if (mixer != null) mixer.update(delta);
+        renderer.render(scene, camera);
+      }
+      render();
+      console.log(scene);
+    </script>
+  </body>
+</html>

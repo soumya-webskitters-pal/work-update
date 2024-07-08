@@ -1,0 +1,358 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html id="ie6" class="ie ie-old ie-super-old"><![endif]-->
+<!--[if IE 7 ]>   <html id="ie7" class="ie ie-old ie-super-old"><![endif]-->
+<!--[if IE 8 ]>   <html id="ie8" class="ie ie-old ie-super-old"><![endif]-->
+<!--[if IE 9 ]>   <html id="ie9" class="ie ie-old"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+
+	<title>OccamLabs</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
+	<link rel="icon" sizes="192x192" href="images/favicon/icon.png">
+	<link rel="apple-touch-icon" href="images/favicon/ios-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+	<meta name="msapplication-square310x310logo" content="images/favicon/icon_largetile.png">
+	<link rel="manifest" href="images/favicon/manifest.json">
+
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#074265">
+
+	<meta name="title" content="OccamLabs">
+	<meta name="Description" content="Occam Labs">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="">
+	<meta property="twitter:url" content="">
+	<meta property="twitter:title" content="">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<!-- <link rel="stylesheet" href="css/fonts.css"> -->
+	<link rel="stylesheet" href="https://use.typekit.net/wen7mfe.css">
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/ScrollMagic.css" type="text/css">
+	<!-- <link rel="stylesheet" href="css/slick-theme.css">
+		<link rel="stylesheet" href="css/slick.css"> -->
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<!--header-->
+	<header class="main-head" id="main-head">
+		<div class="container-fluid big_container">
+			<div class="row big_row">
+				<div class="col-12 big_col">
+					<nav class="navbar navbar-expand-md">
+						<a class="navbar-brand" href="index.html" target="_blank">
+							<img class="white-logo" src="images/logo_white.svg" />
+							<img class="dark-logo" src="images/logo_drk.svg" />
+						</a>
+
+						<button class="navbar-toggler nav_btn collapsed" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation" id="nav_btn">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+
+						<div class="collapse navbar-collapse navigation" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto py-4 py-md-0 nav__list" id="mainmenu">
+								<li class="nav-item">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#nSolutions"
+										role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a class="dropdown-item" href="#">Data Enrichment and Integration</a></li>
+										<li><a class="dropdown-item" href="#">Collaboration &​ Governance</a></li>
+										<li><a class="dropdown-item" href="#">Predictive analytics</a></li>
+										<li><a class="dropdown-item" href="#">Product Development</a></li>
+										<li><a class="dropdown-item" href="#">Hosted Analytics</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#nMarket"
+										role="button" aria-haspopup="true" aria-expanded="false">Market Segments</a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a class="dropdown-item" href="#">Entertainment </a></li>
+										<li><a class="dropdown-item" href="#">Financial Services</a></li>
+										<li><a class="dropdown-item" href="#">Manufacturing</a></li>
+										<li><a class="dropdown-item" href="#">Real Estate</a></li>
+										<li><a class="dropdown-item" href="#">Retail</a></li>
+										<li><a class="dropdown-item" href="#">Professional Services</a></li>
+										<li><a class="dropdown-item" href="#">Sports Science</a></li>
+										<li><a class="dropdown-item" href="#">Technology</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#nResources"
+										role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a class="dropdown-item" href="#">Case Studies</a></li>
+										<li><a class="dropdown-item" href="#">White papers</a></li>
+										<li><a class="dropdown-item" href="#">Articles</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#nCompany"
+										role="button" aria-haspopup="true" aria-expanded="false">Company</a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a class="dropdown-item" href="#">About</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#nContact">Contact</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="main_wrapper" id="main">
+		<!--canvas-->
+		<div id="canvas"></div>
+
+		<div id="example-wrapper" class="viewport">
+			<div class="scrollContent">
+				<div class="demo" id="section-wipes">
+					<section class="section introScreen lightTheme" id="nintroScreen">
+						<img src="images/intro_background.png" alt="New York" class="backgroundImg">
+						<div class="cloud cloud1"><img src="images/cloud.jpg" alt="cloud"></div>
+						<div class="moveboxText">
+							<span>Uncover<br>strategic insights<br>from complex data</span>
+						</div>
+						<a class="scroll" id="scrollme">
+							<span href="#thanks" class="scrollmeSpan"><span></span>Scroll</span>
+						</a>
+					</section>
+					<section class="section Solutions-section darkTheme red_bg" id="nSolutions">
+						<div class="section-inner">
+							<div class="container-fluid big_container">
+								<div class="row big_row">
+									<div
+										class="section-lft col-6 big_col ml-auto mr-auto top_align white_text_box text-center">
+										<h2>Get to the bottom of endless data to unearth actionable insights.</h2>
+									</div>
+									<div class="section-rt col-12 big_col bottom_align white_text_box">
+										<p>Generate value out of the large volume of data that you collect, process and
+											analyze to to drive
+											solid
+											business decisions..​
+											OccamLabs offers the analytics solutions to the drive your organisations’s
+											complete analytics
+											cycle,
+											from data discovery to monetization.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="section Market-sec lightTheme" id="nMarket">
+						<div class="section-inner  ">
+							<div class="container-fluid big_container">
+								<div class="row big_row">
+									<div class="section-lft col-6 big_col ml-auto mr-auto top_align">
+										<h2>Sound decisions require rigorous analytics</h2>
+									</div>
+									<div class="section-rt  col-md-6 big_col center_align">
+										<p>Power your decision-making with smarter analytics, more efficient workflows,
+											and
+											effective
+											collaboration across your organization and supply chain. Power your
+											decision-making with smarter analytics, more efficient workflows,
+											and
+											effective
+											collaboration across your organization and supply chain. Power your
+											decision-making with smarter analytics, more efficient workflows,
+											and
+											effective
+											collaboration across your organization and supply chain.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="section Resources-sec lightTheme" id="nResources">
+						<div class="section-inner  ">
+							<div class="container-fluid big_container">
+								<div class="row big_row">
+									<div class="section-lft col-6 big_col">
+										<h2>Data Enrichment</h2>
+										<p>You have finally built that awesome and clean data warehouse and filled it
+											with internal data. You get the pulse of your business daily, maybe even
+											visualize results with your new BI Tool!<br>Life’s good! or it would be...
+											<br>…if your business operated in a vaccum...<br>How do your
+											strengths and weaknesses compare to the industry? Are you surfing the key
+											waves in your business? Or watching the tsunami getting closer to your
+											shores?We help you acquire, integrate and visualize external data that
+											brings outward and forward looking capabilities to your business.<br>We will
+											give you the data and the methods to operate and decide as a connected agent
+											in a fast moving networked economy.</p>
+									</div>
+									<div class="section-rt col-6 big_col">
+										<figure class="fig_image anim_img">
+											<img src="images/fig1.jpg" alt="fig1" />
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="section Company-sec white_bg lightTheme" id="nCompany">
+						<div class="section-inner  ">
+							<div class="container-fluid big_container">
+								<div class="row big_row">
+									<div class="section-lft  col-md-6 big_col">
+										<div class="hexagon_shape">
+											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+												width="87.59px" height="99.306px" viewbox="0 0 87.59 99.306"
+												enable-background="new 0 0 87.59 99.306" xml:space="preserve">
+												<g>
+													<path stroke="#000" stroke-miterlimit="10"
+														d="M45.377,98.392c-0.953,0.55-2.513,0.552-3.467,0.005l-39.68-22.75
+											c-0.954-0.547-1.732-1.895-1.729-2.995l0.139-45.739c0.003-1.1,0.785-2.45,1.738-3l39.837-23c0.953-0.55,2.513-0.552,3.467-0.005
+											l39.68,22.75c0.954,0.547,1.732,1.895,1.729,2.995l-0.139,45.739c-0.003,1.1-0.785,2.45-1.738,3L45.377,98.392z" />
+												</g>
+											</svg>
+											<div class="node_data">
+												<div class="node_data_inner">
+													Host in the cloud
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="section-rt  col-md-6 big_col">
+										<p>End to End managed Analytics​
+											OccamLabs will run your entire architecture on the cloud </p>
+										<p>Outsource your analytics services and procurement tools. We will host and
+											manage
+											it for you, so
+											that
+											you can focus on what's most important to you and not get bogged down with
+											managing the
+											infrastructure/cloud deployment.</p>
+										<p>(most suited for startups with very little bandwith and precise analytics
+											requirements.)</p>
+										<div class="callToAction_sec d-flex align-items-center">
+											<a href="#" class="svgBtn" data-path-hover="M0,0H81.74V48.29H0Z">
+												<svg id="btnLayer_1" data-name="Layer 1"
+													xmlns="http://www.w3.org/2000/svg" viewbox="0 0 81.74 48.29">
+													<path class="cls-1" d="M0,0H57.51L81.74,24.77h0l-24,23.52H0Z" />
+												</svg><span>Learn More</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="section Contact-sec auto-height lightTheme blue_bg " id="nContact">
+						<div class="section-inner">
+							<div class="container-fluid big_container">
+								<div class="row big_row">
+									<div class="section-lft  col-md-6 big_col">
+										<h3>Schedule a 30-minute call</h3>
+									</div>
+									<div class="section-rt  col-md-6 big_col">
+										<h3>Schedule a one-on-one consultation to drive your data analytics strategies.
+										</h3>
+										<div class="callToAction_sec d-flex align-items-center">
+											<a href="#" class="svgBtn" data-path-hover="M0,0H81.74V48.29H0Z">
+												<svg id="btnLayer_2" data-name="Layer 1"
+													xmlns="http://www.w3.org/2000/svg" viewbox="0 0 81.74 48.29">
+													<path class="cls-1" d="M0,0H57.51L81.74,24.77h0l-24,23.52H0Z" />
+												</svg><span>Learn More</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- modernizr API -->
+	<script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+
+	<!-- jquery LIB -->
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+	<!-- animation API -->
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/snap.svg-min.js"></script>
+
+	<!-- page loader -->
+	<script type="text/javascript" src="js/loader.js"></script>
+
+	<!-- ScrollMagic API -->
+	<script type="text/javascript" src="js/highlight.pack.js"></script>
+	<script type="text/javascript" src="js/ScrollMagic.js"></script>
+	<script type="text/javascript" src="js/debug.addIndicators.js"></script>
+
+	<!-- bootstrap API -->
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<!-- slider API -->
+	<!-- <script type="text/javascript" src="js/slick.js"></script> -->
+
+	<!--check element on viewport-->
+	<script type="text/javascript" src="js/in-view.min.js"></script>
+
+	<!-- Three.js API -->
+	<script type="text/javascript" src="js/three.min.js"></script>
+	<script type="text/javascript" src="js/stats.min.js"></script>
+	<script type="text/javascript" src="js/orbitControls.min.js"></script>
+	<script type="text/javascript" src="js/WebGL.min.js"></script>
+	<script type="text/javascript" src="js/RollerCoaster.min.js"></script>
+
+	<!-- Custom Code -->
+	<script type="text/javascript" src="js/examples.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</body>
+
+</html>

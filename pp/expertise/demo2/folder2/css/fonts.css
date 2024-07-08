@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Calibri;
+  src: url(../fonts/CalibriRegular.woff) format('woff'),
+    url(../fonts/CalibriRegular.woff2) format('woff2'),
+    url(../fonts/CalibriRegular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Calibri;
+  src: url(../fonts/CalibriLight.woff) format('woff'),
+    url(../fonts/CalibriLight.woff2) format('woff2'),
+    url(../fonts/CalibriLight.ttf) format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Calibri;
+  src: url(../fonts/CalibriBold.woff) format('woff'),
+    url(../fonts/CalibriBold.woff2) format('woff2'),
+    url(../fonts/CalibriBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+
+@font-face {
+  font-family: Calibri;
+  src: url(../fonts/CalibriItalic.woff2) format('woff2'),
+    url(../fonts/CalibriItalic.woff) format('woff'),
+    url(../fonts/CalibriItalic.ttf) format('truetype');
+  font-style: italic;
+}

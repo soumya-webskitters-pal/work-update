@@ -1,0 +1,47 @@
+{
+  "nodes": [{
+      "id": "84",
+      "title": null,
+      "name": null,
+      "description": null,
+      "image": null
+    },
+    {
+      "id": "102",
+      "title": null,
+      "name": "Data Architecture for Performance",
+      "description": "Waiting looong minutes for a query to run or a report to show is a horrible thing. And a great way to get distracted from the task at hand.<br><br>If your data architecture isn’ t appropriate or you’ re using the wrong toolsfor the job, those minutes pile into hours and days lost at the job.No one likes that.<br><br>OccamLabs has certified professionals in key BI and Database technologies which will help you set up the best platform to deliver fast analytics to your organization.",
+      "image": "torus"
+
+    },
+    {
+      "id": "200",
+      "title": null,
+      "name": "Data Cleaning, Transformation & Integration",
+      "description": "Want to make better decisions? <br>It all starts with data quality.<br><br>But what does data quality mean? We’ll help you figure it out.<br><br>Starting with your business goals until your data platform is all set to propel you where you wish to be!<br><br>Outputs: Data-Warehouse, Data Pipeline, Analytical Views & semantic Layers",
+      "image": "torus_knot"
+    },
+    {
+      "id": "260",
+      "title": null,
+      "name": "Data Enrichment",
+      "description": "You have finally built that awesome and clean data warehouse and filled it with internal data. You get the pulse of your business daily, maybe even visualize results with your new BI Tool!<br><br>Life’s good! or it would be... <br>…if your business operated in a vaccum...<br>​<br>How do your strengths and weaknesses compare to the industry? Are you surfing the key waves in your business? Or watching the tsunami getting closer to your shores?We help you acquire, integrate and visualize external data that brings outward and forward looking capabilities to your business.<br><br>We will give you the data and the methods to operate and decide as a connected agent in a fast moving networked economy.",
+      "image": "cone"
+    },
+    {
+      "id": "120",
+      "title": null,
+      "name": "Statistics and Forecasting",
+      "description": "Stuck in Analysis Paralysis?<br>We’ve seen it before.<br><br>In this day and age, everyone brings data to the table… Somehow decision making seems more complicated than ever.<br><br>The reason? Data alone isn’t sufficient. You need decision making and statistical methods to get to the right answer. We help you bridge that gap and use a scientific approach to steering your business.<br><br>Outputs: Statistical Proofs and Research, Forecasting Models, classification models, Segmentations, Decision Making Model Building",
+      "image": "sphere"
+
+    },
+    {
+      "id": "9",
+      "title": null,
+      "name": "Governance & Change Management",
+      "description": "You are getting traction with your teams, analysts are deploying good analytics and business users are getting onboard. How can you help your data culture to grow, while in the meantime making sure data is used correctly and securely?<br><br>The new exciting data tools of this era can make your business smarter… but require to shift the way your organization thinks of data!<br><br>We have set up governance standards for deployments of 1000s of users globally. Whether you are hoping for best processes and practices to get started or intending to manage a large audience and content-base, we will be able to help you.",
+      "image": "dome"
+    }
+  ]
+}

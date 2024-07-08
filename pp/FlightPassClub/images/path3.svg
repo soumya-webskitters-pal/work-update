@@ -1,0 +1,152 @@
+<svg width="375" height="692" viewBox="0 0 375 692" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="286" cy="657" r="34.5" fill="#0A0819" stroke="white" stroke-dasharray="6 6"/>
+<path d="M274.104 658.344C274.104 655.848 274.616 653.888 275.64 652.464C276.68 651.04 278.008 650.328 279.624 650.328C281.24 650.328 282.552 651.04 283.56 652.464C284.584 653.888 285.096 655.848 285.096 658.344C285.096 660.824 284.592 662.76 283.584 664.152C282.576 665.544 281.256 666.24 279.624 666.24C278.008 666.24 276.68 665.544 275.64 664.152C274.616 662.76 274.104 660.824 274.104 658.344ZM275.832 658.32C275.832 660.464 276.192 662.208 276.912 663.552C277.648 664.88 278.552 665.544 279.624 665.544C280.712 665.544 281.608 664.88 282.312 663.552C283.016 662.224 283.368 660.488 283.368 658.344C283.368 656.184 283.016 654.416 282.312 653.04C281.608 651.648 280.712 650.952 279.624 650.952C278.552 650.952 277.648 651.648 276.912 653.04C276.192 654.416 275.832 656.176 275.832 658.32ZM297.475 661.464C297.475 662.84 296.931 663.984 295.843 664.896C294.771 665.792 293.523 666.24 292.099 666.24C290.163 666.24 288.691 665.616 287.683 664.368L288.163 663.912C288.995 664.872 290.211 665.352 291.811 665.352C292.867 665.352 293.779 665.032 294.547 664.392C295.315 663.752 295.699 662.888 295.699 661.8C295.699 659.272 293.787 658.008 289.963 658.008V657.552C291.211 657.552 292.363 657.224 293.419 656.568C294.491 655.896 295.027 654.928 295.027 653.664C295.027 652.864 294.819 652.216 294.403 651.72C293.987 651.208 293.379 650.952 292.579 650.952C292.083 650.952 291.643 651.088 291.259 651.36C290.875 651.616 290.587 651.896 290.395 652.2C290.203 652.504 289.979 652.792 289.723 653.064C289.483 653.32 289.235 653.448 288.979 653.448C288.723 653.448 288.515 653.368 288.355 653.208C288.195 653.032 288.115 652.832 288.115 652.608C288.115 651.984 288.547 651.448 289.411 651C290.291 650.552 291.347 650.328 292.579 650.328C293.811 650.328 294.819 650.592 295.603 651.12C296.403 651.632 296.803 652.432 296.803 653.52C296.803 654.608 296.427 655.488 295.675 656.16C294.939 656.832 294.075 657.304 293.083 657.576V657.672C294.571 657.752 295.675 658.168 296.395 658.92C297.115 659.656 297.475 660.504 297.475 661.464Z" fill="#756BD1"/>
+<path d="M1 1C13.1346 33.0451 65.0993 103.99 175.881 131.409C314.359 165.684 360.756 187.419 371.463 238.412C382.17 289.406 359.328 357.954 296.514 433.19C233.699 508.427 218.709 588.678 252.972 638" stroke="white" stroke-dasharray="6 6"/>
+</svg>
+
+
+(function() {
+  window.requestAnimFrame = (function(callback) {
+    return window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimaitonFrame ||
+      function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  var canvas = document.getElementById("sig-canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.strokeStyle = "#222222";
+  ctx.lineWidth = 4;
+  var capturedata="";
+canvas.width= canvas.parentElement.clientWidth;
+  canvas.height= canvas.parentElement.clientHeight;
+  var drawing = false;
+  var mousePos = {
+    x: 0,
+    y: 0
+  };
+  var lastPos = mousePos;
+  
+  
+
+  canvas.addEventListener("mousedown", function(e) {
+    drawing = true;
+    lastPos = getMousePos(canvas, e);
+  }, false);
+
+  canvas.addEventListener("mouseup", function(e) {
+    drawing = false;
+  }, false);
+
+  canvas.addEventListener("mousemove", function(e) {
+    mousePos = getMousePos(canvas, e);
+  }, false);
+
+  // Add touch event support for mobile
+  canvas.addEventListener("touchstart", function(e) {
+
+  }, false);
+
+  canvas.addEventListener("touchmove", function(e) {
+    var touch = e.touches[0];
+    var me = new MouseEvent("mousemove", {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+    });
+    canvas.dispatchEvent(me);
+  }, false);
+
+  canvas.addEventListener("touchstart", function(e) {
+    mousePos = getTouchPos(canvas, e);
+    var touch = e.touches[0];
+    var me = new MouseEvent("mousedown", {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+    });
+    canvas.dispatchEvent(me);
+  }, false);
+
+  canvas.addEventListener("touchend", function(e) {
+    var me = new MouseEvent("mouseup", {});
+    canvas.dispatchEvent(me);
+  }, false);
+
+  function getMousePos(canvasDom, mouseEvent) {
+    var rect = canvasDom.getBoundingClientRect();
+    return {
+      x: mouseEvent.clientX - rect.left,
+      y: mouseEvent.clientY - rect.top
+    }
+  }
+
+  function getTouchPos(canvasDom, touchEvent) {
+    var rect = canvasDom.getBoundingClientRect();
+    return {
+      x: touchEvent.touches[0].clientX - rect.left,
+      y: touchEvent.touches[0].clientY - rect.top
+    }
+  }
+
+  function renderCanvas() {
+    if (drawing) {
+      ctx.moveTo(lastPos.x, lastPos.y);
+      ctx.lineTo(mousePos.x, mousePos.y);
+      ctx.stroke();
+      lastPos = mousePos;
+    }
+    capturedata = ctx.getImageData(0,0,canvas.width,canvas.height)
+  }
+
+  // Prevent scrolling when touching the canvas
+  document.body.addEventListener("touchstart", function(e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
+  document.body.addEventListener("touchend", function(e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
+  document.body.addEventListener("touchmove", function(e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
+  
+  document.body.addEventListener("resize",function(e){
+    canvas.style.width= canvas.parentElement.clientWidth+"px";
+  canvas.style.height= canvas.parentElement.clientHeight+"px";
+    // ctx.putImageData(capturedata,0,0,canvas.parentElement.clientWidth,canvas.parentElement.clientHeight)
+  },false)
+  
+  (function drawLoop() {
+    requestAnimFrame(drawLoop);
+    renderCanvas();
+  })();
+
+  function clearCanvas() {
+    canvas.width = canvas.width;
+  }
+
+  // Set up the UI
+  var sigText = document.getElementById("sig-dataUrl");
+  var sigImage = document.getElementById("sig-image");
+  var clearBtn = document.getElementById("sig-clearBtn");
+  var submitBtn = document.getElementById("sig-submitBtn");
+  clearBtn.addEventListener("click", function(e) {
+    clearCanvas();
+    sigText.innerHTML = "Data URL for your signature will go here!";
+    sigImage.setAttribute("src", "");
+  }, false);
+  submitBtn.addEventListener("click", function(e) {
+    var dataUrl = canvas.toDataURL();
+    sigText.innerHTML = dataUrl;
+    sigImage.setAttribute("src", dataUrl);
+  }, false);
+
+})();

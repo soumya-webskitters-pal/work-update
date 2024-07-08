@@ -1,0 +1,119 @@
+<!-- text wipe animation -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text animation</title>
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 100px;
+        }
+
+        .ch-text-wrap {
+            color: #ffc168;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-family: Poppins, sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .ch-text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .ch-text>span {
+            white-space: nowrap;
+        }
+
+        .textwrapperdiv {
+            position: relative;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 class="ch-text-wrap" id="ch-text-wrap">
+        <span class="fst-line-ch">Your</span>
+        <span class="textwrapperdiv" data-text-change>
+            <span class="ch-text">fulfillment</span>
+            <span class="ch-text">warehousing</span>
+            <span class="ch-text">delivery</span>
+            <span class="ch-text">customer experience</span>
+        </span>
+        <span class="last-line-ch">just got better.</span>
+    </h2>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+    <script>
+        const textwrap = document.querySelectorAll('[data-text-change]');
+        if (textwrap.length) {
+            textwrap.forEach(wrapper => {
+                const item = [...wrapper.children];
+                const delay_time = 2;
+                item.forEach((wrapitem, i) => {
+                    let wrapdiv = wrapitem.innerHTML;
+                    wrapitem.innerHTML = '';
+                    let wrapperinner = document.createElement('span');
+                    wrapperinner.classList.add('inner');
+                    wrapperinner.append(wrapdiv);
+                    wrapitem.append(wrapperinner);
+                    wrapitem.setAttribute('data-width', wrapitem.getBoundingClientRect().width);
+                    if (i) {
+                        gsap.set(wrapitem, { width: 0 });
+                    }
+                    if (!i) {
+                        gsap.set(item[i], { opacity: 1, width: item[i].getAttribute('data-width') })
+                        gsap.set(wrapper, { width: item[i].getAttribute('data-width'), height: item[i].clientHeight, opacity: 1 })
+                    }
+                });
+                let tl = gsap.timeline({ repeat: -1, ease: "none", defaults: { duration: delay_time / 5, ease: "none" } });
+                tl.set(item, { y: 0, display: "inline-flex" });
+                item.forEach((e, i) => {
+                    if (!i) {
+                        tl.to(e, { opacity: 0, y: -20, delay: delay_time })
+                    }
+                    if (i) {
+                        tl.set(e, { width: 0 }, "<")
+                            .to(e, { opacity: 1, width: e.getAttribute('data-width') }, "<")
+                            .to(e, { y: -20, opacity: 0, delay: delay_time })
+                    }
+                    if (i + 1 < item.length) {
+                        tl.to(wrapper, { width: item[i + 1].getAttribute('data-width') }, "<")
+                    }
+                    tl.set(e, { display: "none" })
+                        .set(e, { width: 0 })
+                    if (i + 1 == item.length) {
+                        tl.set(item[0], { display: "inline-flex", y: 0 })
+                            .to(item[0], { opacity: 1, width: item[0].getAttribute('data-width') })
+                            .to(wrapper, { width: item[0].getAttribute('data-width') }, "<")
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

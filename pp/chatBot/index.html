@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <meta name="keyword" content="">
+   <title>POW ChatBot</title>
+
+   <meta name="msapplication-TileColor" content="#00ff00">
+   <meta name="theme-color" content="#00ff00">
+   <meta name="msapplication-TileImage" content="images/favicon.png">
+   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+   <!--style-->
+   <link rel="stylesheet" href="style.css?ver=5">
+</head>
+
+<body>
+   <div class="botWrapper">
+      <div class="bot_startup" id="botStartup">
+         <div class="list">
+            <div class="chat_list bot">
+               <span class="support_logo"><img src="images/logo.png" alt="" /></span>
+            </div>
+            <div class="chat_list bot">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Hello, welcome to Pow support, how can we help you?</p>
+               </div>
+            </div>
+            <div class="chat_list bot">
+               <span class="btn" id="getStart">Start</span>
+            </div>
+         </div>
+      </div>
+      <div class="bot_container" id="botContainer">
+         <a href="#" class="page_logo"><img src="images/logo.png" alt=""></a>
+
+         <div class="list" id="chatList">
+            <div class="chat_list bot" data-id="0" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>What specifically can we help you with?</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1" data-end="false">
+               <div class="checkbox">
+                  <label>
+                     <input type="radio" name="rad0" value="1.1">
+                     <span>Pow banker EA</span>
+                  </label>
+               </div>
+               <div class="checkbox">
+                  <label>
+                     <input type="radio" name="rad0" value="2.1">
+                     <span>POW Edge startegy</span>
+                  </label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad1" value="1.1.1"><span>I'm stuck on setting
+                        up the EA</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad1" value="1.1.2"><span>My EA isn't placing
+                        trades</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad1" value="1.1.3"><span>I don't know what
+                        settings to run</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad1" value="1.1.4"><span>The MT5 backtester
+                        isnt wokring</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad1" value="1.1.5"><span>Banker EA
+                        descriptions.</span></label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.1" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.1"><span>How do I back test the
+                        ea</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.2"><span>How do I know if my EA
+                        is working?</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.3"><span>How do I load up a
+                        setfile onto the EA</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.4"><span>How do I attach the ea
+                        to the chart?</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.5"><span>How do I attach the EA
+                        to mt5</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.6"><span>How do I download
+                        multiple terminals</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.7"><span>I cant find the google
+                        drive where all the setfile are</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.8"><span>I'm unsure where to
+                        license the EA</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.9"><span>I don’t know where to
+                        download the EA from</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad3" value="1.1.1.10"><span>I can't login to the
+                        pow-verify portal</span></label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.1.1" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Backtesting the Pow banker EA is just like testing any other expert advisor on the MT5 strategy
+                     tester.</p>
+                  <p>Below we have
+                     prepared a video to help you get starting with testing the EA. (link to video)</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.2" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>You can identify the EA is ON and working by looking for the ''BLUE icon'' in the top right hand
+                     corner of the screen.</p>
+                  <p>You will also see the EA info printed at the top left hand corner of the chart.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.3" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>First, download the setfile from the google drive.</p>
+                  <p>Next, once the EA is setup on your MT5 account, drag the EA onto your chart, click LOAD and then
+                     find
+                     the setfile that
+                     you earlier downloaded. select the set file and click LOAD.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.4" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Once you have downloaded the EA onto MT5 you will see the EA on the left hand side on the chart in
+                     the
+                     navigator bar
+                     under ADVISORS, simple drag and drop the EA onto the chart or double click the EA.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.5" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Head over to the <a href="http://pow-verify.com/member">http://pow-verify.com/member</a> portal and
+                     download the EA.</p>
+                  <p>Open your files and find where you saved the EA. Right Click the Pow Banker EA and press COPY.</p>
+                  <p>Head over to MT5, click FILE - OPEN DATA FOLDER - MQL5 - EXPERTS - ADVISORS.</p>
+                  <p>Now right click anywhere on the ADVISORS folder and select PASTE.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.6" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>First, head to your documents folder. Create new folders in line with how many seperate terminals
+                     you
+                     want, for ease,
+                     number them from 1-5 for example...</p>
+                  <p>Next find your MT5 download file.</p>
+                  <p>Double click the download file, when the first MT5 window pops up, click SETTINGS. Then click
+                     browse.
+                     Then select one of
+                     the new folders which you have just created.</p>
+                  <p>then proceed with the dowload.</p>
+                  <p>This will enusre the terminal is saved to a seperate location each time so will work as a seperate
+                     terminal.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.7" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>The setfiles are saved within the google drive, which can be found within the EA channel.</p>
+                  <p>The link below will take you directly to the google drive.</p>
+                  <p><a
+                        href="https://drive.google.com/drive/u/0/folders/1YR0gYY9wWMOH_Ppw0qzMYeapD9F46yUr">https://drive.google.com/drive/u/0/folders/1YR0gYY9wWMOH_Ppw0qzMYeapD9F46yUr</a>
+                  </p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.8" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>The EA is licensed through your very own license portal, The portal can be found within the EA
+                     channel
+                     on discord.</p>
+                  <p>Below is the link for the license portal.</p>
+                  <p><a href="http://pow-verify.com/member">http://pow-verify.com/member</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.9" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>The EA is downloaded from the portal where youll also license the EA to the account your using it
+                     on.
+                     The portal link
+                     can be found within the EA channel on discord.</p>
+                  <p>Below is the link for the license portal.</p>
+                  <p><a href="http://pow-verify.com/member">http://pow-verify.com/member</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.1.10" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Please double check the email and password you are inputting.</p>
+                  <p>The email you need to use is the same email you used for either your monthly or annual
+                     subscription.
+                  </p>
+                  <p>USER = Your email</p>
+                  <p>PASSWORD = POW123!</p>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.2" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Are you using the RSI criteria ?</p>
+               </div>
+               <div class="checkbox_list">
+                  <div class="checkbox"><label><input type="radio" name="rad4" value="1.1.2.1"><span>Yes i
+                           am</span></label>
+                  </div>
+                  <div class="checkbox"><label><input type="radio" name="rad4" value="1.1.2.2"><span>No i'm
+                           not</span></label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.2.1" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Great, Please remember that when using the RSI criteria on the EA, you will not see trades open up
+                     straight away. Trades
+                     will only place when the RSI criteria is met.</p>
+                  <p>To see the RSI please open up a second chart, change the timeframe of the chart to what ever the
+                     RSI is using on your
+                     settings, add the RSI indicator and configure the settings to suit what your using on your
+                     settings.</p>
+                  <p>You will now be able to see when the EA should start a sequence based on when the RSI levels are
+                     hit.</p>
+               </div>
+               <div class="checkbox_list">
+                  <div class="checkbox"><label><input type="radio" name="rad5" value="1.1.2.1.1"><span>Ive checked this
+                           and its still not placing trades.</span></label></div>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.2.1.1" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Please go through the following steps to check all the below has been done.</p>
+                  <ul>
+                     <li>Are you successfully logged into your trading account with the password (NOT the investor
+                        password)</li>
+                     <li>Have you enabled algo trading?</li>
+                     <li>Has DLL imports been ticked in the EA settings?</li>
+                     <li>Make sure your using an MT5 account.</li>
+                     <li>Have you licensed the account number on the pow-verify portal?</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.2.2" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Please go through the following steps to check all the below has been done.</p>
+                  <ul>
+                     <li>Are you successfully logged into your trading account with the password (NOT the investor
+                        password)</li>
+                     <li>Have you enabled algo trading?</li>
+                     <li>Has DLL imports been ticked in the EA settings?</li>
+                     <li>Make sure your using an MT5 account.</li>
+                     <li>Have you licensed the account number on the pow-verify portal?</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="1.1.3" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>When identifying what's settings to run we recommend you setup a few demo accounts and run some set
+                     files, This will
+                     help you identify what approach you most prefer to suit your trading style. This isn't so you can
+                     test the
+                     ''profitability'', this is to simply get you to identify what works best for you.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.4" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To use the strategy tester you must do/have all the below for it to work.</p>
+                  <ul>
+                     <li>Must be on the official mt5 terminal, (downloaded from the mt5 website)</li>
+                     <li>The mt5 terminal must be the most up to date version.</li>
+                     <li>You must allow DLL imports - click tools - options - expert advisors - then tick the check box
+                        on allow DLL imports.</li>
+                  </ul>
+                  <p>To see the version of your mt5 terminal, go to ''help'' and then click ''about''</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="1.1.5" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>We've created an interactive webpage with all the banker ea inputs on. this will tell you a brief
+                     description of input,
+                     what it does and why you would use it.</p>
+                  <p>Please visit the website below to check it out.</p>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="2.1" data-end="false">
+               <div class="checkbox"><label><input type="radio" name="rad2" value="2.1.1"><span>POW
+                        EDGE</span></label></div>
+               <div class="checkbox"><label><input type="radio" name="rad2" value="2.1.2"><span>POW EDGE
+                        REVERSAL</span></label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="2.1.1" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad6" value="2.1.1.1"><span>Getting
+                        setup</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad6" value="2.1.1.2"><span>Setting up
+                        Alerts</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad6" value="2.1.1.3"><span>creating
+                        templates</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad6" value="2.1.1.4"><span>Automating pow
+                        edge</span></label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="radio" name="rad6" value="2.1.1.5"><span>strategy
+                        tester</span></label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="2.1.1.1" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To get setup, please follow the link below and watch the video. This will explain from start to
+                     finish on what you need
+                     to do to setup the Pow Edge strategy on your trading view chart.<br><a
+                        href="https://vimeo.com/504774538/dbb41123a6"
+                        target="_blank">https://vimeo.com/504774538/dbb41123a6</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.1.2" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To create alerts, please follow the link below and watch the video. This will explain from start to
+                     finish on what you
+                     need to do to create alerts on the pairs you want to trade.<br><a
+                        href="https://vimeo.com/504774878/f09c2f0335"
+                        target="_blank">https://vimeo.com/504774878/f09c2f0335</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.1.3" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To create a template, please follow the link below and watch the video. This will explain from
+                     start to finish on what
+                     you need to do to create a template.<br><a href="https://vimeo.com/504774949/2dfc0eb434"
+                        target="_blank">https://vimeo.com/504774949/2dfc0eb434</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.1.4" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Using a third party programme, all trades within the EDGE Strategy can be automated. So, every time
+                     a Strategy Alert
+                     pings, it will automatically open the trade for you, without you having to enter it yourself.</p>
+                  <p>Mt4 or 5 is fine.<br> <a href="https://tradingview.to" target="_blank">https://tradingview.to</a>
+                  </p>
+                  <p>They have install videos and guides on their website, so please give them a watch.</p>
+                  <p>One licence per account and the Strategy Alert text you'll need to use is shown below. (Also
+                     Hedging off - to ensure a
+                     trade will close on a reverse signal).</p>
+                  <code>{{strategy.market_position}} {{ticker}} q=0.3% sl={{plot_3}} tp={{plot_6}}<br><br>Q=percentage risk</code>
+                  <p>Add a + after ticker if your symbols are GBPUSD+ for example - or whatever may follow them
+                     depending on your broker</p>
+                  <p>On the EA itself remove the 500 pipettes SL and TP for the printed SL and TP to work - and ensure
+                     all pairs you're
+                     trading are in your 'Market Watch' symbol area.</p>
+                  <p>Automating the strategy can really help when you're busy or sleeping!</p>
+                  <p>It also helps with your trading psychology to stay disciplined.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.1.5" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To use the strategy tester, please watch the video below, this will help you understand how to test
+                     with the strategy
+                     tester.<br><a href="https://vimeo.com/504775019/8c87b43df6"
+                        target="_blank">https://vimeo.com/504775019/8c87b43df6</a></p>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="2.1.2" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad7" value="2.1.2.1"><span>Setting up
+                        Alerts</span></label>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.2" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad7" value="2.1.2.2"><span>creating
+                        templates</span></label>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.2" data-end="false">
+               <div class="checkbox">
+                  <label><input type="radio" name="rad7" value="2.1.2.3"><span>Automating pow
+                        edge</span></label>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="2.1.2.1" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To create alerts, please follow the link below and watch the video. This will explain from start to
+                     finish on what you
+                     need to do to create alerts on the pairs you want to trade.<br><a
+                        href="https://vimeo.com/504774878/f09c2f0335"
+                        target="_blank">https://vimeo.com/504774878/f09c2f0335</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.2.2" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>To create a template, please follow the link below and watch the video. This will explain from
+                     start to finish on what
+                     you need to do to create a template.<br><a href="https://vimeo.com/504774949/2dfc0eb434"
+                        target="_blank">https://vimeo.com/504774949/2dfc0eb434</a></p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="2.1.2.3" data-end="true">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Using a third party programme, all trades within the EDGE Strategy can be automated. So, every time
+                     a Strategy Alert
+                     pings, it will automatically open the trade for you, without you having to enter it yourself.</p>
+                  <p>Mt4 or 5 is fine.<br> <a href="https://tradingview.to" target="_blank">https://tradingview.to</a>
+                  </p>
+                  <p>They have install videos and guides on their website, so please give them a watch.</p>
+                  <p>One licence per account and the Strategy Alert text you'll need to use is shown below. (Also
+                     Hedging off - to ensure a
+                     trade will close on a reverse signal).</p>
+                  <code>{{strategy.market_position}} {{ticker}} q=0.3% sl={{plot_3}} tp={{plot_6}}<br><br>Q=percentage risk</code>
+                  <p>Add a + after ticker if your symbols are GBPUSD+ for example - or whatever may follow them
+                     depending on your broker</p>
+                  <p>On the EA itself remove the 500 pipettes SL and TP for the printed SL and TP to work - and ensure
+                     all pairs you're
+                     trading are in your 'Market Watch' symbol area.</p>
+                  <p>Automating the strategy can really help when you're busy or sleeping!</p>
+                  <p>It also helps with your trading psychology to stay disciplined.</p>
+               </div>
+            </div>
+
+
+            <div class="chat_list bot" data-id="thankyou1" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Did this answer your question</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="thankyou2" data-end="false">
+               <div class="checkbox_list">
+                  <div class="checkbox">
+                     <label><input type="radio" name="rad8" value="end1"><span>Yes! thank you</span></label>
+                  </div>
+                  <div class="checkbox">
+                     <label><input type="radio" name="rad8" value="restart"><span>No, go back</span></label>
+                  </div>
+                  <div class="checkbox">
+                     <label><input type="radio" name="rad8" value="end3"><span>I need more help!</span></label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="chat_list bot" data-id="end1" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Great! Glad to help! <br>Thank you for using the Pow support bot.</p>
+               </div>
+            </div>
+            <div class="chat_list bot" data-id="end3" data-end="false">
+               <div class="chat_list_inner">
+                  <figure><img src="images/bot.png" alt=""></figure>
+                  <p>Not a problem! <br>Please raise a support ticket in the discord channel and we will help you as
+                     soon as possible.</p>
+               </div>
+            </div>
+         </div>
+
+         <div class="user_input_wrapper">
+            <div class="user_input_inner">
+               <input type="text" placeholder="">
+               <button>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.49 14.49">
+                     <path
+                        d="M5.29,11.16,7.79,7a.2.2,0,0,0-.07-.28.23.23,0,0,0-.2,0L3.32,9.22a.19.19,0,0,1-.24,0L.29,6.39A1,1,0,0,1,.29,5a1.16,1.16,0,0,1,.36-.23L13.14.06a1,1,0,0,1,1.29.59,1.05,1.05,0,0,1,0,.7L9.75,13.84a1,1,0,0,1-1.29.58,1,1,0,0,1-.35-.23L5.32,11.41A.21.21,0,0,1,5.29,11.16Z" />
+                  </svg>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="js/custom.js?ver=5"></script>
+
+</body>
+
+</html>

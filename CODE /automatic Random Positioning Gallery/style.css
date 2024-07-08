@@ -1,0 +1,86 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+:root {
+  --mulish-font: "Mulish", sans-serif;
+  --bg-color: #fff;
+  --light-black-color: #1c1c1c;
+  --black-color: #000;
+  --text-color: #8c8c8c;
+  --green-color: #6bdd1d;
+}
+
+/* Reset CSSS */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none !important;
+  outline: none !important;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--mulish-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--black-color);
+  font-size: 15px;
+  line-height: 1.4;
+  background-color: var(--bg-color);
+}
+
+.galary_btns {
+  margin: 50px;
+}
+/*--*/
+[random_gallery] {
+  position: relative;
+}
+[random_gallery] ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  opacity: 0;
+  pointer-events: none;
+}
+[random_gallery] li {
+  max-width: 25vw;
+  display: block;
+}
+[random_gallery] li img {
+  width: 100%;
+  max-width: 100%;
+}
+[data-gallery_btn] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: gray;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}

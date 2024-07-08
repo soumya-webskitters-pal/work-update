@@ -1,0 +1,69 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.main {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/background.jpg");
+}
+
+.container {
+    /* display: flex; */
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.canvas {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.tree {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0;
+    opacity: 0;
+}
+
+.soil {
+    width: 22%;
+    opacity: 1;
+    z-index: 5;
+}
+
+.seed {
+    width: 3.5%;
+    margin-bottom: 1%;
+    z-index: 1;
+}
+
+.big_tree {
+    width: 42%;
+    opacity: 1;
+    margin-bottom: 1.1%;
+    z-index: 2;
+    opacity: 1;
+}
+
+.small_tree {
+    width: 10%;
+    margin-bottom: 1.5%;
+    z-index: 1;
+}

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <title>ACE</title>
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!--font file-->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <!--plugins-->
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+  <!--style for page-->
+  <link rel="stylesheet" href="css/common.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+  <!-- Preloader Start -->
+  <div id="main-preloader" class="main-preloader">
+    <div class="main-preloader-inner">
+      <span class="percentage preloader-percentage-text">0%</span>
+      <div class="lodr_anim anim"></div>
+      <div class="lodr_logo">
+        <img src="images/logo2.png" alt="">
+      </div>
+      <div class="preloader-bar-outer">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader end -->
+
+  <nav class="main_nav">
+    <div class="navbar navbar-expand-lg custom_navbar navbar-light" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo1.png" alt="" />
+          <img src="images/logo2.png" alt="" />
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="current_page_item">
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="experience.html">the ace experience</a>
+            </li>
+            <li>
+              <a href="strategies.html">Strategies</a>
+            </li>
+            <li>
+              <!--class for sub nav = "menu-item-has-children"-->
+              <a href="insight.html">insights</a>
+              <!-- <div class="sub-menu">
+                <ul>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                  <li><a href="#">sub link 1</a></li>
+                </ul>
+              </div> -->
+            </li>
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="team.html">Team</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav_btn_sec">
+          <a href="#" class="basic_btn">
+            <!-- <svg height="40px" viewBox="0 0 469 469.33333" width="40px" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m233.765625 0c-122.410156 0-222.804687 93.738281-233.597656 213.332031h190.933593v-64c0-8.617187 5.203126-16.402343 13.160157-19.710937 7.980469-3.304688 17.152343-1.472656 23.253906 4.628906l85.332031 85.335938c8.34375 8.339843 8.34375 21.820312 0 30.164062l-85.332031 85.332031c-6.101563 6.101563-15.273437 7.9375-23.253906 4.628907-7.957031-3.304688-13.160157-11.09375-13.160157-19.710938v-64h-190.933593c10.792969 119.59375 111.1875 213.332031 233.597656 213.332031 129.601563 0 234.667969-105.066406 234.667969-234.664062 0-129.601563-105.066406-234.667969-234.667969-234.667969zm0 0" />
+            </svg> -->
+            <span>Login</span>
+          </a>
+          <a href="#" class="alt_basic_btn">
+            <!-- <svg version="1.1" height="40px" width="40px" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999"
+              style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+              <path d="M438.09,273.32h-39.596c4.036,11.05,6.241,22.975,6.241,35.404v149.65c0,5.182-0.902,10.156-2.543,14.782h65.461
+                    			c24.453,0,44.346-19.894,44.346-44.346v-81.581C512,306.476,478.844,273.32,438.09,273.32z" />
+
+              <path d="M107.265,308.725c0-12.43,2.205-24.354,6.241-35.404H73.91c-40.754,0-73.91,33.156-73.91,73.91v81.581
+                    			c0,24.452,19.893,44.346,44.346,44.346h65.462c-1.641-4.628-2.543-9.601-2.543-14.783V308.725z" />
+
+              <path d="M301.261,234.815h-90.522c-40.754,0-73.91,33.156-73.91,73.91v149.65c0,8.163,6.618,14.782,14.782,14.782h208.778
+                    			c8.164,0,14.782-6.618,14.782-14.782v-149.65C375.171,267.971,342.015,234.815,301.261,234.815z" />
+
+              <path d="M256,38.84c-49.012,0-88.886,39.874-88.886,88.887c0,33.245,18.349,62.28,45.447,77.524
+                    			c12.853,7.23,27.671,11.362,43.439,11.362c15.768,0,30.586-4.132,43.439-11.362c27.099-15.244,45.447-44.28,45.447-77.524
+                    			C344.886,78.715,305.012,38.84,256,38.84z" />
+
+              <path d="M99.918,121.689c-36.655,0-66.475,29.82-66.475,66.475c0,36.655,29.82,66.475,66.475,66.475
+                    			c9.298,0,18.152-1.926,26.195-5.388c13.906-5.987,25.372-16.585,32.467-29.86c4.98-9.317,7.813-19.946,7.813-31.227
+                    			C166.393,151.51,136.573,121.689,99.918,121.689z" />
+
+              <path d="M412.082,121.689c-36.655,0-66.475,29.82-66.475,66.475c0,11.282,2.833,21.911,7.813,31.227
+                    			c7.095,13.276,18.561,23.874,32.467,29.86c8.043,3.462,16.897,5.388,26.195,5.388c36.655,0,66.475-29.82,66.475-66.475
+                    			C478.557,151.509,448.737,121.689,412.082,121.689z" />
+            </svg> -->
+            <span>Join now</span>
+          </a>
+        </div>
+
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner home_banner overflow" style="background-image:url(images/home_banner_bg.jpg)">
+    <div class="banner_bg parallax_bg" style="background-image:url(images/home_banner.png)"></div>
+    <div class="top_bnr_section">
+      <div class="banner_inner hero_inner">
+        <div class="banner_txt_slider txt_slider w-100">
+          <div class="text_slider_item">
+            <div class="container hero_content text-center">
+              <div class="animated_text">
+                <div class="animated_text_block h1">
+                  <span class="flipDown">Meet</span>
+                  <span class="slideLeft"><i>the fintech</i></span>
+                </div>
+                <div class="animated_text_block h3">
+                  <span class="slideUp"><sup>company</sup></span>
+                  <span class="slideRight">modernizing</span>
+                </div>
+                <div class="animated_text_block h1">
+                  <span class="flipUp"><i>the hedge fund</i></span>
+                </div>
+                <div class="animated_text_block h2">
+                  <span class="slideRight">industry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text_slider_item">
+            <div class="container hero_content text-center">
+              <div class="animated_text">
+                <div class="animated_text_block h3">
+                  <span class="slideDown">Digital asset</span>
+                </div>
+                <div class="animated_text_block h1">
+                  <span class="slideLeft"><i>management</i></span>
+                </div>
+                <div class="animated_text_block h2">
+                  <span class="slideUp"><sup>and</sup></span>
+                  <span class="slideRight">financial advice</span>
+                </div>
+                <div class="animated_text_block h3">
+                  <span class="flipUp">at your</span>
+                  <span class="slideDown"><i>fingertips</i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text_slider_item">
+            <div class="container hero_content text-center">
+              <div class="animated_text">
+                <div class="animated_text_block h2">
+                  <span class="flipUp">Know</span>
+                  <span class="slideRight"><i>what</i></span>
+                </div>
+                <div class="animated_text_block h1">
+                  <span class="slideLeft"><i>you own</i></span>
+                </div>
+                <div class="animated_text_block h2">
+                  <span class="slideUp">and</span>
+                  <span class="slideRight"><i>why</i></span>
+                </div>
+                <div class="animated_text_block h3">
+                  <span class="slideLeft"><i>own</i></span>
+                  <span class="flipDown">it</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text_slider_item">
+            <div class="container hero_content text-center">
+              <div class="animated_text">
+                <div class="animated_text_block h2">
+                  <span class="slideDown">Wall street</span>
+                </div>
+                <div class="animated_text_block h1">
+                  <span class="slideRight"><i>strategies</i></span>
+                </div>
+                <div class="animated_text_block h2">
+                  <span class="slideUp"><i>with</i></span>
+                  <span class="slideRight">main street</span>
+                </div>
+                <div class="animated_text_block h3">
+                  <span class="flipDown"><i>values</i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text_slider_item">
+            <div class="container hero_content text-center">
+              <div class="animated_text">
+                <div class="animated_text_block h2">
+                  <span class="slideDown">Did we</span>
+                  <span class="slideRight"><i>say</i></span>
+                </div>
+                <div class="animated_text_block h1">
+                  <!-- <span class="slideLeft"><i>strategies</i></span> -->
+                  <span class="slideLeft"><i>we are like a</i></span>
+                </div>
+                <div class="animated_text_block h3">
+                  <!-- <span class="slideRight"><sup>we are like</sup></span> -->
+                  <!-- <span class="slideUp">a</span> -->
+                  <span class="slideRight"><i>hedge fund?</i></span>
+                </div>
+                <div class="animated_text_block h1">
+                  <span class="flipUp">.... Nevermind</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="coming_soon">
+          <div class="container">
+            <div class="d-flex align-items-center justify-content-center">
+              <a href="team.html" class="flat_btn">Get to know us</a>
+              <a href="contact.html" class="flat_btn">Reach out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btm_bnr_section SecView">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 offset-lg-2 offset-md-1">
+            <div class="big_para fadeIn white_color top_topics text-center">
+              <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
+                consequat ipsum,
+                nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi
+                accumsan ipsum. nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
+                mauris. Morbi
+                accumsan ipsum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mob_container">
+        <div class="mobile_slider d-flex flex-wrap align-items-center justify-content-center">
+          <div class="mobile_item"><img src="images/mob1.png" alt="" /></div>
+          <div class="mobile_item"><img src="images/mob2.png" alt="" /></div>
+          <div class="mobile_item"><img src="images/mob3.png" alt="" /></div>
+          <div class="mobile_item"><img src="images/mob4.png" alt="" /></div>
+        </div>
+      </div>
+      <div class="bnr_btm_svg">
+        <!-- <img src="images/banner_shape.svg" alt=""> -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 801 136">
+          <path d="M0,77S127,0,409,0,801,77,801,77v59H0Z" />
+        </svg>
+      </div>
+      <div class="parallax_bg btm_banner_bg" style="background-image:url(images/bnr_earth.png)" data-pos="z"></div>
+    </div>
+  </div>
+
+  <section class="section ace_capital_sec SecView pb-0">
+    <div class="anim_bg gear1">
+      <img src="images/gear1_cap.svg" alt="">
+    </div>
+    <div class="container">
+      <header class="header text-center lt_blk slideDown">
+        <h2>ACE Capital co is like a hedge<br>
+          fund but different……</h2>
+      </header>
+
+      <div class="grid_blk_sec grid_blk_slide each_scroll cst_circle_half">
+        <div class="col_cst_grid_item">
+          <div class="col_cst_inner sl_eq">
+            <figure class="anim_roll">
+              <img src="images/security.svg" alt="">
+              <svg class="anim_rotate pie_chart" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 426 426" data-value="75">
+                <defs>
+                  <linearGradient id="linear-gradienta" y1="213" x2="426" y2="213" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#b3862a" />
+                    <stop offset="0.98" stop-color="#ecdea0" />
+                  </linearGradient>
+                </defs>
+                <circle class="circle_rotate_bk" cx="213" cy="213" r="205.5" />
+                <circle stroke="url(#linear-gradienta)" class="circle_rotate pie" cx="213" cy="213" r="205.5" />
+              </svg>
+            </figure>
+            <p>You money is never locked up</p>
+          </div>
+        </div>
+        <div class="col_cst_grid_item">
+          <div class="col_cst_inner sl_eq">
+            <figure class="anim_roll">
+              <img src="images/percentage.svg" alt="">
+              <svg class="anim_rotate pie_chart" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 426 426" data-value="50">
+                <defs>
+                  <linearGradient id="linear-gradients" y1="213" x2="426" y2="213" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#b3862a" />
+                    <stop offset="0.98" stop-color="#ecdea0" />
+                  </linearGradient>
+                </defs>
+                <circle class="circle_rotate_bk" cx="213" cy="213" r="205.5" />
+                <circle stroke="url(#linear-gradients)" class="circle_rotate pie" cx="213" cy="213" r="205.5" />
+              </svg>
+            </figure>
+            <p>You never pay a percentage of trading profits</p>
+          </div>
+        </div>
+        <div class="col_cst_grid_item">
+          <div class="col_cst_inner sl_eq">
+            <figure class="anim_roll">
+              <img src="images/available.svg" alt="">
+              <svg class="anim_rotate pie_chart" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 426 426" data-value="25">
+                <defs>
+                  <linearGradient id="linear-gradientd" y1="213" x2="426" y2="213" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#b3862a" />
+                    <stop offset="0.98" stop-color="#ecdea0" />
+                  </linearGradient>
+                </defs>
+                <circle class="circle_rotate_bk" cx="213" cy="213" r="205.5" />
+                <circle stroke="url(#linear-gradientd)" class="circle_rotate pie" cx="213" cy="213" r="205.5" />
+              </svg>
+            </figure>
+            <p>Available to anyone</p>
+          </div>
+        </div>
+        <div class="col_cst_grid_item">
+          <div class="col_cst_inner sl_eq">
+            <figure class="anim_roll">
+              <img src="images/transparent.svg" alt="">
+              <svg class="anim_rotate pie_chart" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 426 426" data-value="0">
+                <defs>
+                  <linearGradient id="linear-gradientf" y1="213" x2="426" y2="213" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#b3862a" />
+                    <stop offset="0.98" stop-color="#ecdea0" />
+                  </linearGradient>
+                </defs>
+                <circle class="circle_rotate_bk" cx="213" cy="213" r="205.5" />
+                <circle stroke="url(#linear-gradientf)" class="circle_rotate pie" cx="213" cy="213" r="205.5" />
+              </svg>
+            </figure>
+            <p>Radically transparent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec_overlay overflow pb-0">
+      <div class="bridge_box">
+        <div class="bridge_ground">
+          <img class="bridge_surface" src="images/bridge_surface.svg" alt="" />
+          <img class="bridge_water" src="images/water_wave.svg" alt="" />
+          <svg class="bridge" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 730 220">
+            <defs>
+              <style>
+                .road {
+                  stroke-width: 5.83px;
+                  stroke: url(#br_linear-gradient2);
+                  fill: none;
+                }
+
+                .pillar,
+                .pillar_bottom {
+                  stroke-width: 0;
+                  fill: #b3862a
+                }
+
+                .top_wave {
+                  stroke-width: 2px;
+                  stroke: url(#br_linear-gradient2);
+                  fill: none;
+                }
+
+                .sub_pillar path {
+                  stroke-width: 0.85px;
+                  stroke: url(#br_linear-gradient);
+                }
+              </style>
+              <linearGradient id="br_linear-gradient" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#b3862a" />
+                <stop offset="0.98" stop-color="#ecdea0" />
+              </linearGradient>
+              <linearGradient id="br_linear-gradient2" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#b3862a" />
+                <stop offset="0.5" stop-color="#ecdea0" />
+                <stop offset="1" stop-color="#be9741" />
+              </linearGradient>
+            </defs>
+            <g class="left_sub_pillar sub_pillar">
+              <path d="M210.77,7V46.76" />
+              <path d="M199.17,15.07V48" />
+              <path d="M187.57,22.2V48.62" />
+              <path d="M176,28.14V46.76" />
+              <path d="M164.38,33V47.07" />
+              <path d="M152.78,37.18V48.31" />
+              <path d="M141.18,40.28v7.41" />
+              <path d="M129.58,42.79v5.46" />
+              <path d="M118.16,44.58v3.67" />
+              <path d="M210.77,7V46.76" />
+            </g>
+            <g class="right_sub_pillar sub_pillar">
+              <path d="M521.41,8V46.8" />
+              <path d="M534,16.44V48" />
+              <path d="M546.61,23.63v25" />
+              <path d="M559.21,29.54V46.8" />
+              <path d="M571.8,34.35V47.1" />
+              <path d="M584.4,38.17V48.31" />
+              <path d="M597,41.18v6.53" />
+              <path d="M609.6,43.55v4.7" />
+              <path d="M622,45.09v3.16" />
+            </g>
+            <g class="center_sub_pillar sub_pillar">
+              <path d="M489.25,12V48.41" />
+              <path d="M476.91,17.31V49" />
+              <path d="M464.57,21.79V47.24" />
+              <path d="M452.22,25.64V47.53" />
+              <path d="M439.88,29.31v19.4" />
+              <path d="M427.54,32.25V48.12" />
+              <path d="M415.19,34.63v14" />
+              <path d="M403,36.31V48.65" />
+              <path d="M501.6,6V47.24" />
+              <path d="M229.74,6V47.24" />
+              <path d="M242.09,12V48.41" />
+              <path d="M254.43,17.31V49" />
+              <path d="M266.77,21.79V47.24" />
+              <path d="M279.12,25.64V47.53" />
+              <path d="M291.46,29.31v19.4" />
+              <path d="M303.8,32.25V48.12" />
+              <path d="M316.15,34.63v14" />
+              <path d="M328.3,36.31V48.65" />
+              <path d="M229.74,6V47.24" />
+              <path d="M340.76,37.84V48.65" />
+              <path d="M353.21,38.56V48.65" />
+              <path d="M365.67,38.84v9.81" />
+              <path d="M378.13,38.56V48.65" />
+              <path d="M390.58,37.84V48.65" />
+              <path d="M501.6,6V47.24" />
+            </g>
+            <rect class="pillar_bottom" x="209.57" y="72.28" width="19.3" height="8.5" />
+            <rect class="pillar_bottom" x="502.1" y="72.25" width="19.3" height="8.5" />
+            <path class="top_wave"
+              d="M86.78,47C155,43.94,189.07,22.87,220.16.24c0,0,61.46,39.26,145.65,39.26S511.47.24,511.47.24c31.51,24,66.42,46.1,138,46.77" />
+            <path class="road" d="M79,47.79H652.13" />
+            <path class="pillar2 pillar" d="M218,1h5l.45,71.74h-8Z" />
+            <path class="pillar1 pillar" d="M514,1h-5l-1.33,71.74h8Z" />
+          </svg>
+        </div>
+
+        <div class="bridge_captions">
+          <div class="container">
+            <div class="row each_scroll" data-effect="slideFade">
+              <div class="bridge_data bridge_data_center col-md-4 order-md-2">
+                <h4>
+                  <i><img src="images/ace_round.svg" alt=""></i>
+                  <span>ACE Capital</span>
+                </h4>
+                <div class="bridge_list bridge_list2">
+                  <div>Available to anyone
+                  </div>
+                  <div>100% divquid
+                  </div>
+                  <div>Affordable
+                  </div>
+                  <div>Radical Transparency
+                  </div>
+                  <div>Wall street strategies with main street values
+                  </div>
+                </div>
+              </div>
+
+              <div class="bridge_data bridge_data_left col-md-4 col-sm-6 order-md-1">
+                <h4>
+                  <i><img src="images/close_round.svg" alt=""></i>
+                  <span>Passive investing</span>
+                </h4>
+                <div class="bridge_list bridge_list1">
+                  <div>Lack of performance
+                  </div>
+                  <div>Subject to total market risk
+                  </div>
+                  <div>Pre determined investments with little to no variance
+                  </div>
+                  <div>You'll never beat the market because you are the market
+                  </div>
+                </div>
+              </div>
+
+              <div class="bridge_data bridge_data_right col-md-4 col-sm-6 order-md-3">
+                <h4>
+                  <i><img src="images/close_round.svg" alt=""></i>
+                  <span>Hedge Funds</span>
+                </h4>
+                <div class="bridge_list bridge_list3">
+                  <div>Private and exclusive
+                  </div>
+                  <div>Ildivquid
+                  </div>
+                  <div>Expensive fees
+                  </div>
+                  <div>Opaque
+                  </div>
+                  <div>"Quote The number-one job of the hedge-fund manager is not to make sure that you can retire with
+                    a smile on your face - it's for him to retire with a smile on his face" <strong>- Marc
+                      Cuban</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container">
+      <div class="btm_ace_capital">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="page_list unchk_list each_scroll" data-effect="slideFade">
+                <li>Hedge Funds
+                </li>
+                <li>Private and exclusive
+                </li>
+                <li>Illiquid
+                </li>
+                <li>Expensive/ excessive fees
+                </li>
+                <li>Opaque/minimal transparency
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="page_list chk_list each_scroll" data-effect="slideFade">
+                <li>ACE Capital
+                </li>
+                <li>Available to anyone (inclusive)
+                </li>
+                <li>100% Liquidity
+                </li>
+                <li>Affordable
+                </li>
+                <li>Radically Transparent
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <div class="change_bg_sec">
+    <div class="section invest_sec SecView bgView" data-color="#">
+      <div class="anim_bg gear">
+        <img src="images/gear2.svg" alt="">
+      </div>
+      <div class="container invest_all_content">
+        <div class="row">
+          <div class="col-md-6">
+            <header class="header slideDown">
+              <h2>investing with “good advisor” can grow your money 3% per
+                year and how that affects your long term nest egg</h2>
+            </header>
+          </div>
+          <div class="col-md-6">
+            <div class="invest_anim_blk slideDown">
+              <img src="images/mobile_gear.svg" alt="">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="invest_graph_blk">
+              <div class="invest_graph_txt row">
+                <div class="col-12 slideUp">What does 3% look like over time?</div>
+                <div class="col-6">
+                  <label class="lt_gray">$<span class="animNum_inView" data-cnt="397076"></span></label>
+                  <small class="flipUp">No advisor</small>
+                </div>
+                <div class="col-6">
+                  <label class="thm_yellow">$<span class="animNum_inView" data-cnt="898820"></span></label>
+                  <small class="flipUp">With advisor</small>
+                </div>
+                <div class="col-12">
+                  <a href="strategies.html" class="text_btn">Learn More About Our Strateges</a>
+                </div>
+              </div>
+              <div class="invest_graph">
+                <svg class="graph_anim each_scroll" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1111 509">
+                  <path class="grph-1"
+                    d="M404.92,780.17s56.93-22.52,92.46-30.84,74.52-12.2,93.48-9.49,71.14-11.52,81.3-19.65S732.45,706.63,746,706s50.81-23.72,73.84-56.93,52.84-4.74,65.71-1.35,29.81,11.52,89.42-70.49,156.49-35.25,193.75-10.85S1277.11,485,1302.85,436.88s44.71-52.19,96.2-48.12,61.65-84,116.52-84.72V812.36h-1111Z"
+                    transform="translate(-404.57 -304.04)" />
+                  <path class="grph-2"
+                    d="M404.57,782.23s91-9.2,130.34-17.48,59.65,8.28,106.89-.69,46.9-22.42,117.93-15.18c0,0,23.45,0,53.1-29.66s64.48-9.31,81.38-3.45S1009,642.31,1081.1,658.52s127.58,79.67,222.75-8.28,63.79,33.46,211.72-50.35V813h-1111Z"
+                    transform="translate(-404.57 -304.04)" />
+                </svg>
+                <div class="graph_label d-flex justify-content-between">
+                  <span class="flipUp">Year 1</span>
+                  <span class="flipUp">Growth of $100,000</span>
+                  <span class="flipUp">Year 30</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section interest_sec SecView bgView" data-color="#">
+      <!-- <div class="parallax_bg" style="background-image:url(images/interest_bg.png)"></div> -->
+      <div class="interest_sec_bg slideDown" style="background-image: url(images/fire.png);"></div>
+
+      <div class="container">
+        <div class="interest_text">
+          <blockquote class="blockquote slideDown">
+            <p>“Compounding interest is the 8th wonder in the world and the second greatest invention behind fire”
+            </p>
+            <footer class="blockquote-footer slideLeft">Albert Einstein</footer>
+          </blockquote>
+
+          <div class="formula each_scroll" data-effect="slideFade">
+            <h2>FA=PV*(1+i)<sup>n</sup></h2>
+            <label>pv - Present Value of the investment</label>
+            <label>i - Interest rate earned per year</label>
+            <label>n - Number of years</label>
+          </div>
+        </div>
+        <div class="interest_img slideDown">
+          <img src="images/einstein.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="section passive_sec SecView bgView" data-color="#">
+      <!-- <div class="parallax_bg" data-pos="z" style="background-image:url(images/cir.png)"></div> -->
+      <div class="parallax_bg network_anim" data-pos="z">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 517.97 538.95">
+          <g id="network2">
+            <g id="lines2">
+              <line class="net_line" x1="225.47" y1="139.5" x2="0.47" y2="261.5" />
+              <line class="net_line" x1="0.47" y1="261.5" x2="140.47" y2="449.5" />
+              <line class="net_line" x1="140.47" y1="449.5" x2="333.47" y2="538.5" />
+              <line class="net_line" x1="333.47" y1="538.5" x2="499.47" y2="442.5" />
+              <line class="net_line" x1="499.47" y1="442.5" x2="225.47" y2="139.5" />
+              <line class="net_line" x1="225.47" y1="139.5" x2="404.47" y2="41.5" />
+              <line class="net_line" x1="404.47" y1="41.5" x2="333.47" y2="538.5" />
+              <line class="net_line" x1="333.47" y1="538.5" x2="225.47" y2="139.5" />
+              <line class="net_line" x1="225.47" y1="139.5" x2="517.47" y2="229.5" />
+              <line class="net_line" x1="517.47" y1="229.5" x2="333.47" y2="538.5" />
+              <line class="net_line" x1="225.47" y1="139.5" x2="98.47" y2="0.5" />
+              <line class="net_line" x1="98.47" y1="0.5" x2="0.47" y2="261.5" />
+              <line class="net_line" x1="404.47" y1="41.5" x2="517.47" y2="229.5" />
+              <line class="net_line" x1="517.47" y1="229.5" x2="499.47" y2="442.5" />
+              <line class="net_line" x1="404.47" y1="41.5" x2="98.47" y2="0.5" />
+              <line class="net_line" x1="98.47" y1="0.5" x2="140.47" y2="449.5" />
+              <line class="net_line" x1="140.47" y1="449.5" x2="225.47" y2="139.5" />
+              <line class="net_line" x1="0.47" y1="261.5" x2="517.47" y2="229.5" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="passive_text">
+              <header class="header slideDown">
+                <h2>Passive passive passive?<br> We are Democratizing<br> managed money.</h2>
+                <p>Passive investing….. Bubble or Brilliance?
+                  Depends WHO & WHEN you asked the question.
+                  “ACE is disrupting passive investing”</p>
+              </header>
+
+              <div class="pi_chart d-flex align-items-center">
+                <div class="lt_blk">
+                  <svg width="100" height="100" class="pie_chart" viewBox="0 0 100 100" data-value="45">
+                    <circle r="49" cx="50" cy="50" class="pie_back" fill="url(#grad1)" />
+                    <circle r="25" cx="50" cy="50" class="pie pie_value" />
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#563c28;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#8f795a;stop-opacity:1" />
+                    </linearGradient>
+                  </svg>
+                </div>
+                <div class="rt_blk slideDown">
+                  <h3><span class="animNum_inView" data-cnt="45">0</span><span>%</span></h3>
+                  <p>of U.S. stock-based assets are passively managed as of March 2019.</p>
+                  <a href="insight.html#targetInsight" class="text_btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="passive_img slideDown">
+          <img src="images/coin.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="section become_client_sec SecView bgView" data-color="#">
+      <!-- <div class="parallax_bg" style="background-image:url(images/home_banner_bg.png)"></div> -->
+
+      <div class="container">
+        <div class="hero_content text-center">
+          <div class="hero_content_img">
+            <div class="img_particle particleMove">
+              <img src="images/banner_prt.png" alt="" />
+            </div>
+            <div class="img_particleNet network_anim">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364.25 263.75">
+                <g id="network">
+                  <g id="lines">
+                    <line class="net_line" x1="28" y1="142" x2="76.25" y2="60.25" />
+                    <line class="net_line" x1="108.5" y1="109.75" x2="49.62" y2="156.88" />
+                    <line class="net_line" x1="108.5" y1="109.75" x2="76.25" y2="60.25" />
+                    <line class="net_line" x1="129.5" y1="85" x2="108.5" y2="109.75" />
+                    <line class="net_line" x1="176.72" y1="70.5" x2="129.5" y2="85" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="176.72" y2="70.5" />
+                    <line class="net_line" x1="137.25" y1="127.5" x2="113.78" y2="141" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="137.25" y2="127.5" />
+                    <line class="net_line" x1="176.72" y1="70.5" x2="137.25" y2="127.5" />
+                    <line class="net_line" x1="129.5" y1="85" x2="137.25" y2="127.5" />
+                    <line class="net_line" x1="108.5" y1="109.75" x2="137.25" y2="127.5" />
+                    <line class="net_line" x1="113.78" y1="141" x2="108.5" y2="109.75" />
+                    <line class="net_line" x1="82.75" y1="172.25" x2="113.78" y2="141" />
+                    <line class="net_line" x1="110.25" y1="202" x2="82.75" y2="172.25" />
+                    <line class="net_line" x1="44.25" y1="209" x2="82.75" y2="172.25" />
+                    <line class="net_line" x1="110.25" y1="202" x2="113.78" y2="141" />
+                    <line class="net_line" x1="176.72" y1="192.13" x2="113.78" y2="141" />
+                    <line class="net_line" x1="49.62" y1="156.88" x2="113.78" y2="141" />
+                    <line class="net_line" x1="137.25" y1="127.5" x2="176.72" y2="192.13" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="176.72" y2="192.13" />
+                    <line class="net_line" x1="49.62" y1="156.88" x2="82.75" y2="172.25" />
+                    <line class="net_line" x1="44.25" y1="209" x2="49.62" y2="156.88" />
+                    <line class="net_line" x1="28" y1="142" x2="49.62" y2="156.88" />
+                    <line class="net_line" x1="76.25" y1="60.25" x2="49.62" y2="156.88" />
+                    <line class="net_line" x1="28" y1="142" x2="1.62" y2="158.88" />
+                    <line class="net_line" x1="23.75" y1="171.5" x2="1.62" y2="158.88" />
+                    <line class="net_line" x1="49.62" y1="156.88" x2="23.75" y2="171.5" />
+                    <line class="net_line" x1="28" y1="142" x2="23.75" y2="171.5" />
+                    <line class="net_line" x1="27.75" y1="71.5" x2="28" y2="142" />
+                    <line class="net_line" x1="76.25" y1="60.25" x2="27.75" y2="71.5" />
+                    <line class="net_line" x1="23.75" y1="171.5" x2="44.25" y2="209" />
+                    <line class="net_line" x1="110.25" y1="202" x2="17.5" y2="239.25" />
+                    <line class="net_line" x1="44.25" y1="209" x2="17.5" y2="239.25" />
+                    <line class="net_line" x1="44.25" y1="209" x2="66.19" y2="219.7" />
+                    <line class="net_line" x1="82.75" y1="172.25" x2="66.19" y2="219.7" />
+                    <line class="net_line" x1="176.72" y1="192.13" x2="110.25" y2="202" />
+                    <line class="net_line" x1="148.63" y1="246.88" x2="110.25" y2="202" />
+                    <line class="net_line" x1="175.25" y1="220.63" x2="148.63" y2="246.88" />
+                    <line class="net_line" x1="217.12" y1="259.75" x2="175.25" y2="220.63" />
+                    <line class="net_line" x1="175" y1="263.75" x2="175.25" y2="220.63" />
+                    <line class="net_line" x1="217.12" y1="259.75" x2="175" y2="263.75" />
+                    <line class="net_line" x1="218.75" y1="227" x2="217.12" y2="259.75" />
+                    <line class="net_line" x1="175.25" y1="220.63" x2="218.75" y2="227" />
+                    <line class="net_line" x1="176.72" y1="192.13" x2="175.25" y2="220.63" />
+                    <line class="net_line" x1="131.63" y1="227" x2="175.25" y2="220.63" />
+                    <line class="net_line" x1="176.72" y1="192.13" x2="131.63" y2="227" />
+                    <line class="net_line" x1="62.94" y1="255.5" x2="108.63" y2="202.65" />
+                    <line class="net_line" x1="62.94" y1="255.5" x2="148.63" y2="246.88" />
+                    <line class="net_line" x1="117.34" y1="43.53" x2="76.25" y2="60.25" />
+                    <line class="net_line" x1="129.5" y1="85" x2="117.34" y2="43.53" />
+                    <line class="net_line" x1="76.25" y1="60.25" x2="129.5" y2="85" />
+                    <line class="net_line" x1="163" x2="129.5" y2="85" />
+                    <line class="net_line" x1="176.72" y1="70.5" x2="163" />
+                    <line class="net_line" x1="63.19" y1="31.97" x2="117.34" y2="43.53" />
+                    <line class="net_line" x1="76.25" y1="60.25" x2="63.19" y2="31.97" />
+                    <line class="net_line" x1="202.25" y1="8" x2="176.72" y2="70.5" />
+                    <line class="net_line" x1="219" y1="39.25" x2="202.25" y2="8" />
+                    <line class="net_line" x1="176.72" y1="70.5" x2="204.09" y2="62.25" />
+                    <line class="net_line" x1="219" y1="39.25" x2="204.09" y2="62.25" />
+                    <line class="net_line" x1="176.72" y1="70.5" x2="219" y2="39.25" />
+                    <line class="net_line" x1="264.63" y1="88.75" x2="204.09" y2="62.25" />
+                    <line class="net_line" x1="229.75" y1="139.25" x2="264.63" y2="88.75" />
+                    <line class="net_line" x1="203.82" y1="136.75" x2="229.75" y2="139.25" />
+                    <line class="net_line" x1="204.09" y1="62.25" x2="203.82" y2="136.75" />
+                    <line class="net_line" x1="229.75" y1="139.25" x2="204.09" y2="62.25" />
+                    <line class="net_line" x1="260.75" y1="57.25" x2="204.09" y2="62.25" />
+                    <line class="net_line" x1="264.63" y1="88.75" x2="260.75" y2="57.25" />
+                    <line class="net_line" x1="219" y1="39.25" x2="260.75" y2="57.25" />
+                    <line class="net_line" x1="202.25" y1="8" x2="260.75" y2="57.25" />
+                    <line class="net_line" x1="362.75" y1="105.37" x2="311.25" y2="98" />
+                    <line class="net_line" x1="310" y1="32.62" x2="311.25" y2="98" />
+                    <line class="net_line" x1="260.75" y1="57.25" x2="311.25" y2="98" />
+                    <line class="net_line" x1="310" y1="32.62" x2="260.75" y2="57.25" />
+                    <line class="net_line" x1="272" y1="128.25" x2="264.63" y2="87.25" />
+                    <line class="net_line" x1="311.25" y1="98" x2="272" y2="128.25" />
+                    <line class="net_line" x1="264.63" y1="88.75" x2="311.25" y2="98" />
+                    <line class="net_line" x1="364.25" y1="105.37" x2="324.25" y2="117.5" />
+                    <line class="net_line" x1="311.25" y1="98" x2="324.25" y2="117.5" />
+                    <line class="net_line" x1="293.75" y1="159.25" x2="272" y2="128.25" />
+                    <line class="net_line" x1="229.75" y1="139.25" x2="272" y2="128.25" />
+                    <line class="net_line" x1="292.25" y1="159.25" x2="324.25" y2="117.5" />
+                    <line class="net_line" x1="334.87" y1="183.38" x2="321.75" y2="159.25" />
+                    <line class="net_line" x1="324.25" y1="117.5" x2="321.75" y2="159.25" />
+                    <line class="net_line" x1="302.75" y1="181.37" x2="218.75" y2="227" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="259.34" y2="189.5" />
+                    <line class="net_line" x1="292.25" y1="159.25" x2="259.34" y2="189.5" />
+                    <line class="net_line" x1="229.75" y1="139.25" x2="292.25" y2="159.25" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="229.75" y2="139.25" />
+                    <line class="net_line" x1="293.75" y1="159.25" x2="302.75" y2="181.37" />
+                    <line class="net_line" x1="218.75" y1="225.37" x2="259.34" y2="189.5" />
+                    <line class="net_line" x1="266.75" y1="242.19" x2="218.75" y2="225.37" />
+                    <line class="net_line" x1="302.75" y1="181.37" x2="266.75" y2="242.19" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="218.75" y2="227" />
+                    <line class="net_line" x1="302.75" y1="181.37" x2="334.87" y2="183.38" />
+                    <line class="net_line" x1="321.75" y1="159.25" x2="302.75" y2="181.37" />
+                    <line class="net_line" x1="292.25" y1="159.25" x2="216.5" y2="167.75" />
+                    <line class="net_line" x1="259.34" y1="189.5" x2="266.75" y2="242.19" />
+                    <line class="net_line" x1="216.5" y1="167.75" x2="175.25" y2="220.63" />
+                    <line class="net_line" x1="324.25" y1="117.5" x2="272" y2="128.25" />
+                    <line class="net_line" x1="292.25" y1="159.25" x2="321.75" y2="159.25" />
+                  </g>
+                  <g id="dots">
+                    <circle class="net_dot" cx="108.5" cy="109.75" r="5.28" />
+                    <circle class="net_dot" cx="63.19" cy="31.97" r="1.36" />
+                    <circle class="net_dot" cx="292.25" cy="159.25" r="5.28" />
+                    <circle class="net_dot" cx="49.62" cy="156.88" r="3.73" />
+                    <circle class="net_dot" cx="148.63" cy="246.88" r="3.73" />
+                    <circle class="net_dot" cx="117.34" cy="43.53" r="3.22" />
+                    <circle class="net_dot" cx="1.62" cy="158.88" r="1.62" />
+                    <circle class="net_dot" cx="176.72" cy="192.13" r="5.28" />
+                    <circle class="net_dot" cx="362.75" cy="105.37" r="1.5" />
+                    <circle class="net_dot" cx="311.25" cy="98" r="2.25" />
+                    <circle class="net_dot" cx="202.25" cy="8" r="1.84" />
+                    <circle class="net_dot" cx="264.63" cy="88.75" r="5.28" />
+                    <circle class="net_dot" cx="218.75" cy="227" r="1.63" />
+                    <circle class="net_dot" cx="334.87" cy="183.38" r="2" />
+                    <circle class="net_dot" cx="44.25" cy="209" r="1.88" />
+                    <circle class="net_dot" cx="110.25" cy="202" r="1.75" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="img_particleNet particleMove">
+              <img src="images/banner_prtnet.png" alt="" />
+            </div>
+
+            <div class="hero_content_txt each_scroll">
+              <h5>Ready to</h5>
+              <h2>become<br>
+                a client?</h2>
+              <div class="">
+                <a href="#" class="basic_btn ">Join the Ace Experience</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section leverage_sec SecView overflow">
+    <div class="video_container">
+      <div class="vdo-play-btn">
+        <span class="ripple pinkBg"></span>
+        <span class="ripple pinkBg"></span>
+        <span class="ripple pinkBg"></span>
+      </div>
+      <video muted loop class="videoinView" poster="images/video1.jpg">
+        <source src="video/ACE_video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </div>
+
+  <footer class="footer overflow" style="background-image: url(images/footer_bg.jpg);">
+    <canvas id="headerballs"></canvas>
+    <div class="container">
+      <div class="row top_footer align-items-center">
+        <div class="col-sm-6 ft_logo">
+          <a href="index.html">
+            <img src="images/logo2.png" alt="">
+          </a>
+        </div>
+        <div class="col-sm-6 ft_social">
+          <ul class="social_ico d-inline-flex flex-nowrap align-items-center">
+            <li>
+              <a href="#"><img src="images/twitter.svg" alt=""></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/instagram.svg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row footer_content">
+        <div class="col-12 ft_cnt">
+          <h4>Our Disclosure</h4>
+          <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean
+            sollicitudin, lorem quis
+            bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
+            vulputate cursus
+            a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non
+            mauris
+            vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos
+            himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque
+            elit. Sed
+            ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit
+            mauris egestas
+            quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+
+            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean
+            sollicitudin, lorem quis
+            bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
+            vulputate cursus
+            a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non
+            mauris
+            vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos
+            himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque
+            elit. Sed
+            ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit
+            mauris egestas
+            quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+        </div>
+      </div>
+
+      <div class="row btm_footer align-items-center">
+        <div class="col-lg-8 order-lg-2 ft_sitemap">
+          <ul class="sitemap d-inline-flex flex-wrap align-items-center">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="experience.html">The ace experience</a>
+            </li>
+            <li>
+              <a href="strategies.html">Strategies</a>
+            </li>
+            <li>
+              <a href="insight.html">insights</a>
+            </li>
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="team.html">Team</a>
+            </li>
+            <li>
+              <a href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 order-lg-1 ft_copyright">
+          &copy; Copyright 2020 Ace capital
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!--load script - require for all pages-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-1.4.1.min.js"></script>
+
+  <script src="js/gsap.min.js"></script>
+  <script src="js/sPreloader.js"></script>
+
+  <!--load other script as required-->
+  <script src="js/ScrollMagic.min.js"></script>
+  <script src="js/animation.gsap.js"></script>
+  <script src="js/in-view.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/isotope.pkgd.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+
+  <script src="js/custom.js?v=2"></script>
+</body>
+
+</html>

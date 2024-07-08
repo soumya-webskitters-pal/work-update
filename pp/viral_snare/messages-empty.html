@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
+    <!--fav icon-->
+    <link rel="shortcut icon" href="images/fabicon.ico" />
+    <link rel="icon" type="image/png" href="images/fabicon.png" />
+    <!-- text icons -->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        crossorigin="anonymous" />
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css?ver=1" />
+
+    <title>Viral snare</title>
+</head>
+
+<body>
+    <div class="dashboard_header">
+        <div class="fluid_container">
+            <div class="header_row">
+                <div class="hamburger_menu" id="hamburger_menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 20 20" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hamburger_menu_open"><g><path clip-rule="evenodd" d="m3 5c0-.26522.10536-.51957.29289-.70711.18754-.18753.44189-.29289.70711-.29289h12c.2652 0 .5196.10536.7071.29289.1875.18754.2929.44189.2929.70711s-.1054.51957-.2929.70711c-.1875.18753-.4419.29289-.7071.29289h-12c-.26522 0-.51957-.10536-.70711-.29289-.18753-.18754-.29289-.44189-.29289-.70711zm0 5c0-.26522.10536-.51957.29289-.70711.18754-.18753.44189-.29289.70711-.29289h6c.2652 0 .5196.10536.7071.29289.1875.18754.2929.44189.2929.70711 0 .2652-.1054.5196-.2929.7071s-.4419.2929-.7071.2929h-6c-.26522 0-.51957-.1054-.70711-.2929-.18753-.1875-.29289-.4419-.29289-.7071zm0 5c0-.2652.10536-.5196.29289-.7071.18754-.1875.44189-.2929.70711-.2929h12c.2652 0 .5196.1054.7071.2929s.2929.4419.2929.7071-.1054.5196-.2929.7071-.4419.2929-.7071.2929h-12c-.26522 0-.51957-.1054-.70711-.2929-.18753-.1875-.29289-.4419-.29289-.7071z" fill="#000000" fill-rule="evenodd" data-original="#000000" class=""></path></g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 329.26933 329" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hamburger_menu_close"><g><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" fill="#000000" data-original="#000000" class=""></path></g></svg>
+                </div>
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="" />
+                </a>
+
+                <div class="search_panel">
+                    <span class="search_btn m_srch_trigger_btn" id="m_srch_trigger"><img src="images/search.svg"
+                            alt="" /></span>
+                    <div class="search_box_inner earch_box_desktop">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+                <div class="search_box_mobile" id="m_srch_trigger_box">
+                    <div class="search_box_inner">
+                        <input type="text" placeholder="Search Here......" />
+                        <span class="search_btn"><img src="images/search.svg" alt="" /></span>
+                    </div>
+                </div>
+
+                <div class="float_header_right">
+                    <div class="message_panel panel_inline">
+                        <a href="#" class="nof_btn">
+                            <img src="images/msg.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                    </div>
+
+                    <div class="notification_panel panel_inline">
+                        <a href="#" class="nof_btn" id="nof_btn">
+                            <img src="images/notification.svg" alt="" />
+                            <span class="bdg">2</span>
+                        </a>
+                        <div class="notification_box">
+                            <div class="notification_box_inner">
+                                <ul class="notify_list">
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 1523) has been approved.....</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/work.svg" alt="" /></i>
+                                        <p>Your video submission (<a href="#">VSID</a> 356) has been rejected...</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>A bonus of $35 has been applied to your account......</p>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 750) for your
+                                            video.....
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                    <li>
+                                        <i class="nof_ico"><img src="images/rocket.svg" alt="" /></i>
+                                        <p>You have received a new note from (<a href="#">VSID</a> 3241) for your
+                                            ........
+                                        </p>
+                                        <a href="#" class="nof_inline_btn">Reply Now</a>
+                                        <span class="nof_time">9.38 pm</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="nof_all">See All Notification</a>
+                        </div>
+                    </div>
+
+                    <div class="admin_panel panel_inline">
+                        <span>jhon morrison</span>
+                        <span class="nav_avatar">
+                            <a href="#">
+                                <img src="images/avatar.png" alt="">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard_body">
+        <div class="fluid_container">
+            <div class="dashboard_body_inner">
+                <div class="navigation" id="navigation">
+                    <div class="nav_inner">
+                        <ul class="nav_list">
+                            <li>
+                                <a href="dashboard.html">
+                                    <i>
+                                        <img src="images/nav1.png" alt="" />
+                                        <img src="images/nav1_hov.png" alt="" />
+                                    </i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my_video.html">
+                                    <i>
+                                        <img src="images/nav2.png" alt="" />
+                                        <img src="images/nav2_hov.png" alt="" />
+                                    </i>
+                                    <span>My Videos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="earnings.html">
+                                    <i>
+                                        <img src="images/nav3.png" alt="" />
+                                        <img src="images/nav3_hov.png" alt="" />
+                                    </i>
+                                    <span>My Earnings</span>
+                                </a>
+                            </li>
+                            <li class="current-menu-item">
+                                <a href="messages.html">
+                                    <i>
+                                        <img src="images/nav4.png" alt="" />
+                                        <img src="images/nav4_hov.png" alt="" />
+                                    </i>
+                                    <span>My Messages</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notification.html">
+                                    <i>
+                                        <img src="images/nav5.png" alt="" />
+                                        <img src="images/nav5_hov.png" alt="" />
+                                    </i>
+                                    <span>Notifications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="setting.html">
+                                    <i>
+                                        <img src="images/nav6.png" alt="" />
+                                        <img src="images/nav6_hov.png" alt="" />
+                                    </i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i>
+                                        <img src="images/nav7.png" alt="" />
+                                        <img src="images/nav7_hov.png" alt="" />
+                                    </i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard_content dashboard_content_message">
+                    <div class="dashboard_content_inner">
+                        <!-- <div class="top_welcome_box">
+                            <div class="lft_element">
+                                <h4>Hello, We are here to help</h4>
+                                <p>Need some help with your transactions or got a question about your submission? Feel
+                                    free to inquire now!</p>
+                            </div>
+                            <div class="rt_element">
+                                <a href="#" class="btn-outline btn-outline-blue" data-bs-toggle="modal"
+                                    data-bs-target="#inq_modal">New Inquiry?</a>
+                            </div>
+                        </div> -->
+                        <div class="message_no_found">
+                            <p>Need some help with your transactions or got a question about your submission? Feel free to inquire now!</p>
+                                <a href="#" class="btn-outline btn-outline-blue" data-bs-toggle="modal"
+                                    data-bs-target="#inq_modal">Contact us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- message popup -->
+    <div class="modal-box msg_xsm modal fade" id="inq_modal" tabindex="-1" aria-labelledby="inq_modal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="line-header">
+                        <h5><span>New Inquiry?</span></h5>
+                        <button class="cross" data-bs-dismiss="modal" aria-label="Close"><img
+                                src="images/circle-cross.svg" alt=""></button>
+                    </div>
+                    <div class="inq_form_box">
+                        <form>
+                            <div class="input_group">
+                                <input type="text" placeholder="Enter Subject">
+                            </div>
+                            <div class="input_group">
+                                <textarea placeholder="Type the note here.........."></textarea>
+                                <div class="file_attachment">
+                                    <svg width="21" height="21" viewBox="0 0 19 21" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1 1V6.88462C1 7.57826 1.27555 8.24349 1.76603 8.73397C2.25651 9.22445 2.92174 9.5 3.61538 9.5C4.30903 9.5 4.97426 9.22445 5.46474 8.73397C5.95522 8.24349 6.23077 7.57826 6.23077 6.88462V2.96154C6.23077 2.61472 6.09299 2.2821 5.84775 2.03686C5.60251 1.79162 5.2699 1.65385 4.92308 1.65385C4.57626 1.65385 4.24364 1.79162 3.9984 2.03686C3.75316 2.2821 3.61538 2.61472 3.61538 2.96154V7.53846M8.19231 1.65385H16.6923C17.0391 1.65385 17.3717 1.79162 17.617 2.03686C17.8622 2.2821 18 2.61472 18 2.96154V18.6538C18 19.0007 17.8622 19.3333 17.617 19.5785C17.3717 19.8238 17.0391 19.9615 16.6923 19.9615H3.61538C3.26856 19.9615 2.93595 19.8238 2.69071 19.5785C2.44547 19.3333 2.30769 19.0007 2.30769 18.6538V11.4615M14.7308 6.88462H9.5M14.7308 10.8077H9.5M14.7308 14.7308H5.57692"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    <input id="inquiry_file" type="file" />
+                                </div>
+                            </div>
+                            <div class="uploaded_file_info" id="uploaded_file_info">
+                                <p><span class="file_name"></span><span class="file_size"></span><span class="file_del" id="file_del"><i class="far fa-trash-alt"></i></span></p>
+                            </div>
+                            <div class="input_group">
+                                <input type="submit" value="Send Now" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end message popup -->
+
+    <div class="menu_overlay" id="menu_overlay"></div>
+    <!--web fonts-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" defer crossorigin="anonymous"></script>
+    <!--framework-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!--plugins-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!--custom script-->
+    <script src="js/custom.js?ver=1"></script>
+</body>
+
+</html>

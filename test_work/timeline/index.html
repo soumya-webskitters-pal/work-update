@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #000;
+    }
+
+    .timeline_container {
+      width: 40vw;
+      height: 30vw;
+      position: relative;
+      margin: 150px auto;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .timeline_container img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .timeline_container ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    .result_container {
+      padding: 0 4.5vw;
+      font-size: 0.8vw;
+      line-height: 1.3;
+      opacity: 0;
+      height: 100%;
+    }
+
+    .result_container ul {
+      background: linear-gradient(180deg, #363535 0%, #000000 100%);
+      border-radius: 1.5vw;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .result_container>ul>li {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 1.3vw 1vw 1.5vw 4.3vw;
+    }
+
+    .ai_icon {
+      position: absolute;
+      width: 2vw;
+      left: 1vw;
+      top: 1.3vw;
+    }
+
+    .srch_cont+.srch_img {
+      margin-top: 1vw;
+    }
+
+    .srch_img {
+      width: 100%;
+    }
+
+    .tl_share {
+      width: 5vw;
+      margin-top: 1vw;
+    }
+
+    .search_container {
+      position: absolute;
+      bottom: 8%;
+      left: 0;
+      width: 100%;
+      color: #ABABAB;
+      font-size: 1vw;
+    }
+
+    .search_inner {
+      background-color: #1E1F20;
+      position: relative;
+      border-radius: 2vw;
+      padding: 1vw 3vw 1vw 3.5vw;
+    }
+
+    .search_icon {
+      position: absolute;
+      top: 0.75vw;
+      left: 1vw;
+      width: 1.5vw;
+    }
+
+    .search_icon img,
+    .search_submit__icon img,
+    .ai_icon img,
+    .timeline_cursor img,
+    .timeline_cursor_download img,
+    .file_download img {
+      width: 100%;
+    }
+
+    .search_submit__icon {
+      width: 2vw;
+      right: 1vw;
+      top: 0.5vw;
+      position: absolute;
+    }
+
+    .timeline_cursor,
+    .timeline_cursor_download {
+      width: 1.5vw;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+
+    .search_container li:not(:first-child) {
+      display: none;
+    }
+
+    .search_container li:first-child {
+      opacity: 0;
+    }
+
+    .search_text ul {
+      height: 1em;
+      position: relative;
+    }
+
+    .search_text_list {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .search_text_list:after {
+      content: "";
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: calc(100% + 0.2vw);
+      background-color: #fff;
+      top: 0;
+      opacity: 0;
+    }
+
+    .search_text_list:not(.complete):after {
+      animation: 0.3s blink infinite;
+      opacity: 1;
+    }
+
+    .search_submit__icon:after,
+    .file_download:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(0);
+      transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .search_submit__icon.clicked:after,
+    .file_download.clicked:after {
+      animation: 0.3s enter;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes enter {
+
+      0%,
+      100% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1);
+      }
+    }
+
+    .tl_content {
+      position: relative;
+    }
+
+    .overlay_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #000;
+      border-radius: 0.5vw;
+      padding: 0.8vw 1.3vw 1.2vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      color: #fff;
+      font-size: 0.75vw;
+      white-space: nowrap;
+      opacity: 0;
+    }
+
+    .file_download {
+      flex-shrink: 0;
+      flex-grow: 1;
+      width: 1.5vw;
+      margin-left: 2vw;
+      position: relative;
+    }
+
+    .file_progress {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      background-color: #1E1F20;
+      overflow: hidden;
+      height: 0.3vw;
+    }
+
+    .file_progress>div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: left center;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="timeline_container" id="timeline_container">
+    <div class="result_container">
+      <ul>
+        <li class="search_result_list">
+          <div class="ai_icon"><img src="images/ai_ico.svg" alt="ai icon"></div>
+          <div class="tl_content">
+            <div class="srch_cont">The night of the heist arrived, cloaking the city in darkness as the team set their
+              plan into motion.
+              With Lena guiding them through the museum's intricate security systems, they navigated the labyrinthine
+              corridors with the grace of seasoned professionals. But even the best-laid plans could falter in the face
+              of unforeseen obstacles.
+              As they reached the inner sanctum where the artefact lay in wait, a betrayal unfolded—one that shattered
+              alliances and left the team reeling. In the chaos that ensued, alarms blared, and guards descended upon
+              them with ruthless efficiency. In the end, only Jackson and Ana managed to escape, the artifact clutched
+              tightly in their grasp. As they disappeared into the night, pursued by the echoes of their past and the
+              specter of betrayal, they knew that their journey was far from over.
+            </div>
+            <img src="images/img1.webp" alt="search result 1 image" class="srch_img">
+            <img src="images/share_content.svg" alt="public share" class="tl_share">
+          </div>
+        </li>
+        <li class="search_result_list">
+          <div class="ai_icon"><img src="images/ai_ico.svg" alt="ai icon"></div>
+          <div class="tl_content">
+            <img src="images/img2.webp" alt="search result 2 image" class="srch_img">
+            <img src="images/share_content.svg" alt="public share" class="tl_share">
+          </div>
+        </li>
+        <li class="search_result_list">
+          <div class="ai_icon"><img src="images/ai_ico.svg" alt="ai icon"></div>
+          <div class="tl_content">
+            <img src="images/img3.webp" alt="search result 2 image" class="srch_img">
+            <div class="overlay_box">
+              <div class="file_txt">The Heist Trailer.Mp3</div>
+              <div class="file_download"><img src="images/download.svg" alt="download"></div>
+              <div class="file_progress">
+                <div></div>
+              </div>
+              <div class="timeline_cursor_download"><img src="images/cursor.svg" alt="cursor"></div>
+            </div>
+          </div>
+          <img src="images/share_content.svg" alt="public share" class="tl_share">
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="search_container">
+      <div class="search_inner">
+        <div class="search_icon">
+          <img src="images/search_ico.svg" alt="search">
+        </div>
+        <div class="search_text">
+          <ul>
+            <li class="search_text_list">
+              Can you suggest some unique plot ideas for a heist based graphic novel.
+            </li>
+            <li class="search_text_list">Can you help me illustrate character designs that reflect their personalities?
+            </li>
+            <li class="search_text_list">
+              Generate a nice background score for the trailer?
+            </li>
+            <li class="search_text_list">
+              Can you create a storyboard for my script?
+            </li>
+          </ul>
+        </div>
+        <div class="search_submit__icon"><img src="images/enter.svg" alt="enter"></div>
+      </div>
+    </div>
+
+    <div class="timeline_cursor"><img src="images/cursor.svg" alt="cursor"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+  <script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(TextPlugin);
+      const timeline_container = document.getElementById("timeline_container");
+      if (timeline_container != undefined) {
+        const search_text = timeline_container.querySelectorAll(".search_text_list"),
+          result_container = timeline_container.querySelector(".result_container"),
+          search_result = timeline_container.querySelectorAll(".search_result_list"),
+          cursor = timeline_container.querySelector(".timeline_cursor"),
+          submit_btn = timeline_container.querySelector(".search_submit__icon");
+        tl_content = timeline_container.querySelectorAll(".tl_content");
+
+        search_result.forEach((e) => {
+          let el = e.querySelector(".srch_cont");
+          if (el != null) {
+            e.setAttribute("data-text", el.innerHTML);
+            el.innerHTML = '';
+          }
+        });
+        search_text.forEach((e) => {
+          e.setAttribute("data-text", e.innerHTML);
+          e.innerHTML = '';
+        });
+        var tl = gsap.timeline({ defaults: { ease: "none" }, repeat: -1, repeatDelay: 5, });
+        tl.set(search_result, {
+          opacity: 1,
+          y: 50,
+        }).set([tl_content[1], tl_content[2]], {
+          y: 100, opacity: 0
+        }).set(timeline_container.querySelectorAll(".tl_share"), {
+          opacity: 0,
+        }).set(timeline_container.querySelectorAll(".srch_img"), {
+          y: 100,
+          opacity: 0,
+        })
+          .to(search_text[0], {
+            opacity: 1,
+          }).to(search_text[0], {
+            delay: 0.3,
+            text: search_text[0].getAttribute("data-text"),
+            duration: 3,
+            onComplete: () => {
+              search_text[0].classList.add("complete");
+            }
+          })
+          .set(cursor, {
+            opacity: 1
+          }, "-=0.5")
+          .to(cursor, {
+            xPercent: -50,
+            y: "-2vw",
+            onComplete: () => {
+              submit_btn.classList.add("clicked");
+            }
+          }, "-=0.5")
+          .to(cursor, {
+            delay: 1,
+            xPercent: 0,
+            y: 0,
+            opacity: 0,
+            onComplete: () => {
+              submit_btn.classList.remove("clicked");
+            }
+          })
+          .set(result_container, {
+            opacity: 1,
+          }, "-=0.5")
+          .to(search_result[0], {
+            opacity: 1,
+            y: 0,
+            onComplete: () => {
+              gsap.to(tl_content[0], {
+                y: 0, opacity: 1,
+              });
+            }
+          }, "-=0.5")
+          .to(search_result[0].querySelector(".srch_cont"), {
+            text: search_result[0].getAttribute("data-text"),
+            duration: 2,
+          })
+          .to(search_result[0].querySelector(".srch_img"), {
+            opacity: 1,
+            y: 0,
+            onComplete: () => {
+              gsap.set(search_text[0], {
+                opacity: 0
+              });
+            }
+          })
+          .to(search_result[0].querySelector(".tl_share"), {
+            opacity: 1,
+          }).set(search_text[0], {
+            display: "none"
+          });
+        //scene1 completed
+        tl.set(search_text[1], {
+          display: "block",
+          opacity: 1,
+        })
+          .to(search_text[1], {
+            delay: 2,
+            text: search_text[1].getAttribute("data-text"),
+            duration: 3,
+            onComplete: () => {
+              search_text[1].classList.add("complete");
+            }
+          })
+          .set(cursor, {
+            opacity: 1
+          }, "-=0.5")
+          .to(cursor, {
+            xPercent: -50,
+            y: "-2vw",
+            onComplete: () => {
+              submit_btn.classList.add("clicked");
+            }
+          }, "-=0.5")
+          .to(cursor, {
+            delay: 1,
+            xPercent: 0,
+            y: 0,
+            opacity: 0,
+            onComplete: () => {
+              submit_btn.classList.remove("clicked");
+            }
+          })
+          .set(search_result[1], {
+            y: "100%",
+            display: "block"
+          })
+          .to(search_result[0], {
+            opacity: 0.5,
+            y: "-100%",
+          })
+          .to(search_result[1], {
+            opacity: 1,
+            y: "-100%",
+          }, "<")
+          .to(tl_content[1], {
+            y: 0, opacity: 1,
+          })
+          .to(search_result[1].querySelector(".srch_img"), {
+            opacity: 1,
+            y: 0,
+            onComplete: () => {
+              gsap.set(search_text[1], {
+                opacity: 0
+              });
+            }
+          })
+          .to(search_result[1].querySelector(".tl_share"), {
+            opacity: 1,
+          })
+          .set(search_text[1], {
+            display: "none"
+          })
+        //scene2 completed
+        tl.set(search_text[2], {
+          display: "block",
+          opacity: 1,
+        })
+          .to(search_text[2], {
+            delay: 2,
+            text: search_text[2].getAttribute("data-text"),
+            duration: 3,
+            onComplete: () => {
+              search_text[2].classList.add("complete");
+            }
+          })
+          .set(cursor, {
+            opacity: 1
+          }, "-=0.5")
+          .to(cursor, {
+            xPercent: -50,
+            y: "-2vw",
+            onComplete: () => {
+              submit_btn.classList.add("clicked");
+            }
+          }, "-=0.5")
+          .to(cursor, {
+            delay: 1,
+            xPercent: 0,
+            y: 0,
+            opacity: 0,
+            onComplete: () => {
+              submit_btn.classList.remove("clicked");
+            }
+          })
+          .set(search_result[2], {
+            y: `${100 * 2}%`,
+            display: "block"
+          })
+          .to(search_result[1], {
+            opacity: 0.5,
+            y: `${-100 * 2}%`,
+          })
+          .to(search_result[2], {
+            opacity: 1,
+            y: `${-100 * 2}%`,
+          }, "<")
+          .to(tl_content[2], {
+            y: 0, opacity: 1,
+          })
+          .to(search_result[2].querySelector(".srch_img"), {
+            opacity: 1,
+            y: 0,
+            onComplete: () => {
+              gsap.set(search_text[2], {
+                opacity: 0
+              });
+            }
+          })
+          .to(search_result[2].querySelector(".overlay_box"), {
+            opacity: 1,
+          })
+          .to(search_result[2].querySelector(".tl_share"), {
+            opacity: 1,
+          })
+          .set(search_text[2], {
+            display: "none"
+          })
+          .set(tl_content[2].querySelector(".timeline_cursor_download"), {
+            delay: 1.5,
+            opacity: 1,
+          })
+          .to(tl_content[2].querySelector(".timeline_cursor_download"), {
+            xPercent: -80,
+            yPercent: 20,
+            onComplete: () => {
+              tl_content[2].querySelector(".file_download").classList.add("clicked");
+            }
+          })
+          .to(tl_content[2].querySelector(".timeline_cursor_download"), {
+            delay: 1,
+            xPercent: 0,
+            yPercent: 0,
+            opacity: 0,
+            onComplete: () => {
+              tl_content[2].querySelector(".file_download").classList.remove("clicked");
+            }
+          }, "<")
+          .to(tl_content[2].querySelector(".file_progress>div"), {
+            scaleX: 1,
+          })
+          .to(tl_content[2].querySelector(".file_progress>div"), {
+            background: "green",
+          })
+          .to(tl_content[2].querySelector(".file_progress"), {
+            height: 0,
+          })
+        //scene3 completed
+        tl.set(search_text[3], {
+          display: "block",
+          opacity: 1,
+        })
+          .to(search_text[3], {
+            delay: 2,
+            text: search_text[3].getAttribute("data-text"),
+            duration: 3,
+            // onComplete: () => {
+            //   search_text[3].classList.add("complete");
+            // }
+          })
+        // .set(cursor, {
+        //   opacity: 1
+        // }, "-=0.5")
+        // .to(cursor, {
+        //   xPercent: -50,
+        //   y: -"-2vw",
+        //   onComplete: () => {
+        //     submit_btn.classList.add("clicked");
+        //   }
+        // }, "-=0.5")
+        // .to(cursor, {
+        //   delay: 1,
+        //   xPercent: 0,
+        //   y: 0,
+        //   opacity: 0,
+        //   onComplete: () => {
+        //     submit_btn.classList.remove("clicked");
+        //   }
+        // })
+
+      }
+    })
+  </script>
+</body>
+
+</html>

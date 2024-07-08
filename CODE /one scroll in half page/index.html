@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<!-- <link rel="stylesheet" href="dist/reveal.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.css">
+	<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+	<style>
+		body {
+			background-color: #000;
+		}
+
+		.reveal_outer {
+			position: relative;
+			height: 100vh;
+		}
+
+		.reveal_outer .reveal section {
+			height: 100vh;
+		}
+
+		.reveal_outer .reveal section>div {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.rest_page {
+			position: relative;
+			background: yellow;
+			height: 100vh;
+			z-index: 5;
+		}
+
+		h1 {
+			font-size: 10vw;
+		}
+
+		.list {
+			position: fixed;
+			z-index: 2;
+			top: 50%;
+			left: 50px;
+			transform: translateY(-50%);
+			color: #fff;
+			font-size: 30px;
+			list-style: none;
+		}
+
+		.list li+li {
+			margin-top: 20px;
+		}
+
+		.list li.active {
+			transform: scale(2);
+			color: red;
+		}
+
+		.reveal_outer .reveal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: transparent !important;
+			opacity: 0;
+			z-index: 2;
+			transition: opacity 1s linear 0.3s;
+		}
+
+		.reveal_outer.loaded .reveal {
+			opacity: 1;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeOut {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0
+			}
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide] {
+			transition: 1s linear 0.3s !important;
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].past,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-out].past,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).past {
+			transform: translate(0, -100%);
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].future,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-in].future,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).future {
+			transform: translate(0, 64px);
+		}
+
+		.section h1 .word {
+			overflow: hidden;
+			position: relative;
+			display: inline-block;
+			transform: translate3d(0, 16px, 0);
+			transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1), transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+		}
+
+		.section h1 .word:nth-child(1) {
+			transition-delay: .8s;
+		}
+
+		.section.present h1 .word {
+			opacity: 1;
+		}
+
+		.section h1 .word .wrd_anim {
+			display: block;
+			transform: translate3d(0, 100%, 0);
+		}
+
+		.section h1 .word .wrd_anim {
+			transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1) calc(150ms * var(--line-index) + 500ms);
+		}
+
+		.section p {
+			display: block;
+			transform: translate3d(0, 64px, 0);
+			transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+			opacity: 0;
+		}
+
+		.section.present .word .wrd_anim,
+		.section.present p {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
+
+		.pr_box {
+			background: #FFFFFF;
+			position: fixed;
+			z-index: 2000;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			transform: scaleX(0);
+			transform-origin: left center;
+		}
+
+		.bg {
+			position: fixed;
+			top: 0;
+			left: 20%;
+			width: 80%;
+			height: 100vh;
+			z-index: 1;
+			opacity: 0;
+		}
+
+		.reveal_outer.loaded .bg {
+			opacity: 1;
+			animation: fadeIn 300ms linear forwards;
+		}
+
+		.bg img,
+		.bg svg {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.bg svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		/*----*/
+		.reveal_outer.loaded .bg svg #boundary {
+			stroke-dasharray: 901;
+			stroke-dashoffset: 901;
+			-webkit-animation: dash 2s linear forwards;
+			animation: dash 2s linear forwards;
+		}
+
+		.reveal_outer.loaded .bg svg #outline {
+			stroke-dasharray: 2260;
+			stroke-dashoffset: 2260;
+			-webkit-animation: dash 5s linear forwards;
+			animation: dash 5s linear forwards;
+			-webkit-animation-delay: 2s;
+			animation-delay: 2s;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-8 {
+			stroke-dasharray: 682;
+			stroke-dashoffset: 682;
+			-webkit-animation: dash 1.5s linear forwards;
+			animation: dash 1.5s linear forwards;
+			-webkit-animation-delay: 5500ms;
+			animation-delay: 5500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-17 {
+			stroke-dasharray: 552;
+			stroke-dashoffset: 552;
+			-webkit-animation: dash 1.5s linear forwards;
+			animation: dash 1.5s linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-2 {
+			stroke-dasharray: 70;
+			stroke-dashoffset: 70;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 5500ms;
+			animation-delay: 5500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-10 {
+			stroke-dasharray: 85;
+			stroke-dashoffset: 85;
+			-webkit-animation: dash 1.5s linear forwards;
+			animation: dash 1.5s linear forwards;
+			-webkit-animation-delay: 4500ms;
+			animation-delay: 4500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-12 {
+			stroke-dasharray: 31;
+			stroke-dashoffset: 31;
+			-webkit-animation: dash 1.5s linear forwards;
+			animation: dash 1.5s linear forwards;
+			-webkit-animation-delay: 4600ms;
+			animation-delay: 4600ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-14 {
+			stroke-dasharray: 83;
+			stroke-dashoffset: 83;
+			-webkit-animation: dash 1.5s linear forwards;
+			animation: dash 1.5s linear forwards;
+			-webkit-animation-delay: 4700ms;
+			animation-delay: 4700ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-59 {
+			stroke-dasharray: 8;
+			stroke-dashoffset: 8;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-15 {
+			stroke-dasharray: 93;
+			stroke-dashoffset: 93;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 3000ms;
+			animation-delay: 3000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-16 {
+			stroke-dasharray: 66;
+			stroke-dashoffset: 66;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 3000ms;
+			animation-delay: 3000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-3 {
+			stroke-dasharray: 229;
+			stroke-dashoffset: 229;
+			-webkit-animation: dash 1s linear forwards;
+			animation: dash 1s linear forwards;
+			-webkit-animation-delay: 5400ms;
+			animation-delay: 5400ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-5 {
+			stroke-dasharray: 94;
+			stroke-dashoffset: 94;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-6 {
+			stroke-dasharray: 238;
+			stroke-dashoffset: 238;
+			-webkit-animation: dash 1s linear forwards;
+			animation: dash 1s linear forwards;
+			-webkit-animation-delay: 5600ms;
+			animation-delay: 5600ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-7 {
+			stroke-dasharray: 99;
+			stroke-dashoffset: 99;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 5700ms;
+			animation-delay: 5700ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-9 {
+			stroke-dasharray: 126;
+			stroke-dashoffset: 126;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-11 {
+			stroke-dasharray: 93;
+			stroke-dashoffset: 93;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-13 {
+			stroke-dasharray: 113;
+			stroke-dashoffset: 113;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-60 {
+			stroke-dasharray: 95;
+			stroke-dashoffset: 95;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 2500ms;
+			animation-delay: 2500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-61 {
+			stroke-dasharray: 14;
+			stroke-dashoffset: 14;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 2400ms;
+			animation-delay: 2400ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-62 {
+			stroke-dasharray: 92;
+			stroke-dashoffset: 92;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 2400ms;
+			animation-delay: 2400ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-63 {
+			stroke-dasharray: 62;
+			stroke-dashoffset: 62;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 2400ms;
+			animation-delay: 2400ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-32,
+		.reveal_outer.loaded .bg svg #Path-33,
+		.reveal_outer.loaded .bg svg #Path-34,
+		.reveal_outer.loaded .bg svg #Path-35,
+		.reveal_outer.loaded .bg svg #Path-36,
+		.reveal_outer.loaded .bg svg #Path-37,
+		.reveal_outer.loaded .bg svg #Path-38,
+		.reveal_outer.loaded .bg svg #Path-39,
+		.reveal_outer.loaded .bg svg #Path-40,
+		.reveal_outer.loaded .bg svg #Path-41,
+		.reveal_outer.loaded .bg svg #Path-42,
+		.reveal_outer.loaded .bg svg #Path-43,
+		.reveal_outer.loaded .bg svg #Path-44,
+		.reveal_outer.loaded .bg svg #Path-45,
+		.reveal_outer.loaded .bg svg #Path-46,
+		.reveal_outer.loaded .bg svg #Path-47,
+		.reveal_outer.loaded .bg svg #Path-48,
+		.reveal_outer.loaded .bg svg #Path-49,
+		.reveal_outer.loaded .bg svg #Path-50,
+		.reveal_outer.loaded .bg svg #Path-51,
+		.reveal_outer.loaded .bg svg #Path-52 {
+			stroke-dasharray: 52;
+			stroke-dashoffset: 52;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 3800ms;
+			animation-delay: 3800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-19 {
+			stroke-dasharray: 245;
+			stroke-dashoffset: 245;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-18 {
+			stroke-dasharray: 233;
+			stroke-dashoffset: 233;
+			-webkit-animation: dash 1000ms linear forwards;
+			animation: dash 1000ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-20,
+		.reveal_outer.loaded .bg svg #Path-31 {
+			stroke-dasharray: 87;
+			stroke-dashoffset: 87;
+			-webkit-animation: dash 300ms linear forwards;
+			animation: dash 300ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-21 {
+			stroke-dasharray: 111;
+			stroke-dashoffset: 111;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 3500ms;
+			animation-delay: 3500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-22 {
+			stroke-dasharray: 79;
+			stroke-dashoffset: 79;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 3600ms;
+			animation-delay: 3600ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-23,
+		.reveal_outer.loaded .bg svg #Path-24,
+		.reveal_outer.loaded .bg svg #Path-25,
+		.reveal_outer.loaded .bg svg #Path-26,
+		.reveal_outer.loaded .bg svg #Path-27,
+		.reveal_outer.loaded .bg svg #Path-28 {
+			stroke-dasharray: 17;
+			stroke-dashoffset: 17;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4000ms;
+			animation-delay: 4000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-29,
+		.reveal_outer.loaded .bg svg #Path-30 {
+			stroke-dasharray: 53;
+			stroke-dashoffset: 53;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4000ms;
+			animation-delay: 4000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-53 {
+			stroke-dasharray: 121;
+			stroke-dashoffset: 121;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4200ms;
+			animation-delay: 4200ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-58 {
+			stroke-dasharray: 47;
+			stroke-dashoffset: 47;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4500ms;
+			animation-delay: 4500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-76 {
+			stroke-dasharray: 25;
+			stroke-dashoffset: 25;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4500ms;
+			animation-delay: 4500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-77 {
+			stroke-dasharray: 25;
+			stroke-dashoffset: 25;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4500ms;
+			animation-delay: 4500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-78,
+		.reveal_outer.loaded .bg svg #Path-79,
+		.reveal_outer.loaded .bg svg #Path-80 {
+			stroke-dasharray: 48;
+			stroke-dashoffset: 48;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4500ms;
+			animation-delay: 4500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-64,
+		.reveal_outer.loaded .bg svg #Path-65,
+		.reveal_outer.loaded .bg svg #Path-75 {
+			stroke-dasharray: 36;
+			stroke-dashoffset: 36;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-66,
+		.reveal_outer.loaded .bg svg #Path-74 {
+			stroke-dasharray: 28;
+			stroke-dashoffset: 28;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-67,
+		.reveal_outer.loaded .bg svg #Path-68,
+		.reveal_outer.loaded .bg svg #Path-69,
+		.reveal_outer.loaded .bg svg #Path-70,
+		.reveal_outer.loaded .bg svg #Path-71,
+		.reveal_outer.loaded .bg svg #Path-72,
+		.reveal_outer.loaded .bg svg #Path-73 {
+			stroke-dasharray: 25;
+			stroke-dashoffset: 25;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-52 {
+			stroke-dasharray: 35;
+			stroke-dashoffset: 35;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Path-4 {
+			stroke-dasharray: 28;
+			stroke-dashoffset: 28;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 4800ms;
+			animation-delay: 4800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-54 {
+			stroke-dasharray: 99;
+			stroke-dashoffset: 99;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5500ms;
+			animation-delay: 5500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-55 {
+			stroke-dasharray: 65;
+			stroke-dashoffset: 65;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6000ms;
+			animation-delay: 6000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-56 {
+			stroke-dasharray: 65;
+			stroke-dashoffset: 65;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6100ms;
+			animation-delay: 6100ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-57 {
+			stroke-dasharray: 28;
+			stroke-dashoffset: 28;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6200ms;
+			animation-delay: 6200ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-2-54 {
+			stroke-dasharray: 99;
+			stroke-dashoffset: 99;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5500ms;
+			animation-delay: 5500ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-2-55 {
+			stroke-dasharray: 77;
+			stroke-dashoffset: 77;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6000ms;
+			animation-delay: 6000ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-2-56 {
+			stroke-dasharray: 65;
+			stroke-dashoffset: 65;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6100ms;
+			animation-delay: 6100ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-2-57 {
+			stroke-dasharray: 25;
+			stroke-dashoffset: 25;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 6200ms;
+			animation-delay: 6200ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-54 {
+			stroke-dasharray: 170;
+			stroke-dashoffset: 170;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-55 {
+			stroke-dasharray: 105;
+			stroke-dashoffset: 105;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-56 {
+			stroke-dasharray: 115;
+			stroke-dashoffset: 115;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-57 {
+			stroke-dasharray: 60;
+			stroke-dashoffset: 60;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-81 {
+			stroke-dasharray: 28;
+			stroke-dashoffset: 28;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-01-82 {
+			stroke-dasharray: 55;
+			stroke-dashoffset: 55;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-54 {
+			stroke-dasharray: 175;
+			stroke-dashoffset: 175;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-55 {
+			stroke-dasharray: 115;
+			stroke-dashoffset: 115;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-56 {
+			stroke-dasharray: 120;
+			stroke-dashoffset: 120;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-57 {
+			stroke-dasharray: 55;
+			stroke-dashoffset: 55;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-81 {
+			stroke-dasharray: 32;
+			stroke-dashoffset: 32;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		.reveal_outer.loaded .bg svg #Window-Front-02-82 {
+			stroke-dasharray: 55;
+			stroke-dashoffset: 55;
+			-webkit-animation: dash 600ms linear forwards;
+			animation: dash 600ms linear forwards;
+			-webkit-animation-delay: 5800ms;
+			animation-delay: 5800ms;
+		}
+
+		@keyframes dash {
+			100% {
+				stroke-dashoffset: 0;
+			}
+		}
+
+		/*--*/
+		.change_color_box {
+			color: red;
+			position: fixed;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			z-index: 999;
+			font-size: 20px;
+		}
+
+		.change_color_box.white {
+			color: #fff
+		}
+
+		/*---*/
+		.home-banner a {
+			pointer-events: all;
+		}
+
+		/* 
+		.reveal_outer .reveal {
+			touch-action: none;
+		} */
+
+		.reveal_outer .reveal .slides>section {
+			pointer-events: none;
+		}
+
+		.reveal_outer .reveal .backgrounds {
+			display: none !important;
+			pointer-events: none;
+		} 
+		/*--*/
+	</style>
+</head>
+
+<body>
+	<div class="pr_box"></div>
+	<div class="reveal_outer">
+		<div class="bg">
+			<img src="https://picsum.photos/id/232/1920/1080">
+			<svg id="svg" class="hm_outline" width="1438px" height="854px" viewBox="0 0 1438 854" version="1.1"
+				xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g id="Desktop-HD" transform="translate(-2.000000, 0.000000)">
+						<g id="Hero---Opt2-Copy" transform="translate(-3.000000, -64.000000)">
+							<g id="Hero-Image" transform="translate(3.000000, 61.000000)">
+								<g id="building-outline" transform="translate(2.000000, 1.000000)">
+									<path
+										d="M1298.92637,449.65568 L1336.87365,451.651021 L1182.0887,512.010078 C800.951574,476.759058 610.383011,459.133549 610.383011,459.133549 L733.212356,450.154516"
+										id="boundary" stroke="#FFFFFF"></path>
+									<path
+										d="M756.680377,363.854646 L756.680377,453.563509 L751.187382,453.563509 L751.187382,459.611635 L746.194319,459.611635 L746.194319,465.618406 C746.194319,465.618406 823.919663,471.936985 979.370351,484.574143 L982.865495,484.075308 C982.865495,484.075308 1041.28433,488.731103 1158.122,498.042693 C1251.99158,467.447468 1298.92637,452.149856 1298.92637,452.149856 C1298.92637,452.149856 1299.25924,423.549973 1299.92498,366.350206 L1311.40903,367.347876 L1311.40903,361.361854 L1256.48534,281.548225 L1053.26768,302.000468 L1053.26768,273.566863 L1045.77809,272.070357 L1021.31208,273.566863 L1021.31208,304.494644 L1016.81832,304.494644 L948.413362,282.545896 L630.854569,358.867678 L630.854569,365.352535 L807.109685,361.611272 L983.364801,357.870008 L1069.24548,362.858359 L1232.01933,360.364184 L1311.40903,367.347876"
+										id="outline" stroke="#FFFFFF"></path>
+									<path
+										d="M630.355262,358.867678 C865.694955,352.216542 983.364801,348.890975 983.364801,348.890975 C1040.28572,352.549099 1068.74617,354.378161 1068.74617,354.378161 C1177.59494,352.715378 1232.01933,351.883986 1232.01933,351.883986 L1311.40903,361.361854"
+										id="Path-8" stroke="#FFFFFF"></path>
+									<polyline id="Path-17" stroke="#FFFFFF"
+										points="1298.92637 442.173153 1215.04291 465.119571 1068.74617 457.138208 983.864107 469.609088 751.686688 453.147527">
+									</polyline>
+									<path d="M630.854569,365.352535 L701.256754,367.347876" id="Path-2"
+										stroke="#FFFFFF"></path>
+									<g id="roof-apex" transform="translate(947.914055, 280.550555)" stroke="#FFFFFF">
+										<polyline id="Path-10"
+											points="35.950052 77.8182878 35.950052 68.7839985 0.499306278 1.99534071">
+										</polyline>
+										<polyline id="Path-12"
+											points="121.331426 83.3054747 121.331426 74.8106178 105.386543 59.3403761">
+										</polyline>
+										<polyline id="Path-14"
+											points="285.103885 79.8136285 285.103885 72.0881616 308.57128 0.498835178">
+										</polyline>
+										<path d="M73.8973292,28.4336051 L68.4049601,23.9440885" id="Path-59"></path>
+									</g>
+									<path
+										d="M978.871045,485.072978 C978.871045,485.072978 1008.49655,475.927667 1067.74756,457.637043"
+										id="Path-15" stroke="#FFFFFF"></path>
+									<path d="M1158.122,498.541528 L1215.54222,465.119571" id="Path-16" stroke="#FFFFFF">
+									</path>
+									<g id="vertical-lines" transform="translate(660.313639, 358.368843)"
+										stroke="#FFFFFF">
+										<path
+											d="M0.499306278,6.48485731 C0.499306278,68.2983885 0.499306278,99.2051541 0.499306278,99.2051541 C6.49098162,99.9122986 9.48681929,100.265871 9.48681929,100.265871 L21.9694762,99.2682004 L21.9694762,6.48485731 L0.499306278,6.48485731 Z"
+											id="Path-3"></path>
+										<path d="M9.98612557,100.265871 L8.98751301,6.48485731" id="Path-5"></path>
+										<path
+											d="M41.4424211,5.48718696 L41.4424211,102.944058 C47.7669673,103.819054 50.9292404,104.256552 50.9292404,104.256552 L62.9125911,102.760047 L62.9125911,4.98326176 L41.4424211,5.48718696 Z"
+											id="Path-6"></path>
+										<path d="M50.9292404,104.256552 L50.9292404,5.48592728" id="Path-7"></path>
+										<path d="M323.051162,126.2053 L323.550468,-1.42108547e-14" id="Path-9"></path>
+										<path d="M408.432536,98.2918682 L408.432536,4.98835178" id="Path-11"></path>
+										<path d="M573.203607,115.230926 L573.203607,1.99534071" id="Path-13"></path>
+										<path d="M142.801596,3.49184625 L142.801596,98.2718428" id="Path-60"></path>
+										<path d="M146.29674,112.73675 L146.29674,98.7604603" id="Path-61"></path>
+										<path d="M106.851544,4.4895166 L106.851544,95.9411209" id="Path-62"></path>
+										<path d="M117.836282,3.99068142 L117.836282,65.8643437" id="Path-63"></path>
+									</g>
+									<g id="Garage" transform="translate(1081.728138, 384.308272)" stroke="#FFFFFF">
+										<polyline id="Path-19"
+											points="0 73.8276063 0 0 92.3716615 0 92.3716615 78.8159581"></polyline>
+										<polyline id="Path-18"
+											points="2.49653139 72.829936 2.49653139 2.49417589 89.8751301 2.49417589 89.8751301 77.8182878">
+										</polyline>
+										<path d="M2.49653139,6.48485731 L89.8751301,6.98369249" id="Path-20"></path>
+										<polyline id="Path-21"
+											points="6.49098162 6.48485731 6.49098162 21.9487478 85.8806799 23.4452534 85.8806799 6.98369249">
+										</polyline>
+										<path d="M6.49098162,14.4662202 L85.8806799,14.4662202" id="Path-22"></path>
+										<path d="M17.975026,6.98369249 L17.975026,21.9487478" id="Path-23"></path>
+										<path d="M28.9597641,6.98369249 L28.9597641,22.447583" id="Path-24"></path>
+										<path d="M40.4438085,6.48485731 L40.4438085,22.447583" id="Path-25"></path>
+										<path d="M51.4285467,6.48485731 L51.4285467,22.447583" id="Path-26"></path>
+										<path d="M62.9125911,6.98369249 L62.9125911,22.9464182" id="Path-27"></path>
+										<path d="M74.8959417,6.98369249 L74.8959417,23.4452534" id="Path-28"></path>
+										<path d="M6.49098162,22.447583 L6.49098162,73.7403572" id="Path-29"></path>
+										<path d="M85.8806799,23.4452534 L85.8806799,78.3261919" id="Path-30"></path>
+										<path d="M6.49098162,25.4405941 L85.8806799,26.9370996" id="Path-31"></path>
+										<path d="M9.98612557,25.4405941 L9.98612557,73.8507427" id="Path-32"></path>
+										<path d="M13.4812695,25.4405941 L13.4812695,73.8276063" id="Path-33"></path>
+										<path d="M17.4757197,25.9394293 L17.4757197,74.3290128" id="Path-34"></path>
+										<path d="M20.9708637,25.9394293 L20.9708637,74.3264415" id="Path-35"></path>
+										<path d="M24.4660076,25.9394293 L24.4660076,74.3264415" id="Path-36"></path>
+										<path d="M27.9611516,25.9394293 L27.9611516,74.835456" id="Path-37"></path>
+										<path d="M31.4562955,25.9394293 L31.4562955,74.835456" id="Path-38"></path>
+										<path d="M35.4507458,25.9394293 L35.4507458,74.8278217" id="Path-39"></path>
+										<path d="M38.9458897,26.4382644 L38.9458897,74.8895169" id="Path-40"></path>
+										<path d="M42.4410337,26.4382644 L42.4410337,75.3342911" id="Path-41"></path>
+										<path d="M46.4354839,26.9370996 L46.4354839,75.3343961" id="Path-42"></path>
+										<path d="M50.4299341,26.4382644 L50.4299341,75.8456162" id="Path-43"></path>
+										<path d="M53.9250781,26.9370996 L53.9250781,75.8636514" id="Path-44"></path>
+										<path d="M57.9195283,26.9370996 L57.9195283,76.3620757" id="Path-45"></path>
+										<path d="M61.9139785,26.9370996 L61.9139785,76.3444514" id="Path-46"></path>
+										<path d="M65.9084287,26.9370996 L65.9084287,76.4450774" id="Path-47"></path>
+										<path d="M69.902879,26.9370996 L69.902879,76.9103271" id="Path-48"></path>
+										<path d="M73.3980229,27.4359348 L73.3980229,76.9815947" id="Path-49"></path>
+										<path d="M77.3924731,27.4359348 L77.3924731,77.124526" id="Path-50"></path>
+										<path d="M81.3869234,27.4359348 L81.3869234,77.4091623" id="Path-51"></path>
+									</g>
+									<g id="Window" transform="translate(1244.501985, 377.324580)" stroke="#FFFFFF">
+										<polygon id="Window-54"
+											points="0.499306278 0 17.975026 0 17.975026 30.4289459 0 31.4266162 0 0">
+										</polygon>
+										<polyline id="Window-55"
+											points="17.4757197 1.99534071 0.998612557 1.99534071 0.998612557 30.4289459 17.4757197 29.4312755">
+										</polyline>
+										<polyline id="Window-56"
+											points="14.4798821 1.99534071 14.4798821 28.4336051 2.99583767 28.9324403 2.99583767 1.99534071">
+										</polyline>
+										<path d="M16.4771072,1.99534071 L16.4771072,29.4312755" id="Window-57"></path>
+									</g>
+									<g id="Window-2" transform="translate(1275.458974, 378.322250)" stroke="#FFFFFF">
+										<polygon id="Window-2-54"
+											points="0.443827803 0 15.9778009 0.997670356 15.9778009 26.0502815 0 27.93477 0 0">
+										</polygon>
+										<polygon id="Window-2-55"
+											points="15.9778009 2.99301107 0.998612557 1.99534071 0.998612557 26.9370996 15.9778009 25.0642798">
+										</polygon>
+										<polyline id="Window-2-56"
+											points="11.9833507 2.99301107 11.9833507 23.5006795 1.99722511 24.9417589 1.99722511 1.99534071">
+										</polyline>
+										<path d="M14.9791883,0.997670356 L14.9791883,25.9394293" id="Window-2-57">
+										</path>
+									</g>
+									<g id="chimney" transform="translate(1020.812772, 271.571522)" stroke="#FFFFFF">
+										<polyline id="Path-53"
+											points="24.9653139 0.498835178 24.9653139 69.3380897 0.499306278 58.3637158 0.499306278 32.9231218">
+										</polyline>
+										<polyline id="Path-58"
+											points="32.4549081 30.4289459 32.4549081 69.8369249 24.9653139 69.8369249">
+										</polyline>
+									</g>
+									<g id="railing" transform="translate(766.166570, 424.215086)" stroke="#FFFFFF">
+										<path d="M0.499306278,0.498835178 L36.4493583,1.49650553" id="Path-64"></path>
+										<path d="M0.998612557,2.49417589 L36.4493583,3.49184625" id="Path-65"></path>
+										<path d="M4.4937565,2.49417589 L4.4937565,30.4333994" id="Path-66"></path>
+										<path d="M8.48820673,2.99301107 L8.48820673,24.9417589" id="Path-67"></path>
+										<path d="M12.482657,2.99301107 L12.482657,24.9644215" id="Path-68"></path>
+										<path d="M16.4771072,2.99301107 L16.4771072,25.4627536" id="Path-69"></path>
+										<path d="M20.4715574,2.99301107 L20.4715574,25.4405941" id="Path-70"></path>
+										<path d="M24.4660076,2.99301107 L24.4660076,25.9394293" id="Path-71"></path>
+										<path d="M27.9611516,2.99301107 L27.9611516,25.9881766" id="Path-72"></path>
+										<path d="M31.4562955,3.49184625 L31.4562955,25.9615888" id="Path-73"></path>
+										<path d="M34.9514395,2.99301107 L34.9514395,32.4242866" id="Path-74"></path>
+										<path d="M37.4479709,26.4382644 L0.998612557,24.4429237" id="Path-75"></path>
+									</g>
+									<path d="M723.22623,454.145197 L751.187382,455.641703" id="Path-4" stroke="#FFFFFF">
+									</path>
+									<path d="M723.22623,443.669658 L756.679751,445.166164" id="Path-52"
+										stroke="#FFFFFF"></path>
+									<g id="front-door" transform="translate(778.149921, 374.331569)" stroke="#FFFFFF">
+										<path d="M0,1.49650553 L24.9703065,1.49650553" id="Path-76"></path>
+										<path d="M24.9653139,3.49184625 L0,3.49184625" id="Path-77"></path>
+										<path d="M7.48959417,50.8811882 L7.48959417,3.4682231" id="Path-78"></path>
+										<path d="M9.48681929,50.8811882 L9.48681929,3.96680709" id="Path-79"></path>
+										<path d="M15.9778009,3.99068142 L15.9778009,50.8838415" id="Path-80"></path>
+									</g>
+									<g id="Window-Front-01" transform="translate(835.070836, 373.333898)"
+										stroke="#FFFFFF">
+										<polygon id="Window-Front-01-54"
+											points="0.776698655 0 27.9611516 0 27.9611516 55.3707048 0 54.3684579 0 0">
+										</polygon>
+										<polyline id="Window-Front-01-55"
+											points="27.9611516 2.99301107 1.99722511 2.99301107 1.99722511 52.372655 27.9611516 53.375364">
+										</polyline>
+										<polyline id="Window-Front-01-56"
+											points="22.9680888 2.99301107 22.9680888 50.8811882 4.99306278 50.3771021 4.99306278 2.99301107">
+										</polyline>
+										<path d="M25.4646202,2.99301107 L25.4646202,53.3653873" id="Window-Front-01-57">
+										</path>
+										<path d="M0,0.997670356 L27.9611516,0.997670356" id="Window-Front-01-81"></path>
+										<path d="M3.99445023,2.99301107 L3.99445023,52.8765289" id="Window-Front-01-82">
+										</path>
+									</g>
+									<g id="Window-Front-02" transform="translate(914.959841, 373.333898)"
+										stroke="#FFFFFF">
+										<polygon id="Window-Front-02-54"
+											points="0.776698655 0 27.9611516 0 27.9611516 57.8648807 0 56.8127919 0 0">
+										</polygon>
+										<polyline id="Window-Front-02-55"
+											points="27.9611516 3.15626622 2.07119641 3.15626622 2.07119641 54.7086144 27.9611516 55.8695399">
+										</polyline>
+										<polyline id="Window-Front-02-56"
+											points="22.7831605 3.15626622 22.7831605 53.375364 5.17799103 52.604437 5.17799103 3.15626622">
+										</polyline>
+										<path d="M25.3721561,3.15626622 L25.3721561,55.8695399" id="Window-Front-02-57">
+										</path>
+										<path d="M0,1.57813311 L27.9611516,1.57813311" id="Window-Front-02-81"></path>
+										<path d="M3.62459372,3.15626622 L3.62459372,54.7327639" id="Window-Front-02-82">
+										</path>
+									</g>
+								</g>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</div>
+		<div class="reveal">
+			<div class="slides">
+				<section class="section" style="color: red">
+					<div>
+						<h1 data-line>lorem ipsum dolor<br>sid mepsu dino kajurta</h1>
+						<p>lorem ipsum dolor sid mepsu dino kajurta. lorem ipsum dolor sid mepsu dino kajurta. lorem
+							ipsum
+							dolor sid mepsu dino kajurta</p>
+					</div>
+				</section>
+				<section class="section" style="color: green">
+					<div>
+						<h1 data-line>Diplur casa ipsum sip<br>kajurta mepsu dino</h1>
+						<p>lorem ipsum dolor sid mepsu dino kajurta. lorem ipsum dolor sid mepsu dino kajurta. lorem
+							ipsum
+							dolor sid mepsu dino kajurta</p>
+					</div>
+				</section>
+				<section class="section" style="color: blue">
+					<div>
+						<h1 data-line>Kajurta diplur mepsu sip<br>dino casa ipsum</h1>
+						<p>lorem ipsum dolor sid mepsu dino kajurta. lorem ipsum dolor sid mepsu dino kajurta. lorem
+							ipsum
+							dolor sid mepsu dino kajurta</p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="rest_page" style="background-color: #000;color:white" data-color>
+		<h1>content start</h1>
+	</div>
+	<div class="rest_page">
+		<h1>content start</h1>
+	</div>
+	<div class="rest_page" style="background-color: #000;color:white" data-color>
+		<h1>content start</h1>
+	</div>
+	<div class="rest_page" style="background-color: white;color:red">
+		<h1>content start</h1>
+	</div>
+
+	<div class="change_color_box">sticky me</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.js"></script>
+	<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+	<script>
+	var Webflow = Webflow || [];
+            Webflow.push(function () {});
+		gsap.registerPlugin(ScrollTrigger);
+		window.history.scrollRestoration = "manual";
+		ScrollTrigger.clearScrollMemory();
+		window.scrollTo(0, 0);
+
+		document.body.style.overflow = "hidden";
+
+		//mouse scroll action
+		var scrollPos = "down";
+		window.addEventListener("wheel", (event) => {
+			if (event.deltaY > 0) {
+				scrollPos = "down";
+			}
+			if (event.deltaY < 0) {
+				scrollPos = "up";
+			}
+			// console.log(scrollPos);
+		});
+		//touch action
+		const touch = {
+			threshold: 50,
+			listening: false,
+			startX: 0,
+			startY: 0,
+			dx: 0,
+			dy: 0,
+			startTime: 0,
+			dt: 0,
+		};
+
+		Reveal.initialize({
+			mouseWheel: false,
+			touch: false,
+			controls: false,
+			controlsTutorial: false,
+			progress: false,
+			respondToHashChanges: false,
+			jumpToSlide: false,
+			keyboard: false,
+			overview: false,
+			fragments: false,
+			fragmentInURL: false,
+			help: false,
+			hideInactiveCursor: false,
+			embedded: true,
+			width: window.innerWidth,
+			height: window.innerHeight,
+			margin: 0,
+			minScale: 1,
+			maxScale: 1,
+		});
+		Reveal.layout();
+
+		Reveal.on('ready', event => {
+			touch.listening = true;
+			Reveal.configure({
+				// mouseWheel: true,
+			});
+
+			let parent = document.querySelector(".reveal_outer"),
+				els = parent.querySelectorAll(".slides>.section");
+			let list = document.createElement("ul");
+			list.classList.add("list");
+			parent.append(list);
+			els.forEach((el, i) => {
+				let li = document.createElement("li");
+				li.innerHTML = (i + 1).toString().padStart(2, 0);
+				list.append(li);
+			})
+			list.querySelectorAll("li")[event.indexh].classList.add("active");
+
+			//split by lines
+			document.querySelectorAll(".section h1").forEach((tr) => {
+				let results = Splitting({ target: tr, by: 'lines' });
+				tr.querySelectorAll(".word").forEach((wrd) => {
+					let cssStyle = wrd.style.cssText;
+					wrd.innerHTML = "<span class='wrd_anim'>" + wrd.innerHTML + "</div>";
+					wrd.querySelector(".wrd_anim").style.cssText = cssStyle;
+					// wrd.querySelector(".wrd_anim").style.transitionDelay = "var(--line-index)" + "s"
+				})
+			});
+
+			//progressbar
+			gsap.to(".pr_box", {
+				scaleX: 1,
+				duration: 1,
+				onComplete: () => {
+					gsap.set(".pr_box", { display: "none" })
+					parent.classList.add("loaded")
+				}
+			})
+
+			//color change
+			document.querySelectorAll("[data-color]").forEach((el, i) => {
+				ScrollTrigger.create({
+					trigger: el,
+					start: "top center",
+					end: "+=100%",
+					repeatRefresh: true,
+					markers: true,
+					onEnter: () => {
+						document.querySelector(".change_color_box").classList.add("white");
+					},
+					onEnterBack: () => {
+						document.querySelector(".change_color_box").classList.add("white");
+					},
+					onLeave: () => {
+						document.querySelector(".change_color_box").classList.remove("white");
+					},
+					onLeaveBack: () => {
+						document.querySelector(".change_color_box").classList.remove("white");
+					},
+				});
+			});
+		});
+
+		Reveal.on('slidechanged', event => {
+			Reveal.configure({
+				// mouseWheel: false,
+			});
+			let list = document.querySelector(".list");
+			let els = list.querySelectorAll("li");
+			els.forEach((el, i) => {
+				el.classList.remove("active");
+			})
+			list.querySelectorAll("li")[event.indexh].classList.add("active");
+		});
+
+		Reveal.on('slidetransitionend', event => {
+			Reveal.configure({
+				// mouseWheel: true,
+			});
+			setTimeout(() => {
+				if (event.indexh == document.querySelectorAll(".reveal>.slides>section").length - 1 && scrollPos == "down") {
+					console.log("last slidetransitionend");
+					document.body.style.overflow = "auto";
+					Reveal.configure({
+						// mouseWheel: false,
+					});
+				}
+			}, 1000);
+		});
+
+		window.addEventListener("resize", () => {
+			Reveal.configure({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			});
+		})
+
+		ScrollTrigger.create({
+			trigger: ".reveal_outer",
+			start: "top top",
+			end: 5,
+			// pin: true,
+			onEnterBack: () => {
+				Reveal.configure({
+					// mouseWheel: true,
+				});
+				document.body.style.overflow = "hidden";
+				console.log("onEnterBack");
+			},
+			onLeave: () => {
+				Reveal.configure({
+					// mouseWheel: false,
+				});
+				document.body.style.overflow = "auto";
+				console.log("onLeave");
+			},
+			// pinSpacing: false,
+			// markers: true,
+		});
+
+		document.addEventListener("touchstart", handleTouchStart, false);
+		document.addEventListener("touchmove", handleTouchMove, false);
+		document.addEventListener("touchend", handleTouchEnd, false);
+		function handleDirection() {
+			if (!touch.listening) return;
+			touch.listening = false;
+			if (scrollPos === "down") {
+				Reveal.next();
+				setTimeout(() => {
+					touch.listening = true;
+				}, 600);
+			}
+			if (scrollPos === "up") {
+				// console.log(current, next);
+				Reveal.prev();
+				setTimeout(() => {
+					touch.listening = true;
+				}, 600);
+			}
+		}
+		function handleTouchStart(e) {
+			if (!touch.listening) return;
+			const t = e.changedTouches[0];
+			touch.startX = t.pageX;
+			touch.startY = t.pageY;
+		}
+		function handleTouchMove(e) {
+			if (!touch.listening) return;
+			e.preventDefault();
+		}
+		function handleTouchEnd(e) {
+			if (!touch.listening) return;
+			const t = e.changedTouches[0];
+			touch.dx = t.pageX - touch.startX;
+			touch.dy = t.pageY - touch.startY;
+
+			if (Math.abs(touch.dy) < touch.threshold) {
+				touch.listening = false;
+				setTimeout(() => {
+					touch.listening = true;
+				}, 300);
+			} else {
+				if (touch.dy > 1) scrollPos = "up";
+				if (touch.dy < -1) scrollPos = "down";
+			}
+			handleDirection();
+		}
+	</script>
+</body>
+
+</html>

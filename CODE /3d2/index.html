@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Babylon.js sample code</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="loading" id="js-loader">
+      <div class="loader"></div>
+    </div>
+    <div class="canvasZone">
+      <div class="def_meterial" data-element>
+        <div class="meterial_control">
+          <label>Pick a color:</label>
+          <ul class="texture_list">
+            <li data-color="#000000"><span></span></li>
+            <li data-color="#ff0000"><span></span></li>
+            <li data-color="#e2b61b"><span></span></li>
+            <li data-color="#346fff"><span></span></li>
+            <li data-color="#0cc14c"><span></span></li>
+            <li data-color="#6b6b6b"><span></span></li>
+            <li data-image="images/denim_.jpg"></li>
+            <li data-image="images/fabric_.jpg"></li>
+            <li data-image="images/pattern_.jpg"></li>
+            <li data-image="images/quilt_.jpg"></li>
+            <li data-image="images/quilt2_.jpg"></li>
+            <li data-image="images/glass.png"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="def_meterial" data-element>
+        <div class="meterial_control">
+          <label>Pick a color:</label>
+          <ul class="texture_list">
+            <li data-color="#000000"><span></span></li>
+            <li data-color="#ff0000"><span></span></li>
+            <li data-color="#e2b61b"><span></span></li>
+            <li data-color="#346fff"><span></span></li>
+            <li data-color="#0cc14c"><span></span></li>
+            <li data-color="#6b6b6b"><span></span></li>
+            <li data-image="images/pattern_.jpg"></li>
+            <li data-image="images/quilt_.jpg"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="def_meterial" data-element>
+        <ul class="label_control">
+          <li><input type="text" maxlength="3" class="label" /></li>
+          <li>
+            <ul class="text_color_list">
+              <li data-color="#000000"><span></span></li>
+              <li data-color="#ff0000"><span></span></li>
+              <li data-color="#e2b61b"><span></span></li>
+              <li data-color="#346fff"><span></span></li>
+              <li data-color="#0cc14c"><span></span></li>
+              <li data-color="#6b6b6b"><span></span></li>
+              <li data-color="#ffffff"><span></span></li>
+            </ul>
+          </li>
+          <!-- <li><input type="number" value="30" class="label_font_size" /> </li>-->
+          <li>
+            <select class="label_font_type">
+              <option value="arial">Arial</option>
+              <option value="arial black">Arial Black</option>
+              <option value="helvetica">Helvetica</option>
+              <option value="tahoma">Tahoma</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+      <div class="set_meterial" id="set_meterial"></div>
+
+      <canvas
+        id="renderCanvas"
+        data-path="images/"
+        data-model="glass_bottle-renew2.glb"
+      ></canvas>
+    </div>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <!-- <script src="https://cdn.babylonjs.com/loaders/babylon.glTFFileLoader.js"></script> -->
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <!-- <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

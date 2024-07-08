@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3D Model Color change</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div class="loading" id="js-loader">
+      <div class="loader"></div>
+    </div>
+    <span class="drag-notice" id="js-drag-notice"
+      >Drag to rotate 360&#176;</span
+    >
+    <div class="options">
+      <div
+        class="option --is-active"
+        data-option="A_BottleChampagne_M_ChampagneBottleGlass_0"
+      >
+        Glass
+      </div>
+      <div class="option" data-option="A_BottleChampagne_M_ChampagneSuit_0">
+        Cork
+      </div>
+    </div>
+
+    <canvas id="c"></canvas>
+
+    <div class="controls">
+      <div class="info">
+        <div class="info__message">
+          <p>
+            <strong>&nbsp;Grab&nbsp;</strong> to Bottle.
+            <strong>&nbsp;Scroll&nbsp;</strong> to zoom.
+            <strong>&nbsp;Drag&nbsp;</strong> swatches to view more.
+          </p>
+        </div>
+      </div>
+      <div id="js-tray" class="tray">
+        <div id="js-tray-slide" class="tray__slide"></div>
+      </div>
+    </div>
+
+    <!-- The main three.js file -->
+    <script src="https://unpkg.com/three@0.127.0/build/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r92/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/jsm/loaders/RGBELoader.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/renderers/CSS2DRenderer.js"></script> -->
+    <script src="script.js"></script>
+  </body>
+</html>

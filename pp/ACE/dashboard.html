@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <title>ACE</title>
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!--font file-->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <!--style for page-->
+  <link rel="stylesheet" href="css/common.css?v=2" />
+  <link rel="stylesheet" href="css/dashboard_style.css?v=2" />
+</head>
+
+<body class="sidenav-toggled">
+  <!-- Preloader Start -->
+  <div id="main-preloader" class="main-preloader">
+    <div class="main-preloader-inner">
+      <span class="percentage preloader-percentage-text">0%</span>
+      <div class="lodr_anim anim"></div>
+      <div class="lodr_logo">
+        <img src="images/logo2.png" alt="">
+      </div>
+      <div class="preloader-bar-outer">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader end -->
+
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="navbar-brand ">
+      <a href="index.html">
+        <img src="images/logo3.png" alt="">
+        <img src="images/logo2.png" alt="">
+      </a>
+    </div>
+
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="scroll_inner navbar-sidenav">
+        <div class="wrap">
+          <ul class="navbar-nav " id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+              <a class="nav-link" href="#">
+                <i class="dsh_ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.67 112.8" width="100px" height="100px">
+                    <polyline fill-rule="evenodd" stroke="currentColor" stroke-width="20.99px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" points="7.02 105 76.98 42.04 118.95 84.01 188.91 7.06" />
+                  </svg>
+                </i>
+                <span class="nav-link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Card">
+              <a class="nav-link" href="#">
+                <i class="dsh_ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.78 148.53" width="100px" height="100px">
+                    <rect fill-rule="evenodd" stroke="currentColor" stroke-width="20.99px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x="10.14" y="10.14" width="142.5" height="128.25" />
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="20.99px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x1="10.14" y1="52.89" x2="152.64" y2="52.89" />
+                  </svg>
+                </i>
+                <span class="nav-link-text">Cards</span>
+              </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Components">
+              <a class="nav-link" href="#">
+                <i class="dsh_ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 169.62 165.94" width="100px" height="100px">
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="14.75px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x1="40.56" x2="40.56" y2="162.25" />
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="14.75px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x1="132.75" y1="3.69" x2="132.75" y2="165.94" />
+                    <rect fill-rule="evenodd" stroke="currentColor" stroke-width="14.75px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x="103.25" y="77.44" width="59" height="66.37" />
+                    <rect fill-rule="evenodd" stroke="currentColor" stroke-width="14.75px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x="7.38" y="40.56" width="66.37" height="66.38" />
+                  </svg>
+                </i>
+                <span class="nav-link-text">Components</span>
+              </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Setting">
+              <a class="nav-link" href="#">
+                <i class="dsh_ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.92 181" width="100px" height="100px">
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="22.62px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" y1="45.25" x2="165.92" y2="45.25" />
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="22.62px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" y1="135.75" x2="165.92" y2="135.75" />
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="22.62px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x1="52.79" x2="52.79" y2="90.5" />
+                    <line fill-rule="evenodd" stroke="currentColor" stroke-width="22.62px" stroke-linecap="round"
+                      fill="none" stroke-miterlimit="10" x1="105.58" y1="90.5" x2="105.58" y2="181" />
+                  </svg>
+                </i>
+                <span class="nav-link-text">Setting</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Components">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
+                  data-parent="#exampleAccordion">
+                  <i class="fa fa-fw fa-wrench"></i>
+                  <span class="nav-link-text">Components</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                  <li>
+                    <a href="navbar.html">Navbar</a>
+                  </li>
+                  <li>
+                    <a href="cards.html">Cards</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Menu Levels">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
+                  data-parent="#exampleAccordion">
+                  <i class="fa fa-fw fa-sitemap"></i>
+                  <span class="nav-link-text">Menu Levels</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti">
+                  <li>
+                    <a href="#">Second Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Second Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Second Level Item</a>
+                  </li>
+                  <li>
+                    <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                    <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li> -->
+          </ul>
+        </div>
+      </div>
+      <button class="sidenav-toggler" id="sidenavToggler">
+        <i class="fa fa-fw fa-angle-left"></i>
+      </button>
+
+    </div>
+    <div class="top_nav">
+      <ul class="navbar-nav w-100 justify-content-end align-items-center">
+        <!--search-->
+        <li class="nav-item search_btn">
+          <button class="show_search">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+              y="0px" viewBox="0 0 512.005 512.005" style="enable-background:new 0 0 512.005 512.005;fill:currentColor"
+              xml:space="preserve">
+              <path d="M508.885,493.784L353.109,338.008c32.341-35.925,52.224-83.285,52.224-135.339c0-111.744-90.923-202.667-202.667-202.667
+			S0,90.925,0,202.669s90.923,202.667,202.667,202.667c52.053,0,99.413-19.883,135.339-52.245l155.776,155.776
+			c2.091,2.091,4.821,3.136,7.552,3.136c2.731,0,5.461-1.045,7.552-3.115C513.045,504.707,513.045,497.965,508.885,493.784z
+			 M202.667,384.003c-99.989,0-181.333-81.344-181.333-181.333S102.677,21.336,202.667,21.336S384,102.68,384,202.669
+			S302.656,384.003,202.667,384.003z" />
+            </svg>
+          </button>
+        </li>
+        <li class="nav-item search_itm">
+          <form class="form-inline">
+            <div class="input-group w-100">
+              <button class="srch_top" type="button">search</button>
+              <input class="form-control" type="text" placeholder="Search">
+            </div>
+          </form>
+        </li>
+
+        <!--notification-->
+        <li class="nav-item dropdown notification_itm">
+          <a class="nav-link dropdown-toggle" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fa bell"></i>
+            <span class="indicator">0</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are
+                online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are
+                online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are
+                online.
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all alerts</a>
+          </div>
+        </li>
+
+        <!--logout-->
+        <li class="nav-item dropdown user_ac">
+          <a class="dropdown-toggle" id="logOutDropdown" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <span class="user_img"><img src="images/member1_small.jpg" alt=""></span>
+            <span>Jhone Doe</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="logOutDropdown">
+            <ul>
+              <!-- <li>
+                  <a class="nav-link">
+                    <i class="fa fa-fw fa-sign-out"></i>option</a>
+                </li> -->
+              <li>
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Icon Cards-->
+      <div class="row top_dash_row dash_row">
+        <div class="col-xl-3 col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+                <div class="card-body scroll_inner">
+                  <div class="wrap">
+                    <table class="table table-hover col_table_2">
+                      <tbody>
+                        <tr>
+                          <th>Settled cash</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Buying Power</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Dividends</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Settled cash</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Buying Power</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Dividends</th>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="withdraw" role="tabpanel" aria-labelledby="withdraw-tab">
+                <div class="card-body scroll_inner">
+                  <div class="wrap">
+                    <table class="table table-hover col_table_2">
+                      <tbody>
+                        <tr>
+                          <th>Dividends</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Settled cash</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Buying Power</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Settled cash</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Buying Power</th>
+                          <td>...</td>
+                        </tr>
+                        <tr>
+                          <th>Dividends</th>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="nav nav-tabs justify-content-center align-items-center" id="myTab" role="tablist">
+              <li class="nav-item w-50 text-center">
+                <a class="nav-tab active" id="deposit-tab" data-toggle="tab" href="#deposit" role="tab"
+                  aria-controls="deposit" aria-selected="true">deposit</a>
+              </li>
+              <li class="nav-item w-50 text-center">
+                <a class="nav-tab" id="withdraw-tab" data-toggle="tab" href="#withdraw" role="tab"
+                  aria-controls="withdraw" aria-selected="false">withdraw</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xl-9 col-md-8 mb-3">
+          <!-- Area Chart -->
+          <canvas id="myAreaChart" width="100" height="30"></canvas>
+        </div>
+      </div>
+
+      <div class="bottom_dash_row dash_row">
+        <!-- header action-->
+        <div class="w-100 d-flex align-items-center flex-nowrap header_action">
+          <div class="card_header mr-auto">
+            <h3>Your Dashboard</h3>
+          </div>
+          <div class="card_actions ml-auto">
+            <button class="inline_btn add_action_btn">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" viewBox="0 0 409.6 409.6" style="enable-background:new 0 0 409.6 409.6;" xml:space="preserve"
+                fill="currentColor" width="40px" height="40px">
+                <path
+                  d="M392.533,187.733H221.867V17.067C221.867,7.641,214.226,0,204.8,0s-17.067,7.641-17.067,17.067v170.667H17.067
+                  			C7.641,187.733,0,195.374,0,204.8s7.641,17.067,17.067,17.067h170.667v170.667c0,9.426,7.641,17.067,17.067,17.067
+                  			s17.067-7.641,17.067-17.067V221.867h170.667c9.426,0,17.067-7.641,17.067-17.067S401.959,187.733,392.533,187.733z" />
+              </svg>
+            </button>
+            <button class="inline_btn edit_action_btn">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                fill="currentColor" y="0px" width="40px" height="40px" viewBox="0 0 469.336 469.336"
+                style="enable-background:new 0 0 469.336 469.336;" xml:space="preserve">
+                <path
+                  d="M456.836,76.168l-64-64.054c-16.125-16.139-44.177-16.17-60.365,0.031L45.763,301.682
+                  			c-1.271,1.282-2.188,2.857-2.688,4.587L0.409,455.73c-1.063,3.722-0.021,7.736,2.719,10.478c2.031,2.033,4.75,3.128,7.542,3.128
+                  			c0.979,0,1.969-0.136,2.927-0.407l149.333-42.703c1.729-0.5,3.302-1.418,4.583-2.69l289.323-286.983
+                  			c8.063-8.069,12.5-18.787,12.5-30.192S464.899,84.237,456.836,76.168z M285.989,89.737l39.264,39.264L120.257,333.998
+                  			l-14.712-29.434c-1.813-3.615-5.5-5.896-9.542-5.896H78.921L285.989,89.737z M26.201,443.137L40.095,394.5l34.742,34.742
+                  			L26.201,443.137z M149.336,407.96l-51.035,14.579l-51.503-51.503l14.579-51.035h28.031l18.385,36.771
+                  			c1.031,2.063,2.708,3.74,4.771,4.771l36.771,18.385V407.96z M170.67,390.417v-17.082c0-4.042-2.281-7.729-5.896-9.542
+                  			l-29.434-14.712l204.996-204.996l39.264,39.264L170.67,390.417z M441.784,121.72l-47.033,46.613l-93.747-93.747l46.582-47.001
+                  			c8.063-8.063,22.104-8.063,30.167,0l64,64c4.031,4.031,6.25,9.385,6.25,15.083S445.784,117.72,441.784,121.72z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="row no-gutters bottom_inner">
+          <!-- Notifications Card-->
+          <div class="card col-lg-4">
+            <div class="card-header">For You</div>
+            <div class="card-body scroll_inner">
+              <div class="wrap">
+                <ul class="list_dash">
+                  <li>
+                    <a href="#">
+                      <strong>Your Are All Caught Up.</strong>Check Back.
+                      <div class="smaller">Tomorrow.</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <strong>Your Are All Caught Up.</strong>Check Back.
+                      <div class="smaller">Tomorrow.</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- feed Card-->
+          <div class="card col-lg-4">
+            <div class="card-header">Lorem Ipsum</div>
+            <div class="card-body scroll_inner">
+              <div class="wrap">
+                <div class="row">
+                  <div class="col-lg-8 mb-3">
+                    <h5>Last Minute Gains To Cap Strong Week</h5>
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
+                      nisi
+                      elit
+                      consequat ipsum,
+                      nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet</p>
+                  </div>
+                  <div class="col-lg-4">
+                    <ul class="stock_list">
+                      <li>
+                        <label class="">New Subscribers</label>
+                        <h4>5,097</h4>
+                        <div class="">
+                          <i class="up_ar"></i><span class="up_color">+33.45%</span>
+                        </div>
+                      </li>
+                      <li>
+                        <label class="">New Subscribers</label>
+                        <h4>5,097</h4>
+                        <div class="">
+                          <i class="up_ar"></i><span class="up_color">+33.45%</span>
+                        </div>
+                      </li>
+                      <li>
+                        <label class="">New Subscribers</label>
+                        <h4>5,097</h4>
+                        <div class="">
+                          <i class="down_ar"></i><span class="down_color">-33.45%</span>
+                        </div>
+                      </li>
+                      <li>
+                        <label class="smaller">New Subscribers</label>
+                        <h4>5,097</h4>
+                        <div class="">
+                          <i class="down_ar"></i><span class="down_color">-33.45%</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- stock Card-->
+          <div class="card col-lg-4">
+            <div class="card-header">Top Portfolio Positions</div>
+            <div class="card-body scroll_inner">
+              <div class="wrap">
+                <table class="table table-hover table_no-border col_table_4">
+                  <thead>
+                    <tr>
+                      <th>Symbol</th>
+                      <th>Last </th>
+                      <th>Change</th>
+                      <th>MKT Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i class="down_ar"></i><strong>AMZN</strong></td>
+                      <td><span>3162.00</span></td>
+                      <td><span class="down_color">-1.95%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="down_ar"></i><strong>googl</strong></td>
+                      <td><span>1495.05</span></td>
+                      <td><span class="down_color">-0.66%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="down_ar"></i><strong>GLD</strong></td>
+                      <td><span>191.01</span></td>
+                      <td><span class="down_color">-1.45%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="down_ar"></i><strong>INTC</strong></td>
+                      <td><span>48.04</span></td>
+                      <td><span class="down_color">-1.09%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="up_ar"></i><strong>GLD</strong></td>
+                      <td><span>191.01</span></td>
+                      <td><span class="up_color">1.45%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="up_ar"></i><strong>INTC</strong></td>
+                      <td><span>48.04</span></td>
+                      <td><span class="up_color">1.09%</span></td>
+                      <td><span>...</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="dsh_footer">
+      <div class="container">
+        © Copyright 2020 Ace capital
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--load script - require for all pages-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+
+  <script src="js/jquery-migrate-1.4.1.min.js"></script>
+  <script src="js/sPreloader.js"></script>
+
+  <!--load other script as required-->
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <script src="js/jquery.nicescroll.min.js"></script>
+
+  <script src="js/dashboard.js?v=2"></script>
+</body>
+
+</html>

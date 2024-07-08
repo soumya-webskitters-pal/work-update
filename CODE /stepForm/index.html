@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>step form</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!--style-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="ct_form" name="ct_form">
+        <div class="form_box">
+
+            <div class="all_step">
+                <div class="step_box step1 active">
+                    <div class="step_title">
+                        <h2>The Highest Rated Merchant Services</h2>
+                        <h3>Membership-Style Merchant Services | Accept All Major Cards</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <a href="#" class="stp_btn stp_nxt">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step2">
+                    <div class="step_title">
+                        <h3>Is your business based in the United States?</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp half">
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="yes" name="r1" class="stp_nxt"><span
+                                        class="stp_btn">Yes</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="no" name="r1" class="stp_nxt"><span
+                                        class="stp_btn">No</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step2_1">
+                    <div class="step_title">
+                        <h3>Where is your business located?</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <select class="cntry_select stp_nxt" id="cntry_select">
+                                    <option placeholder>select Country</option>
+                                </select>
+                                <span class="error">This field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step3">
+                    <div class="step_title">
+                        <h3>What is your monthly processing volume?</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp half">
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="below 5" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">&lt;
+                                        $5k</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="5 - 25" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">$5k -
+                                        $25k</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="25 - 50" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">$25k -
+                                        $50k</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="50 - 100" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">$50k -
+                                        $100k</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="100 - 200" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">$100k -
+                                        $200k</span></label>
+                            </div>
+                            <div class="step_col">
+                                <label class="radio_box"><input type="radio" value="above 200" name="r2"
+                                        class="stp_nxt"><span class="stp_btn">$200k+</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step4">
+                    <div class="step_title">
+                        <h3>Please write your business name</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <input type="text" placeholder="Business Name" class="inp_nxt">
+                                <span class="error">This field is required</span>
+                            </div>
+                        </div>
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <a href="#" class="stp_btn stp_nxt">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step5">
+                    <div class="step_title">
+                        <h3>Please write your full name</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp half">
+                            <div class="step_col">
+                                <input type="text" placeholder="First Name" class="inp_nxt">
+                                <span class="error">This field is required</span>
+                            </div>
+                            <div class="step_col">
+                                <input type="text" placeholder="Last Name" class="inp_nxt">
+                                <span class="error">This field is required</span>
+                            </div>
+                        </div>
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <a href="#" class="stp_btn stp_nxt">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step_box step6">
+                    <div class="step_title">
+                        <h3>Please write your email and phone number</h3>
+                    </div>
+                    <div class="step_group">
+                        <div class="step_inp half">
+                            <div class="step_col">
+                                <input type="Email" placeholder="Email" class="inp_nxt">
+                                <span class="error">This field is required</span>
+                            </div>
+                            <div class="step_col">
+                                <input type="tel" placeholder="Phone" class="inp_nxt" id="phone">
+                                <span class="error">This field is required</span>
+                            </div>
+                        </div>
+                        <div class="step_inp">
+                            <div class="step_col">
+                                <p>By submitting this form, I agree to Payment Depot's Terms and Conditions & Privacy
+                                    Policy.</p>
+                                <input type="submit" class="stp_btn stp_nxt" value="Finish">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_msg step_group" id="form_msg">
+                <div class="form_success">
+                    <h4>Thank you</h4>
+                </div>
+                <div class="form_error">
+                    <h4>Sorry, an error occur<br>Please resubmit the form</h4>
+                </div>
+            </div>
+
+            <div class="step_group">
+                <div class="prg_box" style="display: none;"><span style="width: 0%;"></span></div>
+                <div class="step_action" style="display: none;">
+                    <div class="prev_step">← Back</div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- script-->
+    <script
+        src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from%2Ces5%2Ces6%2CSymbol%2CSymbol.iterator%2CDOMTokenList%2CObject.assign%2CCustomEvent%2CElement.prototype.classList%2CElement.prototype.closest%2CElement.prototype.dataset%2CArray.prototype.find%2CArray.prototype.includes"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="custom.js"></script>
+</body>
+
+</html>

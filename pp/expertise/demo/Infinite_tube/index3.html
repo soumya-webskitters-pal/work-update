@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Infinite 3d Tubes | Demo 3</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+</head>
+
+<body>
+
+	<script src="js/vendors/three.min.js"></script>
+	<script src="js/vendors/TweenMax.min.js"></script>
+	<script src="https://threejs.org/examples/js/controls/OrbitControls.js"> </script>
+	<script>
+		var vertexShader = `
+    uniform float time;
+    uniform vec3 basePos;
+    varying vec3 vPos;
+    varying vec2 vUv;
+    void main()	{
+      vPos = position + basePos;
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    }
+  `;
+		var fragmentShader = `
+    #extension GL_OES_standard_derivatives : enable
+
+    varying vec3 vPos;
+    varying vec2 vUv;
+    uniform float time;
+    uniform vec3 color;
+    
+    float line(float width, vec2 step){
+      
+      vec2 coord = vUv / step;
+      //coord.x += sin(coord.y - time * 5.) + time; // wavy effect + "rotation"
+
+      vec2 grid = abs(fract(coord - 0.5) - 0.5) / fwidth(coord * width);
+      float line = min(grid.x, grid.y);
+      
+      return 1. - min(line, 1.0);
+    }
+    
+    //Divided per 7 -> 1/7 = 0.1428571428571429
+    float Maskline(float pos,float lineNumber)
+    {    
+      return step(pos,0.1428571428571429 * lineNumber) - (step(pos,0.1428571428571429 * (lineNumber - 1.)));
+    }
+
+    vec3 GetRainbowColor(float i)
+    {
+        //Step Violet
+      vec3 Violet = 	vec3(0.57,0.0, 1.0) 	*  Maskline(i,7.);
+      vec3 Purple = 	vec3(0.27,0.0, 0.51)	*  Maskline(i,6.);
+      vec3 blue 	=	vec3(0.0, 	0.0, 1.0) 	*  Maskline(i,5.);
+      vec3 Green	=	vec3(0.0, 	1.0, 0.0) 	*  Maskline(i,4.);
+      vec3 Yellow =	vec3(1.0, 	1.0, 0.0) 	*  Maskline(i,3.);
+      vec3 Orange =	vec3(1.0, 	0.5, 0.0) 	*  Maskline(i,2.);
+      vec3 Red	=	vec3(1.0, 	0.0, 0.0) 	*  Maskline(i,1.);
+      return Violet + Purple + blue + Green + Yellow + Orange + Red;
+    }
+    
+    vec3 SmoothRainbowColor(float i)
+    {
+      i *= 0.1428571428571429 * 6.;
+      float gradinStep = mod(i,0.1428571428571429) * 7.;    
+      vec3 firstColor = GetRainbowColor(i);
+      vec3 NextColor = GetRainbowColor(i + 0.1428571428571429);    
+      return mix(firstColor,NextColor, gradinStep);
+    }
+    
+    void main() {
+      float v = line(1., vec2(1. / 24., 0.1));
+      
+      float s = 500.; // step
+      float mp = mod(vPos.z - time * 100., s);
+      float smooth = 1. - smoothstep(0., 5., mp) * (1. - smoothstep(s - 20.,s,mp));
+      
+      vec3 c = mix(vec3(0.125, 0., .125), vec3(0., 1., 1.), smooth); // mixing base colour of lines and colour of wave
+      vec3 rainbow = SmoothRainbowColor(1. - mod(vPos.z - 275., 550.) / 550.);
+      c = mix(rainbow, c, v);
+      //c = mix(color, c, v);
+      
+      gl_FragColor = vec4(c, 1.0);
+    }
+  `;
+	</script>
+	<script src="js/demo3.js"></script>
+</body>
+
+</html>

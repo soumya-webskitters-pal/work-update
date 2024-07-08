@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>demo</title>
+
+    <!-- fabicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" /> -->
+    <!-- All CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.min.css"
+    /-->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/reveal.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="main-head">
+      <div class="container">
+        <ul class="" data-nav>
+          <li><a href="#">nav 1</a></li>
+          <li><a href="#">nav 2</a></li>
+          <li><a href="#">nav 3</a></li>
+          <li><a href="#">nav 4</a></li>
+          <li><a href="#">nav 5</a></li>
+          <li><a href="#">nav 6</a></li>
+          <li><a href="#">nav 7</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="reveal" id="reveal_slide">
+      <div class="slides">
+        <section>
+          <div class="reveal_container">
+            <h1 style="color: black; font-weight: bold">
+              Customer Presentation
+            </h1>
+            <p style="color: black; font-weight: bold">by Thomas Rager</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="reveal_container">
+            <h3>Frontend Architecture</h3>
+            <ul>
+              <li>
+                <a href="https://nextjs.org">Next.js</a> with
+                <a href="https://github.com/shadowwalker/next-pwa">next-pwa</a>
+              </li>
+              <li><a href="https://bulma.io">Bulma</a> as CSS-Framework</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <section>
+            <div class="reveal_container"><h4>sub section 1</h4></div>
+          </section>
+          <section>
+            <div class="reveal_container"><h4>sub section 2</h4></div>
+          </section>
+          <section>
+            <div class="reveal_container"><h4>sub section 3</h4></div>
+          </section>
+          <section>
+            <div class="reveal_container"><h4>sub section 4</h4></div>
+          </section>
+        </section>
+
+        <section>
+          <div class="reveal_container">
+            <ul>
+              <li>
+                Show cached data, refresh data in viewport, load rest in
+                background
+              </li>
+              <li>
+                The fitness tracking needs only a very limited amount of data
+                therefore it is possible to store the full dataset on the client
+              </li>
+              <li>
+                Most data is generated on the device because it is the tracker.
+                Product recommendations are generated on the server
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="reveal_container">
+            <h3>
+              How to support the requirement to include a widget into the
+              existing website?
+            </h3>
+            <ul>
+              <li>iFrame</li>
+              <li>Embedded React widget</li>
+            </ul>
+            <p>
+              more info
+              <a
+                href="https://selleo.com/blog/how-to-create-embedded-react-widget"
+                >here</a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div class="reveal_container">
+            <h2>What CMS and Database would you recommend and why?</h2>
+          </div>
+        </section>
+
+        <section>
+          <div class="reveal_container">
+            <img class="r-stretch" src="https://i.imgur.com/4msV256.png" />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/js/reveal.min.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      jQuery.noConflict()(function ($) {
+        var revealCall = true;
+        window.addEventListener("resize", reveal_slide);
+        reveal_slide();
+        function reveal_slide() {
+          // document.querySelector("#reveal_slide>.slide").style.width =
+          //   window.innerWidth;
+          // document.querySelector("#reveal_slide>.slide").style.height =
+          //   window.innerHeight;
+          if (revealCall && window.innerWidth > 991) {
+            revealCall = false;
+            console.log("assafsaafs");
+            Reveal.initialize({
+              margin: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+              disableLayout: true,
+              controls: false,
+              progress: false,
+              history: false,
+              // hash: true,
+              center: false,
+              transition: "slide",
+              mouseWheel: true,
+              slideNumber: false,
+              // minScale: 0.95,
+              // maxScale: 1,
+              touch: false,
+              // keyboard: null,
+            });
+            //action on slide change
+            Reveal.addEventListener("slidechanged", function (event) {
+              //event.previousSlide, event.currentSlide, event.indexh, event.indexv
+              console.log(event);
+              $("[data-nav]>li").removeClass("active");
+              if (event.indexh != 0) {
+                $("[data-nav]>li:eq(" + event.indexh + ")").addClass("active");
+              }
+              if (event.indexv == 0) {
+                if (
+                  $(event.currentSlide).parent().find(".inside_control li")
+                    .length
+                ) {
+                  $(event.currentSlide)
+                    .parent()
+                    .find(".inside_control li")
+                    .removeClass("active");
+                  $(event.currentSlide)
+                    .parent()
+                    .find(".inside_control li:eq(0)")
+                    .addClass("active");
+                }
+              } else {
+                $(event.currentSlide)
+                  .parent()
+                  .find(".inside_control li")
+                  .removeClass("active");
+                $(event.currentSlide)
+                  .parent()
+                  .find(".inside_control li:eq(" + event.indexv + ")")
+                  .addClass("active");
+              }
+            });
+
+            //custom control button inside slider
+            $("#reveal_slide>.slides>section").each(function (index) {
+              let _this = $(this);
+              _this.addClass("section" + (index + 1));
+              if (_this.find("section").length > 0) {
+                $("<ul class='inside_control'></ul>").appendTo(_this);
+                for (let i = 0; i < _this.find("section").length; i++) {
+                  if (i === 0) {
+                    _this
+                      .find(".inside_control")
+                      .append("<li class='active'><span></span></li>");
+                  } else {
+                    _this
+                      .find(".inside_control")
+                      .append("<li><span></span></li>");
+                  }
+                }
+
+                _this.find(".inside_control>li").on("click", (e) => {
+                  let state = Reveal.getState();
+                  state.indexv = $(e.target).index();
+                  Reveal.setState(state);
+                });
+              }
+            });
+
+            //goto section on nav click
+            $("[data-nav]>li>a").each(function (index) {
+              $(this).on("click", () => {
+                console.log("###", index);
+                let states = Reveal.getState();
+                states.indexh = index;
+                states.indexv = 0;
+                Reveal.setState(states);
+              });
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

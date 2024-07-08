@@ -1,0 +1,728 @@
+{
+  "nodes": [{
+      "id": "id1",
+      "name": "Lorem",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id2",
+      "name": "Pellentesque",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id3",
+      "name": "quis dui sed",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id4",
+      "name": "Quisque viverra",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id5",
+      "name": "tortor nunc",
+      "val": 0.2,
+      "group": "group1"
+    },
+    {
+      "id": "id6",
+      "name": "vehicula aliquet",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id7",
+      "name": "Nam ac tincidunt justo",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id8",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id9",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id10",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id11",
+      "name": " consectetur at",
+      "val": 0.2,
+      "group": "group3"
+    },
+    {
+      "id": "id12",
+      "name": " consectetur at",
+      "val": 0.4,
+      "group": "group3"
+    },
+    {
+      "id": "id13",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id14",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id15",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id16",
+      "name": " consectetur at",
+      "val": 0.4,
+      "group": "group3"
+    },
+    {
+      "id": "id17",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id18",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id19",
+      "name": " consectetur at",
+      "val": 0.4,
+      "group": "group2"
+    },
+    {
+      "id": "id20",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id21",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id22",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id23",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id24",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id25",
+      "name": " consectetur at",
+      "val": 0.3,
+      "group": "group3"
+    },
+    {
+      "id": "id26",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id27",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id28",
+      "name": " consectetur at",
+      "val": 0.4,
+      "group": "group2"
+    },
+    {
+      "id": "id29",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id30",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id31",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id32",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id33",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id34",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id35",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id36",
+      "name": " consectetur at",
+      "val": 0.2,
+      "group": "group3"
+    },
+    {
+      "id": "id37",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id38",
+      "name": " consectetur at",
+      "val": 0.5,
+      "group": "group2"
+    },
+    {
+      "id": "id39",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id40",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id41",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id42",
+      "name": " consectetur at",
+      "val": 0.3,
+      "group": "group3"
+    },
+    {
+      "id": "id43",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id44",
+      "name": " consectetur at",
+      "val": 0.2,
+      "group": "group2"
+    },
+    {
+      "id": "id45",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id46",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id47",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id48",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id49",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id50",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id51",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id52",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id53",
+      "name": " consectetur at",
+      "val": 0.2,
+      "group": "group3"
+    },
+    {
+      "id": "id54",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id55",
+      "name": " consectetur at",
+      "val": 0.2,
+      "group": "group3"
+    },
+    {
+      "id": "id56",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id57",
+      "name": " consectetur at",
+      "val": 0.3,
+      "group": "group3"
+    },
+    {
+      "id": "id58",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group3"
+    },
+    {
+      "id": "id59",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id60",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group1"
+    },
+    {
+      "id": "id61",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id62",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id63",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group5"
+    },
+    {
+      "id": "id64",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id65",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id66",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id67",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group2"
+    },
+    {
+      "id": "id68",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id69",
+      "name": " consectetur at",
+      "val": 0.3,
+      "group": "group2"
+    },
+    {
+      "id": "id70",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id71",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id72",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group5"
+    },
+    {
+      "id": "id73",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id74",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group5"
+    },
+    {
+      "id": "id75",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group5"
+    },
+    {
+      "id": "id76",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id77",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id78",
+      "name": " consectetur at",
+      "val": 0.5,
+      "group": "group2"
+    },
+    {
+      "id": "id79",
+      "name": " consectetur at",
+      "val": 0.1,
+      "group": "group4"
+    },
+    {
+      "id": "id80",
+      "name": " consectetur at",
+      "val": 0.4,
+      "group": "group1"
+    }
+  ],
+  "links": [{
+      "source": "id1",
+      "target": "id2"
+    },
+    {
+      "source": "id2",
+      "target": "id2"
+    },
+    {
+      "source": "id3",
+      "target": "id2"
+    },
+    {
+      "source": "id4",
+      "target": "id2"
+    },
+    {
+      "source": "id5",
+      "target": "id2"
+    },
+    {
+      "source": "id6",
+      "target": "id2"
+    },
+    {
+      "source": "id7",
+      "target": "id4"
+    },
+    {
+      "source": "id8",
+      "target": "id4"
+    },
+    {
+      "source": "id9",
+      "target": "id4"
+    },
+    {
+      "source": "id10",
+      "target": "id8"
+    },
+    {
+      "source": "id11",
+      "target": "id55"
+    },
+    {
+      "source": "id12",
+      "target": "id8"
+    },
+    {
+      "source": "id13",
+      "target": "id8"
+    },
+    {
+      "source": "id14",
+      "target": "id8"
+    },
+    {
+      "source": "id15",
+      "target": "id12"
+    },
+    {
+      "source": "id16",
+      "target": "id12"
+    },
+    {
+      "source": "id17",
+      "target": "id52"
+    },
+    {
+      "source": "id18",
+      "target": "id12"
+    },
+    {
+      "source": "id19",
+      "target": "id12"
+    },
+    {
+      "source": "id20",
+      "target": "id12"
+    },
+    {
+      "source": "id21",
+      "target": "id12"
+    },
+    {
+      "source": "id22",
+      "target": "id18"
+    },
+    {
+      "source": "id23",
+      "target": "id18"
+    },
+    {
+      "source": "id24",
+      "target": "id18"
+    },
+    {
+      "source": "id25",
+      "target": "id1"
+    },
+    {
+      "source": "id25",
+      "target": "id1"
+    },
+    {
+      "source": "id26",
+      "target": "id41"
+    },
+    {
+      "source": "id27",
+      "target": "id1"
+    },
+    {
+      "source": "id28",
+      "target": "id20"
+    },
+    {
+      "source": "id29",
+      "target": "id24"
+    },
+    {
+      "source": "id30",
+      "target": "id22"
+    },
+    {
+      "source": "id31",
+      "target": "id22"
+    },
+    {
+      "source": "id32",
+      "target": "id26"
+    },
+    {
+      "source": "id33",
+      "target": "id47"
+    },
+    {
+      "source": "id34",
+      "target": "id49"
+    },
+    {
+      "source": "id35",
+      "target": "id30"
+    },
+    {
+      "source": "id36",
+      "target": "id60"
+    },
+    {
+      "source": "id37",
+      "target": "id47"
+    },
+    {
+      "source": "id38",
+      "target": "id41"
+    },
+    {
+      "source": "id39",
+      "target": "id32"
+    },
+    {
+      "source": "id40",
+      "target": "id46"
+    },
+    {
+      "source": "id41",
+      "target": "id5"
+    },
+    {
+      "source": "id42",
+      "target": "id51"
+    },
+    {
+      "source": "id43",
+      "target": "id33"
+    },
+    {
+      "source": "id44",
+      "target": "id30"
+    },
+    {
+      "source": "id45",
+      "target": "id30"
+    },
+    {
+      "source": "id46",
+      "target": "id30"
+    },
+    {
+      "source": "id47",
+      "target": "id32"
+    },
+    {
+      "source": "id48",
+      "target": "id17"
+    },
+    {
+      "source": "id49",
+      "target": "id46"
+    },
+    {
+      "source": "id50",
+      "target": "id46"
+    },
+    {
+      "source": "id51",
+      "target": "id60"
+    },
+    {
+      "source": "id52",
+      "target": "id33"
+    },
+    {
+      "source": "id53",
+      "target": "id3"
+    },
+    {
+      "source": "id54",
+      "target": "id8"
+    },
+    {
+      "source": "id55",
+      "target": "id12"
+    },
+    {
+      "source": "id56",
+      "target": "id3"
+    },
+    {
+      "source": "id57",
+      "target": "id15"
+    },
+    {
+      "source": "id58",
+      "target": "id47"
+    },
+    {
+      "source": "id59",
+      "target": "id9"
+    },
+    {
+      "source": "id60",
+      "target": "id18"
+    }
+  ]
+}

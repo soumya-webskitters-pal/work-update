@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+[data-slider] {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+[data-slider] img.hide {
+  display: none;
+}

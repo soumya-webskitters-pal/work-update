@@ -1,0 +1,1169 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Demo</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="style.css" />
+
+	<!--END code for glow effect-->
+	<script src="js/modernizr.js"></script>
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/3d-force-graph.min.js"></script>
+	<script src="js/d3-force.min.js"></script>
+	<script src="js/three.min.js"></script>
+	<script src="js/orbitControls.js"></script>
+	<script src="js/orbitControls-Touch.js"></script>
+	<script src="js/THREEx.WindowResize.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+</head>
+
+<body style="height:100vh">
+	<!--preloader-->
+	<div class="preloader" id="preloader">
+		<!-- style="background-image: url(images/cover.png);"-->
+		<figure class="preloader_floating_background">
+			<img src="images/cover.png" alt="image-1">
+			<img src="images/cover3.png" alt="image-2">
+			<img class="bottom_cover_img" src="images/cover2.png" alt="image-3">
+		</figure>
+		<div class="loading">
+			<span>loading</span>
+		</div>
+		<div class="loader">
+			<span class="l-1"></span>
+			<span class="l-2"></span>
+			<span class="l-3"></span>
+			<span class="l-4"></span>
+			<span class="l-5"></span>
+			<span class="l-6"></span>
+		</div>
+	</div>
+	<!--END preloader-->
+	<span class="glow"></span>
+	<!--main page start-->
+	<main class="wrapper" id="main">
+		<div id="graph"></div>
+		<div class="container clearfix" id="outer_box">
+			<div class="data_title box">
+				<div id="node_headline"></div>
+				<div id="node_shape"></div>
+			</div>
+			<div class="data_description box">
+				<div id="node_description"></div>
+			</div>
+		</div>
+	</main>
+	<!--END main page start-->
+
+	<script>
+		/*--preloader--*/
+		const pg_loader = document.querySelector("#preloader");
+		jQuery(document).ready(function ($) {
+
+			/*--moving image--*/
+			//define store some initial variables
+			var halfWindowH = $(window).height() * 0.5,
+				halfWindowW = $(window).width() * 0.5,
+				//define a max rotation value (X and Y axises)
+				maxRotationY = 5,
+				maxRotationX = 3,
+				aspectRatio;
+
+			//detect if hero <img> has been loaded and evaluate its aspect-ratio
+			$('.preloader_floating_background').find('img').eq(0).load(function () {
+				aspectRatio = $(this).width() / $(this).height();
+				if ($('html').hasClass('preserve-3d')) initBackground();
+			}).each(function () {
+				//check if image was previously load - if yes, trigger load event
+				if (this.complete) $(this).load();
+			});
+
+			//detect mouse movement
+			$('#preloader').each(function () {
+				$(this).on('mousemove', function (event) {
+					var wrapperOffsetTop = $(this).offset().top;
+					if ($('html').hasClass('preserve-3d')) {
+						window.requestAnimationFrame(function () {
+							moveBackground(event, wrapperOffsetTop);
+						});
+					}
+				});
+			});
+			/*--END moving img--*/
+
+			/*--moving background--*/
+			/*
+						var movementStrength = 25;
+						var height = movementStrength / $(window).height();
+						var width = movementStrength / $(window).width();
+						$("#preloader").mousemove(function (e) {
+							var pageX = e.pageX - ($(window).width() / 2);
+							var pageY = e.pageY - ($(window).height() / 2);
+							var newvalueX = width * pageX * -1 - 25;
+							var newvalueY = height * pageY * -1 - 50;
+							$('#preloader').css("background-position", newvalueX + "px " + newvalueY + "px");
+						});
+						/*--end moving background--*/
+
+
+
+			/*--dotted progress--*/
+			var _pageWidth = $("body").outerWidth();
+			var _timing = _pageWidth + 3500;
+			$(".loader span").each(function (i) {
+				// store the item around for use in the 'timeout' function
+				var _item = $(this);
+				// execute this function sometime later:
+				setTimeout(function ($) {
+					_item.removeClass("jmp");
+					_item.css({
+						"left": '110%'
+					});
+					// console.log("loop");
+				}, 180 * i); //move each dot one after the other, transition handled by CSS
+				setTimeout(function ($) {
+						_item.addClass("jmp");
+						_item.css({
+							"left": '-10%'
+						});
+						//console.log("de-loop"); 
+					}, 3000 + 180 *
+					i); //move each dot one back to start in order, transition removed via <.jmp> class
+			}); //RUN ONCE OUT OF LOOP, AVOID DELAY
+			/*--END dotted progress--*/
+
+
+			$(window).on('resize', function () {
+				/*--moving image--*/
+				if ($('html').hasClass('preserve-3d')) {
+					window.requestAnimationFrame(function () {
+						halfWindowH = $(window).height() * 0.5,
+							halfWindowW = $(window).width() * 0.5;
+						initBackground();
+					});
+				} else {
+					$('#preloader').attr('style', '');
+					$('.preloader_floating_background').attr('style', '').removeClass('is-absolute');
+				}
+				/*--END - moving image--*/
+
+				/*--dotted progress--*/
+				var _pageWidth = $("body").outerWidth();
+				var _timing = _pageWidth + 3500;
+				/*--END dotted progress--*/
+			});
+
+			/*--dotted progress--*/
+			var _pageLoader = setInterval(function () {
+				$(".loader span").each(function (i) {
+					// store the item around for use in the 'timeout' function
+					var _item = $(this);
+					// execute this function sometime later:
+					setTimeout(function ($) {
+						_item.removeClass("jmp");
+						_item.css({
+							"left": '110%'
+						});
+						// console.log("loop"); 
+					}, 180 * i); //move each dot one after the other, transition handled by CSS
+					setTimeout(function ($) {
+							_item.addClass("jmp");
+							_item.css({
+								"left": '-10%'
+							});
+							// console.log("de-loop"); 
+						}, 3000 + 180 *
+						i
+					); //move each dot one back to start in order, transition removed via <.jmp> class
+				});
+			}, _timing);
+			/*--END dotted progress--*/
+
+
+			/*--moving image--*/
+			function initBackground() {
+				var wrapperHeight = Math.ceil(halfWindowW * 2 / aspectRatio),
+					proportions = (maxRotationY > maxRotationX) ? 1.1 / (Math.sin(Math.PI / 2 - maxRotationY * Math
+						.PI / 180)) :
+					1.1 / (Math.sin(Math.PI / 2 - maxRotationX * Math.PI / 180)),
+					newImageWidth = Math.ceil(halfWindowW * 2 * proportions),
+					newImageHeight = Math.ceil(newImageWidth / aspectRatio),
+					newLeft = halfWindowW - newImageWidth / 2,
+					newTop = (wrapperHeight - newImageHeight) / 2;
+
+				//set an height for the #preloader
+				$('#preloader').css({
+					'height': wrapperHeight,
+				});
+				//set dimentions and position of the #preloader
+				$('.preloader_floating_background').addClass('is-absolute').css({
+					'left': newLeft,
+					'top': newTop,
+					'width': newImageWidth,
+				});
+			}
+
+			function moveBackground(event, topOffset) {
+				var rotateY = ((-event.pageX + halfWindowW) / halfWindowW) * maxRotationY,
+					yPosition = event.pageY - topOffset,
+					rotateX = ((yPosition - halfWindowH) / halfWindowH) * maxRotationX;
+
+				if (rotateY > maxRotationY) rotateY = maxRotationY;
+				if (rotateY < -maxRotationY) rotateY = -maxRotationY;
+				if (rotateX > maxRotationX) rotateX = maxRotationX;
+				if (rotateX < -maxRotationX) rotateX = -maxRotationX;
+				$('.preloader_floating_background').css({
+					'-moz-transform': 'rotateX(' + rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' +
+						') translateZ(0)',
+					'-webkit-transform': 'rotateX(' + rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' +
+						') translateZ(0)',
+					'-ms-transform': 'rotateX(' + rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' +
+						') translateZ(0)',
+					'-o-transform': 'rotateX(' + rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' +
+						') translateZ(0)',
+					'transform': 'rotateX(' +
+						rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' + ') translateZ(0)',
+				});
+			}
+			/*--END - moving image--*/
+
+		});
+
+
+		/*--moving image--*/
+		/* Detect "transform-style: preserve-3d" support, or update csstransforms3d for IE10 ? #762
+		https://github.com/Modernizr/Modernizr/issues/762 */
+		(function getPerspective() {
+			var element = document.createElement('p'),
+				html = document.getElementsByTagName('html')[0],
+				body = document.getElementsByTagName('body')[0],
+				propertys = {
+					'webkitTransformStyle': '-webkit-transform-style',
+					'MozTransformStyle': '-moz-transform-style',
+					'msTransformStyle': '-ms-transform-style',
+					'transformStyle': 'transform-style'
+				};
+
+			body.insertBefore(element, null);
+
+			for (var i in propertys) {
+				if (element.style[i] !== undefined) {
+					element.style[i] = "preserve-3d";
+				}
+			}
+
+			var st = window.getComputedStyle(element, null),
+				transform = st.getPropertyValue("-webkit-transform-style") ||
+				st.getPropertyValue("-moz-transform-style") ||
+				st.getPropertyValue("-ms-transform-style") ||
+				st.getPropertyValue("transform-style");
+
+			if (transform !== 'preserve-3d') {
+				html.className += ' no-preserve-3d';
+			} else {
+				html.className += ' preserve-3d';
+			}
+			document.body.removeChild(element);
+
+		})();
+		/*--END moving image--*/
+		/*--end preloader--*/
+
+
+
+
+		/*--================== page load =======================--*/
+		window.addEventListener('load', function () {
+			//console.clear();
+
+			/*--random num. generator--*/
+			function randomIntFromInterval(rnd_min, rnd_max) // min and max included
+			{
+				return Math.floor(Math.random() * (rnd_max - rnd_min + 1) + rnd_min);
+			}
+			/*--END random num. generator--*/
+
+
+
+			//useful variables
+			const load_time = 1000;
+			const elem = document.getElementById('graph');
+
+			const page = document.getElementById('main');
+			page.style.opacity = "0";
+
+			let highlightNodes = [];
+			let highlightLink = null;
+
+			var set_title = document.querySelector('#node_headline');
+			var node_set = document.querySelector('#node_shape');
+			var set_description = document.querySelector('#node_description');
+
+			let JSONItems = [];
+			var current_node_el = 0;
+
+			var obj_mesh_met = [];
+
+			//initial menu --manually
+			var current_menu = 5;
+
+			var page_start_flag = false;
+
+
+			//load json file and create a const.
+			$.getJSON("package3.json", function (data) {
+				//if json file - loading success
+				try {
+					JSONItems = data;
+					const node_count = JSONItems.nodes.length;
+					const link_count = JSONItems.links.length;
+					//create const. and add 1st data
+					var initData = {
+						nodes: [JSONItems.nodes[0]],
+						links: [JSONItems.links[0]]
+					};
+
+
+
+					/*--add actual data from json file--*/
+					//add data from json file --add node
+					for (var i = 1; i < node_count; i++) {
+						initData.nodes.push(JSONItems.nodes[i]);
+					};
+					//add data from json file--add Link 
+					for (var i = 1; i < link_count; i++) {
+						initData.links.push(JSONItems.links[i]);
+					}
+					/*--END add actual data from json file--*/
+
+
+
+					/*--count actual working node--*/
+					var temp_node_el_count = 0;
+					for (var i = 0; i <= node_count - 1; i++) {
+						if (initData.nodes[i].id.startsWith('id')) {
+							temp_node_el_count++;
+						}
+					}
+					const node_el_count = temp_node_el_count;
+					/*--END - count actual working node--*/
+
+
+
+					/*--random node generate--*/
+					/*
+										var false_link_pos = node_count - 1;
+										const false_node_limit = 100;
+
+										//add false node
+										for (var false_node_pos = node_count; false_node_pos <
+											false_node_limit; false_node_pos++) {
+											initData.nodes.push({
+												id: "false_node" + false_node_pos,
+												group: 2,
+												name: null,
+												description: null,
+												image: null,
+												value: 2
+											});
+											// console.log(
+											// 	'SNODEPAL{' + '\n' +
+											// 	'"id":' + '"false_node' + false_node_pos + '",\n' +
+											// 	'"group": 2,\n' +
+											// 	'"name": null,\n' +
+											// 	'"description": null,\n' +
+											// 	'"image": null,\n' +
+											// 	'"value": 2\n' +
+											// 	'}'
+											// );
+										};
+
+										/*
+															////add random link
+															for (var n_pos = node_count + 1; n_pos < (false_node_limit); n_pos++) {
+																//generate random id--
+																var rnd_id = initData.nodes[randomIntFromInterval(node_count + 1, ((
+																	false_node_limit) - 1))].id;
+																var rnd_target = initData.nodes[randomIntFromInterval(node_count + 1, ((
+																	false_node_limit) - 1))].id;
+																//console.log("rnd-id:", rnd_id + ",rnd_target:" + rnd_target);
+																initData.links.push({
+																	"source": rnd_id,
+																	"target": rnd_target
+																});
+																// console.log(
+																// 	'SLINKPAL{' + '\n' +
+																// 	'"source":"' + rnd_id + '",\n' +
+																// 	'"target":"' + rnd_target + '"\n' +
+																// 	'}'
+																// );
+															};
+										*/
+					/*--END random node generate--*/
+
+
+
+					/*--show total array data--*/
+					console.log(initData);
+					/*--end show total array data--*/
+
+
+
+					//create ForceGraph
+					const Graph = ForceGraph3D({
+							controlType: 'orbit',
+							rendererConfig: { //graph default render
+								antialias: true,
+								alpha: true,
+								preserveDrawingBuffer: true,
+								blending: THREE.AdditiveBlending,
+								depthTest: false,
+							}
+						})
+						(elem)
+						.graphData(initData) //add data as const.
+						.forceEngine("d3") //set phy. engine
+						.numDimensions(3); //graph dimension
+
+					Graph.dagLevelDistance(50)
+						.d3Force('charge')
+						.strength(-200);
+					// .cooldownTicks(200)
+					// .cooldownTime(20000);
+
+
+					//pause animation
+					Graph.pauseAnimation();
+
+					//set canvas bg color
+					Graph.backgroundColor('rgba(0,0,0,0)') //canvas color
+						.width(window.innerWidth)
+						.height(window.innerHeight);
+
+					//graph control
+					Graph.enableNodeDrag(false)
+						.showNavInfo(false)
+						.enablePointerInteraction(true)
+						.enableNavigationControls(false); //camera control - rotate with mouse
+
+
+					//label
+					Graph.nodeLabel(node => {
+						if ((node.id).startsWith('id')) {
+							window.node = node;
+							//console.log("label==vx:" + node.vx + ",vy:" + node.vy + ",vz:" + node.vz +"x:" + node.x + ",y:" + node.y + ",z:" + node.z);
+							//return node.id;
+							return node.name;
+						}
+						//set default highlightNodes to 0th element
+						highlightNodes[0] = node[0];
+					});
+
+					//links
+					Graph.linkVisibility(true)
+						.linkColor("#ffffff")
+						.linkOpacity(0.1)
+						.linkResolution(10)
+						.linkWidth(0)
+						.linkSource('source')
+						.linkTarget('target')
+						.linkDirectionalParticles(60)
+						.linkDirectionalParticleSpeed(link => 0)
+						.linkDirectionalParticleWidth(0.15)
+						.linkDirectionalParticleColor("#ffffff")
+						.linkDirectionalParticleResolution(20);
+
+					//node
+					Graph.nodeOpacity('1') //set opacity of node
+						.nodeResolution('20') //set Resolution of node
+						.nodeVal(node => {
+							(node.id).startsWith('id') ? "3" : "2"
+						}) //set node size from json file
+						.nodeColor(node => {
+							(node.id).startsWith('id') ? ("#0d223b") : ("#ffffff")
+						});
+
+
+
+					/*--wait for nodes - get position---*/
+					setTimeout(function () {
+						node_function();
+					}, load_time);
+					/*--END wait for nodes - get position---*/
+
+
+
+					/*--init all node functionality--*/
+					function node_function() {
+						console.log("all node initiated");
+
+
+						//set custom mesh
+						function set_node_meterial() {
+							obj_mesh_met = Graph.nodeThreeObject(
+								node =>
+								new THREE.Mesh(
+									new THREE.SphereGeometry(((node.id).startsWith('id') ? "3" : "2"), 20,
+										20),
+									new THREE.MeshPhongMaterial({
+										color: (node.id).startsWith('id') ? ("#0d223b") : ("#ffffff"),
+										transparent: false,
+										opacity: (((node.id).startsWith('id')) ? "1" : "0.2"),
+										specular: '#356596',
+										shininess: 10,
+										needsUpdate: true,
+										blending: THREE.AdditiveBlending,
+										//side: 2
+									})
+								)
+							);
+							Graph.nodeRelSize(3);
+
+							obj_mesh_met.matrixAutoUpdate = true;
+						}
+
+
+
+						//runtime node meterial -function call
+						set_node_meterial();
+
+
+
+						//resume animation
+						Graph.resumeAnimation();
+
+
+
+						/*set camera position*/
+						//set click item camera position
+						const scale_node = 1.1;
+
+						function cam_pos(nd_pos) {
+							if (nd_pos === null || nd_pos === undefined) {
+								nd_pos = 0;
+								current_menu = 0;
+							}
+							//console.log(initData.nodes[nd_pos].index);
+							const distance = parseInt(120);
+							const distRatio = 1 + distance / Math.hypot(initData.nodes[nd_pos].x,
+								initData.nodes[nd_pos].y, initData.nodes[nd_pos].z);
+
+							//--focus
+							initData.nodes[nd_pos].__threeObj.scale = 2;
+							for (var m = 0; m <= node_el_count - 1; m++) {
+								initData.nodes[m].__threeObj.material.color.set("#0d223b");
+								initData.nodes[m].__threeObj.scale.x = 1;
+								initData.nodes[m].__threeObj.scale.y = 1;
+								initData.nodes[m].__threeObj.scale.z = 1;
+							}
+							initData.nodes[nd_pos].__threeObj.material.color.set("#f85857");
+							initData.nodes[nd_pos].__threeObj.scale.x = scale_node;
+							initData.nodes[nd_pos].__threeObj.scale.y = scale_node;
+							initData.nodes[nd_pos].__threeObj.scale.z = scale_node;
+							//--END-focus
+
+							Graph.cameraPosition({
+									x: initData.nodes[nd_pos].x * distRatio,
+									y: initData.nodes[nd_pos].y * distRatio,
+									z: initData.nodes[nd_pos].z * distRatio
+								},
+								initData[nd_pos],
+								3000 // ms transition duration
+							);
+
+							current_menu = nd_pos;
+						}
+						/*END set camera position*/
+
+
+
+						/*--node hover--*/
+						Graph.onNodeHover(
+							node => {
+								elem.style.cursor = node ? 'pointer' : null //cursor pointer
+								// no state change
+								if ((!node && !highlightNodes.length) || (highlightNodes.length ===
+										1 && highlightNodes[0] === node))
+									return;
+								highlightNodes = node ? [node] : [];
+							}
+						);
+						/*--END - node hover--*/
+
+
+
+						/*--Node right click--*/
+						Graph.onNodeRightClick(null
+							//d3.event.preventDefault() //stop immediately
+						);
+						/*--Node right click--*/
+
+
+
+						/*--Node click--*/
+						Graph.onNodeClick(node => {
+							//console.log(node);
+							//select node - call function
+							node_select(node);
+						});
+						/*--END - Node click--*/
+
+
+
+						/*--select a node - function--*/
+						function node_select(node) {
+							//console.log(node);
+							if ((node.name) != null) {
+								if ((node.id).startsWith('id')) {
+									//set blank div
+									set_description.innerHTML = "";
+									set_title.innerHTML = "";
+									node_shape.innerHTML = "";
+									//close modal
+									close_desc();
+									close_model();
+
+									// console.log(highlightNodes[0].__threeObj.material.color);
+									// console.log(highlightNodes[0].id);
+
+
+									//======== get data from specific node =========
+									//Create image
+									if (node.image === undefined) {
+										node_set.parentNode.style.opacity = 0;
+									} else {
+										shape_load(node.image) //call canvas draw function
+									}
+
+									//title
+									if (node.name != undefined) {
+										if (node.id != 'id5') {
+											var h2 = document.createElement("h2");
+											h2.innerHTML = node.name;
+											set_title.appendChild(h2);
+											open_model();
+										} else {
+											var h1 = document.createElement("h1");
+											h1.innerHTML = node.name;
+											set_description.appendChild(h1);
+											open_desc();
+										}
+									}
+
+									//content
+									if (node.description != undefined) {
+										var p = document.createElement("p");
+										p.innerHTML = node.description;
+										set_description.appendChild(p);
+										open_desc();
+									}
+									//======== END get data from specific node =========
+
+									// Aim at node
+									for (var i = 0; i < node_count; i++) {
+										if (node.id == initData.nodes[i].id) {
+											parseInt(current_node_el = i + 1);
+											//console.log("current_node_el:" + i);
+											//show canvas particle
+											particle_call(current_node_el);
+											break;
+										}
+									}
+									//console.log("current_node_el:" + current_node_el);
+									cam_pos(current_node_el - 1);
+								}
+							}
+						}
+						/*--END-select a node - function--*/
+
+
+
+						/*--focus node on load--*/
+						setTimeout(function () {
+							node_select(initData.nodes[current_menu]);
+						}, load_time * 16);
+						/*--end - focus node--*/
+
+
+
+						/*--alltime run - function--*/
+						Graph.onEngineTick(tick); //--runs infinitely
+						function tick(e) {
+							/*--set new position of node--*/
+							const distance = 100;
+							const elevation = 80;
+							if (initData.nodes[0].z != 0) {
+								for (var m = 0; m <= node_el_count - 1; m++) {
+									initData.nodes[m].x = m - elevation;
+									initData.nodes[m].y = m * distance;
+									initData.nodes[m].z = m * distance;
+									//console.log("x:" + initData.nodes[m].x + ",y:" + initData.nodes[m].y +",z:" +initData.nodes[m].z);
+								}
+							}
+
+							/*--END - set new position of node--*/
+						}
+						/*--END-alltime run - function--*/
+
+
+
+						/*--Mouse scroll--*/
+						var scroll_val = 0;
+						const fixed_mouse_scroll = 5;
+						var scroll_distance = fixed_mouse_scroll;
+						var scroll_count = 5; //NOTE: reset value to 0
+						//node_el_count -- actual working node
+						document.addEventListener('wheel', function (event) {
+							var temp_scroll_val = event.deltaY;
+							//scroll pos
+							scroll_val = scroll_val + temp_scroll_val;
+
+							//prevent mouse scroll up -onload
+							if (temp_scroll_val >= 0) {
+								if (scroll_val >= 0) {
+									//mouse scroll down--
+									if (scroll_val >= scroll_distance) {
+										setTimeout(function () {
+											console.log("scroll down");
+											scroll_count++;
+
+											//reset counter
+											if (scroll_count > node_el_count - 1) {
+												scroll_count = 5; //NOTE: reset value to 0
+											}
+
+											scroll_distance = fixed_mouse_scroll *
+												scroll_count;
+
+											//change position by calling function
+											node_select(initData.nodes[scroll_count]);
+											//console.log(scroll_count);
+										}, 100);
+									}
+								} else {
+									scroll_val = 0;
+								}
+							} else {
+								setTimeout(function () {
+									console.log("scroll Up");
+									scroll_count--;
+
+									//reset counter
+									if (scroll_count <= 0) {
+										scroll_count = 0;
+									}
+									//change position by calling function
+									node_select(initData.nodes[scroll_count]);
+									//console.log(scroll_count);
+								}, 100);
+							}
+							//console.log(scroll_val);
+						}, false);
+						/*--END- Mouse scroll--*/
+
+
+
+						/*--resize canvas on window resize--*/
+						window.addEventListener('resize', function () {
+							calc_size();
+							//Graph.refresh();
+						});
+
+						function calc_size() {
+							Graph.width(window.innerWidth);
+							Graph.height(window.innerHeight);
+						}
+						/*--END - resize canvas on window resize--*/
+
+
+
+						/*--show canvas particle--*/
+						function particle_call(now_pos) {
+							//console.log("particle:" + now_pos);
+							if (now_pos >= 0) {
+								for (var i = 0; i < now_pos; i++) {
+									var particle_left = node_el_count - now_pos;
+								}
+								if (particle_left != 0) {
+									for (var j = node_el_count - particle_left; j <
+										node_el_count; j++) {}
+								}
+							}
+						}
+						/*--End show canvas particle--*/
+
+
+
+						/*--add false non-connected particles---*/
+						galaxy_count = window.outerWidth * 2;
+						galaxy_size = 6 * (Math.floor(Math.random() * 0.9) + 0.3);
+						galaxy_gap = galaxy_count / 2;
+						galaxy_pos = 4.0;
+						for (var i = 0; i <= galaxy_count; i++) {
+							var galaxyGeometry = new THREE.SphereGeometry(galaxy_size, 5, 5);
+							var galaxyMaterial = new THREE.MeshBasicMaterial({
+								color: 0xffffff,
+								transparent: true,
+								opacity: 0.5,
+							});
+							var galaxyMesh = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
+							galaxyMesh.position.x = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.position.y = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.position.z = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.rotation.x = Math.random() * Math.PI;
+							galaxyMesh.rotation.y = Math.random() * Math.PI;
+							galaxyMesh.rotation.z = Math.random() * Math.PI;
+							galaxyMesh.matrixAutoUpdate = true;
+							galaxyMesh.updateMatrix();
+							Graph.scene().add(galaxyMesh);
+							//console.log(galaxyMesh.position.x);
+						}
+						/*--END add false non-connected particles---*/
+
+
+
+						/*--add Light---*/
+						var ambientLight = new THREE.AmbientLight(0xffffff);
+						Graph.scene().add(ambientLight);
+						/*--END - add Light---*/
+
+
+
+						/* -- animate text content -- */
+						close_desc();
+						close_model();
+
+						function close_desc() {
+							TweenMax.to(set_description.parentNode, 0, {
+								opacity: 0,
+								right: "-100%",
+								width: 0,
+								onComplete: function () {
+									set_description.parentNode.classList.remove("active");
+								}
+							});
+						}
+
+						function open_desc() {
+							TweenMax.to(set_description.parentNode, 1, {
+								width: "35%",
+								right: "0",
+								height: 'auto',
+								opacity: 1,
+								onComplete: function () {
+									set_description.parentNode.classList.add("active");
+								},
+								delay: 1
+							});
+						}
+
+						function close_model() {
+							TweenMax.to(set_title.parentNode, 0, {
+								opacity: 0,
+								left: "-100%",
+								width: 0,
+								onComplete: function () {
+									set_title.parentNode.classList.remove("active");
+								}
+							});
+						}
+
+						function open_model() {
+							TweenMax.to(set_title.parentNode, 1, {
+								height: set_title.parentNode.offsetWidth,
+								left: "0",
+								height: 'auto',
+								opacity: 1,
+								width: '40%',
+								onComplete: function () {
+									set_title.parentNode.classList.add("active");
+								},
+								delay: 1
+							});
+						}
+						/* -- END animate text content -- */
+
+					}
+					/*--END - init all node functionality--*/
+
+
+
+					/*--show graph after all init/load complete--*/
+					setTimeout(function () {
+						console.log("graph is now visible");
+						//hide preloader
+						pg_loader.style.transition = "all .5s ease-in";
+
+
+						//show page
+						page.style.transition = "all .5s ease-in";
+						page.style.opacity = "1";
+						page.classList.add("active");
+
+						//remove all structure into preloader
+
+						setTimeout(function () {
+							pg_loader.style.opacity = 0;
+							pg_loader.innerHTML = '';
+							pg_loader.remove();
+						}, 500);
+
+					}, (load_time * 18));
+
+
+					/*var page_show_var = setInterval(function () {
+						if (page_start_flag) {
+							console.log("graph is now visible");
+							//hide preloader
+							pg_loader.style.transition = "all .5s ease-in";
+
+							//show page
+							page.style.transition = "all .5s ease-in";
+							page.style.opacity = "1";
+							page.classList.add("active");
+
+							//remove all structure into preloader
+
+							setTimeout(function () {
+								pg_loader.style.opacity = 0;
+								pg_loader.innerHTML = '';
+								pg_loader.remove();
+							}, 500);
+						} else {
+							clearTimeout(page_show_var);
+						}
+					}, 200);*/
+					/*--END- show graph after all init/load complete--*/
+
+
+
+					/*----- create 3d shapes -------*/
+					function shape_load(node_new_shape) { //with image
+						var node_new_shape_flag = false;
+						if (node_new_shape == "torus") {
+							node_new_shape_flag = true;
+						}
+						if (node_new_shape == "torus_knot") {
+							node_new_shape_flag = true;
+						}
+						if (node_new_shape == "cone") {
+							node_new_shape_flag = true;
+						}
+						if (node_new_shape == "sphere") {
+							node_new_shape_flag = true;
+						}
+						if (node_new_shape == "dome") {
+							node_new_shape_flag = true;
+						}
+						if (node_new_shape == "brain") {
+							node_new_shape_flag = true;
+						}
+
+						if (node_new_shape_flag) {
+							var imgs = document.createElement("img");
+							imgs.src = "images/" + node_new_shape + ".png";
+							imgs.alt = node_new_shape;
+							node_set.appendChild(imgs);
+						}
+					}
+
+
+					/* //with 3d shape--
+										function shape_load(node_new_shape) {
+											// MAIN
+											// standard global variables
+											var shape_container, shape_scene,
+												shape_camera, shape_renderer, shape_controls,
+												shapeHeight, shapeWidth,
+												data_shape, shape;
+
+											// custom global variables
+											shape_container = node_set;
+											shapeHeight = shape_container.clientWidth;
+											shapeWidth = shape_container.clientWidth;
+											// console.log(shapeHeight, shapeWidth);
+
+											if (node_new_shape == "torus") {
+												data_shape = 1;
+											}
+											if (node_new_shape == "torus_knot") {
+												data_shape = 2;
+											}
+											if (node_new_shape == "cone") {
+												data_shape = 3;
+											}
+											if (node_new_shape == "sphere") {
+												data_shape = 4;
+											}
+											if (node_new_shape == "dome") {
+												data_shape = 5;
+											}
+											if (node_new_shape == "brain") {
+												data_shape = 6;
+											}
+
+											shape_init();
+											shape_animate();
+
+											// FUNCTIONS
+											function shape_init() {
+												// SCENE
+												shape_scene = new THREE.Scene();
+
+												// CAMERA
+												var VIEW_ANGLE = 45,
+													ASPECT = shapeWidth / shapeHeight,
+													NEAR = 0.1,
+													FAR = 200000;
+												shape_camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+												// Place the camera
+												shape_scene.add(shape_camera);
+												shape_camera.position.set(0, 150, 400);
+												shape_camera.lookAt(shape_scene.position);
+
+												// RENDERER
+												shape_renderer = new THREE.WebGLRenderer({
+													antialias: true,
+													alpha: true
+												});
+												shape_renderer.setSize(shapeWidth, shapeHeight);
+
+												shape_container.appendChild(shape_renderer.domElement);
+
+												// EVENTS
+												THREEx.WindowResize(shape_renderer, shape_camera);
+
+												// CONTROLS
+												shape_controls = new THREE.OrbitControls(shape_camera, shape_renderer
+													.domElement);
+												shape_controls.userZoom = false; //disable zoom on mouse scroll
+												shape_controls.enableDamping = true;
+												shape_controls.dampingFactor = 0.12;
+												shape_controls.autoRotate = false; //enable rotation
+												shape_controls.maxPolarAngle = Math.PI / 2;
+												shape_controls.enableZoom = false;
+												shape_controls.enableRotate = false;
+												shape_controls.enablePan = false;
+												shape_controls.minDistance = shapeWidth * (Math.PI / 2);
+												shape_controls.maxDistance = shapeWidth * (Math.PI / 2);
+
+												//////////////////
+												// Create Mesh //
+												////////////////
+
+												// Using wireframe materials to illustrate shape details.
+												var darkMaterial = new THREE.MeshBasicMaterial({
+													color: 0x071420,
+													transparent: true,
+													opacity: 0.5,
+													//doubleSided: true
+												});
+												var wireframeMaterial = new THREE.MeshBasicMaterial({
+													color: 0xffffff,
+													wireframe: true
+												});
+												var multiMaterial = [darkMaterial, wireframeMaterial];
+
+												// torus
+												if (data_shape == 1) {
+													shape = THREE.SceneUtils.createMultiMaterialObject(
+														// radius of entire torus, diameter of tube (less than total radius),
+														// sides per cylinder segment, cylinders around torus ("sides")
+														new THREE.TorusGeometry(100, 60, 16, 40),
+														multiMaterial);
+													shape.position.set(0, 0, 0);
+													//console.log(shape);
+													shape_scene.add(shape);
+												}
+												// torus knot
+												if (data_shape == 2) {
+													shape = THREE.SceneUtils.createMultiMaterialObject(
+														// total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
+														// p-loops around torus, q-loops around torus
+														new THREE.TorusKnotGeometry(90, 25, 100, 10, 3, 5),
+														multiMaterial);
+													shape.position.set(0, 0, 0);
+													//console.log(shape);
+													shape_scene.add(shape);
+												}
+												// cone
+												if (data_shape == 3) {
+													shape = THREE.SceneUtils.createMultiMaterialObject(
+														// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+														geometry = new THREE.CylinderGeometry(0, 100, 250, 20, 10),
+														multiMaterial);
+													shape.position.set(0, 0, 0);
+													//console.log(shape);
+													shape_scene.add(shape);
+												}
+												// sphere
+												if (data_shape == 4) {
+													shape = THREE.SceneUtils.createMultiMaterialObject(
+														geometry = new THREE.SphereGeometry(150, 25, 16),
+														multiMaterial);
+													shape.position.set(0, 0, 0);
+													//console.log(shape);
+													shape_scene.add(shape);
+												}
+												// dome
+												if (data_shape == 5) {
+													shape = THREE.SceneUtils.createMultiMaterialObject(
+														new THREE.SphereGeometry(150, 25, 16, 0, 2 * Math.PI, 0, Math.PI /
+															2),
+														multiMaterial);
+													// should set material to doubleSided = true so that the
+													// interior view does not appear transparent.
+													shape.position.set(0, 0, 0);
+													//console.log(shape);
+													shape_scene.add(shape);
+												}
+											}
+
+											//work on window resize
+											window.addEventListener('resize', onWindowResize);
+
+											function onWindowResize() {
+												// shapeHeight = shape_container.clientWidth;
+												// shapeWidth = shape_container.clientWidth;
+
+												shape_camera.aspect = shapeWidth /
+													shapeHeight; // set the aspect ratio to match the new browser window aspect ratio
+												shape_camera.updateProjectionMatrix(); // update the camera's frustum
+												shape_camera.position.set(0, 150, 400);
+												shape_camera.lookAt(shape_scene.position);
+
+												shape_renderer.setSize(shapeWidth,
+													shapeHeight); // update the size of the renderer AND the canvas
+											}
+
+											function shape_animate() {
+												//render
+												shape_renderer.render(shape_scene, shape_camera);
+												//re-render
+												requestAnimationFrame(function () {
+													shape_animate();
+													shape_controls.update();
+												});
+											}
+										};
+										/*----- END create 3d shapes -------*/
+				}
+				//end TRY json--
+
+				//if json fild load failed 
+				catch (e) {
+					console.log("TRY function - failed to load");
+				}
+			});
+		});
+	</script>
+
+</body>
+
+</html>

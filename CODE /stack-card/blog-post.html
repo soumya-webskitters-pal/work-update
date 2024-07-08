@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Duden + Partner</title>
+
+    <!-- fabicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- All CSS -->
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/brands.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/regular.min.css">
+    <link rel="stylesheet" href="css/solid.min.css">
+
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/slick-theme.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="css/tailwind.css"> -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkgreen: '#023448',
+                        lightYellow: '#F6F4EE',
+                        lightGray: 'rgba(2, 52, 72, 0.12)',
+                        lightBgftr: 'rgba(246, 244, 238, 0.04)',
+                        fontlightColo: 'rgba(246, 244, 238, 0.48)',
+                        ftrbgSocial: 'rgba(246, 244, 238, 0.12)',
+                        lightTxt: 'rgba(246, 244, 238, 0.8)',
+                        lightBordr: 'rgba(246, 244, 238, 0.16)',
+                        countTxt: 'rgba(246, 244, 238, 0.64)',
+                        popUpTxt: 'rgba(2, 52, 72, 0.8)',
+                        popUpList: 'rgba(2, 52, 72, 0.08)',
+                        popUpListBG: 'rgba(2, 52, 72, 0.04)',
+                        footerbgLightclr: '#C2C6C4',
+                        newSlightGray: 'rgba(2, 52, 72, 0.48)',
+                        whitecolorNew: '#ffffff',
+                    },
+                    backdropBlur: {
+                        large: '128px',
+                    }
+                },
+                fontFamily: {
+                    'aeonik': ['aeonik']
+                },
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+    <div class="sm:hidden block absolute w-full top-0 left-0 z-10 mobile_logo othr_top_hdr">
+        <div class=" bg-darkgreen py-2 top_header">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <div class="flex items-center justify-between">
+                    <ul class="flex justify-start mx-[-4px]">
+                        <li class="pr-2"><a class="w-[22px] h-[22px] basis-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] basis-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] basis-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] basis-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-xing"></i></a></li>
+                    </ul>
+                    <ul class="flex bnnr_contact_info">
+                        <li><a href="tel:+49428193100"><span><img src="images/call.svg" alt=""></span></a>
+                        </li>
+                        <li><a href="mailto:sekretariat.steuer@duden-steuer.de"><span><img src="images/mail.svg" alt=""></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="relative pt-6 topLgo_wrrp">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <a href="index.html" class="navbar-brand">
+                    <img class="nrml_logo" src="images/Logo.svg" alt="">
+                    <img class="dark_logo" src="images/dark-logo.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="fixed sm:absolute z-10 sm:top-0 left-0 w-full main_head other_head">
+        <div class="sm:block hidden py-2 bg-darkgreen top_header">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <div class="flex items-center justify-between">
+                    <ul class="flex justify-start mx-[-4px]">
+                        <li class="pr-2"><a class="w-[22px] h-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="pr-2"><a class="w-[22px] h-[22px] text-xs flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen" href="#"><i class="fab fa-xing"></i></a></li>
+                    </ul>
+                    <ul class="flex bnnr_contact_info">
+                        <li><a href="tel:+49428193100"><span><img src="images/call.svg" alt=""></span> +49 4281 9310 0</a>
+                        </li>
+                        <li><a href="mailto:sekretariat.steuer@duden-steuer.de"><span><img src="images/mail.svg" alt=""></span> sekretariat.steuer@duden-steuer.de</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_head">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <nav class="flex flex-wrap items-center sm:justify-between justify-center">
+                    <a href="index.html" class="hidden sm:inline-block navbar-brand">
+                        <img class="nrml_logo" src="images/Logo.svg" alt="">
+                        <img class="dark_logo" src="images/dark-logo.svg" alt="">
+                    </a>
+                    <div class="relative menu_wrappr">
+                        <div class="backdrop-blur-large rounded-full p-2 flex navBtn_wrap">
+                            <a href="#"
+                                class="text-darkgreen bg-lightYellow rounded-full py-4 px-6 mr-2 nrml_btn hover:text-lightYellow hover:bg-darkgreen">Kontaktieren</a>
+                            <a href="javascript:void(0)" class="text-lightYellow rounded-full py-4 px-6 flex items-center justify-center menu_btn">Menü
+                                <span>
+                                    <img class="opacity-60 open_bar" src="images/dark-menuBar.svg" alt="">
+                                    <img class="close_bar" src="images/close.svg" alt="">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="absolute top-full right-0 w-full text-right navbar_collapes">
+                            <div class="flex flex-wrap justify-end flex-col-reverse sm:flex-col">
+                                <div class="relative navbar_list_wrappr">
+                                    <ul class="navbar_list">
+                                        <li><a href="#">Startseite</a></li>
+                                        <li><a href="#">Über uns</a></li>
+                                        <li><a href="#">Dokumente</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Jobs</a></li>
+                                    </ul>
+                                    <a class="login_btn" href="#">Mandaten Login</a>
+                                </div>
+                                <div class="navbar_media_wrap">
+                                    <ul class="flex justify-end md:mt-16 sm:mt-10 mb-16">
+                                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-xing"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="relative innr_bnnr_sec othrInnr_bnnr_sec">
+        <div class="relative z-[2] pt-[150px] sm:pt-[200px] h-full pb-8 sm:pb-16 bg-popUpList flex items-end bnnr_content">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <div class="swiper-slide">
+                    <div class="flex items-center mb-4 innr_bnnr_content">
+                        <ul class="flex">
+                            <li class="leading-none mr-2"><span
+                                    class="inline-block text-xs text-darkgreen border border-darkgreen border-solid rounded-full py-1 px-3">Purus eget</span></li>
+                            <li class="leading-none mr-2"><span
+                                    class="inline-block text-xs text-darkgreen border border-darkgreen border-solid rounded-full py-1 px-3">Senectus lectus</span></li>
+                        </ul>
+                        <p class="relative pl-4 text-popUpTxt opacity-60 font-medium text-sm mb-0 slug_txt">
+                            Vorname Name</p>
+                    </div>
+                    <h1 class="text-darkgreen font-medium text-2xl md:text-3xl lg:text-5xl leading-tight lg:mb-6 mb-4 lg:max-w-xl md:max-w-sm max-w-xs">Magna elit amet libero tincidunt. Ultricies diam.</h1>
+                    <p class="text-popUpTxt text-lg max-w-[640px]">Odio luctus viverra quam sem mattis risus habitant. Adipiscing lectus sodales posuere morbi eros suspendisse urna facilisi. Ridiculus vulputate in.</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full"><img class="w-full" src="images/gray-Stairs.png" alt=""></div>
+    </div>
+
+
+    <div class="pt-12 md:pb-40 sm:pb-20 pb-12 blog_deatils_sec">
+        <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+            <div class="max-w-[864px] w-full text-lg">
+                <h2 class="text-darkgreen font-medium sm:text-2xl lg:text-3xl text-xl mb-5">Introduction</h2>
+                <p>Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At feugiat sapien varius id.</p>
+                <p>Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat mollis at volutpat lectus velit, sed auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant diam at. Suscipit tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.</p>
+                <div class="md:my-12 my-6 w-full text-sm font-medium blog_details_wrappr">
+                    <div class="relative rounded-2xl overflow-hidden w-full mb-4 blog_img_wrap">
+                        <img class="w-full" src="images/blog-details.jpg" alt="">
+                    </div>
+                    <p>Tempor integer aliquam in vitae malesuada fringilla.</p>
+                </div>
+                <div class="md:p-12 md:mb-12 p-6 mb-6 rounded-2xl bg-popUpListBG blog_author_wrap">
+                    <p class="text-lg md:text-2xl text-darkgreen font-medium mb-8">Risus, volutpat vulputate posuere purus sit congue convallis aliquet. Arcu id augue ut feugiat donec porttitor neque. Mauris, neque ultricies eu vestibulum, bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus, pharetra, porttitor.</p>
+                    <span class="inline-block text-darkgreen opacity-[0.64] text-base font-medium">— Olivia Rhye</span>
+                </div>
+                <p>Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam. Tempor integer aliquam in vitae malesuada fringilla.</p>
+                <p>Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur convallis risus. Sed condimentum enim dignissim adipiscing faucibus consequat, urna. Viverra purus et erat auctor aliquam. Risus, volutpat vulputate posuere purus sit congue convallis aliquet. Arcu id augue ut feugiat donec porttitor neque. Mauris, neque ultricies eu vestibulum, bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus, pharetra, porttitor.</p>
+                <p>Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean tempus. Quis velit eget ut tortor tellus. Sed vel, congue felis elit erat nam nibh orci.</p>
+                <h3 class="text-darkgreen font-medium sm:text-2xl lg:text-3xl text-xl mt-8 mb-5">Software and tools</h3>
+                <p>Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At feugiat sapien varius id.</p>
+                <p>Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat mollis at volutpat lectus velit, sed auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant diam at. Suscipit tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.</p>
+                <h3 class="text-darkgreen font-medium sm:text-2xl lg:text-3xl text-xl mt-8 mb-5">Other resources</h3>
+                <p>Sagittis et eu at elementum, quis in. Proin praesent volutpat egestas sociis sit lorem nunc nunc sit. Eget diam curabitur mi ac. Auctor rutrum lacus malesuada massa ornare et. Vulputate consectetur ac ultrices at diam dui eget fringilla tincidunt. Arcu sit dignissim massa erat cursus vulputate gravida id. Sed quis auctor vulputate hac elementum gravida cursus dis.</p>
+                <ul class="list-decimal pl-5">
+                    <li class="mb-2">Lectus id duis vitae porttitor enim gravida morbi.</li>
+                    <li class="mb-2">Eu turpis posuere semper feugiat volutpat elit, ultrices suspendisse. Auctor vel in vitae placerat.</li>
+                    <li class="mb-2">Suspendisse maecenas ac donec scelerisque diam sed est duis purus.</li>
+                </ul>
+                <div class="md:my-12 my-6 w-full text-sm font-medium blog_details_wrappr">
+                    <div class="relative rounded-2xl overflow-hidden w-full mb-4 blog_img_wrap">
+                        <img class="w-full" src="images/blog-details.jpg" alt="">
+                    </div>
+                    <p>Tempor integer aliquam in vitae malesuada fringilla.</p>
+                </div>
+                <p>Lectus leo massa amet posuere. Malesuada mattis non convallis quisque. Libero sit et imperdiet bibendum quisque dictum vestibulum in non. Pretium ultricies tempor non est diam. Enim ut enim amet amet integer cursus. Sit ac commodo pretium sed etiam turpis suspendisse at.</p>
+                <p>Tristique odio senectus nam posuere ornare leo metus, ultricies. Blandit duis ultricies vulputate morbi feugiat cras placerat elit. Aliquam tellus lorem sed ac. Montes, sed mattis pellentesque suscipit accumsan. Cursus viverra aenean magna risus elementum faucibus molestie pellentesque. Arcu ultricies sed mauris vestibulum.s</p>
+                <div class="md:pt-16 sm:pt-10 pt-6 md:mt-16 sm:mt-10 mt-6 border-t border-solid border-popUpList flex flex-col sm:flex-row items-center justify-between blog_shareble_wrap">
+                    <p class="text-sm sm:mr-6 mr-3 text-darkgreen sm:mb-0 mb-3">Teilen Sie diesen Beitrag</p>
+                    <div class="flex">
+                        <a class="mr-2 sm:mr-6 text-sm text-darkgreen inline-flex items-center hover:opacity-50" href="#">Link kopieren <span class="inline-block ml-2 opacity-[0.64]"><img src="images/link-icon.svg" alt=""></span></a>
+                        <ul class="flex sm:ml-8 ml-4">
+                            <li><a class="ml-2 md:w-12 md:h-12 w-8 h-8 inline-flex items-center justify-center text-darkgreen bg-lightGray rounded-full hover:bg-darkgreen hover:text-lightYellow" href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a class="ml-2 md:w-12 md:h-12 w-8 h-8 inline-flex items-center justify-center text-darkgreen bg-lightGray rounded-full hover:bg-darkgreen hover:text-lightYellow" href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a class="ml-2 md:w-12 md:h-12 w-8 h-8 inline-flex items-center justify-center text-darkgreen bg-lightGray rounded-full hover:bg-darkgreen hover:text-lightYellow" href="#"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a class="ml-2 md:w-12 md:h-12 w-8 h-8 inline-flex items-center justify-center text-darkgreen bg-lightGray rounded-full hover:bg-darkgreen hover:text-lightYellow" href="#"><i class="fab fa-xing"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- footer-top-section -->
+    <div class="bg-darkgreen lg:py-40 py-24 md:rounded-t-[64px] rounded-t-[32px] relative realtive z-[1] footer-top-sec">
+        <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+            <div class="flex flex-wrap items-center fotterTop-infoWrap">
+                <div class="w-full sm:w-2/3 left-fotterTop-infoWrap">
+                    <div class="inner-Wrap-txtFtrwrap">
+                        <span
+                            class="relative inline-block text-lightYellow text-sm px-3 py-2 mb-11 border rounded-3xl border-fontlightColor font-medium mb-8">Schreiben
+                            Sie uns</span>
+                        <h2 class="realtive text-lightYellow xl:text-7xl mb-8">
+                            <a class="flex item-center flex-wrap text-lightYellow z-[1]" href="javascript:void(0);"
+                                onclick="addFunctionOne()">
+                                <i
+                                    class="inline-flex item-center justify-center xl:w-[72px] xl:h-[72px] xl:basis-[72px] md:w-[45px] md:h-[45px] md:basis-[45px] w-[32px] h-[32px] basis-[32px] bg-ftrbgSocial rounded-full sm:mr-4 mr-2"><img
+                                        class="w-[8px] md:w-3.5" src="images/arwess991.svg" alt=""></i>
+                                <span class="relative">Wir beraten Sie gerne!</span>
+                                <span class="relative">Kontaktieren Sie uns!</span>
+                            </a>
+                        </h2>
+                        <p class="max-w-md text-lightTxt text-base sm:text-xl">Consequat netus tristique lacus morbi purus libero.
+                            Nunc gravida interdum.</p>
+                    </div>
+                </div>
+                <div class="hidden sm:block w-1/3 right-fotterTop-infoWrap">
+                    <figure class="mb-0"><img class="rounded-2xl shadow-lg" src="images/trsimg0125.jpg" alt=""></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-top-section -->
+
+    <!-- footer-section -->
+    <footer class="bg-darkgreen sm:px-8 footer-main">
+        <div class="bg-lightBgftr lg:py-24 sm:py-16 py-6 rounded-[32px] inner-footer-wrapper">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <div class="flex flex-wrap flex-col-reverse sm:flex-row footer-main-top">
+                    <div class="w-full sm:w-2/5 left-footerTop">
+                        <div class="sm:pr-4 pt-12 sm:pt-0 left-innerWrap-footer">
+                            <a href="#"><img src="images/Logo.svg" alt=""></a>
+                            <div class="sm:mt-24 mt-12 footer-linksWrapper">
+                                <span class="text-fontlightColo text-sm  font-medium inline-block sm:mb-8 mb-4">Links</span>
+                                <ul>
+                                    <li class="mb-2"><a class="font-medium lightYellow text-2xl" href="#">Über uns</a>
+                                    </li>
+                                    <li class="mb-2"><a class="font-medium lightYellow text-2xl" href="#">Blog</a></li>
+                                    <li class="mb-2"><a class="font-medium lightYellow text-2xl" href="#">Dokumente</a>
+                                    </li>
+                                    <li class="mb-2"><a class="font-medium lightYellow text-2xl" href="#">Jobs</a></li>
+                                    <li class="mb-2"><a class="font-medium lightYellow text-2xl" href="#">Kontakt</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sm:mt-24 mt-12 social-links-footer">
+                                <ul class="flex justify-start mx-[-4px]">
+                                    <li class="px-1"><a
+                                            class="w-12 h-12 flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen"
+                                            href="#"><i class="fab fa-facebook"></i></a></li>
+                                    <li class="px-1"><a
+                                            class="w-12 h-12 flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen"
+                                            href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li class="px-1"><a
+                                            class="w-12 h-12 flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen"
+                                            href="#"><i class="fab fa-linkedin"></i></a></li>
+                                    <li class="px-1"><a
+                                            class="w-12 h-12 flex justify-center rounded-full bg-ftrbgSocial items-center text-lightYellow hover:bg-whitecolorNew hover:text-darkgreen"
+                                            href="#"><i class="fab fa-xing"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-3/5 right-footerTop">
+                        <div class="relative overflow-hidden h-full right-inner-wrapFtr">
+                            <div class="absolute top-0 right-0 w-full h-full footer-mapSec"><img
+                                    class="w-full h-full object-cover sm:rounded-[32px] rounded-[16px]" src="images/mapps01.png" alt=""></div>
+                            <div class="flex relative justify-between flex-wrap h-full wrapper-rightFooter">
+                                <div class="relative right-wrapperf">
+                                    <a class="inline-flex item-center ml-4 mt-4 sm:ml-8 sm:mt-8 bg-darkgreen px-5 sm:py-3.5 py-2.5 text-lightYellow rounded-full hover:opacity-60"
+                                        href="#">Zur Navigation<i class="flex ml-2"><img src="images/tricns0031.svg"
+                                                alt=""></i></a>
+                                </div>
+                                <div
+                                    class="flex flex-col sm:flex-row relative bg-footerbgLightclr m-4 sm:m-8 sm:p-8 py-8 px-4 sm:mt-52 mt-40 rounded-2xl w-full justify-between footer-btmWrap-info">
+                                    <div class="left-ftrwrapContct">
+                                        <span class="text-newSlightGray text-sm font-medium mb-8">Kontakt</span>
+                                        <p class="mb-2 hover: bg- text-base font-medium">Tel: <a
+                                                href="tel:49428193100">+49 4281 9310 0</a></p>
+                                        <p class="mb-2 hover: bg- text-base font-medium">Fax: <a
+                                                href="tel:494281931039">+49 4281 9310 39</a></p>
+                                        <p class="mb-2 hover: bg- text-base font-medium"><a
+                                                href="mailto:sekretariat.steuer@duden-steuer.de">sekretariat.steuer@duden-steuer.de</a>
+                                        </p>
+                                    </div>
+                                    <div class="right-ftrwrapContct">
+                                        <span class="text-newSlightGray text-sm font-medium mb-8">Adresse</span>
+                                        <p class="mb-2 hover: bg- text-base font-medium">Duden + Partner GbRA <br>Am
+                                            Markt <br>27404 Zeven</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="realtive pb-6 pt-6 footer-btmCopytext">
+            <div class="container xl:max-w-[1376px] xl:px-8 mx-auto px-6">
+                <div class="flex items-center relative justify-between footer-btmCopytext-innr">
+                    <p class="text-fontlightColo text-sm mb-0 font-medium">© Copyright 2023 - <a
+                            class="text-fontlightColo text-sm  font-medium" href="index.html">Duden + Partner GbR</a>
+                    </p>
+                    <ul class="flex relative item-center">
+                        <li class="px-2"><a class="text-fontlightColo text-sm  font-medium hover:opacity-60"
+                                href="#">Impressum</a></li>
+                        <li class="px-2"><a class="text-fontlightColo text-sm  font-medium hover:opacity-60"
+                                href="#">Datenschutz</a></li>
+                        <li class="px-2"><a class="text-fontlightColo text-sm  font-medium" href="#"><img
+                                    src="images/ftricnslast031.svg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-section -->
+
+
+
+    <div class="w-screen h-screen fixed top-0 left-0 bg-darkgreen/60 z-10 hidden items-end overflow-y-auto pt-10 pr-8 firstPopUp " id="secndPopUp_box">
+        <div class="bg-lightYellow max-w-[1232px] w-full md:rounded-tr-[64px] rounded-tr-[32px] lg:px-36 lg:py-24 py-16 sm:px-20 pr-16 pl-6 mt-auto relative popUp_innr">
+            <div class="sm:grid sm:grid-cols-2 lg:gap-36 md:gap-16 sm:gap-6">
+                <div class="relative mb-12 sm:mb-0 cmn_cols">
+                    <div class="relative rounded-2xl overflow-hidden w-full sm:mb-10 mb-6 h-48 sm:h-auto popUp_col_img_wrap">
+                        <img class="w-full h-full object-cover" src="images/col.jpg" alt="">
+                    </div>
+                    <div class="sm:mb-10 mb-6">
+                        <span
+                            class="inline-block text-xs text-darkgreen border border-darkgreen border-solid rounded-full py-1 px-3 mb-3">Adresse</span>
+                        <p class="text-base text-darkgreen font-normal">Duden + Partner GbR <br>
+                            Am Markt 10 <br>
+                            27404 Zeven</p>
+                    </div>
+                    <div class="mb-10">
+                        <span
+                            class="inline-block text-xs text-darkgreen border border-darkgreen border-solid rounded-full py-1 px-3 mb-3">Kontakt</span>
+                        <ul>
+                            <li class="flex items-center text-[14px] mb-2"><span
+                                    class="inline-block mr-2 opacity-60"><img src="images/msg.svg" alt=""></span><a
+                                    href="mailto:vorname.name@duden-steuer.de">vorname.name@duden-steuer.de</a></li>
+                            <li class="flex items-center text-[14px] mb-2"><span
+                                    class="inline-block mr-2 opacity-60"><img src="images/call2.svg" alt=""></span><a
+                                    href="tel:+49428193100">+49 4281 9310 0</a></li>
+                            <li class="flex items-center text-[14px]"><span class="inline-block mr-2 opacity-60"><img
+                                        src="images/fax.svg" alt=""></span><a href="tel:+49428193100">+49 4281 9310
+                                    0</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cmn_cols">
+                    <div class="popUp_frm_wrap">
+                        <form>
+                            <div class="field_wrap">
+                                <label>Name</label>
+                                <input type="text" class="cmn_field" placeholder="z.B. Max Mustermann ">
+                            </div>
+                            <div class="field_wrap">
+                                <label>E-mail Adresse</label>
+                                <input type="email" class="cmn_field" placeholder="z.B. max@mustermann.de">
+                            </div>
+                            <div class="field_wrap">
+                                <label>Telefonnummer</label>
+                                <input type="tel" class="cmn_field" placeholder="z.B. 01234 567890">
+                            </div>
+                            <div class="field_wrap">
+                                <label>Nachricht</label>
+                                <textarea placeholder="Tippen Sie hier Ihre Nachricht ein"></textarea>
+                            </div>
+                            <div class="custm_checkBx">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Ich bestätige, dass ich die Datenschutzerklärung gelesen habe und mit den
+                                        Bedingungen einverstanden bin</span>
+                                </label>
+                            </div>
+                            <div class="submitBtn_wrap">
+                                <button type="submit">Absenden <span class="inline-block ms-3"><img
+                                            src="images/link.svg" alt=""></span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <a class="bg-lightGray md:w-14 md:h-14 w-8 h-8 rounded-full inline-flex items-center justify-center absolute md:top-8 md:right-8 top-4 right-4 hover:bg-darkgreen popUp_close_btn"
+                href="javascript:void(0);" onclick="removeFunctionOne()">
+                <img src="images/close.svg" alt="">
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Jquery-->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="custom-style.css">
+</body>
+
+</html>

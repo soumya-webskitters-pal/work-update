@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<title>test</title>
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<!--preloader-->
+</head>
+<link rel="stylesheet" href="style.css" />
+
+<body>
+
+	<div style="height:100vh;background:gray"></div>
+	<div class="canvas_container">
+		<div class="sec_loader" id="sec_loader">
+			<div>
+				<svg viewBox="0 0 16 16" width="30px" height="16px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<circle id="c1" cx="8" cy=8 r="8" fill="#29B6F6" />
+					<circle id="c2" cx="14" cy=8 r="8" fill="#FF4081" />
+				</svg>
+				<span class="load">LOADING</span>
+				<span class="error">Can't load this section.<br>please reload the page.</span>
+			</div>
+		</div>
+		<canvas id="canvas"></canvas>
+
+		<div class="sld_text_group">
+			<!--128-187-->
+			<div class="sld_block" id="sld_block1">
+				<h3>Not</h3>
+			</div>
+			<!--197-245-->
+			<div class="sld_block" id="sld_block2">
+				<h3>Your</h3>
+			</div>
+			<!--245-304-->
+			<div class="sld_block" id="sld_block3">
+				<h3>Average</h3>
+			</div>
+			<!--304-362-->
+			<div class="sld_block" id="sld_block3">
+				<h3>Bottle</h3>
+			</div>
+			<!--362-390-->
+			<div class="sld_block cap" id="sld_block4">
+				<p>Pack less <em>&</em> do more <br><i>with</i> the Hibear</p>
+				<div class="brd">
+					<h3>All-day</h3>
+					<p>Adventure Flask</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="height:100vh;background:green"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"
+		crossorigin="anonymous"></script>
+	<script src="js/custom.js"></script>
+</body>
+
+</html>

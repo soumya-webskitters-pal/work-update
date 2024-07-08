@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Daily Vibes - Home</title>
+
+    <meta name="title" content="Daily Vibes">
+    <meta name="description" content="Lorem ipsum dolor sit amet consectetur.">
+    <meta name="keywords" content="candy, Daily Vibes">
+    <meta name="robots" content="noindex">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://angularjsdevelopment.com/design/daily_vibes/">
+    <meta property="og:title" content="Daily Vibes">
+    <meta property="og:description" content="Lorem ipsum dolor sit amet consectetur.">
+    <meta property="og:image" content="https://angularjsdevelopment.com/design/daily_vibes/images/meta_img.jpg" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image" content="https://angularjsdevelopment.com/design/daily_vibes/images/meta_img_small.jpg" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta name="twitter:url" content="https://angularjsdevelopment.com/design/daily_vibes/">
+    <meta name="twitter:title" content="Daily Vibes">
+    <meta name="twitter:description" content="Lorem ipsum dolor sit amet consectetur.">
+    <meta name="twitter:image" content="https://angularjsdevelopment.com/design/daily_vibes/images/meta_img.jpg" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- fabicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="favicon.gif" type="image/gif">
+
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+
+    <!--style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+        crossorigin="anonymous"> 
+    <link rel="stylesheet" href="css/easy_responsive_tab.min.css"> -->
+    <link rel="stylesheet" href="style.css?ver=12">
+</head>
+
+<body class="home">
+    <!-- <div class="node " id="node"></div> -->
+    <div id="loader" class="loader">
+        <img src="images/logo_loader.svg" alt="" class="loader_logo">
+        <div class="loader_text">
+            <img src="images/brand_loader.svg" alt="">
+        </div>
+        <div class="loader_ring">
+            <img src="images/loader_ring.svg" alt="">
+        </div>
+    </div>
+    <div class="gradient_bg active">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                        result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients_container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+        </div>
+
+        <div class="all_sl_bg">
+            <span class="btr btr1"><img src="images/btr1.gif" alt=""></span>
+            <span class="btr btr2"><img src="images/btr1.gif" alt=""></span>
+            <div class="sl_bg"
+                style="background: linear-gradient(180deg, #4B50E4 -18.73%, #8F29EB 38.83%, #FF007A 99.44%)"></div>
+            <div class="sl_bg"
+                style="background: linear-gradient(180deg, #4B50E4 -18.73%, #FF007A 38.83%, #2a2caa 99.44%)"></div>
+            <div class="sl_bg"
+                style="background: linear-gradient(180deg, #4B50E4 -18.73%, #2a2caa 38.83%, #db1300 99.44%)"></div>
+            <div class="sl_bg"
+                style="background: linear-gradient(180deg, #4B50E4 -18.73%, #db1300 38.83%, #f58e13 99.44%)"></div>
+        </div>
+
+        <div class="splash_bg"></div>
+
+        <div class="interactive"></div>
+    </div>
+
+    <header class="main-head">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.svg" alt="">
+                </a>
+                <button class="navbar-toggler navbar-toggler-main" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+                    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                        <path class="line line1" d="M 30,65 H 70" />
+                        <path class="line line2"
+                            d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695" />
+                        <path class="line line3"
+                            d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695" />
+                    </svg>
+                    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                        <path class="line" d="M 34,32 L 66,68" />
+                        <path class="line" d="M 66,32 L 34,68" />
+                    </svg>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto me-auto">
+                        <li class="current-menu-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Product</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">level 1</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">level 1</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">level 2</a></li>
+                                        <li><a href="#">level 2</a></li>
+                                        <li><a href="#">level 2</a></li>
+                                        <li><a href="#">level 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">level 1</a></li>
+                                <li><a href="#">level 1</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Ingredients</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav_btns_group">
+                    <li>
+                        <a href="#" class="nav_srch_btn">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.3306 0C5.5317 0 0 5.5317 0 12.3306C0 19.1299 5.5317 24.6612 12.3306 24.6612C19.1299 24.6612 24.6612 19.1299 24.6612 12.3306C24.6612 5.5317 19.1299 0 12.3306 0ZM12.3306 22.3849C6.78677 22.3849 2.27642 17.8745 2.27642 12.3307C2.27642 6.78683 6.78677 2.27642 12.3306 2.27642C17.8744 2.27642 22.3848 6.78677 22.3848 12.3306C22.3848 17.8744 17.8744 22.3849 12.3306 22.3849Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M27.6665 26.0571L21.1408 19.5314C20.6961 19.0867 19.976 19.0867 19.5313 19.5314C19.0866 19.9757 19.0866 20.6965 19.5313 21.1408L26.0571 27.6666C26.1626 27.7725 26.288 27.8564 26.4261 27.9137C26.5642 27.9709 26.7123 28.0003 26.8618 28.0001C27.0113 28.0002 27.1593 27.9708 27.2974 27.9136C27.4355 27.8564 27.561 27.7724 27.6665 27.6666C28.1112 27.2223 28.1112 26.5014 27.6665 26.0571Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav_cart_btn">
+                            <svg width="26" height="28" viewBox="0 0 26 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.94999 28H20.2165C22.8958 28 25.0755 25.8203 25.0755 23.1409V8.61539C25.0755 8.14154 24.6878 7.75385 24.214 7.75385H19.0448V6.46154C19.0448 2.89908 16.1457 0 12.5832 0C9.02076 0 6.12168 2.89908 6.12168 6.46154V7.75385H0.95245C0.478604 7.75385 0.0909119 8.14154 0.0909119 8.61539V23.1409C0.0909119 25.8203 2.2706 28 4.94999 28ZM7.84476 6.46154C7.84476 3.84677 9.96845 1.72308 12.5832 1.72308C15.198 1.72308 17.3217 3.84677 17.3217 6.46154V7.75385H7.84476V6.46154ZM1.81399 9.47692H6.12168V11.6308C6.12168 12.1046 6.50937 12.4923 6.98322 12.4923C7.45707 12.4923 7.84476 12.1046 7.84476 11.6308V9.47692H17.3217V11.6308C17.3217 12.1046 17.7094 12.4923 18.1832 12.4923C18.6571 12.4923 19.0448 12.1046 19.0448 11.6308V9.47692H23.3525V23.1409C23.3525 24.8683 21.9438 26.2769 20.2165 26.2769H4.94999C3.2226 26.2769 1.81399 24.8683 1.81399 23.1409V9.47692Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <span>1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav_login_btn">
+                            <svg width="25" height="28" viewBox="0 0 25 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.542 14.1949C20.442 14.0928 20.3227 14.0115 20.1911 13.956C20.0594 13.9004 19.918 13.8716 19.7751 13.8712C19.6322 13.8709 19.4906 13.8989 19.3586 13.9538C19.2267 14.0087 19.107 14.0893 19.0065 14.191C18.906 14.2926 18.8268 14.4132 18.7734 14.5458C18.72 14.6783 18.6935 14.8202 18.6955 14.9631C18.6975 15.106 18.7279 15.2471 18.7849 15.3781C18.842 15.5091 18.9246 15.6275 19.0278 15.7263C19.9415 16.6253 20.6664 17.6978 21.16 18.8808C21.6536 20.0638 21.9059 21.3335 21.9021 22.6153C21.9021 23.9324 18.1264 25.8461 12.2098 25.8461C6.2932 25.8461 2.51751 23.9313 2.51751 22.6132C2.51384 21.3401 2.76276 20.0789 3.24986 18.9027C3.73695 17.7264 4.45255 16.6585 5.35521 15.7607C5.45806 15.6614 5.5401 15.5426 5.59654 15.4112C5.65299 15.2798 5.68269 15.1385 5.68394 14.9955C5.68518 14.8525 5.65793 14.7107 5.60378 14.5783C5.54963 14.446 5.46967 14.3257 5.36855 14.2246C5.26744 14.1235 5.1472 14.0435 5.01485 13.9894C4.8825 13.9352 4.74069 13.908 4.5977 13.9092C4.4547 13.9105 4.31339 13.9402 4.182 13.9966C4.05061 14.0531 3.93178 14.1351 3.83244 14.238C2.72898 15.3356 1.85421 16.6412 1.25879 18.0792C0.66337 19.5171 0.359124 21.059 0.363667 22.6153C0.363667 26.1132 6.46659 28 12.2098 28C17.953 28 24.056 26.1132 24.056 22.6153C24.0607 21.0485 23.7523 19.4964 23.1489 18.0504C22.5455 16.6044 21.6591 15.2936 20.542 14.1949Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M12.2098 15.0769C13.7008 15.0769 15.1582 14.6348 16.3979 13.8065C17.6376 12.9781 18.6038 11.8008 19.1744 10.4233C19.745 9.04583 19.8943 7.5301 19.6034 6.06778C19.3125 4.60546 18.5946 3.26224 17.5403 2.20797C16.486 1.15369 15.1428 0.435726 13.6805 0.144853C12.2181 -0.14602 10.7024 0.00326629 9.32494 0.573834C7.94747 1.1444 6.77012 2.11063 5.94178 3.35032C5.11345 4.59001 4.67133 6.0475 4.67133 7.53846C4.67361 9.53709 5.46857 11.4532 6.88181 12.8664C8.29505 14.2797 10.2112 15.0746 12.2098 15.0769ZM12.2098 2.15385C13.2748 2.15385 14.3158 2.46965 15.2013 3.06132C16.0868 3.65299 16.777 4.49395 17.1845 5.47786C17.5921 6.46177 17.6987 7.54444 17.4909 8.58895C17.2832 9.63346 16.7703 10.5929 16.0173 11.346C15.2642 12.099 14.3048 12.6118 13.2603 12.8196C12.2158 13.0274 11.1331 12.9207 10.1492 12.5132C9.16527 12.1056 8.32431 11.4155 7.73264 10.53C7.14097 9.6445 6.82517 8.60344 6.82517 7.53846C6.82688 6.1109 7.39474 4.7423 8.40418 3.73285C9.41362 2.72341 10.7822 2.15556 12.2098 2.15385Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="butterfly_sec" id="butterflyBox">
+        <div class="butterfly">
+            <div class="body"><img src="images/bf_body.png" alt=""></div>
+            <div class="leftwing"><img src="images/bf_lft_wing.png" alt=""></div>
+            <div class="rightwing"><img src="images/bf_rt_wing.png" alt=""></div>
+        </div>
+    </div>
+
+    <main class="pg_content" data-scroll-container>
+        <div class="sections banner home_banner" data-move_container>
+            <div class="banner_inner">
+                <div class="loader_big_txt"><img src="images/brand_loader.svg" alt="" data-scroll></div>
+                <div class="layer layer7">
+                    <div class="bubble_container" data-bubble="5"></div>
+                </div>
+                <div class="layer layer6">
+                    <span data-move="1.5"><img src="images/layer6.svg" alt=""></span>
+                    <span data-move="-1.5"><img src="images/layer7.svg" alt=""></span>
+                </div>
+                <div class="layer layer5">
+                    <span><img src="images/layer5.svg" alt="" data-rotate="-0.5" class="btf"></span>
+                </div>
+                <div class="layer layer4">
+                    <span><img src="images/layer4.svg" alt="" data-move="0.5" class="btf"></span>
+                </div>
+                <div class="layer layer3">
+                    <span><img src="images/layer1.png" alt="" class="btf"></span>
+                </div>
+                <div class="layer layer2">
+                    <span><img src="images/layer2.svg" alt="" class="btf"></span>
+                </div>
+                <div class="layer layer1">
+                    <span><img src="images/layer3.png" alt="" class="btf"></span>
+                </div>
+                <div class="layer layer2 layer2_1">
+                    <span><img src="images/layer2_1.svg" alt="" data-rotate="-0.8" class="btf"></span>
+                </div>
+
+                <div class="bn_content">
+                    <h1>Lorem ipsum dolor sit amet consecur. Pretium risus tortor pretium quisque tincidunt amet.
+                        Tincidunt cursus consectetur.</h1>
+                </div>
+            </div>
+
+            <div class="layout layout1">
+                <img src="images/ly1.svg" alt="" data-move="1.5">
+            </div>
+            <div class="layout layout2">
+                <img src="images/ly2.svg" alt="" data-rotate="-0.3">
+            </div>
+            <div class="layout layout3">
+                <img src="images/ly3.svg" alt="" data-move="1">
+            </div>
+            <div class="layout layout4">
+                <img src="images/ly4.svg" alt="" data-rotate="1">
+            </div>
+            <div class="layout layout5">
+                <img src="images/ly5.svg" alt="" data-move="0.95">
+            </div>
+            <div class="layout layout6">
+                <img src="images/ly6.svg" alt="" data-move="1">
+            </div>
+
+            <div class="figure fig1">
+                <img src="images/blue-butterfly.gif" alt="">
+            </div>
+            <div class="figure fig2">
+                <img src="images/blue-butterfly.gif" alt="">
+            </div>
+            <div class="figure fig3">
+                <img src="images/blue-butterfly.gif" alt="">
+            </div>
+        </div>
+
+        <div class="sections after_banner">
+            <div class="sl_wrapper">
+                <div class="ingredients_sl ingredient1">
+                    <div class="bg_fig bg_fig1"><img src="images/bg1.svg" alt=""></div>
+                    <div class="bg_fig bg_fig2"><img src="images/bg2.svg" alt=""></div>
+                    <div class="container">
+                        <div class="ingredients_contents">
+                            <div class="ingredients_lft">
+                                <div class="top_box">
+                                    <div class="header">
+                                        <label>Discover Our Moods</label>
+                                        <h2>Strawberry</h2>
+                                        <h3>Mixed Berries</h3>
+                                    </div>
+                                    <div class="cont_p">
+                                        <h4>25+ years</h4>
+                                        <p><strong>
+                                                of experience & dedication has taken us beyond simple manufacturing.
+                                            </strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="btm_box">
+                                    <div class="header mb0">
+                                        <h4>Ingredients</h4>
+                                        <p>Water, Berries, Strawberries, Sugar, yeast, natural oil, leaf extract, honey,
+                                            corn sugar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ingredients_rt">
+                                <div class="top_box">
+                                    <h4>Experience the ultimate vibes</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Viverra faucibus etiam nunc odio odio
+                                        imperdiet nibh nisi. Et tincidunt vestibulum mauris egestas. Eget viverra
+                                        vel
+                                        tincidunt</p>
+                                </div>
+
+                                <div class="btm_box">
+                                    <ul class="ing_list">
+                                        <li>
+                                            <figure><img src="images/item1.svg" alt=""></figure>
+                                            <p>Gluten free</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item2.svg" alt=""></figure>
+                                            <p>Non GMO</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item3.svg" alt=""></figure>
+                                            <p>Vegan</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item4.svg" alt=""></figure>
+                                            <p>Protein Based</p>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn_wrp">
+                                        <a href="#" class="page_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredients_sl ingredient2">
+                    <div class="bg_fig bg_fig1"><img src="images/bg1.svg" alt=""></div>
+                    <div class="bg_fig bg_fig2"><img src="images/bg2.svg" alt=""></div>
+                    <div class="container">
+                        <div class="ingredients_contents">
+                            <div class="ingredients_lft">
+                                <div class="top_box">
+                                    <div class="header">
+                                        <label>Discover Our Moods</label>
+                                        <h2>Strawberry</h2>
+                                        <h3>Mixed Berries</h3>
+                                    </div>
+                                    <div class="cont_p">
+                                        <h4>25+ years</h4>
+                                        <p><strong>
+                                                of experience & dedication has taken us beyond simple manufacturing.
+                                            </strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="btm_box">
+                                    <div class="header mb0">
+                                        <h4>Ingredients</h4>
+                                        <p>Water, Berries, Strawberries, Sugar, yeast, natural oil, leaf extract, honey,
+                                            corn sugar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ingredients_rt">
+                                <div class="top_box">
+                                    <h4>Experience the ultimate vibes</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Viverra faucibus etiam nunc odio odio
+                                        imperdiet nibh nisi. Et tincidunt vestibulum mauris egestas. Eget viverra
+                                        vel
+                                        tincidunt</p>
+                                </div>
+
+                                <div class="btm_box">
+                                    <ul class="ing_list">
+                                        <li>
+                                            <figure><img src="images/item1.svg" alt=""></figure>
+                                            <p>Gluten free</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item2.svg" alt=""></figure>
+                                            <p>Non GMO</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item3.svg" alt=""></figure>
+                                            <p>Vegan</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item4.svg" alt=""></figure>
+                                            <p>Protein Based</p>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn_wrp">
+                                        <a href="#" class="page_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredients_sl ingredient3">
+                    <div class="bg_fig bg_fig1"><img src="images/bg1.svg" alt=""></div>
+                    <div class="bg_fig bg_fig2"><img src="images/bg2.svg" alt=""></div>
+                    <div class="container">
+                        <div class="ingredients_contents">
+                            <div class="ingredients_lft">
+                                <div class="top_box">
+                                    <div class="header">
+                                        <label>Discover Our Moods</label>
+                                        <h2>Strawberry</h2>
+                                        <h3>Mixed Berries</h3>
+                                    </div>
+                                    <div class="cont_p">
+                                        <h4>25+ years</h4>
+                                        <p><strong>
+                                                of experience & dedication has taken us beyond simple manufacturing.
+                                            </strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="btm_box">
+                                    <div class="header mb0">
+                                        <h4>Ingredients</h4>
+                                        <p>Water, Berries, Strawberries, Sugar, yeast, natural oil, leaf extract, honey,
+                                            corn sugar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ingredients_rt">
+                                <div class="top_box">
+                                    <h4>Experience the ultimate vibes</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Viverra faucibus etiam nunc odio odio
+                                        imperdiet nibh nisi. Et tincidunt vestibulum mauris egestas. Eget viverra
+                                        vel
+                                        tincidunt</p>
+                                </div>
+
+                                <div class="btm_box">
+                                    <ul class="ing_list">
+                                        <li>
+                                            <figure><img src="images/item1.svg" alt=""></figure>
+                                            <p>Gluten free</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item2.svg" alt=""></figure>
+                                            <p>Non GMO</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item3.svg" alt=""></figure>
+                                            <p>Vegan</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item4.svg" alt=""></figure>
+                                            <p>Protein Based</p>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn_wrp">
+                                        <a href="#" class="page_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredients_sl ingredient4">
+                    <div class="bg_fig bg_fig1"><img src="images/bg1.svg" alt=""></div>
+                    <div class="bg_fig bg_fig2"><img src="images/bg2.svg" alt=""></div>
+                    <div class="container">
+                        <div class="ingredients_contents">
+                            <div class="ingredients_lft">
+                                <div class="top_box">
+                                    <div class="header">
+                                        <label>Discover Our Moods</label>
+                                        <h2>Strawberry</h2>
+                                        <h3>Mixed Berries</h3>
+                                    </div>
+                                    <div class="cont_p">
+                                        <h4>25+ years</h4>
+                                        <p><strong>
+                                                of experience & dedication has taken us beyond simple manufacturing.
+                                            </strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="btm_box">
+                                    <div class="header mb0">
+                                        <h4>Ingredients</h4>
+                                        <p>Water, Berries, Strawberries, Sugar, yeast, natural oil, leaf extract, honey,
+                                            corn sugar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ingredients_rt">
+                                <div class="top_box">
+                                    <h4>Experience the ultimate vibes</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Viverra faucibus etiam nunc odio odio
+                                        imperdiet nibh nisi. Et tincidunt vestibulum mauris egestas. Eget viverra
+                                        vel
+                                        tincidunt</p>
+                                </div>
+
+                                <div class="btm_box">
+                                    <ul class="ing_list">
+                                        <li>
+                                            <figure><img src="images/item1.svg" alt=""></figure>
+                                            <p>Gluten free</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item2.svg" alt=""></figure>
+                                            <p>Non GMO</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item3.svg" alt=""></figure>
+                                            <p>Vegan</p>
+                                        </li>
+                                        <li>
+                                            <figure><img src="images/item4.svg" alt=""></figure>
+                                            <p>Protein Based</p>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn_wrp">
+                                        <a href="#" class="page_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ingredients_middle_wrapper">
+                <div class="pulse">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
+                <div class="container">
+                    <div class="ingredients_middle ingredient1">
+                        <div class="pr_bg"><span><img src="images/prbg1.webp" alt=""></span></div>
+                        <figure class="ig_products"><span><img src="images/pr1.webp" alt=""></span></figure>
+                        <div class="ig_pr"><span><img src="images/igpr1.webp" alt=""></span></div>
+                    </div>
+                    <div class="ingredients_middle ingredient2">
+                        <div class="pr_bg"><span><img src="images/prbg2.webp" alt=""></span></div>
+                        <figure class="ig_products"><span><img src="images/pr1.webp" alt=""></span></figure>
+                        <div class="ig_pr"><span><img src="images/igpr1.webp" alt=""></span></div>
+                    </div>
+                    <div class="ingredients_middle ingredient3">
+                        <div class="pr_bg"><span><img src="images/prbg3.webp" alt=""></span></div>
+                        <figure class="ig_products"><span><img src="images/pr1.webp" alt=""></span></figure>
+                        <div class="ig_pr"><span><img src="images/igpr1.webp" alt=""></span></div>
+                    </div>
+                    <div class="ingredients_middle ingredient4">
+                        <div class="pr_bg"><span><img src="images/prbg4.webp" alt=""></span></div>
+                        <figure class="ig_products"><span><img src="images/pr1.webp" alt=""></span></figure>
+                        <div class="ig_pr"><span><img src="images/igpr1.webp" alt=""></span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="our_history_sec sections">
+            <div class="history_anim">
+                <div class="wow"><span><img src="images/wow.webp" alt=""></span></div>
+                <div class="splash"><span><img src="images/splash.webp" alt=""></span></div>
+                <div class="jar"><span><img src="images/jar.webp" alt=""></span></div>
+            </div>
+            <div class="float_label float_label1"><span><img src="images/fl1.webp" alt=""></span></div>
+
+            <div class="float_label float_label2"><span><img src="images/" alt=""></span></div>
+            <div class="float_label float_label3"><span><img src="images/" alt=""></span></div>
+            <div class="float_label float_labe4"><span><img src="images/" alt=""></span></div>
+
+            <div class="container">
+                <div class="header">
+                    <label>About daily vibes</label>
+                    <h2>Our History</h2>
+                    <h3>Made Us Proud</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur. Viverra faucibus etiam nunc odio odio imperdiet nibh
+                        nisi. Et tincidunt vestibulum mauris egestas. Eget viverra vel tincidunt</p>
+                    <a href="#" class="page_btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="height:400vh">
+            start
+        </div>
+    </main>
+
+    <!-- Scripts-->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"
+        crossorigin="anonymous"></script>
+    <script nomodule="" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
+        crossorigin="anonymous"></script>
+    <script nomodule=""
+        src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js" crossorigin="anonymous"></script>
+    <script src="js/ScrollToPlugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.6/lottie.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
+        crossorigin="anonymous"></script>
+        <script src="js/easy_responsive_tab.min.js"></script>
+    -->
+    <script src="js/common.js?ver=10"></script>
+
+</body>
+
+</html>

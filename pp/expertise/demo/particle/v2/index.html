@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Demo</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="style.css" />
+
+	<!--Custom code for glow effect-->
+	<script id="vertexShader" type="x-shader/x-vertex">
+		uniform vec3 viewVector;
+uniform float c;
+uniform float p;
+varying float intensity;
+void main() 
+{
+    vec3 vNormal = normalize( normalMatrix * normal );
+	vec3 vNormel = normalize( normalMatrix * viewVector );
+	intensity = pow( c - dot(vNormal, vNormel), p );
+	
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+}
+	</script>
+	<script id="fragmentShader" type="x-shader/x-vertex">
+		uniform vec3 glowColor;
+varying float intensity;
+void main() 
+{
+	vec3 glow = glowColor * intensity;
+    gl_FragColor = vec4( glow, 1.0 );
+}
+	</script>
+	<!--END code for glow effect-->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-force/1.1.0/d3-force.min.js"></script>
+	<script src="js/3d-force-graph.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
+
+
+	<script src="js/orbitControls.js"></script>
+	<script src="js/orbitControls-Touch.js"></script>
+	<script src="js/THREEx.WindowResize.js"></script>
+	<!--animation-->
+	<script src="js/TweenMax.min.js"></script>
+
+
+</head>
+
+<body>
+	<main class="wrapper" id="main">
+		<div id="graph"></div>
+		<div class="container" id="outer_box">
+			<div class="data_title box">
+				<div id="node_headline"></div>
+				<div id="node_shape"></div>
+			</div>
+			<div class="data_description box">
+				<div id="node_description"></div>
+			</div>
+		</div>
+	</main>
+
+	<script>
+		console.clear();
+
+		const elem = document.getElementById('graph');
+
+		let highlightNodes = [];
+		let highlightLink = null;
+		let prev_node;
+
+		var set_title = document.querySelector('#node_headline');
+		var node_set = document.querySelector('#node_shape');
+		var set_description = document.querySelector('#node_description');
+
+		const Graph = ForceGraph3D({
+				controlType: 'orbit',
+				rendererConfig: {
+					antialias: true,
+					alpha: true,
+					preserveDrawingBuffer: true
+				}
+			})
+			(elem)
+			.jsonUrl('package3.json') //load json file
+			.forceEngine("d3") //set phy. engine
+			//set custom mesh
+			.nodeThreeObject(
+				node =>
+				new THREE.Mesh(
+					new THREE.SphereGeometry(((node.id).startsWith('id') ? "8" : "4"), 20, 20),
+					new THREE.MeshPhongMaterial({
+						color: (node.id).startsWith('id') ? ("#0d223b") : ("#ffffff"),
+						transparent: true,
+						opacity: (node.id).startsWith('id') ? "1" : "0.2",
+						shininess: 20,
+						specular: '#356596',
+						fog: true,
+						skinning: true,
+						reflectivity: 0.1,
+						needsUpdate: true,
+						dithering: true,
+						//side: 2,
+						//wireframe: true
+					})
+				)
+			)
+			.nodeLabel(node => {
+				if ((node.id).startsWith('id')) {
+					window.node = node;
+					console.log("vx:" + node.vx + ",vy:" + node.vy + ",vz:" + node.vz);
+					console.log("x:" + node.x + ",y:" + node.y + ",z:" + node.z);
+					return node.name;
+				}
+			}) //set display tag
+			// .nodeColor(node => {
+			// 	if ((node.id).startsWith('id')) {
+			// 		return 'rgba(248, 88, 87)';
+			// 	} else {
+			// 		return 'rgba(255,255,255)';
+			// 	}
+			// })
+			//.nodeOpacity('0.95') //set opacity of node
+			//.nodeResolution('25') //set Resolution of node
+			.linkDirectionalParticles(2) //link between node with particles
+			.linkDirectionalParticleSpeed(0.01) //link between node with particles speed
+			.linkWidth(link => link === highlightLink ? 1 : 0.5)
+			.linkSource('source')
+			.linkTarget('target')
+			//.nodeVal('value') //set node size from json file
+			.enableNodeDrag(false)
+			.showNavInfo(false)
+			.backgroundColor('rgba(0,0,0,0)') //canvas color
+			.width(window.innerWidth)
+			.height(window.innerHeight)
+			.cameraPosition({
+				x: 245.96902275510598 / 0.8,
+				y: -236.15657783519927 / 0.8,
+				z: -602.5295745845758 / 0.8
+			}, {
+				x: 2.02743816796822e-9,
+				y: -1.1642857429418395e-9,
+				z: -1.5434050789777084e-8
+			})
+
+			// .cameraPosition({
+			// 	x: (function () {
+			// 		node => {
+			// 			(function () {
+			// 				console.log(node.id);
+			// 				245.9686735727755 / 0.8;
+			// 			})();
+			// 		}
+			// 	})(),
+			// 	y: -236.15634505672497 / 0.8,
+			// 	z: -602.5278170379165 / 0.8
+			// }, {
+			// 	x: 1.6473987813519135e-9,
+			// 	y: -9.460426153889194e-10,
+			// 	z: -1.2540967707663075e-8
+			// })
+			.enableNavigationControls(true) //camera control - rotate by mouse drag
+			.onNodeHover(
+				node => {
+					elem.style.cursor = node ? 'pointer' : null //cursor pointer
+					// no state change
+					if ((!node && !highlightNodes.length) || (highlightNodes.length === 1 && highlightNodes[0] ===
+							node))
+						return;
+					highlightNodes = node ? [node] : [];
+				}
+			)
+			.onNodeClick(node => {
+				if ((node.name) != null) {
+					if ((node.id).startsWith('id')) {
+						//set blank div
+						set_description.innerHTML = "";
+						set_title.innerHTML = "";
+						node_shape.innerHTML = "";
+						//close modal
+						close_desc();
+						close_model();
+
+						// Aim at node from outside it
+						const distance = 150;
+						const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+						Graph.cameraPosition({
+								x: node.x * distRatio,
+								y: node.y * distRatio,
+								z: node.z * distRatio
+							}, // new position
+							node,
+							3000 // ms transition duration
+						);
+
+						// console.log(highlightNodes[0].__threeObj.material.color);
+						// console.log(highlightNodes[0].id);
+
+						//set new color
+						Graph.nodeThreeObject(
+							node =>
+							new THREE.Mesh(
+								new THREE.SphereGeometry(((node.id).startsWith('id') ?
+									(highlightNodes[0].id == node.id ? "12" : "5") :
+									("2")), 30, 30),
+								new THREE.MeshPhongMaterial({
+									color: (node.id).startsWith('id') ?
+										(highlightNodes[0].id == node.id ? "#ef3736" : "#0d223b") : ("#ffffff"),
+									transparent: true,
+									opacity: (node.id).startsWith('id') ? (highlightNodes[0].id == node.id ?
+										"0.8" : "0.5") : ("0.4"),
+									shininess: 10,
+									specular: (highlightNodes[0].id == node.id ? "#ffffff" : "#356596"),
+									fog: true,
+									skinning: true,
+									reflectivity: 0.5,
+									needsUpdate: true,
+									dithering: true
+								})
+							)
+						);
+
+						//======== get data from specific node =========
+						//title
+						if (node.name != undefined) {
+							var h2 = document.createElement("h2");
+							h2.innerHTML = node.name;
+							set_title.appendChild(h2);
+							open_model();
+						}
+
+						//content
+						if (node.description != undefined) {
+							var p = document.createElement("p");
+							p.innerHTML = node.description;
+							set_description.appendChild(p);
+							open_desc();
+						}
+
+						//Create image
+						if (node.image === undefined) {
+							node_set.parentNode.style.opacity = 0;
+						} else {
+							shape_load(node.image) //call canvas draw function
+						}
+						// -- END Create image --
+						//======== END get data from specific node =========
+					}
+				}
+			});
+
+		//resize nodes on window resize
+		window.addEventListener('resize', function () {
+			Graph.refresh();
+			calc_size();
+		});
+
+		function calc_size() {}
+
+		// Spread nodes a little wider
+		Graph.d3Force('charge').strength(-150);
+
+		/*--Object Light---*/
+		// var directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
+		// directionalLight.position.set(10, 50, 50);
+		// directionalLight.castShadow = true;
+		// Graph.scene().add(directionalLight);
+
+		// var pointLight = new THREE.PointLight(0xFFFFFF, 2);
+		// pointLight.position.set(20, 25, 60);
+		// pointLight.castShadow = true;
+		// Graph.scene().add(pointLight);
+
+		// var spotLight = new THREE.SpotLight(0xFFFFFF, 1);
+		// spotLight.position.set(20, 20, -60);
+		// spotLight.castShadow = true;
+		// Graph.scene().add(spotLight);
+
+		var ambientLight = new THREE.AmbientLight(0xffffff);
+		Graph.scene().add(ambientLight);
+		/*--END Object Light---*/
+
+		//end NODE ==========================
+
+
+
+		/* -- animate text content -- */
+		window.addEventListener("DOMContentLoaded", function () {
+			// console.log("load");
+			close_desc();
+			close_model();
+		});
+
+		function close_desc() {
+			TweenMax.to(set_description.parentNode, 1, {
+				opacity: 0,
+				right: "-100%",
+				width: 0,
+				onComplete: function () {
+					set_description.parentNode.classList.remove("active");
+				}
+			});
+		}
+
+		function open_desc() {
+			TweenMax.to(set_description.parentNode, 1, {
+				width: "35%",
+				right: "0",
+				opacity: 1,
+				onComplete: function () {
+					set_description.parentNode.classList.add("active");
+				},
+				delay: 1
+			});
+		}
+
+		function close_model() {
+			TweenMax.to(node_set.parentNode, 1, {
+				opacity: 0,
+				left: "-100%",
+				width: 0,
+				onComplete: function () {
+					set_description.parentNode.classList.remove("active");
+				}
+			});
+		}
+
+		function open_model() {
+			TweenMax.to(node_set.parentNode, 1, {
+				height: node_set.parentNode.offsetWidth,
+				left: "0",
+				opacity: 1,
+				width: '40%',
+				onComplete: function () {
+					set_description.parentNode.classList.add("active");
+				},
+				delay: 1
+			});
+		}
+		/* -- END animate text content -- */
+
+		//----- create 3d shapes -------
+		function shape_load(node_new_shape) {
+			// MAIN
+			// standard global variables
+			var shape_container, shape_scene,
+				shape_camera, shape_renderer, shape_controls,
+				shapeHeight, shapeWidth,
+				data_shape, shape;
+
+			// custom global variables
+			shape_container = node_set;
+			shapeHeight = shape_container.clientWidth;
+			shapeWidth = shape_container.clientWidth;
+			// console.log(shapeHeight, shapeWidth);
+
+			if (node_new_shape == "torus") {
+				data_shape = 1;
+			}
+			if (node_new_shape == "torus_knot") {
+				data_shape = 2;
+			}
+			if (node_new_shape == "cone") {
+				data_shape = 3;
+			}
+			if (node_new_shape == "sphere") {
+				data_shape = 4;
+			}
+			if (node_new_shape == "dome") {
+				data_shape = 5;
+			}
+			if (node_new_shape == "brain") {
+				data_shape = 6;
+			}
+
+			shape_init();
+			shape_animate();
+
+			// FUNCTIONS
+			function shape_init() {
+				// SCENE
+				shape_scene = new THREE.Scene();
+
+				// CAMERA
+				var VIEW_ANGLE = 45,
+					ASPECT = shapeWidth / shapeHeight,
+					NEAR = 0.1,
+					FAR = 200000;
+				shape_camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+				// Place the camera
+				shape_scene.add(shape_camera);
+				shape_camera.position.set(0, 150, 400);
+				shape_camera.lookAt(shape_scene.position);
+
+				// RENDERER
+				shape_renderer = new THREE.WebGLRenderer({
+					antialias: true,
+					alpha: true
+				});
+				shape_renderer.setSize(shapeWidth, shapeHeight);
+
+				shape_container.appendChild(shape_renderer.domElement);
+
+				// EVENTS
+				THREEx.WindowResize(shape_renderer, shape_camera);
+
+				// CONTROLS
+				shape_controls = new THREE.OrbitControls(shape_camera, shape_renderer.domElement);
+				shape_controls.userZoom = false; //disable zoom on mouse scroll
+				shape_controls.userZoomSpeed = 0.1;
+				shape_controls.enableDamping = true;
+				shape_controls.dampingFactor = 0.12;
+				shape_controls.autoRotate = true; //enable rotation
+				shape_controls.rotateSpeed = 0.08; //manual rotation speed
+				shape_controls.autoRotateSpeed = 1.5; //default rotation speed
+				shape_controls.maxPolarAngle = Math.PI / 2;
+				shape_controls.enableZoom = false;
+				shape_controls.enableRotate = true;
+				shape_controls.enablePan = false;
+				shape_controls.minDistance = shapeWidth * (Math.PI / 2);
+				shape_controls.maxDistance = shapeWidth * (Math.PI / 2);
+
+				//////////////////
+				// Create Mesh //
+				////////////////
+
+				// Using wireframe materials to illustrate shape details.
+				var darkMaterial = new THREE.MeshBasicMaterial({
+					color: 0x071420,
+					transparent: true,
+					opacity: 0.5,
+					//doubleSided: true
+				});
+				var wireframeMaterial = new THREE.MeshBasicMaterial({
+					color: 0xffffff,
+					wireframe: true
+				});
+				var multiMaterial = [darkMaterial, wireframeMaterial];
+
+				// torus
+				if (data_shape == 1) {
+					shape = THREE.SceneUtils.createMultiMaterialObject(
+						// radius of entire torus, diameter of tube (less than total radius),
+						// sides per cylinder segment, cylinders around torus ("sides")
+						new THREE.TorusGeometry(100, 60, 16, 40),
+						multiMaterial);
+					shape.position.set(0, 0, 0);
+					//console.log(shape);
+					shape_scene.add(shape);
+				}
+				// torus knot
+				if (data_shape == 2) {
+					shape = THREE.SceneUtils.createMultiMaterialObject(
+						// total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
+						// p-loops around torus, q-loops around torus
+						new THREE.TorusKnotGeometry(90, 25, 100, 10, 3, 5),
+						multiMaterial);
+					shape.position.set(0, 0, 0);
+					//console.log(shape);
+					shape_scene.add(shape);
+				}
+				// cone
+				if (data_shape == 3) {
+					shape = THREE.SceneUtils.createMultiMaterialObject(
+						// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+						geometry = new THREE.CylinderGeometry(0, 100, 250, 20, 10),
+						multiMaterial);
+					shape.position.set(0, 0, 0);
+					//console.log(shape);
+					shape_scene.add(shape);
+				}
+				// sphere
+				if (data_shape == 4) {
+					shape = THREE.SceneUtils.createMultiMaterialObject(
+						geometry = new THREE.SphereGeometry(150, 25, 16),
+						multiMaterial);
+					shape.position.set(0, 0, 0);
+					//console.log(shape);
+					shape_scene.add(shape);
+				}
+				// dome
+				if (data_shape == 5) {
+					shape = THREE.SceneUtils.createMultiMaterialObject(
+						new THREE.SphereGeometry(150, 25, 16, 0, 2 * Math.PI, 0, Math.PI / 2),
+						multiMaterial);
+					// should set material to doubleSided = true so that the
+					// interior view does not appear transparent.
+					shape.position.set(0, 0, 0);
+					//console.log(shape);
+					shape_scene.add(shape);
+				}
+			}
+
+			//work on window resize
+			window.addEventListener('resize', onWindowResize);
+
+			function onWindowResize() {
+				// shapeHeight = shape_container.clientWidth;
+				// shapeWidth = shape_container.clientWidth;
+
+				shape_camera.aspect = shapeWidth /
+					shapeHeight; // set the aspect ratio to match the new browser window aspect ratio
+				shape_camera.updateProjectionMatrix(); // update the camera's frustum
+				shape_camera.position.set(0, 150, 400);
+				shape_camera.lookAt(shape_scene.position);
+
+				shape_renderer.setSize(shapeWidth, shapeHeight); // update the size of the renderer AND the canvas
+			}
+
+			function shape_animate() {
+				//render
+				shape_renderer.render(shape_scene, shape_camera);
+				//re-render
+				requestAnimationFrame(function () {
+					shape_animate();
+					shape_controls.update();
+				});
+			}
+		};
+	</script>
+
+
+
+</body>
+
+</html>

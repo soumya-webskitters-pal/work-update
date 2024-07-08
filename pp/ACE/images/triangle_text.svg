@@ -1,0 +1,75 @@
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.88 398.46">
+          <defs>
+            <style>
+              .tricls-1,
+              .tricls-2,
+              .tricls-3,
+              .tricls-4 {
+                stroke-miterlimit: 10;
+              }
+
+              .tricls-1 {
+                fill: url(#linear-gradient);
+                stroke: url(#linear-gradient-2);
+              }
+
+              .tricls-2 {
+                fill: url(#linear-gradient-3);
+                stroke: url(#linear-gradient-4);
+              }
+
+              .tricls-3 {
+                fill: url(#linear-gradient-5);
+                stroke: url(#linear-gradient-6);
+              }
+
+              .tricls-4 {
+                fill: url(#linear-gradient-7);
+                stroke: url(#linear-gradient-8);
+              }
+            </style>
+            <linearGradient id="linear-gradient" x1="128.06" y1="105.1" x2="346.06" y2="105.1"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fbf2a4" />
+              <stop offset="0.12" stop-color="#e4d693" />
+              <stop offset="0.27" stop-color="#ccb981" />
+              <stop offset="0.4" stop-color="#bea776" />
+              <stop offset="0.5" stop-color="#b9a172" />
+              <stop offset="1" stop-color="#f9ee9e" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-2" x1="127.16" y1="104.87" x2="346.95" y2="104.87"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fff" />
+              <stop offset="1" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-3" x1="60.27" y1="276.67" x2="210.48" y2="422.26"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#9f9f9c" />
+              <stop offset="0.07" stop-color="#b6b5b3" />
+              <stop offset="0.16" stop-color="#cbcac9" />
+              <stop offset="0.25" stop-color="#dad9d8" />
+              <stop offset="0.36" stop-color="#e3e2e1" />
+              <stop offset="0.52" stop-color="#e6e5e4" />
+              <stop offset="1" stop-color="#c7c6c4" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-4" x1="15.18" y1="288.1" x2="237.42" y2="288.1"
+              xlink:href="#linear-gradient-2" />
+            <linearGradient id="linear-gradient-5" x1="278.82" y1="276.25" x2="430.65" y2="423.4"
+              xlink:href="#linear-gradient-3" />
+            <linearGradient id="linear-gradient-6" x1="235.69" y1="288.1" x2="459.07" y2="288.1"
+              xlink:href="#linear-gradient-2" />
+            <linearGradient id="linear-gradient-7" x1="141.44" y1="237.13" x2="343.62" y2="306"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#050505" />
+              <stop offset="1" stop-color="#3d3d3d" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-8" x1="127.7" y1="288.35" x2="346.42" y2="288.35"
+              xlink:href="#linear-gradient-2" />
+          </defs>
+          <g id="background">
+            <polygon id="top" class="tricls-1 trngl" points="237.06 16.6 128.06 193.6 346.06 193.6 237.06 16.6" />
+            <polygon id="left" class="tricls-2 trngl" points="128.06 193.6 16.06 382.6 236.56 383.1 128.06 193.6" />
+            <polygon id="right" class="tricls-3 trngl" points="346.06 193.6 236.56 383.1 458.19 382.6 346.06 193.6" />
+            <polygon id="center" class="tricls-4 trngl" points="345.56 193.1 236.56 383.1 128.56 193.1 345.56 193.1" />
+          </g>
+        </svg>

@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/pageLoading.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Expertise</title>
+</head>
+
+<body style="height:100vh">
+    <main class="main_wrapper" id="main">
+        <nav class="navigation">
+            <button class="nav_btn" id="nav_btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div id="circle_anim" class="circle_anim"></div>
+            <ul class="sub-menu" id="submenu">
+                <li>
+                    <a href="#about" title="about">Home</a>
+                </li>
+                <li>
+                    <a href="#skills" title="skills">Expertise</a>
+                </li>
+                <li>
+                    <a href="#jobs" title="jobs">Demo</a>
+                </li>
+                <li>
+                    <a href="#contact" title="contact">Clients story</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="canvas"></div>
+        <span class="glow"></span>
+        <div class="container clearfix" id="outer_box">
+            <div class="page_title" id="page_title">Expertise</div>
+            <div class="tooltip" id="tooltip"></div>
+            <div class="data_box box" id="dataBox">
+                <div class="data_box_inner">
+                    <div class="sl_count">
+                        <svg id="demo" xmlns="http://www.w3.org/2000/svg" width="600" height="400"
+                            viewBox="0 0 600 400">
+                            <g>
+                                <text transform="translate(100 300)" text-anchor="middle" font-size="320" fill="#fff"
+                                    id="node0">2</text>
+                                <text transform="translate(100 -200)" text-anchor="middle" font-size="320" fill="#fff"
+                                    id="node1">1</text>
+                            </g>
+                            <g>
+                                <text transform="translate(320 300)" text-anchor="middle" font-size="320" fill="#fff"
+                                    font-weight="400">/</text>
+                                <text transform="translate(500 300)" text-anchor="middle" font-size="250" fill="#fff"
+                                    id="node2">6</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="sl_control">
+                        <button class="sl_btn sl_btn_lft" id="sl_prev">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 477.175 477.175"
+                                style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
+                                <path
+                                    d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225 c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z" />
+                            </svg>
+                        </button>
+                        <button class="sl_btn sl_btn_rt" id="sl_nxt">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                                <path
+                                    d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="close_icon" id="closeModal">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+                            <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round"
+                                stroke-miterlimit="10" class="cross"></line>
+                            <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round"
+                                stroke-miterlimit="10" class="cross"></line>
+                            <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+                            <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z"
+                                class="progress" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                                fill="none"></path>
+                        </svg>
+                    </span>
+                    <div id="node_headline" class="anim_box"></div>
+                    <div id="node_description" class="anim_box"></div>
+                    <div id="node_shape" class="anim_box"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sec_progress">
+            <progress id="secProgress" max="100" value=""></progress>
+            <div id="secProgressBar" style="width:0px"></div>
+        </div>
+    </main>
+</body>
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/orbitControls.js"></script>
+<script src="js/WebGL.js"></script>
+<script src="js/threex.domevents.js"></script>
+<script src="js/RollerCoaster.js"></script>
+<script src="js/AnaglyphEffect.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/Projector.js"></script>
+<script src="js/pageLoading.js"></script>
+<script src="main.js"></script>
+
+</html>

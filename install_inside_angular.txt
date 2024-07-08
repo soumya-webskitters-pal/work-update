@@ -1,0 +1,32 @@
+npm install -g @angular/cli
+ng new my-first-project
+cd my-first-project
+ng serve
+
+
+
+1. npm install --save @types/jquery
+--main.ts> import * as $ from 'jquery';
+
+2. npm install --save gsap @types/gsap
+--main.ts> import gsap from 'gsap';
+
+3. npm install @ng-bootstrap/ng-bootstrap 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+4. npm install --save font-awesome angular-font-awesome
+--main.ts > import { AngularFontAwesomeComponent } from 'angular-font-awesome';
+
+5. npm i @juggle/resize-observer -s    
+--main.ts > import { ResizeObserver } from '@juggle/resize-observer';
+
+6. npm install ngx-slick-carousel --save
+
+7. npm install imagesloaded --save
+--main.ts > import { ImageLoader } from '@angular/common';
+
+8. npm i --save-dev @types/splitting
+--main.ts > import * as Splitting from 'splitting';
+
+9. npm i --save-dev @types/locomotive-scroll
+--main.ts > import * as LocomotiveScroll from 'locomotive-scroll';

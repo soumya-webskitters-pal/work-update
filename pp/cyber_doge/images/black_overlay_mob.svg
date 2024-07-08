@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 375 590.9" style="enable-background:new 0 0 375 590.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-opacity:0.3;}
+	.st2{fill:url(#SVGID_1_);fill-opacity:0.3;}
+	.st3{fill:url(#SVGID_2_);fill-opacity:0.3;}
+</style>
+<g id="Layer_2_1_">
+	<g id="Layer_1-2">
+		<rect class="st0" width="375" height="572"/>
+		<path class="st1" d="M208.5,286v90L164,459H0"/>
+		
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="165.2325" y1="-369.7832" x2="242.0925" y2="-471.8131" gradientTransform="matrix(1 0 0 -1 0 -274)">
+			<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:7.000000e-02"/>
+			<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.59"/>
+		</linearGradient>
+		<path class="st2" d="M191.9,229.4l34.3-16.4l38.9-38.4V143h-11v-19.3h-5.5v6.9h-14.2v-11.4h-5l-3.2-40.7v40.7h-11.9v11.4h-6.4
+			v15.6l18.3,18.3h6.4l9.1,5l-7.3,14.6h-46.2v2.8h38v2.7H212v5l8.7,6.4v9.1H212l-8.7,8.7L191.9,229.4z"/>
+	</g>
+	<g id="Layer_2-2">
+		<polygon points="0,0 0,590.9 109.6,590.9 227.1,386 227.1,212.3 265.1,174.3 265.1,0 		"/>
+		<polygon points="375,408 307.7,408 294.4,421.3 101.3,421.3 91.7,590.9 375,590.9 		"/>
+		
+			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="166.1954" y1="1003.1382" x2="243.0605" y2="1105.1676" gradientTransform="matrix(1 0 0 1 0 -908)">
+			<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:7.000000e-02"/>
+			<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.59"/>
+		</linearGradient>
+		<path class="st3" d="M192.9,228.8l34.3-16.5l37.9-38v-32h-10v-19.2h-5.5v6.9h-14.2v-11.4h-5l-3.2-40.7v40.7h-11.9V130h-6.4v15.6
+			l18.3,18.3h6.4l9.2,5l-7.3,14.6h-46.2v2.7h38v2.7H213v5l8.7,6.4v9.2H213l-8.7,8.7L192.9,228.8z"/>
+	</g>
+</g>
+<path class="st1" d="M214.5,288.2v90l-44.5,83H0"/>
+</svg>

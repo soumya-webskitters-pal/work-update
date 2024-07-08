@@ -1,0 +1,215 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --bodyTxt: #adc2f4;
+  --themeColor: #2dcafe;
+  --darkBlue: #091a73;
+  --nrmlblue: #007eff;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:after,
+:before {
+  pointer-events: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--darkBlue);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--black);
+}
+
+.form_box {
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 40px;
+}
+
+h2,
+h3 {
+  text-align: center;
+  line-height: 1;
+}
+h2 {
+  font-size: 50px;
+  margin: 0 0 15px;
+  color: #091a73;
+}
+h3 {
+  font-size: 30px;
+  margin: 0 0 10px;
+  color: #000;
+}
+.step_title {
+  max-width: 60%;
+  margin: 0 auto 40px;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+.step_box {
+  display: none;
+  transition: opacity 0.25s linear;
+}
+/* .step_box.active {
+  display: block;
+} */
+.prg_box {
+  height: 5px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.prg_box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+.step_group {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.stp_btn {
+  display: block;
+  padding: 15px 25px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: inset 0px 0px 0px 1px#062333;
+  line-height: 1;
+  background-color: #05536d;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.stp_btn:hover {
+  background-color: #00bbef;
+}
+.stp_btn span {
+  display: inline-block;
+}
+
+.prev_step {
+  padding: 14px 0px;
+  display: inline-block;
+  cursor: pointer;
+}
+.step_action {
+  position: relative;
+  margin-top: 5px;
+}
+.step_inp {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: -15px;
+  flex-wrap: wrap;
+}
+.step_inp + .step_inp {
+  margin-top: 30px;
+}
+.step_col {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  position: relative;
+  margin: 0 0 15px;
+}
+.step_inp.half .step_col {
+  width: 50%;
+}
+.radio_box {
+  position: relative;
+  display: block;
+}
+.radio_box input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.radio_box input[type="radio"]:hover + .stp_btn,
+.radio_box input[type="radio"]:checked + .stp_btn {
+  background-color: #00bbef;
+}
+.all_step {
+  margin-bottom: 30px;
+}
+.step_col input[type="text"],
+.step_col input[type="email"],
+.step_col input[type="tel"] {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  background: #daeaef;
+  padding: 0 30px;
+  text-align: center;
+}
+.error {
+  font-size: 12px;
+  color: red;
+  text-align: left;
+  display: none;
+}
+.error.show {
+  display: block;
+}
+.step_box.step6 .step_inp + .step_inp p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.cntry_select {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  padding: 0 25px;
+  border-radius: 15px;
+}
+.form_msg {
+  text-align: center;
+  display: none;
+  padding: 30px 0;
+}
+.form_error {
+  display: none;
+}
+.form_msg.error .form_success {
+  display: none;
+}
+.form_msg.error .form_error {
+  display: block;
+}
+
+.iti {
+  width: 100%;
+}
+@media only screen and (min-width: 992px) {
+}
+/*--home page style end--*/

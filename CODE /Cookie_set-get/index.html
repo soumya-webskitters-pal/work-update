@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>set-get cookies</title>
+</head>
+
+<body>
+	<input type="text" placeholder="type your name" id="nametext">
+	<button id="btn">click to save</button>
+	<script>
+		let el = document.getElementById("nametext"),
+			btn = document.getElementById("btn");
+		btn.addEventListener("click", function () {
+			let val = el.value;
+			if (val.length) {
+				setCookie('ppkcookie', 'testcookie', 1);
+			}
+			else {
+				alert("blank input")
+			}
+		});
+
+		function checkCookies() {
+			if (navigator.cookieEnabled == true) {
+				console.log("Cookies are enabled.");
+
+				var x = getCookie('ppkcookie');
+				if (x) {
+					console.log(document.cookie);
+				}
+			} else {
+				console.log("Cookies are not enabled.");
+			}
+		}
+		window.onload = checkCookies();
+
+
+		function setCookie(name, value, days) {
+			var expires = "";
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toUTCString();
+			}
+			document.cookie = name + "=" + (value || "") + expires + "; path=/";
+		}
+		function getCookie(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+			}
+			return null;
+		}
+		function eraseCookie(name) {
+			document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		}
+		
+		_vwo_uuid_v2=D2115CF67F96BEA0BBE49DE9DB7BA7D67|679930fb7bb9228e7c812489d81e2875; _vwo_uuid=D2115CF67F96BEA0BBE49DE9DB7BA7D67; _vwo_ds=3%241702904829%3A85.48702747%3A%3A; 
+		_vis_opt_s=1%7C; 
+		_vis_opt_test_cookie=1; 
+		_gcl_au=1.1.577327653.1702904831; 
+		_fbp=fb.1.1702904834031.1519903743; 
+		drift_aid=dd9b88ef-07c8-4a13-adc5-755269392d44; 
+		driftt_aid=dd9b88ef-07c8-4a13-adc5-755269392d44; 
+		_gid=GA1.2.1924019048.1702904839; 
+		_vwo_sn=0%3A1%3A%3A%3A1; 
+		_ga_2GSCVGMGWE=GS1.1.1702966783.2.0.1702966783.0.0.0; drift_campaign_refresh=e46ef729-1709-4598-967c-9f06dc52f879; 
+		_ga=GA1.2.165223343.1702904832; 
+		_gat_gtag_UA_55131756_1=1'
+
+	</script>
+</body>
+
+</html>

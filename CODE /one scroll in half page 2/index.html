@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>custom slider</title>
+
+	<!--reveal-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.css" crossorigin="anonymous">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+		crossorigin="anonymous">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		*:after,
+		*:before {
+			pointer-events: none;
+		}
+
+		body {
+			background-color: #000;
+		}
+
+		.pr_box {
+			background: #FFFFFF;
+			position: fixed;
+			z-index: 2000;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			transform: scaleX(0);
+			transform-origin: left center;
+		}
+
+		.reveal_outer {
+			z-index: 1;
+			width: 100%;
+			height: 100vh;
+			position: relative;
+		}
+
+		.reveal_outer .reveal {
+			position: absolute !important;
+			top: 0 !important;
+			left: 0 !important;
+			z-index: 1 !important;
+			background-color: transparent !important;
+			opacity: 0;
+			height: 100vh;
+			transition: opacity 1s linear 0.5s;
+		}
+
+		.reveal_outer.loaded .reveal {
+			opacity: 1;
+		}
+
+		.reveal_outer section[hidden] {
+			display: inherit !important;
+		}
+
+		.reveal_outer .reveal section {
+			height: 100vh;
+			pointer-events: none;
+		}
+
+		.reveal_outer .reveal a {
+			pointer-events: all;
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide] {
+			transition: 1s linear 0.3s !important;
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].past,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-out].past,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).past {
+			transform: translate(0, -100%);
+		}
+
+		.reveal_outer .reveal .slides>section[data-transition=slide].future,
+		.reveal_outer .reveal .slides>section[data-transition~=slide-in].future,
+		.reveal_outer .reveal.slide .slides>section:not([data-transition]).future {
+			transform: translate(0, 64px);
+		}
+
+		.reveal_outer .reveal section>div {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.reveal_outer .reveal .backgrounds {
+			display: none !important;
+			pointer-events: none;
+		}
+
+		.ban-h1 {
+			font-size: 5vw;
+		}
+
+		.section .ban-h1 .word {
+			overflow: hidden;
+			position: relative;
+			display: inline-block;
+			transform: translate3d(0, 16px, 0);
+			transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1), transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+		}
+
+		.section .ban-h1 .word:nth-child(1) {
+			transition-delay: .8s;
+		}
+
+		.section.present .ban-h1 .word {
+			opacity: 1;
+		}
+
+		.section .ban-h1 .word .wrd_anim {
+			display: block;
+			transform: translate3d(0, 100%, 0);
+		}
+
+		.section .ban-h1 .word .wrd_anim {
+			transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1) calc(150ms * var(--line-index) + 500ms);
+		}
+
+		.section p {
+			display: block;
+			transform: translate3d(0, 64px, 0);
+			transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+			opacity: 0;
+		}
+
+		.section.present .word .wrd_anim,
+		.section.present p {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
+
+		.list {
+			position: fixed;
+			z-index: 2;
+			top: 50%;
+			left: 50px;
+			transform: translateY(-50%);
+			color: #fff;
+			font-size: 30px;
+			list-style: none;
+		}
+
+		.list li+li {
+			margin-top: 20px;
+		}
+
+		.list li.active {
+			transform: scale(2);
+			color: red;
+		}
+
+		.rest_page {
+			position: relative;
+			background: yellow;
+			height: 200vh;
+			z-index: 5;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeOut {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0
+			}
+		}
+
+		.bg {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			z-index: 1;
+			opacity: 0;
+		}
+
+		.reveal_outer.loaded .bg {
+			opacity: 1;
+			animation: fadeIn 300ms linear forwards;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="pr_box"></div>
+	<div class="reveal_outer">
+		<div class="bg" style="background-image:url(bg.png)"></div>
+		<div class="reveal">
+			<div class="slides">
+				<section class="section" style="color: red">
+					<div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-5">
+									<h1 class="ban-h1" data-line>bic lighter</h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eros sapien,
+										scelerisque
+										ut
+										finibus sed, suscipit nec metus. Donec id dui at lorem venenatis molestie. </p>
+									<p>Morbi sodales eget nulla a euismod. Quisque lobortis dolor feugiat arcu luctus
+										laoreet.
+										Nam
+										eget congue lorem. Proin sit amet fermentum erat, non imperdiet ligula. Donec
+										accumsan,
+										diam
+										a malesuada gravida, nibh libero congue dolor, vitae fringilla tortor arcu ac
+										leo.Proin
+										libero mauris, porttitor sit amet nunc ac, egestas condimentum tortor.
+										Pellentesque
+										habitant
+										morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="col-lg-7">
+									<figure></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section" style="color: green">
+					<div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-5">
+									<h2 class="ban-h1" data-line>Diplur casa ipsum sip<br>kajurta mepsu dino</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eros sapien,
+										scelerisque ut
+										finibus sed, suscipit nec metus. Donec id dui at lorem venenatis molestie. </p>
+									<p>Morbi sodales eget nulla a euismod. Quisque lobortis dolor feugiat arcu luctus
+										laoreet.
+										Nam
+										eget congue lorem. Proin sit amet fermentum erat, non imperdiet ligula. Donec
+										accumsan,
+										diam
+										a malesuada gravida, nibh libero congue dolor, vitae fringilla tortor arcu ac
+										leo.Proin
+										libero mauris, porttitor sit amet nunc ac, egestas condimentum tortor.
+										Pellentesque
+										habitant
+										morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="col-lg-7">
+									<figure></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section" style="color: blue">
+					<div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-5">
+									<h2 class="ban-h1" data-line>Kajurta diplur mepsu sip<br>dino casa ipsum</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eros sapien,
+										scelerisque ut
+										finibus sed, suscipit nec metus. Donec id dui at lorem venenatis molestie. </p>
+									<p>Morbi sodales eget nulla a euismod. Quisque lobortis dolor feugiat arcu luctus
+										laoreet.
+										Nam
+										eget congue lorem. Proin sit amet fermentum erat, non imperdiet ligula. Donec
+										accumsan,
+										diam
+										a malesuada gravida, nibh libero congue dolor, vitae fringilla tortor arcu ac
+										leo.Proin
+										libero mauris, porttitor sit amet nunc ac, egestas condimentum tortor.
+										Pellentesque
+										habitant
+										morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="col-lg-7">
+									<figure></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div class="rest_page">
+		<h1>content start</h1>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/splitting/dist/splitting.min.js" crossorigin="anonymous"></script>
+
+	<script>
+		gsap.registerPlugin(ScrollTrigger);
+		window.history.scrollRestoration = "manual";
+		ScrollTrigger.clearScrollMemory();
+		window.scrollTo(0, 0);
+
+		//for home page
+		if ($(".reveal_outer").length) {
+			document.body.style.overflow = "hidden";
+
+			//mouse scroll action
+			var scrollPos = "down";
+			window.addEventListener("wheel", (event) => {
+				if (event.deltaY > 0) {
+					scrollPos = "down";
+				}
+				if (event.deltaY < 0) {
+					scrollPos = "up";
+				}
+				// console.log(scrollPos);
+			});
+			//touch action
+			const touch = {
+				threshold: 50,
+				listening: false,
+				startX: 0,
+				startY: 0,
+				dx: 0,
+				dy: 0,
+				startTime: 0,
+				dt: 0,
+			};
+
+
+			Reveal.initialize({
+				mouseWheel: false,
+				touch: false,
+				controls: false,
+				controlsTutorial: false,
+				progress: false,
+				respondToHashChanges: false,
+				jumpToSlide: false,
+				keyboard: false,
+				overview: false,
+				fragments: false,
+				fragmentInURL: false,
+				help: false,
+				hideInactiveCursor: false,
+				embedded: true,
+				width: window.innerWidth,
+				height: window.innerHeight,
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+			});
+			Reveal.layout();
+
+			Reveal.on('ready', event => {
+				let parent = document.querySelector(".reveal_outer"),
+					els = parent.querySelectorAll(".slides>.section");
+
+				let list = document.createElement("ul");
+				list.classList.add("list");
+				parent.append(list);
+				els.forEach((el, i) => {
+					let li = document.createElement("li");
+					li.innerHTML = (i + 1).toString().padStart(2, 0);
+					list.append(li);
+				});
+				list.querySelectorAll("li")[event.indexh].classList.add("active");
+
+				//split by lines
+				document.querySelectorAll(".section .ban-h1").forEach((tr) => {
+					Splitting({ target: tr, by: "lines" });
+					tr.querySelectorAll(".word").forEach((wrd) => {
+						wrd.innerHTML = "<span class='wrd_anim'>" + wrd.innerHTML + "</div>";
+						wrd.querySelector(".wrd_anim").style.cssText = wrd.style.cssText;
+					});
+				});
+
+				//progressbar
+				gsap.set(".pr_box", {
+					scaleX: 0,
+				});
+				gsap.to(".pr_box", {
+					scaleX: 1,
+					duration: 2,
+					ease: "linear",
+					onComplete: () => {
+						gsap.set(".pr_box", { display: "none" });
+						document.querySelector(".reveal_outer").classList.add("loaded");
+
+						//enable reveal
+						touch.listening = true;
+						Reveal.configure({
+							mouseWheel: true,
+						});
+					},
+				});
+			});
+
+
+			Reveal.on('slidechanged', event => {
+				Reveal.configure({
+					mouseWheel: false,
+				});
+				let list = document.querySelector(".list");
+				let els = list.querySelectorAll("li");
+				els.forEach((el, i) => {
+					el.classList.remove("active");
+				})
+				list.querySelectorAll("li")[event.indexh].classList.add("active");
+			});
+
+			Reveal.on('slidetransitionend', event => {
+				Reveal.configure({
+					mouseWheel: true,
+				});
+				setTimeout(() => {
+					if (
+						event.indexh ==
+						document.querySelectorAll(".reveal>.slides>section").length - 1 &&
+						scrollPos == "down"
+					) {
+						// console.log("last slidetransitionend");
+						document.body.style.overflow = "auto";
+						Reveal.configure({
+							mouseWheel: false,
+						});
+					}
+				}, 1500);
+			});
+
+			window.addEventListener("resize", () => {
+				Reveal.configure({
+					width: window.innerWidth,
+					height: window.innerHeight,
+				});
+			})
+
+			ScrollTrigger.create({
+				trigger: ".reveal_outer",
+				start: "top top",
+				end: 5,
+				onEnterBack: () => {
+					Reveal.configure({
+						mouseWheel: true,
+					});
+					document.body.style.overflow = "hidden";
+					// console.log("onEnterBack");
+				},
+				onLeave: () => {
+					Reveal.configure({
+						mouseWheel: false,
+					});
+					document.body.style.overflow = "auto";
+					// console.log("onLeave");
+				},
+				// markers: true,
+			});
+
+			document.addEventListener("touchstart", handleTouchStart, false);
+			document.addEventListener("touchmove", handleTouchMove, false);
+			document.addEventListener("touchend", handleTouchEnd, false);
+			function handleDirection() {
+				if (!touch.listening) return;
+				touch.listening = false;
+				if (scrollPos === "down") {
+					Reveal.next();
+					setTimeout(() => {
+						touch.listening = true;
+					}, 600);
+				}
+				if (scrollPos === "up") {
+					// console.log(current, next);
+					Reveal.prev();
+					setTimeout(() => {
+						touch.listening = true;
+					}, 600);
+				}
+
+			}
+			function handleTouchStart(e) {
+				if (!touch.listening) return;
+				const t = e.changedTouches[0];
+				touch.startX = t.pageX;
+				touch.startY = t.pageY;
+			}
+			function handleTouchMove(e) {
+				if (!touch.listening) return;
+				e.preventDefault();
+			}
+			function handleTouchEnd(e) {
+				if (!touch.listening) return;
+				const t = e.changedTouches[0];
+				touch.dx = t.pageX - touch.startX;
+				touch.dy = t.pageY - touch.startY;
+
+				if (Math.abs(touch.dy) < touch.threshold) {
+					touch.listening = false;
+					setTimeout(() => {
+						touch.listening = true;
+					}, 300);
+				} else {
+					if (touch.dy > 1) scrollPos = "up";
+					if (touch.dy < -1) scrollPos = "down";
+				}
+				handleDirection();
+			}
+		}
+	</script>
+</body>
+
+</html>

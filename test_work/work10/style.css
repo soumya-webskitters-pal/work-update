@@ -1,0 +1,26 @@
+:root {
+  --baseSize: 18px;
+  --headingBaseSize: 21px;
+  --baseFont: "Poppins", sans-serif;
+  --headlineFont: "Poppins", sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --maroon: #7a2048;
+  --maroonLight: #8a307f;
+  --blue: #408ec6;
+  --blueLight: #9fd2f7;
+  --blueDark: #1e2761;
+  --gray: #cccccc;
+  --base: #58666c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  pointer-events: none;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: rgba(4, 12, 20, 1);
+      background: -moz-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+      background: -webkit-gradient(left top, right top, color-stop(0%, rgba(4, 12, 20, 1)), color-stop(100%, rgba(17,
+              44, 70, 1)));
+      background: -webkit-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+      background: -o-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+      background: -ms-linear-gradient(left, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+      background: linear-gradient(to right, rgba(4, 12, 20, 1) 0%, rgba(17, 44, 70, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#040c14', endColorstr='#112c46',
+          GradientType=1);
+    }
+  </style>
+
+  <script src="3d-force-graph.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script> -->
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <script>
+    console.clear();
+
+    const elem = document.getElementById('graph');
+
+    /*const distance = 200;*/
+    let highlightNodes = [];
+    let highlightLink = null;
+
+
+    const Graph = ForceGraph3D({
+        controlType: 'orbit',
+        rendererConfig: {
+          antialias: true,
+          alpha: true
+        }
+      })
+      (elem)
+      .jsonUrl('package.json') //load json file
+      //.nodeLabel('id')//set display tag 
+      .nodeLabel('description')
+      .nodeAutoColorBy('user') //set auto node color by group --from json file
+      // .nodeColor(node => highlightNodes.indexOf(node) === -1 ? '#049ef4' : '#ffffff')
+      .nodeOpacity('0.75') //set opacity of node
+      .nodeResolution('20') //set Resolution of node
+      .linkDirectionalParticles(2) //link between node with particles
+      .linkDirectionalParticleSpeed(0.01) //link between node with particles speed
+      .linkWidth(link => link === highlightLink ? 1 : 0.5)
+      .onLinkHover(link => {
+        // no state change
+        if (highlightLink === link) return;
+        highlightLink = link;
+        highlightNodes = link ? [link.source, link.target] : [];
+        updateGeometries();
+      })
+      .linkSource('source')
+      .linkTarget('target')
+      .nodeVal('val') //set node size from json file
+      .enableNodeDrag(false)
+      .showNavInfo(false)
+      .backgroundColor('rgba(0,0,0,0)') //canvas color
+      /*.cameraPosition({
+        z: distance
+      }) //z - camera control*/
+      .cameraPosition({
+        z: 0
+      })
+      //.enableNavigationControls(false) //camera control - rotate by mouse drag
+      .enableNavigationControls({
+        rotate: true,
+        zoom: true,
+        pan: false
+      }) //camera control - rotate by mouse drag
+      .onNodeHover(
+        node => {
+          elem.style.cursor = node ? 'pointer' : null //cursor pointer
+          // no state change
+          if ((!node && !highlightNodes.length) || (highlightNodes.length === 1 && highlightNodes[0] === node)) return;
+          highlightNodes = node ? [node] : [];
+          updateGeometries();
+        }
+      )
+      .onNodeClick(node => {
+        // Aim at node from outside it
+        const distance = 40;
+        const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        Graph.cameraPosition({
+            x: node.x * distRatio,
+            y: node.y * distRatio,
+            z: node.z * distRatio
+          }, // new position
+          node,
+          3000 // ms transition duration
+        );
+      });
+
+
+
+    Graph.d3Force('charge').strength(-250); // Spread nodes a little wider
+
+
+    function updateGeometries() {
+      Graph.nodeRelSize(4); // trigger update of 3d objects in scene
+    }
+
+    // camera orbit
+    /*let angle = 0;
+    setInterval(() => {
+      Graph.cameraPosition({
+        x: distance * Math.sin(angle),
+        z: distance * Math.cos(angle)
+      });
+      angle += Math.PI / 1500;
+    }, 10);*/
+  </script>
+</body>
+
+</html>

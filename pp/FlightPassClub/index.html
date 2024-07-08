@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+
+   <title>FlightPassClub</title>
+   <meta name="title" content="FlightPassClub">
+   <meta name="description" content="lorem ipsum dolor">
+   <meta name="keywords" content="lorem ipsum, lorem, ipsum, dolor">
+   <meta name="robots" content="noindex">
+
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://FlightPassClub/">
+   <meta property="og:title" content="FlightPassClub">
+   <meta property="og:description" content="lorem ipsum dolor">
+   <meta property="og:image" content="images/meta_img.jpg">
+   <meta property="og:image:type" content="image/jpg">
+   <meta property="og:image:width" content="1280">
+   <meta property="og:image:height" content="720">
+
+   <meta property="og:image" content="images/meta_img_small.jpg">
+   <meta property="og:image:type" content="image/jpg">
+   <meta property="og:image:width" content="400">
+   <meta property="og:image:height" content="400">
+
+   <meta name="twitter:url" content="https://FlightPassClub/">
+   <meta name="twitter:title" content="FlightPassClub">
+   <meta name="twitter:description" content="lorem ipsum dolor">
+   <meta name="twitter:image" content="images/meta_img.jpg">
+   <meta name="twitter:card" content="summary_large_image">
+
+   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+   <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:wght@300;400;500&display=swap">
+   <!-- All CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css?v2">
+</head>
+
+<body>
+   <div class="loader" id="loader">
+      <div class="loadersvg">
+         <img src="images/logo.png" alt="">
+      </div>
+      <div class="loader_line">
+         <span style="width: 0%"></span>
+      </div>
+      <span class="load_percent">0%</span>
+   </div>
+
+   <header class="main-head">
+      <div class="container">
+         <nav class="navbar">
+            <a class="navbar-brand" href="index.html">
+               <img src="images/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler">
+               <span class="nvbtn_txt">
+                  <span>Menu</span>
+                  <span>Open</span>
+                  <span>Close</span>
+               </span>
+               <span class="burger_box">
+                  <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                     <path class="line line1" d="M 30,65 H 70" />
+                     <path class="line line2"
+                        d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695" />
+                     <path class="line line3"
+                        d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695" />
+                  </svg>
+                  <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                     <path class="line" d="M 34,32 L 66,68" />
+                     <path class="line" d="M 66,32 L 34,68" />
+                  </svg>
+               </span>
+            </button>
+
+            <div class="navbar-collapse" id="navbar_collapse">
+               <ul class="navbar-nav">
+                  <!--class="menu-item-has-children"-->
+                  <li>
+                     <a href="#">Adventure without boundaries</a>
+                     <!-- <ul class="sub-menu">
+                        <li><a href="#">level 1</a></li>
+                        <li><a href="#">level 1</a></li>
+                        <li><a href="#">level 1</a></li>
+                     </ul> -->
+                  </li>
+                  <li>
+                     <a href="#">Discover new worlds</a>
+                  </li>
+                  <li>
+                     <a href="#">Your trusted partners</a>
+                  </li>
+                  <li>
+                     <a href="#">What will you discover?</a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+   </header>
+
+   <main class="pg_content home_pg" data-scroll-container="">
+      <div class="banner">
+         <div class="banne_bg">
+            <img src="images/banner.jpg" alt="">
+         </div>
+         <div class="container">
+            <div class="banner_content" data-parallax>
+               <h1 data-speed="0.35" data-effect="bigcap">Flight Pass<br>
+                  Club</h1>
+               <a href="#" title="Goto next section"></a>
+            </div>
+         </div>
+      </div>
+
+      <div class="after_banner_sec section pb-0" data-parallax>
+         <div class="map_box">
+            <img src="images/map.png" alt="">
+            <span class="flight flight1"><img src="images/flight1.png" alt=""></span>
+            <span class="flight flight2"><img src="images/flight2.png" alt=""></span>
+            <span class="flight flight3"><img src="images/flight3.png" alt=""></span>
+         </div>
+      </div>
+
+      <div class="adventure_sec section pt-0" data-parallax data-index="1">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 lft_adv" data-speed="0.3">
+                  <div class="header">
+                     <label data-effect="label">INCREDIBLE EXPERIENCES</label>
+                     <h2 data-effect="title">Adventure without boundaries</h2>
+                     <div class="sm_para" data-effect="paragraph">
+                        <p>Lorem ipsum dolor sit amet consectetur. Eget orci est dui varius tincidunt quis at. Orci ac
+                           mauris
+                           sagittis ut nisl eu pretium. Integer parturient nulla ullamcorper sed mattis. Tellus tempor
+                           tempor
+                           odio a tellus vulputate cum. Accumsan tortor mauris ligula elementum. Purus pharetra aliquet
+                           eu
+                           eget elementum tincidunt orci.</p>
+                        <p>In ac mauris et dui. Nascetur viverra semper hac amet non nec. Pharetra nibh purus mauris
+                           porttitor
+                           sit viverra pulvinar vitae natoque. Lobortis natoque elit auctor adipiscing non scelerisque.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6 rt_adv">
+                  <figure class="boat_fig" data-speed="0.25">
+                     <img src="images/boat1.png" class="clip" alt="">
+                     <img src="images/boat2.png" alt="">
+                  </figure>
+               </div>
+            </div>
+         </div>
+         <div class="drawline">
+            <svg data-effect="pathdraw" width="1600" height="1089" viewBox="0 0 1600 1089" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M0 1C30 1 168.569 51.9865 172 203C176.226 389 26 535 108 723C141.398 799.571 262.271 892.744 498 821C682 765 800 873 800 1019"
+                  stroke="white" stroke-dasharray="6 6" opacity="0.2" />
+               <path class="draw"
+                  d="M0 1C30 1 168.569 51.9865 172 203C176.226 389 26 535 108 723C141.398 799.571 262.271 892.744 498 821C682 765 800 873 800 1019"
+                  stroke="white" />
+               <path
+                  d="M0 1C30 1 168.569 51.9865 172 203C176.226 389 26 535 108 723C141.398 799.571 262.271 892.744 498 821C682 765 800 873 800 1019"
+                  stroke="#0b081a" stroke-dasharray="6 6" />
+               <g>
+                  <circle cx="112" cy="65" r="34.5" fill="#0A0819" stroke-dasharray="6 6" stroke="#1f1a36" />
+                  <path opacity="0.2"
+                     d="M100.104 66.344C100.104 63.848 100.616 61.888 101.64 60.464C102.68 59.04 104.008 58.328 105.624 58.328C107.24 58.328 108.552 59.04 109.56 60.464C110.584 61.888 111.096 63.848 111.096 66.344C111.096 68.824 110.592 70.76 109.584 72.152C108.576 73.544 107.256 74.24 105.624 74.24C104.008 74.24 102.68 73.544 101.64 72.152C100.616 70.76 100.104 68.824 100.104 66.344ZM101.832 66.32C101.832 68.464 102.192 70.208 102.912 71.552C103.648 72.88 104.552 73.544 105.624 73.544C106.712 73.544 107.608 72.88 108.312 71.552C109.016 70.224 109.368 68.488 109.368 66.344C109.368 64.184 109.016 62.416 108.312 61.04C107.608 59.648 106.712 58.952 105.624 58.952C104.552 58.952 103.648 59.648 102.912 61.04C102.192 62.416 101.832 64.176 101.832 66.32ZM120.163 68.576C120.163 70.816 120.259 72.144 120.451 72.56C120.547 72.768 120.651 72.968 120.763 73.16C120.891 73.336 121.067 73.456 121.291 73.52C121.739 73.648 122.307 73.712 122.995 73.712L123.043 74H115.603L115.651 73.712C116.131 73.712 116.507 73.696 116.779 73.664C117.067 73.632 117.323 73.544 117.547 73.4C117.787 73.256 117.955 73.096 118.051 72.92C118.163 72.728 118.259 72.408 118.339 71.96C118.435 71.32 118.483 70.192 118.483 68.576V62.24C118.483 61.152 118.131 60.608 117.427 60.608C116.915 60.608 116.011 60.896 114.715 61.472L114.523 61.016C117.291 59.768 119.083 58.864 119.899 58.304L120.163 58.424V68.576Z"
+                     fill="#756BD1" />
+               </g>
+               <g class="dot1">
+                  <circle cx="112" cy="65" r="34.5" fill="#0A0819" stroke="white" stroke-dasharray="6 6" />
+                  <path
+                     d="M100.104 66.344C100.104 63.848 100.616 61.888 101.64 60.464C102.68 59.04 104.008 58.328 105.624 58.328C107.24 58.328 108.552 59.04 109.56 60.464C110.584 61.888 111.096 63.848 111.096 66.344C111.096 68.824 110.592 70.76 109.584 72.152C108.576 73.544 107.256 74.24 105.624 74.24C104.008 74.24 102.68 73.544 101.64 72.152C100.616 70.76 100.104 68.824 100.104 66.344ZM101.832 66.32C101.832 68.464 102.192 70.208 102.912 71.552C103.648 72.88 104.552 73.544 105.624 73.544C106.712 73.544 107.608 72.88 108.312 71.552C109.016 70.224 109.368 68.488 109.368 66.344C109.368 64.184 109.016 62.416 108.312 61.04C107.608 59.648 106.712 58.952 105.624 58.952C104.552 58.952 103.648 59.648 102.912 61.04C102.192 62.416 101.832 64.176 101.832 66.32ZM120.163 68.576C120.163 70.816 120.259 72.144 120.451 72.56C120.547 72.768 120.651 72.968 120.763 73.16C120.891 73.336 121.067 73.456 121.291 73.52C121.739 73.648 122.307 73.712 122.995 73.712L123.043 74H115.603L115.651 73.712C116.131 73.712 116.507 73.696 116.779 73.664C117.067 73.632 117.323 73.544 117.547 73.4C117.787 73.256 117.955 73.096 118.051 72.92C118.163 72.728 118.259 72.408 118.339 71.96C118.435 71.32 118.483 70.192 118.483 68.576V62.24C118.483 61.152 118.131 60.608 117.427 60.608C116.915 60.608 116.011 60.896 114.715 61.472L114.523 61.016C117.291 59.768 119.083 58.864 119.899 58.304L120.163 58.424V68.576Z"
+                     fill="#756BD1" />
+               </g>
+               <g>
+                  <circle cx="800" cy="1054" r="34.5" fill="#0A0819" stroke-dasharray="6 6" stroke="#1f1a36" />
+                  <path opacity="0.2"
+                     d="M788.104 1055.34C788.104 1052.85 788.616 1050.89 789.64 1049.46C790.68 1048.04 792.008 1047.33 793.624 1047.33C795.24 1047.33 796.552 1048.04 797.56 1049.46C798.584 1050.89 799.096 1052.85 799.096 1055.34C799.096 1057.82 798.592 1059.76 797.584 1061.15C796.576 1062.54 795.256 1063.24 793.624 1063.24C792.008 1063.24 790.68 1062.54 789.64 1061.15C788.616 1059.76 788.104 1057.82 788.104 1055.34ZM789.832 1055.32C789.832 1057.46 790.192 1059.21 790.912 1060.55C791.648 1061.88 792.552 1062.54 793.624 1062.54C794.712 1062.54 795.608 1061.88 796.312 1060.55C797.016 1059.22 797.368 1057.49 797.368 1055.34C797.368 1053.18 797.016 1051.42 796.312 1050.04C795.608 1048.65 794.712 1047.95 793.624 1047.95C792.552 1047.95 791.648 1048.65 790.912 1050.04C790.192 1051.42 789.832 1053.18 789.832 1055.32ZM811.307 1059.57H811.595V1063H801.971V1062.69C804.259 1060.43 806.075 1058.26 807.419 1056.18C808.763 1054.1 809.435 1052.37 809.435 1050.98C809.435 1050.08 809.203 1049.35 808.739 1048.79C808.275 1048.23 807.611 1047.95 806.747 1047.95C806.203 1047.95 805.731 1048.08 805.331 1048.34C804.931 1048.59 804.635 1048.87 804.443 1049.18C804.251 1049.48 804.035 1049.76 803.795 1050.02C803.571 1050.27 803.339 1050.4 803.099 1050.4C802.859 1050.4 802.659 1050.33 802.499 1050.18C802.355 1050.02 802.283 1049.83 802.283 1049.61C802.283 1049 802.723 1048.47 803.603 1048.02C804.483 1047.56 805.539 1047.33 806.771 1047.33C808.003 1047.33 809.051 1047.62 809.915 1048.22C810.779 1048.81 811.211 1049.76 811.211 1051.07C811.211 1052.58 810.451 1054.28 808.931 1056.18C808.115 1057.19 807.339 1058.1 806.603 1058.9C805.867 1059.68 804.843 1060.73 803.531 1062.04C806.123 1062.04 808.067 1061.87 809.363 1061.54C810.659 1061.2 811.307 1060.54 811.307 1059.57Z"
+                     fill="#756BD1" />
+               </g>
+               <g class="dot2">
+                  <circle cx="800" cy="1054" r="34.5" fill="#0A0819" stroke="white" stroke-dasharray="6 6" />
+                  <path
+                     d="M788.104 1055.34C788.104 1052.85 788.616 1050.89 789.64 1049.46C790.68 1048.04 792.008 1047.33 793.624 1047.33C795.24 1047.33 796.552 1048.04 797.56 1049.46C798.584 1050.89 799.096 1052.85 799.096 1055.34C799.096 1057.82 798.592 1059.76 797.584 1061.15C796.576 1062.54 795.256 1063.24 793.624 1063.24C792.008 1063.24 790.68 1062.54 789.64 1061.15C788.616 1059.76 788.104 1057.82 788.104 1055.34ZM789.832 1055.32C789.832 1057.46 790.192 1059.21 790.912 1060.55C791.648 1061.88 792.552 1062.54 793.624 1062.54C794.712 1062.54 795.608 1061.88 796.312 1060.55C797.016 1059.22 797.368 1057.49 797.368 1055.34C797.368 1053.18 797.016 1051.42 796.312 1050.04C795.608 1048.65 794.712 1047.95 793.624 1047.95C792.552 1047.95 791.648 1048.65 790.912 1050.04C790.192 1051.42 789.832 1053.18 789.832 1055.32ZM811.307 1059.57H811.595V1063H801.971V1062.69C804.259 1060.43 806.075 1058.26 807.419 1056.18C808.763 1054.1 809.435 1052.37 809.435 1050.98C809.435 1050.08 809.203 1049.35 808.739 1048.79C808.275 1048.23 807.611 1047.95 806.747 1047.95C806.203 1047.95 805.731 1048.08 805.331 1048.34C804.931 1048.59 804.635 1048.87 804.443 1049.18C804.251 1049.48 804.035 1049.76 803.795 1050.02C803.571 1050.27 803.339 1050.4 803.099 1050.4C802.859 1050.4 802.659 1050.33 802.499 1050.18C802.355 1050.02 802.283 1049.83 802.283 1049.61C802.283 1049 802.723 1048.47 803.603 1048.02C804.483 1047.56 805.539 1047.33 806.771 1047.33C808.003 1047.33 809.051 1047.62 809.915 1048.22C810.779 1048.81 811.211 1049.76 811.211 1051.07C811.211 1052.58 810.451 1054.28 808.931 1056.18C808.115 1057.19 807.339 1058.1 806.603 1058.9C805.867 1059.68 804.843 1060.73 803.531 1062.04C806.123 1062.04 808.067 1061.87 809.363 1061.54C810.659 1061.2 811.307 1060.54 811.307 1059.57Z"
+                     fill="#756BD1" />
+               </g>
+            </svg>
+         </div>
+      </div>
+
+      <div class="discover_sec section pb-0" data-index="2">
+         <div class="container discover_top">
+            <div class="header center">
+               <label data-effect="label">Discover new worlds</label>
+               <h2 data-effect="title">Discover new worlds</h2>
+               <h3 data-effect="label">Limitless possibilities, spectacular journeys, unimaginable adventures…With
+                  the world at our
+                  fingertips,
+                  why settle for anything less?</h3>
+            </div>
+         </div>
+         <div class="discover_bg">
+            <!-- <img src="images/dsc.jpg" alt=""> -->
+            <video poster="images/dsc.png" muted loop>
+               <source src="#" data-src="images/dsc.mp4" type="video/mp4">
+               <source src="#" data-src="images/dsc.ogg" type="video/ogg">
+               Your browser does not support the video tag.
+            </video>
+         </div>
+         <div class="container discover_content" data-parallax>
+            <div class="row">
+               <div class="col-lg-6">
+                  <figure class="dsc_fig" data-speed="0.5">
+                     <img src="images/dsc2.jpg" alt="">
+                  </figure>
+               </div>
+               <div class="col-lg-6" data-speed="-0.3">
+                  <div class="sm_para" data-effect="paragraph">
+                     <p>Lorem ipsum dolor sit amet consectetur. Eget orci est dui varius tincidunt quis at. Orci ac
+                        mauris
+                        sagittis ut nisl eu pretium. Integer parturient nulla ullamcorper sed mattis. Tellus tempor
+                        tempor
+                        odio a tellus vulputate cum. Accumsan tortor mauris ligula elementum. Purus pharetra aliquet eu
+                        eget elementum tincidunt orci.</p>
+                     <p>In ac mauris et dui. Nascetur viverra semper hac amet non nec. Pharetra nibh purus mauris
+                        porttitor
+                        sit viverra pulvinar vitae natoque. Lobortis natoque elit auctor adipiscing non scelerisque.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="dsc_quote" data-effect="paragraph">
+               <p>Travel changes you. As you move through this<br> life and this world you change things<br> slightly,
+                  you leave
+                  marks behind, however <br>small. And in return, life — and travel — <br>leaves marks on you</p>
+            </div>
+         </div>
+
+         <div class="grid_block" data-parallax="all">
+            <div class="grid_block_content">
+               <div class="float_tree" data-speed="0.3">
+                  <img src="images/coconut.png" alt="">
+               </div>
+               <div class="container">
+                  <div class="grid_img_box" data-speed="-0.35">
+                     <img src="images/grid_group.png" alt="">
+                  </div>
+               </div>
+            </div>
+            <div class="drawline">
+               <svg data-effect="pathdraw" width="1600" height="751" viewBox="0 0 1600 751" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g style="transform:translateX(-12%)">
+                     <path
+                        d="M976.096 0.773438C979.589 34.8605 1011.58 116.776 1111.6 171.739C1236.62 240.443 1275.87 273.369 1273.12 325.402C1270.37 377.434 1230.68 437.813 1150.64 494.383C1070.6 550.954 1035.5 624.66 1055.94 681.129"
+                        stroke="white" stroke-dasharray="6 6" opacity="0.2" />
+                     <path
+                        d="M976.096 0.773438C979.589 34.8605 1011.58 116.776 1111.6 171.739C1236.62 240.443 1275.87 273.369 1273.12 325.402C1270.37 377.434 1230.68 437.813 1150.64 494.383C1070.6 550.954 1035.5 624.66 1055.94 681.129"
+                        stroke="white" class="draw" />
+                     <path
+                        d="M976.096 0.773438C979.589 34.8605 1011.58 116.776 1111.6 171.739C1236.62 240.443 1275.87 273.369 1273.12 325.402C1270.37 377.434 1230.68 437.813 1150.64 494.383C1070.6 550.954 1035.5 624.66 1055.94 681.129"
+                        stroke="#0b081a" stroke-dasharray="6 6" />
+                     <g class="dot1"></g>
+                     <g>
+                        <circle cx="1058" cy="716" r="34.5" fill="#0A0819" stroke="#1f1a36" stroke-dasharray="6 6" />
+                        <path opacity="0.2"
+                           d="M1046.1 717.344C1046.1 714.848 1046.62 712.888 1047.64 711.464C1048.68 710.04 1050.01 709.328 1051.62 709.328C1053.24 709.328 1054.55 710.04 1055.56 711.464C1056.58 712.888 1057.1 714.848 1057.1 717.344C1057.1 719.824 1056.59 721.76 1055.58 723.152C1054.58 724.544 1053.26 725.24 1051.62 725.24C1050.01 725.24 1048.68 724.544 1047.64 723.152C1046.62 721.76 1046.1 719.824 1046.1 717.344ZM1047.83 717.32C1047.83 719.464 1048.19 721.208 1048.91 722.552C1049.65 723.88 1050.55 724.544 1051.62 724.544C1052.71 724.544 1053.61 723.88 1054.31 722.552C1055.02 721.224 1055.37 719.488 1055.37 717.344C1055.37 715.184 1055.02 713.416 1054.31 712.04C1053.61 710.648 1052.71 709.952 1051.62 709.952C1050.55 709.952 1049.65 710.648 1048.91 712.04C1048.19 713.416 1047.83 715.176 1047.83 717.32ZM1069.47 720.464C1069.47 721.84 1068.93 722.984 1067.84 723.896C1066.77 724.792 1065.52 725.24 1064.1 725.24C1062.16 725.24 1060.69 724.616 1059.68 723.368L1060.16 722.912C1060.99 723.872 1062.21 724.352 1063.81 724.352C1064.87 724.352 1065.78 724.032 1066.55 723.392C1067.31 722.752 1067.7 721.888 1067.7 720.8C1067.7 718.272 1065.79 717.008 1061.96 717.008V716.552C1063.21 716.552 1064.36 716.224 1065.42 715.568C1066.49 714.896 1067.03 713.928 1067.03 712.664C1067.03 711.864 1066.82 711.216 1066.4 710.72C1065.99 710.208 1065.38 709.952 1064.58 709.952C1064.08 709.952 1063.64 710.088 1063.26 710.36C1062.87 710.616 1062.59 710.896 1062.39 711.2C1062.2 711.504 1061.98 711.792 1061.72 712.064C1061.48 712.32 1061.23 712.448 1060.98 712.448C1060.72 712.448 1060.51 712.368 1060.35 712.208C1060.19 712.032 1060.11 711.832 1060.11 711.608C1060.11 710.984 1060.55 710.448 1061.41 710C1062.29 709.552 1063.35 709.328 1064.58 709.328C1065.81 709.328 1066.82 709.592 1067.6 710.12C1068.4 710.632 1068.8 711.432 1068.8 712.52C1068.8 713.608 1068.43 714.488 1067.67 715.16C1066.94 715.832 1066.07 716.304 1065.08 716.576V716.672C1066.57 716.752 1067.67 717.168 1068.39 717.92C1069.11 718.656 1069.47 719.504 1069.47 720.464Z"
+                           fill="#756BD1" />
+                     </g>
+                     <g class="dot2">
+                        <circle cx="1058" cy="716" r="34.5" fill="#0A0819" stroke="white" stroke-dasharray="6 6" />
+                        <path
+                           d="M1046.1 717.344C1046.1 714.848 1046.62 712.888 1047.64 711.464C1048.68 710.04 1050.01 709.328 1051.62 709.328C1053.24 709.328 1054.55 710.04 1055.56 711.464C1056.58 712.888 1057.1 714.848 1057.1 717.344C1057.1 719.824 1056.59 721.76 1055.58 723.152C1054.58 724.544 1053.26 725.24 1051.62 725.24C1050.01 725.24 1048.68 724.544 1047.64 723.152C1046.62 721.76 1046.1 719.824 1046.1 717.344ZM1047.83 717.32C1047.83 719.464 1048.19 721.208 1048.91 722.552C1049.65 723.88 1050.55 724.544 1051.62 724.544C1052.71 724.544 1053.61 723.88 1054.31 722.552C1055.02 721.224 1055.37 719.488 1055.37 717.344C1055.37 715.184 1055.02 713.416 1054.31 712.04C1053.61 710.648 1052.71 709.952 1051.62 709.952C1050.55 709.952 1049.65 710.648 1048.91 712.04C1048.19 713.416 1047.83 715.176 1047.83 717.32ZM1069.47 720.464C1069.47 721.84 1068.93 722.984 1067.84 723.896C1066.77 724.792 1065.52 725.24 1064.1 725.24C1062.16 725.24 1060.69 724.616 1059.68 723.368L1060.16 722.912C1060.99 723.872 1062.21 724.352 1063.81 724.352C1064.87 724.352 1065.78 724.032 1066.55 723.392C1067.31 722.752 1067.7 721.888 1067.7 720.8C1067.7 718.272 1065.79 717.008 1061.96 717.008V716.552C1063.21 716.552 1064.36 716.224 1065.42 715.568C1066.49 714.896 1067.03 713.928 1067.03 712.664C1067.03 711.864 1066.82 711.216 1066.4 710.72C1065.99 710.208 1065.38 709.952 1064.58 709.952C1064.08 709.952 1063.64 710.088 1063.26 710.36C1062.87 710.616 1062.59 710.896 1062.39 711.2C1062.2 711.504 1061.98 711.792 1061.72 712.064C1061.48 712.32 1061.23 712.448 1060.98 712.448C1060.72 712.448 1060.51 712.368 1060.35 712.208C1060.19 712.032 1060.11 711.832 1060.11 711.608C1060.11 710.984 1060.55 710.448 1061.41 710C1062.29 709.552 1063.35 709.328 1064.58 709.328C1065.81 709.328 1066.82 709.592 1067.6 710.12C1068.4 710.632 1068.8 711.432 1068.8 712.52C1068.8 713.608 1068.43 714.488 1067.67 715.16C1066.94 715.832 1066.07 716.304 1065.08 716.576V716.672C1066.57 716.752 1067.67 717.168 1068.39 717.92C1069.11 718.656 1069.47 719.504 1069.47 720.464Z"
+                           fill="#756BD1" />
+                     </g>
+                  </g>
+               </svg>
+            </div>
+         </div>
+      </div>
+
+      <div class="trust_sec" data-parallax data-index="3">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6">
+                  <figure class="fx_box" data-speed="0.3">
+                     <img src="images/sec3.jpg" alt="">
+                  </figure>
+               </div>
+               <div class="col-lg-6">
+                  <div class="header">
+                     <label data-effect="label">HOW WE WORK</label>
+                     <h2 data-effect="title">Your <br>trusted partners</h2>
+                     <div class="sm_para" data-effect="paragraph">
+                        <p>Lorem ipsum dolor sit amet consectetur. Eget orci est dui varius tincidunt quis at. Orci ac
+                           mauris sagittis ut nisl eu pretium. Tellus tempor tempor odio a tellus vulputate cum.</p>
+                        <p>In ac mauris et dui. Nascetur viverra semper hac amet non nec. Pharetra nibh purus mauris
+                           porttitor sit viverra pulvinar vitae natoque. Lobortis natoque elit auctor adipiscing non
+                           scelerisque.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="drawline">
+            <svg data-effect="pathdraw" width="1600" height="537" viewBox="0 0 1600 537" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+               <path opacity="0.2"
+                  d="M1175.4 1C1180.12 46.4778 1159.11 154.798 1037.28 224.255C884.996 311.076 801.771 344.741 800 467"
+                  stroke="white" stroke-dasharray="6 6" />
+               <path
+                  d="M1175.4 1C1180.12 46.4778 1159.11 154.798 1037.28 224.255C884.996 311.076 801.771 344.741 800 467"
+                  stroke="white" class="draw" />
+               <path
+                  d="M1175.4 1C1180.12 46.4778 1159.11 154.798 1037.28 224.255C884.996 311.076 801.771 344.741 800 467"
+                  stroke="#0b081a" stroke-dasharray="6 6" />
+               <g class="dot1"></g>
+               <g>
+                  <circle cx="800" cy="502" r="34.5" fill="#0A0819" stroke="#1f1a36" stroke-dasharray="6 6" />
+                  <path opacity="0.2"
+                     d="M788.104 503.344C788.104 500.848 788.616 498.888 789.64 497.464C790.68 496.04 792.008 495.328 793.624 495.328C795.24 495.328 796.552 496.04 797.56 497.464C798.584 498.888 799.096 500.848 799.096 503.344C799.096 505.824 798.592 507.76 797.584 509.152C796.576 510.544 795.256 511.24 793.624 511.24C792.008 511.24 790.68 510.544 789.64 509.152C788.616 507.76 788.104 505.824 788.104 503.344ZM789.832 503.32C789.832 505.464 790.192 507.208 790.912 508.552C791.648 509.88 792.552 510.544 793.624 510.544C794.712 510.544 795.608 509.88 796.312 508.552C797.016 507.224 797.368 505.488 797.368 503.344C797.368 501.184 797.016 499.416 796.312 498.04C795.608 496.648 794.712 495.952 793.624 495.952C792.552 495.952 791.648 496.648 790.912 498.04C790.192 499.416 789.832 501.176 789.832 503.32ZM800.987 507.64V506.896L809.099 495.304L809.795 495.424V506.92H812.771V507.64H809.819C809.867 508.968 810.067 509.816 810.419 510.184C810.771 510.536 811.507 510.712 812.627 510.712L812.675 511H805.235L805.283 510.712C806.403 510.712 807.131 510.536 807.467 510.184C807.819 509.832 808.027 508.984 808.091 507.64H800.987ZM808.115 505.576V498.016L801.875 506.92H808.091C808.107 506.648 808.115 506.2 808.115 505.576Z"
+                     fill="#756BD1" />
+               </g>
+               <g class="dot2">
+                  <circle cx="800" cy="502" r="34.5" fill="#0A0819" stroke="white" stroke-dasharray="6 6" />
+                  <path
+                     d="M788.104 503.344C788.104 500.848 788.616 498.888 789.64 497.464C790.68 496.04 792.008 495.328 793.624 495.328C795.24 495.328 796.552 496.04 797.56 497.464C798.584 498.888 799.096 500.848 799.096 503.344C799.096 505.824 798.592 507.76 797.584 509.152C796.576 510.544 795.256 511.24 793.624 511.24C792.008 511.24 790.68 510.544 789.64 509.152C788.616 507.76 788.104 505.824 788.104 503.344ZM789.832 503.32C789.832 505.464 790.192 507.208 790.912 508.552C791.648 509.88 792.552 510.544 793.624 510.544C794.712 510.544 795.608 509.88 796.312 508.552C797.016 507.224 797.368 505.488 797.368 503.344C797.368 501.184 797.016 499.416 796.312 498.04C795.608 496.648 794.712 495.952 793.624 495.952C792.552 495.952 791.648 496.648 790.912 498.04C790.192 499.416 789.832 501.176 789.832 503.32ZM800.987 507.64V506.896L809.099 495.304L809.795 495.424V506.92H812.771V507.64H809.819C809.867 508.968 810.067 509.816 810.419 510.184C810.771 510.536 811.507 510.712 812.627 510.712L812.675 511H805.235L805.283 510.712C806.403 510.712 807.131 510.536 807.467 510.184C807.819 509.832 808.027 508.984 808.091 507.64H800.987ZM808.115 505.576V498.016L801.875 506.92H808.091C808.107 506.648 808.115 506.2 808.115 505.576Z"
+                     fill="#756BD1" />
+               </g>
+            </svg>
+         </div>
+      </div>
+
+      <div class="page_bottom">
+         <div class="bg_img bg" style="background-image: url('images/footer_bg.png');"></div>
+         <div class="discoverwhat_sec section" data-index="4">
+            <div class="container" data-parallax>
+               <div class="header center" data-speed="0.25">
+                  <label data-effect="label">GET IN TOUCH</label>
+                  <h2 data-effect="title">What will you discover?</h2>
+                  <div class="sm_para" data-effect="paragraph">
+                     <p>Lorem ipsum dolor sit amet consectetur. Eget orci est dui varius tincidunt quis at. Orci ac
+                        mauris
+                        sagittis ut nisl eu pretium. Tellus tempor tempor odio a tellus vulputate cum.</p>
+                     <p>In ac mauris et dui. Nascetur viverra semper hac amet non nec. Pharetra nibh purus mauris
+                        porttitor
+                        sit viverra pulvinar vitae natoque. Lobortis natoque elit auctor adipiscing non scelerisque.
+                     </p>
+                  </div>
+                  <div class="btn_box" data-effect="label">
+                     <a href="#" class="cmn_btn">Get Started</a>
+                  </div>
+               </div>
+               <div class="big_block" data-speed="-1">
+                  <div class="h1" data-effect="title">Flight Pass Club</div>
+               </div>
+            </div>
+         </div>
+
+         <div class="footer">
+            <div class="container">
+               <p>©2023 <a href="#">Flight Pass Club</a>. All rights reserved.</p>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Jquery-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" nomodule=""
+      crossorigin="anonymous"></script>
+   <script
+      src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+      nomodule="" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
+   <script src="js/common.js?v2"></script>
+</body>
+
+</html>

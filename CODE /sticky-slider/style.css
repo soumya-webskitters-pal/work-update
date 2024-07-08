@@ -1,0 +1,40 @@
+/* Most of these styles could be removed but are for the demo to look better */
+
+html,
+body {
+  margin: 0;
+
+}
+
+
+*{
+  box-sizing: content-box;
+}
+
+
+
+
+
+
+
+.box{
+  width: 350px;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.panels{
+  width: 60%;
+  margin-left: auto;
+  overflow: hidden;
+  position: relative;
+}
+.panels-inner{
+  overflow: hidden;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+}

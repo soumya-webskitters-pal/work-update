@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name=”theme-color” content="#17375a">
+  <meta name="author" content="Dan Motzenbecker">
+  <meta name="Description" content="Put your description here.">
+  <!-- icon in the highest resolution we need it for -->
+  <link rel="icon" sizes="192x192" href="icon.png">
+  <link rel="apple-touch-icon" href="ios-icon.png">
+  <meta name="msapplication-square310x310logo" content="icon_largetile.png">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Expertise</title>
+</head>
+
+<body style="height:100vh; overflow: hidden;">
+  <main class="main_wrapper" id="main">
+    <h3 id="test"></h3>
+    <nav class="navigation">
+      <button class="nav_btn" id="nav_btn">
+        <span></span><span></span><span></span>
+      </button>
+      <div id="circle_anim" class="circle_anim"></div>
+      <ul class="sub-menu" id="submenu">
+        <li><a href="#about" title="about">Home</a></li>
+        <li><a href="#skills" title="skills">Expertise</a></li>
+        <li><a href="#jobs" title="jobs">Demo</a></li>
+        <li><a href="#contact" title="contact">Clients story</a></li>
+      </ul>
+    </nav>
+    <!-- <span class="glow"></span> -->
+    <div class="page_title" id="page_title">Expertise</div>
+    <div class="container clearfix" id="outer_box">
+      <noscript>
+        <div class="warning">
+          Your browser has JavaScript disabled. OriDomi needs JavaScript turned on
+          to work. Otherwise, all you&rsquo;ll see here are some flat text and images.
+          Visit <a href="https://www.enable-javascript.com">this site</a> if you need
+          help turning it on.
+        </div>
+      </noscript>
+
+      <div class="tooltip" id="tooltip"></div>
+
+      <div class="container_inner">
+        <canvas id="canvas"></canvas>
+        <div class="cols">
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="col_container">
+              <div class="el_canvas" id="torus"></div>
+              <div class="front">
+                <div class="inner">
+                  <h2>Data Architecture for Performance</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <a id="demo01" href="#animatedModal">view Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="col_container">
+              <div class="el_canvas" id="torus_knot"></div>
+              <div class="front">
+                <div class="inner">
+                  <h2>Data Cleaning, Transformation &amp; Integration</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <a id="demo02" href="#animatedModal2">view Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="col_container">
+              <div class="el_canvas" id="cone"></div>
+              <div class="front">
+                <div class="inner">
+                  <h2>Data Enrichment</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <a id="demo03" href="#animatedModal3">view Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="col_container">
+              <div class="el_canvas" id="sphere"></div>
+              <div class="front">
+                <div class="inner">
+                  <h2>Statistics and Forecasting</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <a id="demo04" href="#animatedModal4">view Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="col_container">
+              <div class="el_canvas" id="dome"></div>
+              <div class="front">
+                <div class="inner">
+                  <h2>Governance &amp; Change Management</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="inner">
+                  <a id="demo05" href="#animatedModal5">view Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--DEMO01-->
+        <div id="animatedModal" class="modal">
+          <div class="close-animatedModal close_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+              <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+              <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" class="progress"
+                stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></path>
+            </svg>
+          </div>
+
+          <div class="modal-content">
+            <div class="anim_box">
+              <h2>Data Architecture for Performance</h2>
+            </div>
+            <div class="anim_box">
+              <p>Waiting looong minutes for a query to run or a report to show is a horrible thing. And a great
+                way
+                to get distracted from the task at hand.<br>If your data architecture isn’ t appropriate or you’
+                re
+                using the wrong toolsfor the job, those minutes pile into hours and days lost at the job.No one
+                likes that.<br>OccamLabs has certified professionals in key BI and Database technologies which
+                will
+                help you set up the best platform to deliver fast analytics to your organization.</p>
+            </div>
+          </div>
+        </div>
+        <!--DEMO02-->
+        <div id="animatedModal2" class="modal">
+          <div class="close-animatedModal2 close_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+              <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+              <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" class="progress"
+                stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></path>
+            </svg>
+          </div>
+
+          <div class="modal-content">
+            <div class="anim_box">
+              <h2>Data Cleaning, Transformation &amp; Integration</h2>
+            </div>
+            <div class="anim_box">
+              <p>Want to make better decisions? <br>It all starts with data quality.<br>But what does data quality
+                mean? We’ll help you figure it out.<br>Starting with your business goals until your data platform
+                is all set to propel you where you wish to be!<br>Outputs: Data-Warehouse, Data Pipeline,
+                Analytical Views &amp; semantic Layers</p>
+            </div>
+          </div>
+        </div>
+
+        <!--DEMO03-->
+        <div id="animatedModal3" class="modal">
+          <div class="close-animatedModal3 close_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+              <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+              <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" class="progress"
+                stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></path>
+            </svg>
+          </div>
+
+          <div class="modal-content">
+            <div class="anim_box">
+              <h2>Data Enrichment</h2>
+            </div>
+            <div class="anim_box">
+              <p>You have finally built that awesome and clean data warehouse and filled it with internal data.
+                You get the pulse of your business daily, maybe even visualize results with your new BI
+                Tool!<br>Life’s good! or it would be... <br>…if your business operated in a
+                vaccum...<br><br>How do your strengths and weaknesses compare to the industry? Are you
+                surfing the key waves in your business? Or watching the tsunami getting closer to your shores?We
+                help you acquire, integrate and visualize external data that brings outward and forward looking
+                capabilities to your business.<br>We will give you the data and the methods to operate and decide
+                as a connected agent in a fast moving networked economy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!--DEMO04-->
+        <div id="animatedModal4" class="modal">
+          <div class="close-animatedModal4 close_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+              <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+              <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" class="progress"
+                stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></path>
+            </svg>
+          </div>
+
+          <div class="modal-content">
+            <div class="anim_box">
+              <h2>Statistics and Forecasting</h2>
+            </div>
+            <div class="anim_box">
+              <p>Stuck in Analysis Paralysis?<br>We’ve seen it before.<br>In this day and age, everyone brings
+                data to the table… Somehow decision making seems more complicated than ever.<br>The reason? Data
+                alone isn’t sufficient. You need decision making and statistical methods to get to the right
+                answer. We help you bridge that gap and use a scientific approach to steering your
+                business.<br>Outputs: Statistical Proofs and Research, Forecasting Models, classification models,
+                Segmentations, Decision Making Model Building</p>
+            </div>
+          </div>
+        </div>
+
+        <!--DEMO05-->
+        <div id="animatedModal5" class="modal">
+          <div class="close-animatedModal5 close_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+              <line x1="15" y1="15" x2="25" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <line x1="25" y1="15" x2="15" y2="25" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"
+                class="cross"></line>
+              <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5"
+                stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+              <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" class="progress"
+                stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></path>
+            </svg>
+          </div>
+
+          <div class="modal-content">
+            <div class="anim_box">
+              <h2>Governance &amp; Change Management</h2>
+            </div>
+            <div class="anim_box">
+              <p>You are getting traction with your teams, analysts are deploying good analytics and business
+                users are getting onboard. How can you help your data culture to grow, while in the meantime
+                making sure data is used correctly and securely?<br>The new exciting data tools of this era can
+                make your business smarter… but require to shift the way your organization thinks of data!<br>We
+                have set up governance standards for deployments of 1000s of users globally. Whether you are
+                hoping for best processes and practices to get started or intending to manage a large audience and
+                content-base, we will be able to help you.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <script src="js/loader.js"></script>
+  <script src="js/TweenMax.min.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- <script src="js/jquery.nicescroll.min.js"></script> -->
+  <script src="js/three.min.js"></script>
+  <script src="js/stats.min.js"></script>
+  <!-- <script src="js/orbitControls.min.js"></script> -->
+  <script src="js/WebGL.min.js"></script>
+  <script src="js/animatedModal.min.js"></script>
+  <script src="js/demo.js"></script>
+</body>
+
+</html>

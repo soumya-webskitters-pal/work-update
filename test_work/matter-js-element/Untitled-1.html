@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        #container {
+            width: 40vw;
+            height: 80vh;
+            margin: 100px auto;
+            background-color: #000;
+        }
+
+        #container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <img src="g1.svg" alt="" class="boxs">
+        <img src="g2.svg" alt="" class="boxs">
+        <img src="g3.svg" alt="" class="boxs">
+        <img src="g4.svg" alt="" class="boxs">
+        <img src="g5.svg" alt="" class="boxs">
+        <img src="g6.svg" alt="" class="boxs">
+        <img src="g7.svg" alt="" class="circles">
+        <img src="g8.svg" alt="" class="circles">
+        <img src="g9.svg" alt="" class="circles">
+        <img src="g10.svg" alt="" class="circles">
+        <img src="g11.svg" alt="" class="circles">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/poly-decomp@0.3.0/build/decomp.min.js"></script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const matterContainer = document.getElementById("container");
+            if (matterContainer != undefined) {
+                // module aliases
+                var Engine = Matter.Engine,
+                    Render = Matter.Render,
+                    Runner = Matter.Runner,
+                    Bodies = Matter.Bodies,
+                    Composite = Matter.Composite,
+                    Body = Matter.Body,
+                    Svg = Matter.Svg,
+                    Vector = Matter.Vector,
+                    Vertices = Matter.Vertices;
+
+                const SVG_BOX_WIDTH = 0.25;
+                const SVG_CIRCLE_WIDTH = 0.15;
+                var size = { w: matterContainer.clientWidth, h: matterContainer.clientHeight, offset: 100 };
+
+                // create an engine
+                var engine = Engine.create();
+
+                // create a renderer
+                var render = Render.create({
+                    element: matterContainer,
+                    engine: engine,
+                    options: {
+                        width: size.w,
+                        height: size.h,
+                        background: "transparent",
+                        wireframes: false,
+                        showAngleIndicator: false,
+                        pixelRatio: window.devicePixelRatio
+                    }
+                });
+
+                createshapes();
+                var ceiling = Bodies.rectangle(size.w / 2, -size.offset / 2, 50000, size.offset, { isStatic: true, label: "wall" }
+                );
+                var ground = Bodies.rectangle(size.w / 2, size.h + size.offset / 2, 50000, size.offset, { isStatic: true, label: "wall" }
+                );
+                let leftWall = Bodies.rectangle(0 - size.offset / 2, size.h / 2, size.offset, size.h * 5, { isStatic: true, label: "wall" }
+                );
+                let rightWall = Bodies.rectangle(size.w + size.offset / 2, size.h / 2, size.offset, size.h * 5, { isStatic: true, label: "wall" }
+                );
+
+                // add all of the bodies to the world
+                Composite.add(engine.world, [ground, leftWall, rightWall, ceiling]);
+
+                //add mouse
+                let mouse = Matter.Mouse.create(render.canvas);
+                let mouseConstraint = Matter.MouseConstraint.create(engine, {
+                    mouse: mouse,
+                    constraint: {
+                        stiffness: 0.2,
+                        render: { visible: false }
+                    }
+                });
+                Composite.add(engine.world, mouseConstraint);
+                mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
+                mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
+
+                //render
+                Render.run(render);
+                var runner = Runner.create();
+                Runner.run(runner, engine);
+
+                //create shape
+                function createshapes() {
+                    const cr_paths = matterContainer.querySelectorAll(".circles");
+                    if (cr_paths.length) {
+                        cr_paths.forEach((e, i) => {
+                            let circleDiameter = size.w * SVG_CIRCLE_WIDTH;
+                            let scaleSize = circleDiameter / e.width;
+                            let scale = Math.min(scaleSize, scaleSize);
+                            let circle = Bodies.circle(
+                                size.w / 2,
+                                0,
+                                circleDiameter / 2,
+                                {
+                                    friction: 0.15,
+                                    frictionAir: 0.00001,
+                                    restitution: 0.4,
+                                    angle: Math.random() * Math.PI,
+                                    label: "circle",
+                                    render: {
+                                        fill: "red",
+                                        sprite: {
+                                            imgSize: e.width,
+                                            texture: e.src,
+                                            xScale: scale,
+                                            yScale: scale,
+                                        }
+                                    }
+                                }
+                            );
+                            Composite.add(engine.world, circle);
+                            // e.remove();
+                        })
+                    }
+
+                    const box_paths = matterContainer.querySelectorAll(".boxs");
+                    if (box_paths.length) {
+                        box_paths.forEach((e, i) => {
+                            let boxDiameter = size.w * SVG_BOX_WIDTH;
+                            let scaleSize = boxDiameter / e.width;
+                            let scale = Math.min(scaleSize, scaleSize);
+                            let box = Bodies.rectangle(i * boxDiameter, 0,
+                                boxDiameter, boxDiameter,
+                                {
+                                    chamfer: {
+                                        radius: [boxDiameter / 10, boxDiameter / 10, boxDiameter / 10, boxDiameter / 10]
+                                    },
+                                    friction: 0.15,
+                                    frictionAir: 0.00001,
+                                    restitution: 0.4,
+                                    angle: Math.random() * Math.PI,
+                                    label: "box",
+                                    render: {
+                                        fill: "red",
+                                        sprite: {
+                                            imgSize: e.width,
+                                            texture: e.src,
+                                            xScale: scale,
+                                            yScale: scale,
+                                        }
+                                    }
+                                }
+                            );
+                            Composite.add(engine.world, box);
+                            // e.remove();
+                        });
+                    }
+                    // console.log(Composite.allBodies(engine.world));
+                }
+
+                //on resize
+                function scaleBodies() {
+                    const allBodies = Composite.allBodies(engine.world);
+                    allBodies.forEach((body) => {
+                        // console.log(body);
+                        if (body.label === "circle" && body.isStatic !== true) {
+                            var { min, max } = body.bounds;
+                            var bodyWidth = max.x - min.x;
+                            let scaleSizeA = bodyWidth / body.render.sprite.imgSize;
+                            let scaleA = Math.min(scaleSizeA, scaleSizeA);
+                            let scaleFactorA =
+                                (size.w * SVG_CIRCLE_WIDTH) /
+                                bodyWidth;
+                            Body.scale(body, scaleFactorA, scaleFactorA);
+                            body.render.sprite.xScale = body.render.sprite.yScale = scaleA;
+                        }
+                        if (body.label === "box" && body.isStatic !== true) {
+                            var { min, max } = body.bounds;
+                            var bodyWidth = max.x - min.x;
+                            let scaleSizeB = bodyWidth / body.render.sprite.imgSize;
+                            let scaleB = Math.min(scaleSizeB, scaleSizeB);
+                            let scaleFactorB =
+                                (size.w * SVG_BOX_WIDTH) /
+                                bodyWidth;
+                            Body.scale(body, scaleFactorB, scaleFactorB);
+                            body.render.sprite.xScale = body.render.sprite.yScale = scaleB;
+                        }
+                        // don't scale walls and ground
+                        // if (body.isStatic === true && body.label == "wall") return;
+                    });
+                }
+                function handleResize(matterContainer) {
+                    size.w = matterContainer.clientWidth;
+                    size.h = matterContainer.clientHeight;
+                    //resize canvas
+                    render.canvas.width = size.w;
+                    render.canvas.height = size.h;
+                    // reposition ground
+                    Body.setPosition(ground, Vector.create(size.w / 2, size.h + size.offset / 2));
+                    // reposition left wall
+                    Body.setPosition(leftWall, Vector.create(0 - size.offset / 2, size.h / 2));
+                    // reposition right wall
+                    Body.setPosition(rightWall, Vector.create(size.w + size.offset / 2, size.h / 2));
+                    //scale elements
+                    scaleBodies();
+                }
+                window.addEventListener("resize", () => handleResize(matterContainer));
+            }
+        });
+    </script>
+</body>
+
+</html>

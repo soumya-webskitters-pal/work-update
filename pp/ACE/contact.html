@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <title>ACE</title>
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!--font file-->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <!--plugins-->
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+  <!--style for page-->
+  <link rel="stylesheet" href="css/common.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+  <!-- Preloader Start -->
+  <div id="main-preloader" class="main-preloader">
+    <div class="main-preloader-inner">
+      <span class="percentage preloader-percentage-text">0%</span>
+      <div class="lodr_anim anim"></div>
+      <div class="lodr_logo">
+        <img src="images/logo2.png" alt="">
+      </div>
+      <div class="preloader-bar-outer">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader end -->
+
+  <nav class="main_nav">
+    <div class="navbar navbar-expand-lg custom_navbar navbar-light" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo1.png" alt="" />
+          <img src="images/logo2.png" alt="" />
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="experience.html">the ace experience</a>
+            </li>
+            <li>
+              <a href="strategies.html">Strategies</a>
+            </li>
+            <li>
+              <!--class for sub nav = "menu-item-has-children"-->
+              <a href="insight.html">insights</a>
+              <!-- <div class="sub-menu">
+                            <ul>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                              <li><a href="#">sub link 1</a></li>
+                            </ul>
+                          </div> -->
+            </li>
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="team.html">Team</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav_btn_sec">
+          <a href="#" class="basic_btn">
+            <svg height="40px" viewBox="0 0 469 469.33333" width="40px" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m233.765625 0c-122.410156 0-222.804687 93.738281-233.597656 213.332031h190.933593v-64c0-8.617187 5.203126-16.402343 13.160157-19.710937 7.980469-3.304688 17.152343-1.472656 23.253906 4.628906l85.332031 85.335938c8.34375 8.339843 8.34375 21.820312 0 30.164062l-85.332031 85.332031c-6.101563 6.101563-15.273437 7.9375-23.253906 4.628907-7.957031-3.304688-13.160157-11.09375-13.160157-19.710938v-64h-190.933593c10.792969 119.59375 111.1875 213.332031 233.597656 213.332031 129.601563 0 234.667969-105.066406 234.667969-234.664062 0-129.601563-105.066406-234.667969-234.667969-234.667969zm0 0" />
+            </svg>
+            <span>Login</span>
+          </a>
+          <a href="#" class="alt_basic_btn">
+            <svg version="1.1" height="40px" width="40px" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999"
+              style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+              <path d="M438.09,273.32h-39.596c4.036,11.05,6.241,22.975,6.241,35.404v149.65c0,5.182-0.902,10.156-2.543,14.782h65.461
+          			c24.453,0,44.346-19.894,44.346-44.346v-81.581C512,306.476,478.844,273.32,438.09,273.32z" />
+
+              <path d="M107.265,308.725c0-12.43,2.205-24.354,6.241-35.404H73.91c-40.754,0-73.91,33.156-73.91,73.91v81.581
+          			c0,24.452,19.893,44.346,44.346,44.346h65.462c-1.641-4.628-2.543-9.601-2.543-14.783V308.725z" />
+
+              <path d="M301.261,234.815h-90.522c-40.754,0-73.91,33.156-73.91,73.91v149.65c0,8.163,6.618,14.782,14.782,14.782h208.778
+          			c8.164,0,14.782-6.618,14.782-14.782v-149.65C375.171,267.971,342.015,234.815,301.261,234.815z" />
+
+              <path d="M256,38.84c-49.012,0-88.886,39.874-88.886,88.887c0,33.245,18.349,62.28,45.447,77.524
+          			c12.853,7.23,27.671,11.362,43.439,11.362c15.768,0,30.586-4.132,43.439-11.362c27.099-15.244,45.447-44.28,45.447-77.524
+          			C344.886,78.715,305.012,38.84,256,38.84z" />
+
+              <path d="M99.918,121.689c-36.655,0-66.475,29.82-66.475,66.475c0,36.655,29.82,66.475,66.475,66.475
+          			c9.298,0,18.152-1.926,26.195-5.388c13.906-5.987,25.372-16.585,32.467-29.86c4.98-9.317,7.813-19.946,7.813-31.227
+          			C166.393,151.51,136.573,121.689,99.918,121.689z" />
+
+              <path d="M412.082,121.689c-36.655,0-66.475,29.82-66.475,66.475c0,11.282,2.833,21.911,7.813,31.227
+          			c7.095,13.276,18.561,23.874,32.467,29.86c8.043,3.462,16.897,5.388,26.195,5.388c36.655,0,66.475-29.82,66.475-66.475
+          			C478.557,151.509,448.737,121.689,412.082,121.689z" />
+            </svg>
+            <span>Join now</span>
+          </a>
+        </div>
+
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="banner inner_page_banner team_banner overflow">
+    <div class="parallax_bg" style="background-image:url(images/contact_banner.png)"></div>
+    <div class="top_bnr_section">
+      <div class="hero_inner">
+        <div class="page_banner_head">
+          <h1><strong>Contact</strong> Us</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="btm_bnr_section SecView">
+      <div class="bnr_btm_svg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 801 136">
+          <path d="M0,77S127,0,409,0,801,77,801,77v59H0Z" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="section service_sec contact_sec SecView overflow">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 offset-lg-2 offset-md-1">
+          <header class="header slideDown text-center">
+            <!-- <h2>We believe you should have access to First Class.</h2> -->
+            <p>Send us a message using this form and we’ll contact you shortly.</p>
+          </header>
+        </div>
+        <div class="col-lg-8 col-md-10 offset-lg-2 offset-md-1">
+          <form class="contact_form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_container">
+                  <label class="input_label">First Name</label>
+                  <div class="input_box">
+                    <input type="text" class="form-control" value="" placeholder="Jhone">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_container">
+                  <label class="input_label">Last Name</label>
+                  <div class="input_box">
+                    <input type="text" class="form-control" value="" placeholder="Doe">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_container">
+                  <label class="input_label">Email</label>
+                  <div class="input_box">
+                    <input type="email" class="form-control" value="" placeholder="jhonedoe@estanders.com">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_container">
+                  <label class="input_label">Telephone</label>
+                  <div class="input_box">
+                    <input type="text" class="form-control" value="" placeholder="12 1254 0213 21">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input_container">
+                  <span>Are you currently enrolled in our course? </span>
+                  <span class="support_forminptradio">
+                    <label>
+                      <input type="radio" name="course1" checked="">
+                      <span class="support_forminptradio_label">Yes</span>
+                    </label>
+                  </span>
+                  <span class="support_forminptradio">
+                    <label>
+                      <input type="radio" name="course1">
+                      <span class="support_forminptradio_label">No</span>
+                    </label>
+                  </span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input_container">
+                  <label class="input_label">Message</label>
+                  <div class="input_box">
+                    <textarea class="form-control" placeholder="Type here..."></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input_container text-right m-0">
+                  <input type="submit" class="basic_btn" value="submit now">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section become_client_sec SecView overflow">
+    <!-- <div class="parallax_bg" style="background-image:url(images/home_banner_bg.png)"></div> -->
+    <div class="container">
+      <div class="hero_content text-center">
+        <div class="hero_content_img">
+          <div class="img_particle particleMove">
+            <img src="images/banner_prt.png" alt="" />
+          </div>
+          <div class="img_particleNet network_anim">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364.25 263.75">
+              <g id="network">
+                <g id="lines">
+                  <line class="net_line" x1="28" y1="142" x2="76.25" y2="60.25" />
+                  <line class="net_line" x1="108.5" y1="109.75" x2="49.62" y2="156.88" />
+                  <line class="net_line" x1="108.5" y1="109.75" x2="76.25" y2="60.25" />
+                  <line class="net_line" x1="129.5" y1="85" x2="108.5" y2="109.75" />
+                  <line class="net_line" x1="176.72" y1="70.5" x2="129.5" y2="85" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="176.72" y2="70.5" />
+                  <line class="net_line" x1="137.25" y1="127.5" x2="113.78" y2="141" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="137.25" y2="127.5" />
+                  <line class="net_line" x1="176.72" y1="70.5" x2="137.25" y2="127.5" />
+                  <line class="net_line" x1="129.5" y1="85" x2="137.25" y2="127.5" />
+                  <line class="net_line" x1="108.5" y1="109.75" x2="137.25" y2="127.5" />
+                  <line class="net_line" x1="113.78" y1="141" x2="108.5" y2="109.75" />
+                  <line class="net_line" x1="82.75" y1="172.25" x2="113.78" y2="141" />
+                  <line class="net_line" x1="110.25" y1="202" x2="82.75" y2="172.25" />
+                  <line class="net_line" x1="44.25" y1="209" x2="82.75" y2="172.25" />
+                  <line class="net_line" x1="110.25" y1="202" x2="113.78" y2="141" />
+                  <line class="net_line" x1="176.72" y1="192.13" x2="113.78" y2="141" />
+                  <line class="net_line" x1="49.62" y1="156.88" x2="113.78" y2="141" />
+                  <line class="net_line" x1="137.25" y1="127.5" x2="176.72" y2="192.13" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="176.72" y2="192.13" />
+                  <line class="net_line" x1="49.62" y1="156.88" x2="82.75" y2="172.25" />
+                  <line class="net_line" x1="44.25" y1="209" x2="49.62" y2="156.88" />
+                  <line class="net_line" x1="28" y1="142" x2="49.62" y2="156.88" />
+                  <line class="net_line" x1="76.25" y1="60.25" x2="49.62" y2="156.88" />
+                  <line class="net_line" x1="28" y1="142" x2="1.62" y2="158.88" />
+                  <line class="net_line" x1="23.75" y1="171.5" x2="1.62" y2="158.88" />
+                  <line class="net_line" x1="49.62" y1="156.88" x2="23.75" y2="171.5" />
+                  <line class="net_line" x1="28" y1="142" x2="23.75" y2="171.5" />
+                  <line class="net_line" x1="27.75" y1="71.5" x2="28" y2="142" />
+                  <line class="net_line" x1="76.25" y1="60.25" x2="27.75" y2="71.5" />
+                  <line class="net_line" x1="23.75" y1="171.5" x2="44.25" y2="209" />
+                  <line class="net_line" x1="110.25" y1="202" x2="17.5" y2="239.25" />
+                  <line class="net_line" x1="44.25" y1="209" x2="17.5" y2="239.25" />
+                  <line class="net_line" x1="44.25" y1="209" x2="66.19" y2="219.7" />
+                  <line class="net_line" x1="82.75" y1="172.25" x2="66.19" y2="219.7" />
+                  <line class="net_line" x1="176.72" y1="192.13" x2="110.25" y2="202" />
+                  <line class="net_line" x1="148.63" y1="246.88" x2="110.25" y2="202" />
+                  <line class="net_line" x1="175.25" y1="220.63" x2="148.63" y2="246.88" />
+                  <line class="net_line" x1="217.12" y1="259.75" x2="175.25" y2="220.63" />
+                  <line class="net_line" x1="175" y1="263.75" x2="175.25" y2="220.63" />
+                  <line class="net_line" x1="217.12" y1="259.75" x2="175" y2="263.75" />
+                  <line class="net_line" x1="218.75" y1="227" x2="217.12" y2="259.75" />
+                  <line class="net_line" x1="175.25" y1="220.63" x2="218.75" y2="227" />
+                  <line class="net_line" x1="176.72" y1="192.13" x2="175.25" y2="220.63" />
+                  <line class="net_line" x1="131.63" y1="227" x2="175.25" y2="220.63" />
+                  <line class="net_line" x1="176.72" y1="192.13" x2="131.63" y2="227" />
+                  <line class="net_line" x1="62.94" y1="255.5" x2="108.63" y2="202.65" />
+                  <line class="net_line" x1="62.94" y1="255.5" x2="148.63" y2="246.88" />
+                  <line class="net_line" x1="117.34" y1="43.53" x2="76.25" y2="60.25" />
+                  <line class="net_line" x1="129.5" y1="85" x2="117.34" y2="43.53" />
+                  <line class="net_line" x1="76.25" y1="60.25" x2="129.5" y2="85" />
+                  <line class="net_line" x1="163" x2="129.5" y2="85" />
+                  <line class="net_line" x1="176.72" y1="70.5" x2="163" />
+                  <line class="net_line" x1="63.19" y1="31.97" x2="117.34" y2="43.53" />
+                  <line class="net_line" x1="76.25" y1="60.25" x2="63.19" y2="31.97" />
+                  <line class="net_line" x1="202.25" y1="8" x2="176.72" y2="70.5" />
+                  <line class="net_line" x1="219" y1="39.25" x2="202.25" y2="8" />
+                  <line class="net_line" x1="176.72" y1="70.5" x2="204.09" y2="62.25" />
+                  <line class="net_line" x1="219" y1="39.25" x2="204.09" y2="62.25" />
+                  <line class="net_line" x1="176.72" y1="70.5" x2="219" y2="39.25" />
+                  <line class="net_line" x1="264.63" y1="88.75" x2="204.09" y2="62.25" />
+                  <line class="net_line" x1="229.75" y1="139.25" x2="264.63" y2="88.75" />
+                  <line class="net_line" x1="203.82" y1="136.75" x2="229.75" y2="139.25" />
+                  <line class="net_line" x1="204.09" y1="62.25" x2="203.82" y2="136.75" />
+                  <line class="net_line" x1="229.75" y1="139.25" x2="204.09" y2="62.25" />
+                  <line class="net_line" x1="260.75" y1="57.25" x2="204.09" y2="62.25" />
+                  <line class="net_line" x1="264.63" y1="88.75" x2="260.75" y2="57.25" />
+                  <line class="net_line" x1="219" y1="39.25" x2="260.75" y2="57.25" />
+                  <line class="net_line" x1="202.25" y1="8" x2="260.75" y2="57.25" />
+                  <line class="net_line" x1="362.75" y1="105.37" x2="311.25" y2="98" />
+                  <line class="net_line" x1="310" y1="32.62" x2="311.25" y2="98" />
+                  <line class="net_line" x1="260.75" y1="57.25" x2="311.25" y2="98" />
+                  <line class="net_line" x1="310" y1="32.62" x2="260.75" y2="57.25" />
+                  <line class="net_line" x1="272" y1="128.25" x2="264.63" y2="87.25" />
+                  <line class="net_line" x1="311.25" y1="98" x2="272" y2="128.25" />
+                  <line class="net_line" x1="264.63" y1="88.75" x2="311.25" y2="98" />
+                  <line class="net_line" x1="364.25" y1="105.37" x2="324.25" y2="117.5" />
+                  <line class="net_line" x1="311.25" y1="98" x2="324.25" y2="117.5" />
+                  <line class="net_line" x1="293.75" y1="159.25" x2="272" y2="128.25" />
+                  <line class="net_line" x1="229.75" y1="139.25" x2="272" y2="128.25" />
+                  <line class="net_line" x1="292.25" y1="159.25" x2="324.25" y2="117.5" />
+                  <line class="net_line" x1="334.87" y1="183.38" x2="321.75" y2="159.25" />
+                  <line class="net_line" x1="324.25" y1="117.5" x2="321.75" y2="159.25" />
+                  <line class="net_line" x1="302.75" y1="181.37" x2="218.75" y2="227" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="259.34" y2="189.5" />
+                  <line class="net_line" x1="292.25" y1="159.25" x2="259.34" y2="189.5" />
+                  <line class="net_line" x1="229.75" y1="139.25" x2="292.25" y2="159.25" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="229.75" y2="139.25" />
+                  <line class="net_line" x1="293.75" y1="159.25" x2="302.75" y2="181.37" />
+                  <line class="net_line" x1="218.75" y1="225.37" x2="259.34" y2="189.5" />
+                  <line class="net_line" x1="266.75" y1="242.19" x2="218.75" y2="225.37" />
+                  <line class="net_line" x1="302.75" y1="181.37" x2="266.75" y2="242.19" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="218.75" y2="227" />
+                  <line class="net_line" x1="302.75" y1="181.37" x2="334.87" y2="183.38" />
+                  <line class="net_line" x1="321.75" y1="159.25" x2="302.75" y2="181.37" />
+                  <line class="net_line" x1="292.25" y1="159.25" x2="216.5" y2="167.75" />
+                  <line class="net_line" x1="259.34" y1="189.5" x2="266.75" y2="242.19" />
+                  <line class="net_line" x1="216.5" y1="167.75" x2="175.25" y2="220.63" />
+                  <line class="net_line" x1="324.25" y1="117.5" x2="272" y2="128.25" />
+                  <line class="net_line" x1="292.25" y1="159.25" x2="321.75" y2="159.25" />
+                </g>
+                <g id="dots">
+                  <circle class="net_dot" cx="108.5" cy="109.75" r="5.28" />
+                  <circle class="net_dot" cx="63.19" cy="31.97" r="1.36" />
+                  <circle class="net_dot" cx="292.25" cy="159.25" r="5.28" />
+                  <circle class="net_dot" cx="49.62" cy="156.88" r="3.73" />
+                  <circle class="net_dot" cx="148.63" cy="246.88" r="3.73" />
+                  <circle class="net_dot" cx="117.34" cy="43.53" r="3.22" />
+                  <circle class="net_dot" cx="1.62" cy="158.88" r="1.62" />
+                  <circle class="net_dot" cx="176.72" cy="192.13" r="5.28" />
+                  <circle class="net_dot" cx="362.75" cy="105.37" r="1.5" />
+                  <circle class="net_dot" cx="311.25" cy="98" r="2.25" />
+                  <circle class="net_dot" cx="202.25" cy="8" r="1.84" />
+                  <circle class="net_dot" cx="264.63" cy="88.75" r="5.28" />
+                  <circle class="net_dot" cx="218.75" cy="227" r="1.63" />
+                  <circle class="net_dot" cx="334.87" cy="183.38" r="2" />
+                  <circle class="net_dot" cx="44.25" cy="209" r="1.88" />
+                  <circle class="net_dot" cx="110.25" cy="202" r="1.75" />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="img_particleNet particleMove">
+            <img src="images/banner_prtnet.png" alt="" />
+          </div>
+
+          <div class="hero_content_txt each_scroll">
+            <h5>Ready to</h5>
+            <h2>become<br>
+              a client?</h2>
+            <div class="">
+              <a href="#" class="basic_btn ">Join the Ace Experience</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer overflow" style="background-image: url(images/footer_bg.jpg);">
+    <canvas id="headerballs"></canvas>
+    <div class="container">
+      <div class="row top_footer align-items-center">
+        <div class="col-sm-6 ft_logo">
+          <a href="index.html">
+            <img src="images/logo2.png" alt="">
+          </a>
+        </div>
+        <div class="col-sm-6 ft_social">
+          <ul class="social_ico d-inline-flex flex-nowrap align-items-center">
+            <li>
+              <a href="#"><img src="images/twitter.svg" alt=""></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/instagram.svg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row footer_content">
+        <div class="col-12 ft_cnt">
+          <h4>Our Disclosure</h4>
+          <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean
+            sollicitudin, lorem quis
+            bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
+            vulputate cursus
+            a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non
+            mauris
+            vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos
+            himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque
+            elit. Sed
+            ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit
+            mauris egestas
+            quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+
+            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean
+            sollicitudin, lorem quis
+            bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
+            vulputate cursus
+            a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non
+            mauris
+            vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos
+            himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque
+            elit. Sed
+            ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit
+            mauris egestas
+            quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+        </div>
+      </div>
+
+      <div class="row btm_footer align-items-center">
+        <div class="col-lg-8 order-lg-2 ft_sitemap">
+          <ul class="sitemap d-inline-flex flex-wrap align-items-center">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="experience.html">The ace experience</a>
+            </li>
+            <li>
+              <a href="strategies.html">Strategies</a>
+            </li>
+            <li>
+              <a href="insight.html">insights</a>
+            </li>
+            <li>
+              <a href="faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="team.html">Team</a>
+            </li>
+            <li>
+              <a href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 order-lg-1 ft_copyright">
+          &copy; Copyright 2020 Ace capital
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--load script - require for all pages-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-1.4.1.min.js"></script>
+
+  <script src="js/gsap.min.js"></script>
+  <script src="js/sPreloader.js"></script>
+
+  <!--load other script as required-->
+  <script src="js/ScrollMagic.min.js"></script>
+  <script src="js/animation.gsap.js"></script>
+  <script src="js/in-view.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/isotope.pkgd.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+
+  <script src="js/custom.js?v=2"></script>
+</body>
+
+</html>

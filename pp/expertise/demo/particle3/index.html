@@ -1,0 +1,1354 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Demo</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="style.css" />
+
+	<!--Custom code for glow effect-->
+	<!-- <script id="vertexShader" type="x-shader/x-vertex">
+		uniform vec3 viewVector;
+		uniform float c;
+		uniform float p;
+		varying float intensity;
+		void main() 
+		{
+			vec3 vNormal = normalize( normalMatrix * normal );
+			vec3 vNormel = normalize( normalMatrix * viewVector );
+			intensity = pow( c - dot(vNormal, vNormel), p );
+			
+			gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+		}
+	</script>
+	<script id="fragmentShader" type="x-shader/x-vertex">
+		uniform vec3 glowColor;
+		varying float intensity;
+		void main() 
+		{
+			vec3 glow = glowColor * intensity;
+			gl_FragColor = vec4( glow, 1.0 );
+		}
+	</script> -->
+	<!--END code for glow effect-->
+	<script src="js/jquery.min.js"></script>
+	<!--particle-->
+	<script src='js/particles.min.js'></script>
+	<script src="js/d3-force.min.js"></script>
+	<script src="js/3d-force-graph.min.js"></script>
+	<script src="js/three.min.js"></script>
+	<script src="js/orbitControls.js"></script>
+	<script src="js/orbitControls-Touch.js"></script>
+	<script src="js/THREEx.WindowResize.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+</head>
+
+<body style="height:100vh">
+	<main class="wrapper" id="main">
+		<div id="graph"></div>
+		<div class="container" id="outer_box">
+			<div class="data_title box">
+				<div id="node_headline"></div>
+				<div id="node_shape"></div>
+			</div>
+			<div class="data_description box">
+				<div id="node_description"></div>
+			</div>
+		</div>
+
+		<div class="paricle_sec_all">
+			<div id="id0-particle" class="paricle_sec active"></div>
+			<div id="id1-particle" class="paricle_sec"></div>
+			<div id="id2-particle" class="paricle_sec"></div>
+			<div id="id3-particle" class="paricle_sec"></div>
+			<div id="id4-particle" class="paricle_sec"></div>
+			<div id="id5-particle" class="paricle_sec"></div>
+		</div>
+	</main>
+
+
+
+	<script>
+		window.addEventListener('load', function () {
+			//console.clear();
+
+			const elem = document.getElementById('graph');
+
+			const page = document.getElementById('main');
+			page.style.opacity = "0";
+
+			let highlightNodes = [];
+			let highlightLink = null;
+
+			var eq_distance = 0.1;
+
+			var set_title = document.querySelector('#node_headline');
+			var node_set = document.querySelector('#node_shape');
+			var set_description = document.querySelector('#node_description');
+
+			let JSONItems = [];
+			var current_node_el = 0;
+
+			var node_flag = false;
+
+			//load json file and create a const.
+			$.getJSON("package3.json", function (data) {
+				//if json file - loading success
+				try {
+					JSONItems = (data);
+
+					const node_count = JSONItems.nodes.length;
+					const link_count = JSONItems.links.length;
+
+					//create const. and add 1st data
+					const initData = {
+						nodes: [JSONItems.nodes[0]],
+						links: [JSONItems.links[0]]
+					}
+
+					//add data from json file --add node
+					for (var i = 1; i < node_count; i++) {
+						initData.nodes.push(JSONItems.nodes[i]);
+					}
+					//add data from json file --add Link
+					for (var i = 1; i < link_count; i++) {
+						initData.links.push(JSONItems.links[i]);
+					}
+					//show actual data
+					console.log(initData);
+
+
+					//get actual working node
+					var temp_node_el_count = 0;
+					for (var i = 0; i <= node_count - 1; i++) {
+						if (initData.nodes[i].id.startsWith('id')) {
+							temp_node_el_count++;
+						}
+					}
+					const node_el_count = temp_node_el_count;
+					//console.log("working node: " + node_el_count);
+					//END - get actual working node
+
+
+					//create ForceGraph
+					const Graph = ForceGraph3D({
+							controlType: 'orbit',
+							rendererConfig: {
+								antialias: true,
+								alpha: true,
+								preserveDrawingBuffer: true
+							}
+						})
+						(elem)
+						.graphData(initData) //add data as const.
+						.forceEngine("d3"); //set phy. engine
+
+					Graph.backgroundColor('rgba(0,0,0,0)') //canvas color
+						.width(window.innerWidth)
+						.height(window.innerHeight);
+
+					Graph.enableNodeDrag(false)
+						.showNavInfo(false)
+						.enableNavigationControls(true); //camera control - rotate with mouse
+
+					Graph.nodeLabel(node => {
+						if ((node.id).startsWith('id')) {
+							window.node = node;
+							console.log("label==vx:" + node.vx + ",vy:" + node.vy + ",vz:" + node.vz +
+								"x:" + node
+								.x + ",y:" + node.y + ",z:" + node.z);
+							return node.name;
+						}
+					});
+
+					Graph.linkVisibility(true)
+						.linkColor("#ffffff")
+						.linkOpacity(0.1)
+						.linkResolution(10)
+						.linkWidth(0)
+						.linkSource('source')
+						.linkTarget('target')
+						.linkDirectionalParticles(60)
+						.linkDirectionalParticleSpeed(link => link === highlightLink ? 0.05 : 0)
+						.linkDirectionalParticleWidth(0.15)
+						.linkDirectionalParticleColor("#ffffff")
+						.linkDirectionalParticleResolution(10);
+
+
+					//wait for other nodes
+					//init particles
+
+					call_particle();
+					setTimeout(function () {
+						node_function();
+					}, 1000);
+
+
+					function node_function() {
+						console.log("all node initiated");
+						page.style.transition = "all .5s ease-in";
+						page.style.opacity = "1";
+						page.classList.add("active");
+						//set custom mesh
+						Graph.nodeThreeObject(
+							node =>
+							new THREE.Mesh(
+								new THREE.SphereGeometry(((node.id).startsWith('id') ? "8" :
+									"4"), 20, 20),
+								new THREE.MeshPhongMaterial({
+									color: (node.id).startsWith('id') ? ("#0d223b") : (
+										"#ffffff"),
+									transparent: true,
+									opacity: (node.id).startsWith('id') ? "1" : "0.2",
+									fog: true,
+									skinning: true,
+									specular: '#356596',
+									shininess: 10,
+									needsUpdate: true,
+									dithering: true,
+									//side: 2
+								})
+							)
+						);
+
+
+						// Spread nodes a little wider
+						Graph.d3Force('charge').strength(-150);
+
+						/*set camera position*/
+						const distance = parseInt(150);
+						var x_pos = y_pos = z_pos = 0;
+
+						//init camera--
+						x_pos = -84.3191085561866 / 0.6;
+						y_pos = 100.49159410760836 / 0.6;
+						z_pos = -75.59255773002633 / 0.6;
+						Graph.cameraPosition({
+								x: x_pos,
+								y: y_pos,
+								z: z_pos
+							}, // new position
+							{
+								x: 2.405884256054159e-8,
+								y: -3.836976441311432e-9,
+								z: 1.0956923740468101e-8
+							}
+						);
+						// end int camera--
+
+						//set click item camera position
+						function cam_pos(nd_pos) {
+							if (nd_pos === null || nd_pos === undefined) {
+								nd_pos = 0;
+							}
+
+							console.log(initData.nodes[nd_pos].x);
+
+							const distRatio = 1 + distance / Math.hypot(initData.nodes[nd_pos].x, initData
+								.nodes[nd_pos]
+								.y, initData.nodes[nd_pos].z);
+							Graph.cameraPosition({
+									x: initData.nodes[nd_pos].x * distRatio,
+									y: initData.nodes[nd_pos].y * distRatio,
+									z: initData.nodes[nd_pos].z * distRatio
+								}, // new position
+								initData[nd_pos], // lookAt ({ x, y, z })
+								3000 // ms transition duration
+							);
+
+						}
+						/*END set camera position*/
+
+
+						Graph.onNodeHover(
+							node => {
+								elem.style.cursor = node ? 'pointer' : null //cursor pointer
+								// no state change
+								if ((!node && !highlightNodes.length) || (highlightNodes.length === 1 &&
+										highlightNodes[0] === node))
+									return;
+								highlightNodes = node ? [node] : [];
+							}
+						);
+
+
+						Graph.onNodeClick(node => {
+							if ((node.name) != null) {
+								if ((node.id).startsWith('id')) {
+									//set blank div
+									set_description.innerHTML = "";
+									set_title.innerHTML = "";
+									node_shape.innerHTML = "";
+									//close modal
+									close_desc();
+									close_model();
+
+									// console.log(highlightNodes[0].__threeObj.material.color);
+									// console.log(highlightNodes[0].id);
+
+									//set new meterial color
+									Graph.nodeThreeObject(
+										node =>
+										new THREE.Mesh(
+											new THREE.SphereGeometry(((node.id).startsWith('id') ?
+													(
+														highlightNodes[0].id == node.id ? "12" :
+														"5") : ("2")),
+												30, 30),
+											new THREE.MeshPhongMaterial({
+												color: (node.id).startsWith(
+														'id') ?
+													(highlightNodes[0].id == node
+														.id ? "#ef3736" :
+														"#0d223b") : (
+														"#ffffff"),
+												transparent: true,
+												opacity: (node.id).startsWith(
+													'id') ? (highlightNodes[0]
+													.id ==
+													node.id ?
+													"0.8" : "0.5") : ("0.2"),
+												shininess: 5,
+												specular: (highlightNodes[0].id ==
+													node.id ? "#ffffff" :
+													"#356596"),
+												fog: true,
+												skinning: true,
+												needsUpdate: true,
+												dithering: true,
+												//side: 2,
+												//wireframe: (node.id).startsWith('id') ? true : false
+											})
+										)
+									);
+
+									//======== get data from specific node =========
+									//Create image
+									if (node.image === undefined) {
+										node_set.parentNode.style.opacity = 0;
+									} else {
+										shape_load(node.image) //call canvas draw function
+									}
+
+									//title
+									if (node.name != undefined) {
+										var h2 = document.createElement("h2");
+										h2.innerHTML = node.name;
+										set_title.appendChild(h2);
+										open_model();
+									}
+
+									//content
+									if (node.description != undefined) {
+										var p = document.createElement("p");
+										p.innerHTML = node.description;
+										set_description.appendChild(p);
+										open_desc();
+									}
+									//======== END get data from specific node =========
+
+									// Aim at node
+									for (var i = 0; i < node_count; i++) {
+										if (highlightNodes[0].id == initData.nodes[i].id) {
+											parseInt(current_node_el = i + 1);
+											//console.log("current_node_el:" + i);
+											//show canvas particle
+											particle_call(current_node_el);
+											break;
+										}
+									}
+									console.log("current_node_el:" + current_node_el);
+									cam_pos(current_node_el - 1);
+								}
+							}
+						});
+
+
+						//resize canvas on window resize
+						window.addEventListener('resize', function () {
+							calc_size();
+							Graph.refresh();
+						});
+
+						//canvas resize function
+						function calc_size() {
+							Graph.width(window.innerWidth);
+							Graph.height(window.innerHeight);
+						}
+
+
+						/*--show canvas particle--*/
+						function particle_call(now_pos) {
+							//console.log("particle:" + now_pos);
+							if (now_pos => 0) {
+								for (var i = 0; i < now_pos; i++) {
+									$("#id" + i + "-particle").addClass("active");
+									var particle_left = node_el_count - now_pos;
+									//console.log('#id' + i + "-particle");
+									console.log("particle_left:" + particle_left);
+								}
+								if (particle_left != 0) {
+									for (var j = node_el_count - particle_left; j <
+										node_el_count; j++) {
+										$("#id" + j + "-particle").removeClass("active");
+									}
+								}
+							}
+						}
+						/*--End show canvas particle--*/
+
+
+						//add particles---
+						galaxy_count = window.outerWidth * 2;
+						galaxy_size = 6 * (Math.floor(Math.random() * 0.9) + 0.3);
+						galaxy_gap = galaxy_count / 2;
+						galaxy_pos = 4.0;
+						for (var i = 0; i <= galaxy_count; i++) {
+							var galaxyGeometry = new THREE.SphereGeometry(galaxy_size, galaxy_size,
+								galaxy_size);
+							var galaxyMaterial = new THREE.MeshBasicMaterial({
+								color: 0xffffff,
+								transparent: true,
+								opacity: 0.5,
+							});
+							var galaxyMesh = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
+							galaxyMesh.position.x = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.position.y = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.position.z = galaxy_gap * (galaxy_pos * Math.random() - (
+								galaxy_pos / 2));
+							galaxyMesh.rotation.x = Math.random() * Math.PI;
+							galaxyMesh.rotation.y = Math.random() * Math.PI;
+							galaxyMesh.rotation.z = Math.random() * Math.PI;
+							galaxyMesh.matrixAutoUpdate = true;
+							galaxyMesh.updateMatrix();
+							Graph.scene().add(galaxyMesh);
+						}
+
+
+						//add Light---
+						var ambientLight = new THREE.AmbientLight(0x404040);
+						Graph.scene().add(ambientLight);
+
+
+						/* -- animate text content -- */
+						close_desc();
+						close_model();
+
+						function close_desc() {
+							TweenMax.to(set_description.parentNode, 0, {
+								opacity: 0,
+								right: "-100%",
+								width: 0,
+								onComplete: function () {
+									set_description.parentNode.classList.remove(
+										"active");
+								}
+							});
+						}
+
+						function open_desc() {
+							TweenMax.to(set_description.parentNode, 1, {
+								width: "35%",
+								right: "0",
+								opacity: 1,
+								onComplete: function () {
+									set_description.parentNode.classList.add(
+										"active");
+								},
+								delay: 1
+							});
+						}
+
+						function close_model() {
+							TweenMax.to(set_title.parentNode, 0, {
+								opacity: 0,
+								left: "-100%",
+								width: 0,
+								onComplete: function () {
+									set_title.parentNode.classList.remove("active");
+								}
+							});
+						}
+
+						function open_model() {
+							TweenMax.to(set_title.parentNode, 1, {
+								height: set_title.parentNode.offsetWidth,
+								left: "0",
+								opacity: 1,
+								width: '40%',
+								onComplete: function () {
+									set_title.parentNode.classList.add("active");
+								},
+								delay: 1
+							});
+						}
+						/* -- END animate text content -- */
+
+					}
+
+
+
+
+					//----- create 3d shapes -------
+					function shape_load(node_new_shape) {
+						// MAIN
+						// standard global variables
+						var shape_container, shape_scene,
+							shape_camera, shape_renderer, shape_controls,
+							shapeHeight, shapeWidth,
+							data_shape, shape;
+
+						// custom global variables
+						shape_container = node_set;
+						shapeHeight = shape_container.clientWidth;
+						shapeWidth = shape_container.clientWidth;
+						// console.log(shapeHeight, shapeWidth);
+
+						if (node_new_shape == "torus") {
+							data_shape = 1;
+						}
+						if (node_new_shape == "torus_knot") {
+							data_shape = 2;
+						}
+						if (node_new_shape == "cone") {
+							data_shape = 3;
+						}
+						if (node_new_shape == "sphere") {
+							data_shape = 4;
+						}
+						if (node_new_shape == "dome") {
+							data_shape = 5;
+						}
+						if (node_new_shape == "brain") {
+							data_shape = 6;
+						}
+
+						shape_init();
+						shape_animate();
+
+						// FUNCTIONS
+						function shape_init() {
+							// SCENE
+							shape_scene = new THREE.Scene();
+
+							// CAMERA
+							var VIEW_ANGLE = 45,
+								ASPECT = shapeWidth / shapeHeight,
+								NEAR = 0.1,
+								FAR = 200000;
+							shape_camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+							// Place the camera
+							shape_scene.add(shape_camera);
+							shape_camera.position.set(0, 150, 400);
+							shape_camera.lookAt(shape_scene.position);
+
+							// RENDERER
+							shape_renderer = new THREE.WebGLRenderer({
+								antialias: true,
+								alpha: true
+							});
+							shape_renderer.setSize(shapeWidth, shapeHeight);
+
+							shape_container.appendChild(shape_renderer.domElement);
+
+							// EVENTS
+							THREEx.WindowResize(shape_renderer, shape_camera);
+
+							// CONTROLS
+							shape_controls = new THREE.OrbitControls(shape_camera, shape_renderer.domElement);
+							shape_controls.userZoom = false; //disable zoom on mouse scroll
+							shape_controls.userZoomSpeed = 0.1;
+							shape_controls.enableDamping = true;
+							shape_controls.dampingFactor = 0.12;
+							shape_controls.autoRotate = true; //enable rotation
+							shape_controls.rotateSpeed = 0.08; //manual rotation speed
+							shape_controls.autoRotateSpeed = 1.5; //default rotation speed
+							shape_controls.maxPolarAngle = Math.PI / 2;
+							shape_controls.enableZoom = false;
+							shape_controls.enableRotate = true;
+							shape_controls.enablePan = false;
+							shape_controls.minDistance = shapeWidth * (Math.PI / 2);
+							shape_controls.maxDistance = shapeWidth * (Math.PI / 2);
+
+							//////////////////
+							// Create Mesh //
+							////////////////
+
+							// Using wireframe materials to illustrate shape details.
+							var darkMaterial = new THREE.MeshBasicMaterial({
+								color: 0x071420,
+								transparent: true,
+								opacity: 0.5,
+								//doubleSided: true
+							});
+							var wireframeMaterial = new THREE.MeshBasicMaterial({
+								color: 0xffffff,
+								wireframe: true
+							});
+							var multiMaterial = [darkMaterial, wireframeMaterial];
+
+							// torus
+							if (data_shape == 1) {
+								shape = THREE.SceneUtils.createMultiMaterialObject(
+									// radius of entire torus, diameter of tube (less than total radius),
+									// sides per cylinder segment, cylinders around torus ("sides")
+									new THREE.TorusGeometry(100, 60, 16, 40),
+									multiMaterial);
+								shape.position.set(0, 0, 0);
+								//console.log(shape);
+								shape_scene.add(shape);
+							}
+							// torus knot
+							if (data_shape == 2) {
+								shape = THREE.SceneUtils.createMultiMaterialObject(
+									// total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
+									// p-loops around torus, q-loops around torus
+									new THREE.TorusKnotGeometry(90, 25, 100, 10, 3, 5),
+									multiMaterial);
+								shape.position.set(0, 0, 0);
+								//console.log(shape);
+								shape_scene.add(shape);
+							}
+							// cone
+							if (data_shape == 3) {
+								shape = THREE.SceneUtils.createMultiMaterialObject(
+									// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+									geometry = new THREE.CylinderGeometry(0, 100, 250, 20, 10),
+									multiMaterial);
+								shape.position.set(0, 0, 0);
+								//console.log(shape);
+								shape_scene.add(shape);
+							}
+							// sphere
+							if (data_shape == 4) {
+								shape = THREE.SceneUtils.createMultiMaterialObject(
+									geometry = new THREE.SphereGeometry(150, 25, 16),
+									multiMaterial);
+								shape.position.set(0, 0, 0);
+								//console.log(shape);
+								shape_scene.add(shape);
+							}
+							// dome
+							if (data_shape == 5) {
+								shape = THREE.SceneUtils.createMultiMaterialObject(
+									new THREE.SphereGeometry(150, 25, 16, 0, 2 * Math.PI, 0, Math.PI / 2),
+									multiMaterial);
+								// should set material to doubleSided = true so that the
+								// interior view does not appear transparent.
+								shape.position.set(0, 0, 0);
+								//console.log(shape);
+								shape_scene.add(shape);
+							}
+						}
+
+						//work on window resize
+						window.addEventListener('resize', onWindowResize);
+
+						function onWindowResize() {
+							// shapeHeight = shape_container.clientWidth;
+							// shapeWidth = shape_container.clientWidth;
+
+							shape_camera.aspect = shapeWidth /
+								shapeHeight; // set the aspect ratio to match the new browser window aspect ratio
+							shape_camera.updateProjectionMatrix(); // update the camera's frustum
+							shape_camera.position.set(0, 150, 400);
+							shape_camera.lookAt(shape_scene.position);
+
+							shape_renderer.setSize(shapeWidth,
+								shapeHeight); // update the size of the renderer AND the canvas
+						}
+
+						function shape_animate() {
+							//render
+							shape_renderer.render(shape_scene, shape_camera);
+							//re-render
+							requestAnimationFrame(function () {
+								shape_animate();
+								shape_controls.update();
+							});
+						}
+					};
+
+				}
+
+				//if json fild load failed 
+				catch (e) {
+					console.log("Json file - error");
+				}
+			});
+
+
+			/* ---- particles.js config ---- */
+			function call_particle() {
+				particlesJS("id5-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ff0000"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": true,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+				particlesJS("id4-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ffffff"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+				particlesJS("id3-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ffffff"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+				particlesJS("id2-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ff0000"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+				particlesJS("id1-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ff0000"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+				particlesJS("id0-particle", {
+					"particles": {
+						"number": {
+							"value": 80,
+							"density": {
+								"enable": true,
+								"value_area": 800
+							}
+						},
+						"color": {
+							"value": "#ffffff"
+						},
+						"shape": {
+							"type": "circle",
+							"stroke": {
+								"width": 0,
+								"color": "#000000"
+							},
+							"polygon": {
+								"nb_sides": 5
+							},
+							"image": {
+								"src": "img/github.svg",
+								"width": 100,
+								"height": 100
+							}
+						},
+						"opacity": {
+							"value": 0.5,
+							"random": false,
+							"anim": {
+								"enable": false,
+								"speed": 1,
+								"opacity_min": 0.1,
+								"sync": false
+							}
+						},
+						"size": {
+							"value": 3,
+							"random": true,
+							"anim": {
+								"enable": false,
+								"speed": 40,
+								"size_min": 0.1,
+								"sync": false
+							}
+						},
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.4,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 6,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+							"attract": {
+								"enable": false,
+								"rotateX": 600,
+								"rotateY": 1200
+							}
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": {
+								"enable": true,
+								"mode": "grab"
+							},
+							"onclick": {
+								"enable": true,
+								"mode": "push"
+							},
+							"resize": true
+						},
+						"modes": {
+							"grab": {
+								"distance": 140,
+								"line_linked": {
+									"opacity": 1
+								}
+							},
+							"bubble": {
+								"distance": 400,
+								"size": 40,
+								"duration": 2,
+								"opacity": 8,
+								"speed": 3
+							},
+							"repulse": {
+								"distance": 200,
+								"duration": 0.4
+							},
+							"push": {
+								"particles_nb": 4
+							},
+							"remove": {
+								"particles_nb": 2
+							}
+						}
+					},
+					"retina_detect": true
+				});
+			}
+			//end particles.js config-----
+		});
+	</script>
+
+</body>
+
+</html>
