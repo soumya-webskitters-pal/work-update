@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Motion Trail Animations</title>
+	<meta name="description" content="Ideas for Motion Trail Animations on Images" />
+	<meta name="keywords" content="motion trail, image animation, gsap, javascript, mouse trail" />
+	<meta name="author" content="Codrops" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+</head>
+
+<body class="demo-4 loading">
+	<main>
+		<div class="content" id="content">
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/41.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/42.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/43.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/44.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/45.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/46.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/47.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/48.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/49.jpg)"></div>
+			</div>
+			<div class="content__img">
+				<div class="content__img-inner" style="background-image:url(img/50.jpg)"></div>
+			</div>
+		</div>
+	</main>
+	<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+	<script>
+		function imageTrailAnimation(container, target) {
+			const body = container;
+			const docEl = document.documentElement;
+
+			const lerp = (a, b, n) => (1 - n) * a + n * b;
+			const distance = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
+			const getPointerPos = ev => {
+				let posx = 0;
+				let posy = 0;
+
+				if (!ev) ev = window.event;
+
+				if (ev.touches) {
+					if (ev.touches.length > 0) {
+						posx = ev.touches[0].pageX;
+						posy = ev.touches[0].pageY;
+					}
+				}
+				else if (ev.pageX || ev.pageY) {
+					posx = ev.pageX;
+					posy = ev.pageY;
+				}
+				else if (ev.clientX || ev.clientY) {
+					posx = ev.clientX + container.scrollLeft + docEl.scrollLeft;
+					posy = ev.clientY + container.scrollTop + docEl.scrollTop;
+				}
+
+				// Return the position.
+				return { x: posx, y: posy };
+			}
+			const getMouseDistance = (mousePos, lastMousePos) => {
+				return distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
+			};
+			const getNewPosition = (position, offset, arr) => {
+				const realOffset = Math.abs(offset) % arr.length;
+
+				if (position - realOffset >= 0) {
+					return position - realOffset;
+				} else {
+					return arr.length - (realOffset - position);
+				}
+			};
+			const setClipPath = (clipInnerElements, numRows, numCols) => {
+				if (clipInnerElements.length !== numRows * numCols) {
+					console.error('Mismatch between provided grid dimensions and number of elements.');
+					return;
+				}
+
+				for (let i = 0; i < numRows; i++) {
+					for (let j = 0; j < numCols; j++) {
+						const idx = i * numCols + j;
+
+						const top = (100 / numRows) * i + '%';
+						const bottom = (100 / numRows) * (i + 1) + '%';
+						const left = (100 / numCols) * j + '%';
+						const right = (100 / numCols) * (j + 1) + '%';
+
+						const clipPathValue = `polygon(${left} ${top}, ${right} ${top}, ${right} ${bottom}, ${left} ${bottom})`;
+
+						clipInnerElements[idx].style.clipPath = clipPathValue;
+					}
+				}
+			}
+
+			let mousePos, lastMousePos, cacheMousePos;
+			mousePos = { x: 0, y: 0 };
+			cacheMousePos = { ...mousePos };
+			lastMousePos = { ...mousePos };
+			const handlePointerMove = (ev) => {
+				if (ev.touches) {
+					mousePos = getPointerPos(ev.touches[0]);
+				} else {
+					mousePos = getPointerPos(ev);
+				}
+			};
+			window.addEventListener('mousemove', handlePointerMove);
+			window.addEventListener('touchmove', handlePointerMove);
+			class Image {
+				DOM = {
+					el: null,
+					inner: null,
+				};
+				defaultStyle = {
+					scale: 1,
+					x: 0,
+					y: 0,
+					opacity: 0
+				};
+				timeline = null;
+				rect = null;
+				constructor(DOM_el) {
+					this.DOM.el = DOM_el;
+					this.DOM.inner = this.DOM.el.querySelector('.content__img-inner');
+					this.getRect();
+					this.initEvents();
+				}
+				initEvents() {
+					this.resize = () => {
+						gsap.set(this.DOM.el, this.defaultStyle);
+						this.getRect();
+					};
+					window.addEventListener('resize', () => this.resize());
+				}
+				getRect() {
+					this.rect = this.DOM.el.getBoundingClientRect();
+				}
+			}
+
+			class ImageTrail {
+				DOM = { el: null };
+				images = [];
+				imagesTotal = 0;
+				imgPosition = 0;
+				zIndexVal = 1;
+				activeImagesCount = 0;
+				isIdle = true;
+				threshold = 80;
+				constructor(DOM_el) {
+					this.DOM.el = DOM_el;
+					this.images = [...this.DOM.el.querySelectorAll('.content__img')].map(img => new Image(img));
+					this.imagesTotal = this.images.length;
+					const onPointerMoveEv = () => {
+						cacheMousePos = { ...mousePos };
+						requestAnimationFrame(() => this.render());
+						window.removeEventListener('mousemove', onPointerMoveEv);
+						window.removeEventListener('touchmove', onPointerMoveEv);
+					};
+					window.addEventListener('mousemove', onPointerMoveEv);
+					window.addEventListener('touchmove', onPointerMoveEv);
+				}
+				render() {
+					let distance = getMouseDistance(mousePos, lastMousePos);
+					if (distance > this.threshold) {
+						this.showNextImage();
+						lastMousePos = mousePos;
+					}
+					cacheMousePos.x = lerp(cacheMousePos.x || mousePos.x, mousePos.x, 0.1);
+					cacheMousePos.y = lerp(cacheMousePos.y || mousePos.y, mousePos.y, 0.1);
+					if (this.isIdle && this.zIndexVal !== 1) {
+						this.zIndexVal = 1;
+					}
+					requestAnimationFrame(() => this.render());
+				}
+				showNextImage() {
+					++this.zIndexVal;
+					this.imgPosition = this.imgPosition < this.imagesTotal - 1 ? this.imgPosition + 1 : 0;
+					const img = this.images[this.imgPosition];
+					gsap.killTweensOf(img.DOM.el);
+					let dx = mousePos.x - cacheMousePos.x;
+					let dy = mousePos.y - cacheMousePos.y;
+					let distance = Math.sqrt(dx * dx + dy * dy);
+					if (distance !== 0) {
+						dx /= distance;
+						dy /= distance;
+					}
+					dx *= distance / 100;
+					dy *= distance / 100;
+
+					img.timeline = gsap.timeline({
+						onStart: () => this.onImageActivated(),
+						onComplete: () => this.onImageDeactivated()
+					})
+						.fromTo(img.DOM.el, {
+							opacity: 1,
+							scale: 0,
+							zIndex: this.zIndexVal,
+							x: cacheMousePos.x - img.rect.width / 2,
+							y: cacheMousePos.y - img.rect.height / 2
+						}, {
+							duration: 0.4,
+							ease: 'power1',
+							scale: 1,
+							x: mousePos.x - img.rect.width / 2,
+							y: mousePos.y - img.rect.height / 2
+						}, 0)
+						.fromTo(img.DOM.inner, {
+							scale: 2,
+							// filter: `brightness(${ Math.max(400*distance/100, 100) }%) contrast(${ Math.max(400*distance/100, 100) }%)`
+						}, {
+							duration: 0.4,
+							ease: 'power1',
+							scale: 1,
+							// filter: 'brightness(100%) contrast(100%)'
+						}, 0)
+						.to(img.DOM.el, {
+							duration: 0.4,
+							ease: 'power3',
+							opacity: 0
+						}, 0.4)
+						.to(img.DOM.el, {
+							duration: 1.5,
+							ease: 'power4',
+							x: "+=" + (dx * 110),
+							y: "+=" + (dy * 110)
+						}, 0.05)
+				}
+				onImageActivated = () => {
+					this.activeImagesCount++;
+					this.isIdle = false;
+				}
+				onImageDeactivated = () => {
+					this.activeImagesCount--;
+					if (this.activeImagesCount === 0) {
+						this.isIdle = true;
+					}
+				}
+			}
+
+			new ImageTrail(document.querySelector(target));
+		}
+		/*//**//*/*//*/**//*/*/
+		let imgAnimContainer = document.querySelector(".content");
+		if (imgAnimContainer != undefined) {
+			imagesLoaded(".content__img-inner", { background: true }, () => {
+				imageTrailAnimation(document.body, '.content');
+			});
+		}
+	</script>
+</body>
+
+</html>
